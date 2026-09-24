@@ -1,0 +1,142 @@
+/* Main edition: the case (story) page template v2, shared by the four case pages (design/STORY_TEMPLATE_v2.md).
+   Builds on components.css (case meta, Before → After, photo window, badges, so-what) and case.css (back link,
+   case head grid, 60-second box). The interaction pieces live in kit.css; per-case pictures in cases/<slug>.css.
+   Template v2 (Chirath, Sep 23): every chapter pairs its text with its OWN picture, so both columns stay full;
+   full-width picture bands sit between chapters. The HTML is always the finished picture. */
+
+.sp{padding-top:clamp(24px,3vw,40px)}
+
+/* ---------- case bar: ← All cases · 01-04 ---------- */
+.cbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px;padding-bottom:clamp(18px,2vw,26px);margin-bottom:clamp(40px,5vw,72px);border-bottom:1px solid var(--rule-2)}
+.cbar .cp-back{margin-bottom:0}
+.cbar__chips{display:flex;gap:8px}
+.cbar__chips a{position:relative;display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 15px;border:1px solid var(--rule);border-radius:999px;font:400 14.5px/1 var(--sans);color:var(--ink-2);text-decoration:none;white-space:nowrap;transition:border-color .2s,color .2s,background .2s}
+.cbar__chips a::after{content:"";position:absolute;inset:-3px 0} /* 46 px hit area */
+.cbar__chips b{font:500 12.5px/1 var(--sans);letter-spacing:.06em;color:var(--cobalt);font-variant-numeric:tabular-nums}
+.cbar__chips a:hover{border-color:var(--cobalt);color:var(--cobalt)}
+.cbar__chips a[aria-current="page"]{background:var(--band);border-color:var(--band);color:#fff}
+.cbar__chips a[aria-current="page"] b{color:var(--on-cobalt-2)}
+
+/* ---------- head: case.css .cp-head grid (title left, photo right) ---------- */
+.sp-title{view-transition-name:case-title;text-wrap:balance}
+.nw{white-space:nowrap}
+
+/* ---------- 60-second version, full width: heading column + rows ---------- */
+.sixty--wide{max-width:none;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:0 clamp(32px,4vw,72px);margin-top:clamp(56px,6vw,88px)}
+.sixty--wide .sixty__h{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:14px;margin:0;padding:0;border:0}
+.sixty--wide .sixty__h h2{font-size:clamp(26px,2.4vw,38px);line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+.sixty--wide .sixty__row{grid-template-columns:150px minmax(0,1fr)}
+.sixty--wide .sixty__row:first-child{padding-top:6px}
+.sixty--wide .sixty__h{grid-column:1;grid-row:1}
+.sixty--wide dl{grid-column:2;grid-row:1/3}
+/* optional: a small picture of the whole case in the 60-second box (left column on desktop, under the rows on phones) */
+.sixty__pic{grid-column:1;grid-row:2;align-self:end;margin:28px 0 0}
+.sixty__pic figcaption{margin-top:12px;font-size:13px;line-height:1.45;color:var(--muted);max-width:32ch}
+
+/* ---------- the story: chapters (text + its own picture) and full-width bands ---------- */
+.st{margin-top:clamp(96px,10vw,160px)}
+.ch{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,5vw,96px);align-items:center;scroll-margin-top:8px} /* + html scroll-padding (header + 16 px): lands at header + 24 px */
+.ch--flip{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.ch--flip .ch__vis{order:-1}
+.ch--even{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ch+.ch,.ch+.bandv,.bandv+.ch,.bandv+.bandv{margin-top:clamp(104px,10vw,168px)}
+.ch__text{min-width:0;padding-left:clamp(22px,2vw,32px);border-left:2px solid var(--cobalt)}
+.ch__body>*+*{margin-top:14px}
+.ch__vis{min-width:0}
+
+.sp-kicker{display:flex;align-items:center;gap:10px;font:500 12.5px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt);margin-bottom:12px}
+.sp-kicker b{font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.sp-kicker--person{color:var(--live-ink)}
+.sp-kicker--person::before{content:"";width:9px;height:9px;background:var(--live);transform:rotate(45deg);border-radius:1.5px}
+.sp-h{font:400 clamp(26px,2.3vw,36px)/1.16 var(--serif);letter-spacing:-.015em;color:var(--ink);max-width:24ch;margin-bottom:18px;text-wrap:balance}
+.ch__body>p{max-width:56ch;color:var(--ink-2)}
+
+/* "What it is built to take off the team's plate": the aim, stated as design */
+.plate{max-width:56ch;margin-top:26px!important;padding:18px 22px 20px;background:var(--card);border:1px dashed var(--t3);border-radius:6px}
+.plate__k{font:500 12.5px/1.35 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--cobalt-deep);margin-bottom:8px}
+.plate p:last-child{font-size:17px;line-height:1.55;color:var(--ink)}
+
+/* numbered steps */
+.sp-steps{counter-reset:s;display:grid;gap:16px;max-width:56ch}
+.sp-steps li{counter-increment:s;position:relative;padding-left:44px;color:var(--ink-2)}
+.sp-steps li::before{content:counter(s);position:absolute;left:0;top:.05em;width:28px;height:28px;border-radius:50%;border:1px solid var(--t2);background:var(--card);display:flex;align-items:center;justify-content:center;font:500 13px/1 var(--sans);color:var(--cobalt);font-variant-numeric:tabular-nums}
+
+/* What a person still decides (green only ever means live or "a person decides") */
+.decides{display:grid;gap:14px;max-width:56ch}
+.decides li{position:relative;padding-left:30px;color:var(--ink-2)}
+.decides li::before{content:"";position:absolute;left:2px;top:.6em;width:10px;height:10px;background:var(--live);transform:rotate(45deg);border-radius:2px}
+.decides b{color:var(--ink);font-weight:500}
+
+.ch .result{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.sp-skills{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:24px!important;font-size:15.5px!important;color:var(--ink-2)}
+
+/* ---------- a picture: frame + caption (every picture has one; schematic ones say "Illustrative") ---------- */
+.vis{margin:0;background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:clamp(18px,2vw,30px);box-shadow:0 30px 60px -44px rgba(15,33,71,.4)}
+.vis--bare{background:none;border:0;padding:0;box-shadow:none}
+.vis__head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 18px;padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--rule-2)}
+.vis__title{display:flex;flex-direction:column;gap:7px}
+.vis__num{font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--cobalt)}
+.vis__name{font:400 clamp(19px,1.5vw,23px)/1.25 var(--serif);letter-spacing:-.005em;color:var(--ink);max-width:34ch}
+.vis__how{display:inline-flex;align-items:center;gap:7px;font:500 12.5px/1.3 var(--sans);color:var(--cobalt-deep)}
+.vis__how svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+html:not(.js) .vis__how{display:none}
+.vis__cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin-top:18px;padding-top:14px;border-top:1px solid var(--rule-2);font-size:13px;line-height:1.45;color:var(--muted)}
+.vis__cap b{font-weight:500;color:var(--ink-2)}
+.ill{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:4px;background:var(--paper-2);border:1px solid var(--rule);font:500 11.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+
+/* ---------- full-width picture band between chapters ---------- */
+.bandv{scroll-margin-top:8px}
+.bandv__head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:14px clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(24px,2.6vw,36px)}
+.bandv__head .sp-h{margin-bottom:0;max-width:26ch}
+.bandv__lede{max-width:60ch;color:var(--ink-2)}
+
+/* ---------- Built with (the only place with tool names) and next links ---------- */
+.built{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:10px clamp(32px,4vw,72px);align-items:baseline;margin-top:clamp(96px,9vw,144px);padding:24px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.built>span:last-child{font-size:17px;line-height:1.55;color:var(--ink-2);max-width:72ch}
+.next{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:28px clamp(32px,4vw,72px);align-items:center;margin-top:clamp(40px,4vw,56px)}
+.next__links{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.next__links a{font:500 15.5px/1 var(--sans);color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:6px}
+.next__links a:hover{color:var(--cobalt);border-color:var(--cobalt)}
+.next__case{display:grid;grid-template-columns:clamp(160px,16vw,240px) minmax(0,1fr) 48px;gap:clamp(20px,2.4vw,36px);align-items:center;padding:16px;background:var(--card);border:1px solid var(--rule-2);border-radius:8px;text-decoration:none;box-shadow:var(--shadow-card);transition:border-color .2s}
+.next__img{display:block;aspect-ratio:16/10;border-radius:5px;overflow:hidden;background:var(--t1)}
+.next__img img{width:100%;height:100%;object-fit:cover}
+.next__k{display:block;margin-bottom:10px;font:500 12.5px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt)}
+.next__t{display:block;max-width:30ch;font:400 clamp(22px,2vw,32px)/1.18 var(--serif);letter-spacing:-.01em;color:var(--ink);transition:color .2s}
+.next__arrow{justify-self:end;margin-right:8px;font-size:26px;color:var(--cobalt);transition:transform .3s var(--ease)}
+.next__case:hover{border-color:var(--cobalt)}
+.next__case:hover .next__t{color:var(--cobalt)}
+.next__case:hover .next__arrow{transform:translateX(6px)}
+
+@media (max-width:960px){
+  .sixty--wide{grid-template-columns:1fr}
+  .sixty--wide .sixty__h{flex-direction:row;flex-wrap:wrap;align-items:baseline;justify-content:space-between;padding-bottom:16px;margin-bottom:8px;border-bottom:1px solid var(--rule-2)}
+  .sixty--wide .sixty__h h2{max-width:none}
+  .sixty--wide .sixty__h,.sixty--wide dl,.sixty__pic{grid-column:1;grid-row:auto}
+  .sixty__pic{margin-top:22px;padding-top:18px;border-top:1px solid var(--rule-2)}
+  /* one column: heading, then the picture, then the words, so no stretch of text runs longer than a screen */
+  .ch,.ch--flip,.ch--even{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .ch__text{display:contents}
+  .ch__head{order:0;padding-left:18px;border-left:2px solid var(--cobalt)}
+  .ch__vis,.ch--flip .ch__vis{order:1;margin-top:26px} /* flip chapters too: heading first, never a picture glued to the next heading */
+  .ch__body{order:2;margin-top:28px}
+  .ch--vis-last .ch__vis{order:3;margin-top:32px} /* the picture after the words (use where a stretch of text would run on) */
+  .ch+.ch,.ch+.bandv,.bandv+.ch,.bandv+.bandv{margin-top:clamp(72px,12vw,104px)}
+  .bandv__head{grid-template-columns:1fr}
+  .built,.next{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .cbar{gap:12px}
+  .sp-head .ba{flex-direction:column;align-items:stretch;gap:6px}
+  .sp-head .ba__p{max-width:none}
+  .sp-head .ba__arr{align-self:flex-start;margin-left:18px;transform:rotate(90deg)} /* stacked: the arrow points down */
+  .cbar__chips{width:calc(100% + var(--gutter));margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .cbar__chips::-webkit-scrollbar{display:none}
+  .cbar__chips a{height:40px;padding:0 13px;font-size:14px}
+  .sixty--wide .sixty__row{grid-template-columns:1fr;padding:14px 0}
+  .sixty__pic{margin-top:16px;padding-top:14px}
+  .sp-h{font-size:clamp(24px,6.6vw,28px)}
+  .vis{padding:16px;border-radius:8px}
+  .vis__head{margin-bottom:16px}
+  .next__case{grid-template-columns:1fr;padding:12px}
+  .next__arrow{display:none}
+}

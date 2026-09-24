@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case 03 · Helping an overseas AI client decide which data it could use · Chirath Soithong</title>
+  <meta name="description" content="Case 03, BuzzeBees: an AI company from South Africa asked which of the company’s data could help train its models. I spoke with the client, worked with the product and data teams, and the client agreed on data for selected products." />
+  <meta property="og:title" content="Case 03 · Helping an overseas AI client decide which data it could use" />
+  <meta property="og:description" content="Case 03, BuzzeBees: an AI company from South Africa asked which of the company’s data could help train its models. I spoke with the client, worked with the product and data teams, and the client agreed on data for selected products." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://chirath-st.github.io/cases/client-data/" />
+  <!--@include:biz-head-->
+  <link rel="stylesheet" href="/src/styles/biz/story-page.css" />
+  <link rel="stylesheet" href="/src/styles/biz/builtwith.css" />
+  <link rel="stylesheet" href="/src/styles/biz/cases/client-data.css" />
+  <script type="module" src="/src/biz/story.js"></script>
+  <script type="module" src="/src/biz/cases/client-data.js"></script>
+</head>
+<body>
+<!--@include:biz-header-sub-->
+
+<!-- Case 03 page, template v2 (design/STORY_TEMPLATE_v2.md). Every chapter pairs its text with its OWN picture.
+     Honesty: facts from the evidence bank, Experience 2 (BuzzeBees, L454-577), and EVIDENCE_ADDENDUM.md ("worked with
+     Omnisient", founded in Cape Town). Only the good, true parts: the client agreed on data for selected products; the
+     ad-return model was handed to a senior colleague as a prototype. No counts, sizes, results or accuracy anywhere;
+     every schematic picture says "Illustrative". The data sort was a team effort ("we"). -->
+<main id="main" class="page sp">
+  <div class="wrap">
+    <nav class="cbar" aria-label="Cases">
+      <a class="cp-back" href="/#cases">← All cases</a>
+      <ol class="cbar__chips">
+        <li><a href="/cases/sales-checks/"><b>01</b>Sales checks</a></li>
+        <li><a href="/cases/questions-desk/"><b>02</b>Questions desk</a></li>
+        <li><a href="/cases/client-data/" aria-current="page"><b>03</b>Client data</a></li>
+        <li><a href="/cases/campus-rides/"><b>04</b>Campus rides</a></li>
+      </ol>
+    </nav>
+
+    <header class="cp-head sp-head">
+      <p class="case__meta"><span>Case 03</span><span>BuzzeBees, Bangkok</span><span>Data Scientist Intern</span><span>Jun–Aug 2025</span></p>
+      <h1 class="case__title sp-title">Helping an overseas AI client decide <span class="tone">which data it could use.</span></h1>
+      <p class="cp-badges"><span class="badge" data-status-manual><!--@fact:status.client.label--></span><a class="read cd-also" href="#prototype">Also at BuzzeBees: an early prototype that predicts ad returns <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v11M3.5 8.5 8 13l4.5-4.5"/></svg></a></p>
+      <p class="ba"><span class="ba__p ba__b"><small>Before</small>An open question: which of the company’s data could help?</span><span class="ba__arr" aria-hidden="true">→</span><span class="ba__p ba__a"><small>After</small>Data sorted into three groups. The client agreed on data for selected products.</span></p>
+      <figure class="ph">
+        <div class="ph__frame"><picture><source media="(max-width: 640px)" srcset="/img/photos/exp-bangkok-river-480.webp 480w, /img/photos/exp-bangkok-river-800.webp 800w" sizes="100vw"><!--@img:exp-bangkok-river sizes="(max-width: 960px) calc(100vw - 40px), 32vw" fetchpriority="high"--></picture></div>
+        <figcaption><!--@caption:exp-bangkok-river--> <span class="cap__credit"><!--@credit:exp-bangkok-river--></span></figcaption>
+      </figure>
+    </header>
+
+    <section class="sixty sixty--wide cd-sixty" aria-labelledby="sixty-t">
+      <div class="sixty__h"><h2 id="sixty-t">The <span class="nw">60-second</span> version</h2><span class="label">Case 03 · BuzzeBees</span></div>
+      <dl class="cd-dl1">
+        <div class="sixty__row"><dt>Situation</dt><dd>Omnisient, an AI and data company from South Africa, asked which of the company’s data could help train its models.</dd></div>
+        <div class="sixty__row"><dt>What I did</dt><dd>Spoke with the client in English, gathered what existed from the product and data teams, and helped sort it into offer now, needs more information or a partner’s OK, and not suitable.</dd></div>
+      </dl>
+      <figure class="sixty__pic cd-mini" data-visual aria-labelledby="mini-t">
+        <p class="cd-mini__q"><span class="cd-mini__qm" aria-hidden="true">?</span>One open question</p>
+        <span class="cd-mini__arr" aria-hidden="true"></span>
+        <ol class="cd-mini__g">
+          <li class="cd-mini__yes"><span class="cd-mini__ic" aria-hidden="true"><i></i><i></i><i></i></span>Offer now</li>
+          <li class="cd-mini__more"><span class="cd-mini__ic" aria-hidden="true"><i></i><i></i><i></i></span>More information or a partner’s OK</li>
+          <li class="cd-mini__no"><span class="cd-mini__ic" aria-hidden="true"><i></i><i></i><i></i></span>Not suitable</li>
+        </ol>
+        <figcaption id="mini-t">One open question, sorted into three groups the client could decide on.</figcaption>
+      </figure>
+      <dl class="cd-dl2">
+        <div class="sixty__row"><dt>Result</dt><dd>The client agreed on data for selected products. I also handed an ad-return prototype to a senior colleague to develop further.</dd></div>
+        <div class="sixty__row sixty__row--so"><dt>So what</dt><dd>The aim: turn an open question into clear choices the client could decide on.</dd></div>
+      </dl>
+    </section>
+
+    <div class="st">
+
+      <!-- 1 · The situation  ↔  Exhibit 1: from Cape Town to Bangkok (a dot globe: scroll turns it and draws the line; drag to turn) -->
+      <section class="ch" id="situation" aria-labelledby="situation-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">The situation</p>
+            <h2 class="sp-h" id="situation-t">An overseas AI client asked which of the company’s data could help train its models.</h2>
+          </div>
+          <div class="ch__body">
+            <p>BuzzeBees is a loyalty-service provider in Bangkok. Omnisient, an AI and data company from South Africa, visited to discuss which of the company’s data could be useful for training AI models.</p>
+            <p>The talks were in English, and I was allowed to speak with the client directly.</p>
+            <aside class="plate" aria-label="The question on the table">
+              <p class="plate__k">The question on the table</p>
+              <p>Which of the company’s data could help train the client’s models?</p>
+            </aside>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis cd-globe" aria-labelledby="ex1-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 1</span><span class="vis__name" id="ex1-t">From Cape Town to Bangkok</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to follow the line<span class="cd-how-fine"> · drag to turn the globe</span></span>
+          </div>
+          <p class="sr">Illustrative picture: a globe with a line from Cape Town, South Africa, where Omnisient was founded, to Bangkok, where BuzzeBees is. The line is labelled: the talks, in English.</p>
+          <div class="cd-globe__stage" data-kit="cd-globe">
+            <img class="cd-globe__poster" src="/img/cases/client-data/globe.svg" width="500" height="420" alt="" loading="lazy" decoding="async" />
+            <span class="cd-city cd-city--cpt" data-city="cpt" style="left:30.39%;top:71.72%" aria-hidden="true"><b>Cape Town</b><small>Omnisient</small></span>
+            <span class="cd-city cd-city--bkk" data-city="bkk" style="left:72.46%;top:37.66%" aria-hidden="true"><b>Bangkok</b><small>BuzzeBees</small></span>
+            <span class="cd-talk" style="left:52.3%;top:57.05%" aria-hidden="true">The talks, in English</span>
+            <span class="cd-ask" aria-hidden="true">Which data could help?</span>
+          </div>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Omnisient was founded in Cape Town. The talks were with BuzzeBees in Bangkok.</span><span>Source: my BuzzeBees internship, Jun–Aug 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      <!-- 2 · Who I worked with  ↔  Exhibit 2: who asked what, in order (a sequence diagram that draws itself with scroll) -->
+      <section class="ch ch--flip" id="who" aria-labelledby="who-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">Who I worked with</p>
+            <h2 class="sp-h" id="who-t">I spoke with the client, and brought in the product and data teams.</h2>
+          </div>
+          <div class="ch__body">
+            <p>I talked through the client’s data needs with them directly. My English and my recent machine-learning work helped me follow the technical side.</p>
+            <p>Inside the company, I took the client’s questions to the product team and to a senior data scientist, and brought the answers back to the talks.</p>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis cd-seqfig" aria-labelledby="ex2-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 2</span><span class="vis__name" id="ex2-t">Who asked what, in order</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to play the exchanges</span>
+          </div>
+          <p class="sr">Illustrative sequence. The client asks me which of the company’s data could help train its models. I ask the product team what data we have, how much, and how it is stored; they answer. I ask a senior data scientist to pull the data that fits the client’s use; the data is pulled for the talks. I bring the client the three groups we sorted, with the data’s rows, columns and rough size.</p>
+          <div class="cd-seq" data-kit="scrub" data-start="top 80%" data-end="bottom 80%" aria-hidden="true">
+            <ol class="cd-seq__lanes">
+              <li class="cd-lane cd-lane--client"><span class="cd-lane__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.6 5.3 3.6 8.5s-1 6.1-3.6 8.5c-2.6-2.4-3.6-5.3-3.6-8.5s1-6.1 3.6-8.5z"/></svg></span><b>The client</b><small>Omnisient</small></li>
+              <li class="cd-lane cd-lane--me"><span class="cd-lane__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span><b>Me</b><small>Data Scientist Intern</small></li>
+              <li class="cd-lane"><span class="cd-lane__ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M9 9.5v10"/></svg></span><b>Product team</b><small>What data exists</small></li>
+              <li class="cd-lane"><span class="cd-lane__ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.8"/><path d="M5 6v12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V6M5 12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/></svg></span><b>Senior data scientist</b><small>Pulls the data</small></li>
+            </ol>
+            <ol class="cd-seq__msgs">
+              <li class="cd-msg cd-msg--from-client" style="--k:2;--c:1/3"><span class="cd-msg__t" data-step="1" data-fx="fade">Which of your data could help train our models?</span><span class="cd-msg__ln"><i data-step="1" data-fx="grow"></i></span></li>
+              <li class="cd-msg" style="--k:2;--c:2/4"><span class="cd-msg__t" data-step="2" data-fx="fade">What data do we have, how much, and how is it stored?</span><span class="cd-msg__ln"><i data-step="2" data-fx="grow"></i></span></li>
+              <li class="cd-msg cd-msg--l cd-msg--back" style="--k:2;--c:2/4"><span class="cd-msg__t" data-step="3" data-fx="fade">What exists, roughly how much, and where it is kept.</span><span class="cd-msg__ln"><i data-step="3" data-fx="grow"></i></span></li>
+              <li class="cd-msg" style="--k:3;--c:2/5"><span class="cd-msg__t" data-step="4" data-fx="fade">Can we pull the data that fits the client’s use?</span><span class="cd-msg__ln"><i data-step="4" data-fx="grow"></i></span></li>
+              <li class="cd-msg cd-msg--l cd-msg--back" style="--k:3;--c:2/5"><span class="cd-msg__t" data-step="5" data-fx="fade">The relevant data, pulled for the talks.</span><span class="cd-msg__ln"><i data-step="5" data-fx="grow"></i></span></li>
+              <li class="cd-msg cd-msg--l cd-msg--to-client" style="--k:2;--c:1/3"><span class="cd-msg__t" data-step="6" data-fx="fade">The three groups we sorted, with the data’s rows, columns and rough size.</span><span class="cd-msg__ln"><i data-step="6" data-fx="grow"></i></span></li>
+            </ol>
+          </div>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> The gist of each exchange, not a transcript.</span><span>Source: my BuzzeBees internship, Jun–Aug 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      <!-- 3 · What I did  ↔  Exhibit 3: what we found out about the data (an isometric data set: point at a number; it stacks with scroll) -->
+      <section class="ch" id="what-i-did" aria-labelledby="did-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">What I did</p>
+            <h2 class="sp-h" id="did-t">I found out what data existed, how much, how it was stored and how it could fit.</h2>
+          </div>
+          <div class="ch__body">
+            <ol class="sp-steps">
+              <li>Asked the product team what data the company had.</li>
+              <li>Found out roughly how much there was and how it was stored.</li>
+              <li>Looked at how it might relate to what the client wanted to use it for.</li>
+              <li>Worked with a senior data scientist to pull the relevant data for the talks.</li>
+            </ol>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis k-hs cd-blockfig" data-kit="hotspots" aria-labelledby="ex3-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 3</span><span class="vis__name" id="ex3-t">What we found out about the data</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Point at a number</span>
+          </div>
+          <div class="k-hs__stage cd-block-wrap">
+          <div class="cd-block" data-kit="cd-stack" data-start="top 82%" data-end="center 48%">
+            <div class="cd-b-layer cd-b-layer--store" data-depth=".15" data-drop="1"><svg viewBox="0 0 500 380" aria-hidden="true" focusable="false"><path class="cd-b-cyl-side" d="M136.1 260.6V296.1A133.4 77.0 0 0 0 403.0 296.1V260.6Z"/><path class="cd-b-cyl-band" d="M136.1 271.6A133.4 77.0 0 0 0 403.0 271.6"/><ellipse class="cd-b-cyl-top" cx="269.5" cy="260.6" rx="133.4" ry="77.0"/><ellipse class="cd-b-cyl-in" cx="269.5" cy="260.6" rx="106.7" ry="61.6"/></svg><span class="cd-pin" data-spot="3" style="left:39.23%;top:90.48%"><span class="k-spot" aria-hidden="true">3</span></span></div>
+            <div class="cd-b-layer" data-depth="0.30" data-drop="2"><svg viewBox="0 0 500 380" aria-hidden="true" focusable="false"><polygon points="90.7,210.5 295.1,328.5 295.1,333.2 90.7,215.2" class="cd-b-edge"/><polygon points="448.4,240.0 295.1,328.5 295.1,333.2 448.4,244.7" class="cd-b-edge cd-b-edge--r"/><polygon points="244.0,122.0 448.4,240.0 295.1,328.5 90.7,210.5" class="cd-b-face"/><polygon points="244.0,122.0 448.4,240.0 423.9,254.2 219.5,136.2" class="cd-b-head"/><line x1="284.9" y1="145.6" x2="131.6" y2="234.1" class="cd-b-grid"/><line x1="325.8" y1="169.2" x2="172.5" y2="257.7" class="cd-b-grid"/><line x1="366.6" y1="192.8" x2="213.3" y2="281.3" class="cd-b-grid"/><line x1="407.5" y1="216.4" x2="254.2" y2="304.9" class="cd-b-grid"/><line x1="219.5" y1="136.2" x2="423.9" y2="254.2" class="cd-b-grid"/><line x1="193.7" y1="151.0" x2="398.1" y2="269.0" class="cd-b-grid"/><line x1="168.0" y1="165.9" x2="372.4" y2="283.9" class="cd-b-grid"/><line x1="142.2" y1="180.8" x2="346.6" y2="298.8" class="cd-b-grid"/><line x1="116.5" y1="195.6" x2="320.8" y2="313.6" class="cd-b-grid"/><polygon points="244.0,122.0 448.4,240.0 295.1,328.5 90.7,210.5" class="cd-b-rim"/></svg></div>
+            <div class="cd-b-layer" data-depth="0.48" data-drop="2"><svg viewBox="0 0 500 380" aria-hidden="true" focusable="false"><polygon points="90.7,182.2 295.1,300.2 295.1,304.9 90.7,186.9" class="cd-b-edge"/><polygon points="448.4,211.7 295.1,300.2 295.1,304.9 448.4,216.4" class="cd-b-edge cd-b-edge--r"/><polygon points="244.0,93.7 448.4,211.7 295.1,300.2 90.7,182.2" class="cd-b-face"/><polygon points="244.0,93.7 448.4,211.7 423.9,225.8 219.5,107.8" class="cd-b-head"/><line x1="284.9" y1="117.3" x2="131.6" y2="205.8" class="cd-b-grid"/><line x1="325.8" y1="140.9" x2="172.5" y2="229.4" class="cd-b-grid"/><line x1="366.6" y1="164.5" x2="213.3" y2="253.0" class="cd-b-grid"/><line x1="407.5" y1="188.1" x2="254.2" y2="276.6" class="cd-b-grid"/><line x1="219.5" y1="107.8" x2="423.9" y2="225.8" class="cd-b-grid"/><line x1="193.7" y1="122.7" x2="398.1" y2="240.7" class="cd-b-grid"/><line x1="168.0" y1="137.6" x2="372.4" y2="255.6" class="cd-b-grid"/><line x1="142.2" y1="152.4" x2="346.6" y2="270.4" class="cd-b-grid"/><line x1="116.5" y1="167.3" x2="320.8" y2="285.3" class="cd-b-grid"/><polygon points="244.0,93.7 448.4,211.7 295.1,300.2 90.7,182.2" class="cd-b-rim"/></svg></div>
+            <div class="cd-b-layer" data-depth="0.66" data-drop="3"><svg viewBox="0 0 500 380" aria-hidden="true" focusable="false"><polygon points="90.7,153.9 295.1,271.9 295.1,276.6 90.7,158.6" class="cd-b-edge"/><polygon points="448.4,183.4 295.1,271.9 295.1,276.6 448.4,188.1" class="cd-b-edge cd-b-edge--r"/><polygon points="244.0,65.4 448.4,183.4 295.1,271.9 90.7,153.9" class="cd-b-face"/><polygon points="244.0,65.4 448.4,183.4 423.9,197.5 219.5,79.5" class="cd-b-head"/><line x1="284.9" y1="89.0" x2="131.6" y2="177.5" class="cd-b-grid"/><line x1="325.8" y1="112.6" x2="172.5" y2="201.1" class="cd-b-grid"/><line x1="366.6" y1="136.2" x2="213.3" y2="224.7" class="cd-b-grid"/><line x1="407.5" y1="159.8" x2="254.2" y2="248.3" class="cd-b-grid"/><line x1="219.5" y1="79.5" x2="423.9" y2="197.5" class="cd-b-grid"/><line x1="193.7" y1="94.4" x2="398.1" y2="212.4" class="cd-b-grid"/><line x1="168.0" y1="109.3" x2="372.4" y2="227.3" class="cd-b-grid"/><line x1="142.2" y1="124.1" x2="346.6" y2="242.1" class="cd-b-grid"/><line x1="116.5" y1="139.0" x2="320.8" y2="257.0" class="cd-b-grid"/><polygon points="244.0,65.4 448.4,183.4 295.1,271.9 90.7,153.9" class="cd-b-rim"/></svg></div>
+            <div class="cd-b-layer cd-b-layer--top" data-depth="0.84" data-drop="3"><svg viewBox="0 0 500 380" aria-hidden="true" focusable="false"><polygon points="90.7,125.5 295.1,243.5 295.1,248.3 90.7,130.3" class="cd-b-edge"/><polygon points="448.4,155.0 295.1,243.5 295.1,248.3 448.4,159.8" class="cd-b-edge cd-b-edge--r"/><polygon points="244.0,37.0 448.4,155.0 295.1,243.5 90.7,125.5" class="cd-b-face"/><polygon points="244.0,37.0 448.4,155.0 423.9,169.2 219.5,51.2" class="cd-b-head cd-b-head--top"/><polygon points="301.2,98.4 342.1,122.0 213.3,196.3 172.5,172.7" class="cd-b-col"/><line x1="214.8" y1="63.4" x2="237.3" y2="76.3" class="cd-b-val"/><line x1="255.6" y1="87.0" x2="272.0" y2="96.4" class="cd-b-val"/><line x1="296.5" y1="110.6" x2="323.1" y2="125.9" class="cd-b-val"/><line x1="337.4" y1="134.2" x2="349.7" y2="141.2" class="cd-b-val"/><line x1="378.3" y1="157.8" x2="398.7" y2="169.6" class="cd-b-val"/><line x1="189.0" y1="78.2" x2="215.6" y2="93.6" class="cd-b-val"/><line x1="229.9" y1="101.8" x2="242.2" y2="108.9" class="cd-b-val"/><line x1="270.8" y1="125.4" x2="291.2" y2="137.2" class="cd-b-val"/><line x1="311.7" y1="149.0" x2="334.1" y2="162.0" class="cd-b-val"/><line x1="352.5" y1="172.6" x2="368.9" y2="182.1" class="cd-b-val"/><line x1="163.3" y1="93.1" x2="183.7" y2="104.9" class="cd-b-val"/><line x1="204.1" y1="116.7" x2="226.6" y2="129.7" class="cd-b-val"/><line x1="245.0" y1="140.3" x2="261.4" y2="149.7" class="cd-b-val"/><line x1="285.9" y1="163.9" x2="312.5" y2="179.2" class="cd-b-val"/><line x1="326.8" y1="187.5" x2="339.0" y2="194.6" class="cd-b-val"/><line x1="137.5" y1="108.0" x2="153.9" y2="117.4" class="cd-b-val"/><line x1="178.4" y1="131.6" x2="205.0" y2="146.9" class="cd-b-val"/><line x1="219.3" y1="155.2" x2="231.5" y2="162.2" class="cd-b-val"/><line x1="260.1" y1="178.8" x2="280.6" y2="190.6" class="cd-b-val"/><line x1="301.0" y1="202.4" x2="323.5" y2="215.3" class="cd-b-val"/><line x1="111.8" y1="122.8" x2="124.0" y2="129.9" class="cd-b-val"/><line x1="152.6" y1="146.4" x2="173.1" y2="158.2" class="cd-b-val"/><line x1="193.5" y1="170.0" x2="216.0" y2="183.0" class="cd-b-val"/><line x1="234.4" y1="193.6" x2="250.7" y2="203.1" class="cd-b-val"/><line x1="275.3" y1="217.2" x2="301.8" y2="232.6" class="cd-b-val"/><line x1="239.9" y1="48.8" x2="258.3" y2="59.5" class="cd-b-hval"/><line x1="280.8" y1="72.4" x2="299.2" y2="83.1" class="cd-b-hval"/><line x1="321.7" y1="96.0" x2="340.1" y2="106.7" class="cd-b-hval"/><line x1="362.5" y1="119.6" x2="380.9" y2="130.3" class="cd-b-hval"/><line x1="403.4" y1="143.2" x2="421.8" y2="153.9" class="cd-b-hval"/><line x1="284.9" y1="60.6" x2="131.6" y2="149.1" class="cd-b-grid"/><line x1="325.8" y1="84.2" x2="172.5" y2="172.7" class="cd-b-grid"/><line x1="366.6" y1="107.8" x2="213.3" y2="196.3" class="cd-b-grid"/><line x1="407.5" y1="131.4" x2="254.2" y2="219.9" class="cd-b-grid"/><line x1="219.5" y1="51.2" x2="423.9" y2="169.2" class="cd-b-grid"/><line x1="193.7" y1="66.1" x2="398.1" y2="184.1" class="cd-b-grid"/><line x1="168.0" y1="80.9" x2="372.4" y2="198.9" class="cd-b-grid"/><line x1="142.2" y1="95.8" x2="346.6" y2="213.8" class="cd-b-grid"/><line x1="116.5" y1="110.7" x2="320.8" y2="228.7" class="cd-b-grid"/><polygon points="244.0,37.0 448.4,155.0 295.1,243.5 90.7,125.5" class="cd-b-rim"/></svg><span class="cd-pin" data-spot="1" style="left:75.78%;top:33.97%"><span class="k-spot" aria-hidden="true">1</span></span><span class="cd-pin" data-spot="4" style="left:47.16%;top:42.04%"><span class="k-spot" aria-hidden="true">4</span></span></div>
+            <div class="cd-b-layer cd-b-layer--notes" data-depth="1" data-drop="4"><svg viewBox="0 0 500 380" aria-hidden="true" focusable="false"><line x1="474.4" y1="244.7" x2="474.4" y2="155.0" class="cd-b-dim" data-fx="draw" pathLength="1"/><line x1="469.4" y1="244.7" x2="479.4" y2="244.7" class="cd-b-dim"/><line x1="469.4" y1="155.0" x2="479.4" y2="155.0" class="cd-b-dim"/><path class="cd-b-arr" d="M229.0,28.0L75.7,116.5M79.6,110.8L75.7,116.5L82.7,116.0"/><path class="cd-b-arr" d="M259.0,28.0L463.4,146.0M456.4,145.5L463.4,146.0L459.4,140.3"/></svg><span class="cd-b-lbl cd-b-lbl--rows" style="left:25.67%;top:15.87%">Rows</span><span class="cd-b-lbl cd-b-lbl--cols cd-pin-lbl" data-spot="5" style="left:77.44%;top:19.22%">Columns<span class="k-spot" aria-hidden="true">5</span></span><span class="cd-pin" data-spot="2" style="left:94.88%;top:52.60%"><span class="k-spot" aria-hidden="true">2</span></span></div>
+          </div>
+          </div>
+          <ol class="k-hs__list">
+            <li data-spot="1"><b>What it is.</b> What data the company had, from the product team.</li>
+            <li data-spot="2"><b>How much.</b> Roughly how much of it there was.</li>
+            <li data-spot="3"><b>Where it is kept.</b> How the data was stored.</li>
+            <li data-spot="4"><b>How it fits.</b> How it might relate to the client’s use.</li>
+            <li data-spot="5"><b>Its shape.</b> The team showed the client the expected size and structure: rows and columns.</li>
+          </ol>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> The stack stands for a data set.</span><span>Source: my BuzzeBees internship, Jun–Aug 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      <!-- band · Exhibit 4: three groups (the cards sort themselves with scroll, or you sort them) -->
+      <section class="bandv cd-groups" id="groups" aria-labelledby="groups-t">
+        <div class="bandv__head">
+          <div>
+            <p class="sp-kicker">Three groups</p>
+            <h2 class="sp-h" id="groups-t">We sorted the data into three groups the client could decide on.</h2>
+          </div>
+          <p class="bandv__lede">Some data could be offered right away. Some needed more information or a partner’s OK first. Some was not suitable, or unlikely to be approved.</p>
+        </div>
+        <figure data-visual class="vis k-sort cd-sort" data-kit="sort" data-done="All sorted into the three groups." aria-labelledby="ex4-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 4</span><span class="vis__name" id="ex4-t">Which data could the client use?</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-4.6-2.2L4.3 15a1.6 1.6 0 0 1 2.4-2.1L9 15"/></svg>Scroll, or drag the cards yourself</span>
+          </div>
+          <div class="k-sort__tray" data-label="The company’s data" aria-hidden="true"><span class="k-sort__slot"></span><span class="k-sort__slot"></span><span class="k-sort__slot"></span><span class="k-sort__slot"></span><span class="k-sort__slot"></span><span class="k-sort__slot"></span></div>
+          <div class="k-sort__arrow" aria-hidden="true"><svg viewBox="0 0 22 28"><path d="M11 2v22M4 17l7 7 7-7"/></svg></div>
+          <div class="k-sort__buckets">
+            <div class="k-sort__bucket cd-bk-yes" data-bucket="offer">
+              <p class="k-sort__bh"><span class="cd-bk__ic" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3.5 8.4 3 3 6-6.6"/></svg></span>Offer now</p>
+              <ul class="k-sort__cards">
+                <li class="k-card" data-to="offer" data-slot="0"><span class="cd-card__t"><i class="cd-tbl" aria-hidden="true"></i>Data set</span><small>Ready to offer</small></li>
+                <li class="k-card" data-to="offer" data-slot="4"><span class="cd-card__t"><i class="cd-tbl" aria-hidden="true"></i>Data set</span><small>Ready to offer</small></li>
+              </ul>
+            </div>
+            <div class="k-sort__bucket cd-bk-more" data-bucket="more">
+              <p class="k-sort__bh"><span class="cd-bk__ic" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 5.2v3.2l2 1.4"/></svg></span>Needs more information or a partner’s OK</p>
+              <ul class="k-sort__cards">
+                <li class="k-card" data-to="more" data-slot="2"><span class="cd-card__t"><i class="cd-tbl" aria-hidden="true"></i>Data set</span><small>Needs more information</small></li>
+                <li class="k-card" data-to="more" data-slot="5"><span class="cd-card__t"><i class="cd-tbl" aria-hidden="true"></i>Data set</span><small>Needs a partner’s OK</small></li>
+              </ul>
+            </div>
+            <div class="k-sort__bucket cd-bk-no" data-bucket="no">
+              <p class="k-sort__bh"><span class="cd-bk__ic" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></span>Not suitable</p>
+              <ul class="k-sort__cards">
+                <li class="k-card" data-to="no" data-slot="1"><span class="cd-card__t"><i class="cd-tbl" aria-hidden="true"></i>Data set</span><small>Not suitable for the use</small></li>
+                <li class="k-card" data-to="no" data-slot="3"><span class="cd-card__t"><i class="cd-tbl" aria-hidden="true"></i>Data set</span><small>Unlikely to be approved</small></li>
+              </ul>
+            </div>
+          </div>
+          <div class="k-sort__bar"><button type="button" class="k-sort__try">Sort them yourself</button><p class="k-sort__note" aria-live="polite"></p></div>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Each card stands for a data set. We sorted them as a team.</span><span>Source: my BuzzeBees internship, Jun–Aug 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      <!-- 4 · What the client decided  ↔  Exhibit 5: the talks, in short (a demo conversation that plays itself) -->
+      <section class="ch ch--flip" id="decided" aria-labelledby="decided-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker sp-kicker--person">What the client decided</p>
+            <h2 class="sp-h" id="decided-t">The client agreed on data for selected products.</h2>
+          </div>
+          <div class="ch__body">
+            <ul class="decides">
+              <li><b>Which data to use.</b> The client chose from three clear groups and agreed on data for selected products.</li>
+            </ul>
+            <p>The team also showed the client the expected size and structure of the data, as rows and columns.</p>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis cd-talks" aria-labelledby="ex5-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 5</span><span class="vis__name" id="ex5-t">The talks, in short</span></p>
+          </div>
+          <div class="k-chat cd-chat" data-kit="chat" role="group" aria-label="Demo: the talks, in short">
+            <button class="k-chat__replay" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg>Replay</button>
+            <ol class="k-chat__log">
+              <li class="k-msg k-msg--in"><span class="k-msg__who"><i class="cd-av cd-av--client" aria-hidden="true"></i>The client · Omnisient</span><div class="k-msg__bubble">Which of your data could help train our models?</div></li>
+              <li class="k-msg k-msg--out" data-wait="700"><span class="k-msg__who">Me, for the team</span><div class="k-msg__bubble">We sorted it into three groups: what we can offer now, what needs more information or a partner’s OK, and what is not suitable.</div></li>
+              <li class="k-msg k-msg--out cd-shape" data-type data-wait="500"><span class="k-msg__who">Me, for the team</span><div class="k-msg__bubble"><span class="cd-shape__grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Here is the shape of the data: rows, columns and roughly how big.</div></li>
+              <li class="k-msg k-msg--in" data-wait="600"><span class="k-msg__who"><i class="cd-av cd-av--client" aria-hidden="true"></i>The client<i class="k-dia" aria-hidden="true"></i></span><div class="k-msg__bubble">We agree on the data for these selected products.</div></li>
+              <li class="k-msg cd-agreed" data-wait="500"><span class="k-msg__who">Outcome</span><div class="k-msg__bubble"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5"/><path d="m6 10.2 2.6 2.6L14 7.4"/></svg>Client agreed on data for selected products</div></li>
+            </ol>
+          </div>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative demo</span> The gist of the talks, not a transcript. <span class="k-dia" aria-hidden="true"></span> marks the decision.</span><span>Source: my BuzzeBees internship, Jun–Aug 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      <!-- band · Exhibit 6: how a boosted post earns a commission (one post travels through five steps with scroll) -->
+      <section class="bandv cd-earn" id="prototype" aria-labelledby="proto-t">
+        <div class="bandv__head">
+          <div>
+            <p class="sp-kicker">Also at BuzzeBees</p>
+            <h2 class="sp-h" id="proto-t">I built an early prototype to predict whether boosting a post pays back.</h2>
+          </div>
+          <p class="bandv__lede">Partner Facebook pages post products with an affiliate link. The company pays to boost a post and earns a commission when people buy. The question: how much to spend on a boost for the best return? I handed the prototype to a senior colleague to develop further.</p>
+        </div>
+        <figure data-visual class="vis cd-earnfig" aria-labelledby="ex6-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 6</span><span class="vis__name" id="ex6-t">How a boosted post earns a commission</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to follow one post</span>
+          </div>
+          <div class="cd-earn__map" data-kit="flow" data-start=".8" data-end=".42">
+            <ol class="cd-earn__steps">
+              <li class="cd-es">
+                <span class="cd-es__stop" data-flow-node="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="M4 8.5 12 13l8-4.5M12 13v7"/></svg></span>
+                <p class="cd-es__t">Pick a product</p><p class="cd-es__d">that suits a page’s audience</p>
+              </li>
+              <li class="cd-es">
+                <span class="cd-es__stop" data-flow-node="2"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><rect x="8.5" y="6" width="7" height="6" rx="1"/><path d="M8.5 15h7M8.5 17.5h4.5"/></svg></span>
+                <p class="cd-es__t">The page posts it</p><p class="cd-es__d">with an affiliate link</p>
+              </li>
+              <li class="cd-es cd-es--out">
+                <span class="cd-es__stop" data-flow-node="3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14.5v-5l11-4.5v14L4 14.5z"/><path d="M15 9.5a3 3 0 0 1 0 5M6.5 15l1.3 4.5h2.7l-1-3.8"/></svg></span>
+                <p class="cd-es__t">Pay to boost the post</p><p class="cd-es__d">the boost spend</p>
+                <span class="cd-money cd-money--out"><b>−</b>Money out</span>
+              </li>
+              <li class="cd-es">
+                <span class="cd-es__stop" data-flow-node="4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg></span>
+                <p class="cd-es__t">People buy</p><p class="cd-es__d">on Shopee or Lazada</p>
+              </li>
+              <li class="cd-es cd-es--in">
+                <span class="cd-es__stop" data-flow-node="5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M14.6 9.2c-.5-.9-1.5-1.4-2.6-1.4-1.5 0-2.6.8-2.6 2 0 2.8 5.4 1.5 5.4 4.3 0 1.2-1.2 2.1-2.8 2.1-1.2 0-2.2-.5-2.7-1.5M12 6.3v1.5M12 16.2v1.5"/></svg></span>
+                <p class="cd-es__t">A commission comes back</p><p class="cd-es__d">the company’s revenue</p>
+                <span class="cd-money cd-money--in"><b>+</b>Money in</span>
+              </li>
+            </ol>
+            <div class="cd-post" data-flow-traveller aria-hidden="true">
+              <span class="cd-post__card"><i class="cd-post__img"></i><i class="cd-post__l"></i><i class="cd-post__link"></i><b class="cd-post__boost">Boosted</b></span>
+              <span class="cd-post__coin">Commission</span>
+            </div>
+          </div>
+          <p class="cd-earn__q"><span class="cd-earn__qk">The prototype’s question</span>How much to spend on a boost for the best return?</p>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> The card stands for one partner’s post, from product to commission.</span><span>Source: my BuzzeBees internship, Jun–Aug 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      <!-- 5 · What I built  ↔  Exhibit 7: two sides of a boosted post, joined (builds with scroll) -->
+      <section class="ch" id="built" aria-labelledby="built-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">What I built</p>
+            <h2 class="sp-h" id="built-t">I linked the money spent on boosting posts to the commissions they earned.</h2>
+          </div>
+          <div class="ch__body">
+            <ol class="sp-steps">
+              <li>Wrote SQL queries that link Facebook ad spend, impressions and clicks with commissions and orders from Shopee and Lazada.</li>
+              <li>Matched the two sides through shared tracking IDs, so spend and commission sit side by side.</li>
+              <li>Worked out the return measures: click-through rate, cost per click, return on ad spend and return on investment.</li>
+              <li>Built an early model to predict the return, and handed it to a senior colleague as a prototype to develop further.</li>
+            </ol>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis cd-join" aria-labelledby="ex7-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 7</span><span class="vis__name" id="ex7-t">Two sides of a boosted post, side by side</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to join them</span>
+          </div>
+          <p class="sr">Illustrative picture. From Facebook ads: tracking ID, boost spend, impressions and clicks. From Shopee and Lazada: tracking ID, commission and orders. The two are matched on the tracking ID and sit side by side, with four measures worked out: click-through rate, cost per click, return on ad spend, and return on investment. Return on ad spend is commission divided by boost spend; return on investment is commission minus boost spend, divided by boost spend. Then an early model predicts the return; it was handed to a senior colleague.</p>
+          <div class="cd-join__map" data-kit="scrub" data-start="top 78%" data-end="bottom 84%" aria-hidden="true">
+            <div class="cd-src">
+              <div class="cd-src__card cd-src--ads" data-step="1" data-fx="left">
+                <p class="cd-src__h"><span class="cd-src__dot"></span>From Facebook ads</p>
+                <ul class="cd-cols"><li class="cd-key">Tracking ID</li><li>Boost spend</li><li>Impressions</li><li>Clicks</li></ul>
+              </div>
+              <div class="cd-src__card cd-src--shop" data-step="1" data-fx="right">
+                <p class="cd-src__h"><span class="cd-src__dot"></span>From Shopee and Lazada</p>
+                <ul class="cd-cols"><li class="cd-key">Tracking ID</li><li>Commission</li><li>Orders</li></ul>
+              </div>
+            </div>
+            <div class="cd-match">
+              <svg class="cd-match__lines" viewBox="0 0 400 44" preserveAspectRatio="none"><path d="M100 0C100 24 200 16 200 44" vector-effect="non-scaling-stroke" data-step="2" data-fx="fade"/><path d="M300 0C300 24 200 16 200 44" vector-effect="non-scaling-stroke" data-step="2" data-fx="fade"/></svg>
+              <span class="cd-match__pill" data-step="2" data-fx="pop"><svg viewBox="0 0 16 16"><path d="M6.5 9.5l3-3M5.2 7.2 3.8 8.6a2.4 2.4 0 0 0 3.4 3.4l1.4-1.4M10.8 8.8l1.4-1.4a2.4 2.4 0 0 0-3.4-3.4L7.4 5.4"/></svg>Matched on the tracking ID</span>
+            </div>
+            <div class="cd-table">
+              <div class="cd-table__grp cd-table--ads"><ol><li class="cd-key" data-step="3" data-fx="left"><b>Tracking ID</b></li><li data-step="3" data-fx="left"><b>Boost spend</b></li><li data-step="3" data-fx="left"><b>Impressions</b></li><li data-step="3" data-fx="left"><b>Clicks</b></li></ol></div>
+              <div class="cd-table__grp cd-table--shop"><ol><li data-step="3" data-fx="right"><b>Commission</b></li><li data-step="3" data-fx="right"><b>Orders</b></li></ol></div>
+              <div class="cd-table__grp cd-table--calc"><ol><li data-step="4" data-fx="pop"><b>Click-through rate</b></li><li data-step="4" data-fx="pop"><b>Cost per click</b></li><li data-step="4" data-fx="pop"><b>Return on ad spend</b></li><li data-step="4" data-fx="pop"><b>Return on investment</b></li></ol></div>
+            </div>
+            <p class="cd-tkey" data-step="4" data-fx="fade"><span><i class="cd-tkey--ads"></i>From Facebook ads</span><span><i></i>From Shopee and Lazada</span><span><i class="cd-tkey--calc"></i>Worked out</span></p>
+            <dl class="cd-formula" data-step="4" data-fx="up">
+              <div><dt>Return on ad spend</dt><dd>commission ÷ boost&nbsp;spend</dd></div>
+              <div><dt>Return on investment</dt><dd>(commission − boost&nbsp;spend) ÷ boost&nbsp;spend</dd></div>
+            </dl>
+            <div class="cd-model" data-step="5" data-fx="up">
+              <span class="cd-model__ic"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="m7 15 3.5-4 3 2.5L19 7"/><circle cx="19" cy="7" r="1.6"/></svg></span>
+              <p><b>Early model</b>Predicts the return on a boost</p>
+              <span class="cd-model__tag">Handed to a senior colleague</span>
+            </div>
+          </div>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Column names in plain words.</span><span>Source: my BuzzeBees internship, Jun–Aug 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      <!-- 6 · What happened  ↔  Exhibit 8: three results, front and back (CSS 3D flip cards) -->
+      <section class="ch ch--flip" id="happened" aria-labelledby="happened-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">What happened</p>
+            <h2 class="sp-h" id="happened-t">The client agreed on data, and my prototype went to a senior colleague.</h2>
+          </div>
+          <div class="ch__body">
+            <p class="result"><span class="badge" data-status-manual><!--@fact:status.client.label--></span></p>
+            <p>The client agreed on data for selected products. My manager told me my part helped the talks finish sooner.</p>
+            <p>I handed the ad-return prototype to a senior colleague to develop further.</p>
+            <p class="sowhat"><b>So what</b>The aim: turn an open question into clear choices the client could decide on.</p>
+            <p class="sp-skills"><span class="label">Skills</span>Client communication · Requirements scoping · Cross-team coordination · Data preparation</p>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis cd-res" aria-labelledby="ex8-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 8</span><span class="vis__name" id="ex8-t">Three results, front and back</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg>Point at a card, or tap it, to turn it</span>
+          </div>
+          <ul class="cd-flips" data-kit="cd-flip">
+            <li class="cd-flip cd-flip--client">
+              <div class="cd-flip__in">
+                <div class="cd-flip__f"><span class="cd-flip__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m8 12.2 2.8 2.8L16 9.4"/></svg></span><p class="cd-flip__k">The client</p><p class="cd-flip__t">Agreed on data for selected products.</p></div>
+                <div class="cd-flip__b"><p class="cd-flip__k">What the client saw</p><p>Three clear groups, and the data’s rows, columns and rough size.</p></div>
+              </div>
+            </li>
+            <li class="cd-flip">
+              <div class="cd-flip__in">
+                <div class="cd-flip__f"><span class="cd-flip__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5.5h14v10H11l-4.5 3.5v-3.5H5z"/><path d="M9 9.5h6M9 12h4"/></svg></span><p class="cd-flip__k">My manager</p><p class="cd-flip__t">Told me my part helped the talks finish sooner.</p></div>
+                <div class="cd-flip__b"><p class="cd-flip__k">What I did</p><p>Spoke with the client directly, in English, and brought in the product and data teams.</p></div>
+              </div>
+            </li>
+            <li class="cd-flip">
+              <div class="cd-flip__in">
+                <div class="cd-flip__f"><span class="cd-flip__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="m7 15 3.5-4 3 2.5L19 7"/></svg></span><p class="cd-flip__k">The prototype</p><p class="cd-flip__t">Handed to a senior colleague to develop further.</p></div>
+                <div class="cd-flip__b"><p class="cd-flip__k">What it holds</p><p>Ad spend and clicks next to commissions and orders, the return measures, and an early model to predict the return.</p></div>
+              </div>
+            </li>
+          </ul>
+          <figcaption class="vis__cap"><span>What came out of the client talks and the prototype.</span><span>Source: my BuzzeBees internship, Jun–Aug 2025.</span></figcaption>
+        </figure>
+      </section>
+    </div>
+
+    <div data-visual><!-- the "Built with" band is a picture of the tools (logos); data-visual tells story-qa so -->
+    <!--@include:builtwith-client-data-->
+    </div>
+
+    <nav class="next" aria-label="More cases">
+      <p class="next__links"><a href="/#cases">← All cases</a></p>
+      <a class="next__case" href="/cases/campus-rides/">
+        <span class="next__img"><!--@img:case04-rutgers-livingston srcw="480,800" sizes="(max-width: 640px) 100vw, 220px" alt="" loading="lazy"--></span>
+        <span class="next__txt"><span class="next__k">Next case · 04 · Rutgers</span><span class="next__t">Cheaper rides between campuses: a campus ride-pooling pitch.</span></span>
+        <span class="next__arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<div class="band on-band band-grid foot-band foot-band--sub">
+  <div class="wrap">
+<!--@include:biz-footer-->
+  </div>
+</div>
+</body>
+</html>

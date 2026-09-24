@@ -1,0 +1,14 @@
+# dependencies and build output
+node_modules/
+dist/
+
+# local-only
+.DS_Store
+*.log
+.build.lock
+_scratch/
+dev-fixtures/
+.env
+.env.*
+.vite/
+*.local

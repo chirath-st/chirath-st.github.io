@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The morning news, read to me — Chirath Soithong</title>
+  <meta name="description" content="Every weekday a small pipeline collects the news, picks what matters, writes a short script with an AI model, turns it into a natural voice, and sends the audio, a recap, photo cards and links to Chirath's Telegram." />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0B0D10" />
+  <meta property="og:title" content="The morning news, read to me — Chirath Soithong" />
+  <meta property="og:description" content="A personal pipeline that collects the news, writes a short script with an AI model, reads it in a natural voice and sends it to Telegram every weekday." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://chirath-st.github.io/tech/work/finance-briefing/" />
+  <!--@include:og-image-->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%234F8CFF'/%3E%3C/svg%3E" />
+  <link rel="preload" href="/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/newsreader-italic-subset.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="module" src="/src/page.js"></script>
+  <link rel="stylesheet" href="/src/styles/pages/briefing.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+<!--@include:nav-story-->
+
+<main id="main" class="briefing wrap">
+
+  <!-- ===== TITLE ===== -->
+  <div class="title">
+    <div class="pills">
+      <span class="pill pill--tint">Personal project</span>
+      <span class="pill">2026 → running now</span>
+      <span class="pill">Built and run by me</span>
+    </div>
+    <h1>The morning news, <em class="i">read to me</em>.</h1>
+    <div class="title__row">
+      <p class="lede">Every weekday a small pipeline collects the news, picks what matters, writes a short script with an AI model, turns it into a natural voice, and sends the audio, a recap, photo cards and links to my Telegram. <strong>Built for one listener: me.</strong></p>
+      <div class="status-card is-live" data-status-card="finance-briefing" data-status-manual>
+        <div class="row">
+          <span class="pill pill--live"><i class="dot"></i><span class="st-on">Running</span><span class="st-off">Silent</span></span>
+          <span class="k">weekdays · around 11 am New York time</span>
+        </div>
+        <div class="big">Runs every weekday</div>
+        <div class="k">global + personal editions · recap at the weekend</div>
+        <div class="k">Runs after the opening bell on purpose, so there are articles to summarise.</div>
+        <span class="tag">status set by me · grey if it breaks</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PROBLEM ===== -->
+  <section data-reveal>
+    <div class="two narrow-text">
+      <div>
+        <div class="eyebrow">The problem</div>
+        <h2 class="h2">Too many tabs before breakfast.</h2>
+        <div class="prose">
+          <p>I wanted to keep up with <strong>markets, tech and world news</strong> without scrolling several sites every morning.</p>
+          <p>And I didn't want to make the usual low-effort AI content. If a machine was going to summarise the news for me, it had to be <strong>good enough to actually listen to</strong>, every day.</p>
+        </div>
+      </div>
+      <div>
+        <div class="old">
+          <div class="label">the old way</div>
+          <svg viewBox="0 0 560 252" fill="none" stroke="#9AA3AD" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".75" role="img" aria-label="Three browser windows full of articles, a clock, a phone with the morning">
+            <!-- window 3 (back) -->
+            <g opacity=".45"><rect x="120" y="22" width="250" height="150" rx="8"/><line x1="120" y1="44" x2="370" y2="44"/><circle cx="134" cy="33" r="3"/><circle cx="146" cy="33" r="3"/><circle cx="158" cy="33" r="3"/>
+              <line x1="140" y1="66" x2="330" y2="66"/><line x1="140" y1="82" x2="300" y2="82"/><line x1="140" y1="98" x2="340" y2="98"/><line x1="140" y1="114" x2="280" y2="114"/><line x1="140" y1="130" x2="320" y2="130"/><line x1="140" y1="146" x2="250" y2="146"/></g>
+            <!-- window 2 -->
+            <g opacity=".65"><rect x="70" y="58" width="250" height="150" rx="8"/><line x1="70" y1="80" x2="320" y2="80"/><circle cx="84" cy="69" r="3"/><circle cx="96" cy="69" r="3"/><circle cx="108" cy="69" r="3"/>
+              <line x1="90" y1="102" x2="290" y2="102"/><line x1="90" y1="118" x2="240" y2="118"/><line x1="90" y1="134" x2="300" y2="134"/><line x1="90" y1="150" x2="220" y2="150"/><line x1="90" y1="166" x2="280" y2="166"/><line x1="90" y1="182" x2="200" y2="182"/></g>
+            <!-- window 1 (front) -->
+            <g><rect x="20" y="94" width="250" height="150" rx="8"/><line x1="20" y1="116" x2="270" y2="116"/><circle cx="34" cy="105" r="3"/><circle cx="46" cy="105" r="3"/><circle cx="58" cy="105" r="3"/>
+              <rect x="40" y="132" width="70" height="46" rx="3"/><line x1="122" y1="138" x2="250" y2="138"/><line x1="122" y1="154" x2="230" y2="154"/><line x1="122" y1="170" x2="244" y2="170"/>
+              <line x1="40" y1="196" x2="250" y2="196"/><line x1="40" y1="212" x2="200" y2="212"/><line x1="40" y1="228" x2="236" y2="228"/></g>
+            <!-- labels -->
+            <!-- clock -->
+            <g><circle cx="455" cy="120" r="46"/><line x1="455" y1="120" x2="455" y2="88"/><line x1="455" y1="120" x2="478" y2="134"/><circle cx="455" cy="120" r="2.5" fill="#9AA3AD"/>
+              <line x1="455" y1="78" x2="455" y2="83"/><line x1="455" y1="157" x2="455" y2="162"/><line x1="413" y1="120" x2="418" y2="120"/><line x1="492" y1="120" x2="497" y2="120"/></g>
+            <!-- scattered arrows from windows to clock -->
+            <path d="M330 100 C 370 90, 385 105, 405 110" stroke-dasharray="4 5" opacity=".6"/>
+            <path d="M280 150 C 340 150, 380 140, 407 130" stroke-dasharray="4 5" opacity=".6"/>
+            <path d="M270 210 C 330 215, 400 180, 418 152" stroke-dasharray="4 5" opacity=".6"/>
+          </svg>
+          <div class="under"><span>finance site · newspaper · tech feed · …</span><span>every morning</span></div>
+        </div>
+        <div class="caption"><b>The old way:</b> several sites, a pile of articles, read it all or miss it. Every morning.<br>Grey = how it was. Colour, below, = what I built.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT I BUILT ===== -->
+  <section data-reveal>
+    <div class="eyebrow">What I built</div>
+    <h2 class="h2">One message a day. Press play, or read the recap.</h2>
+    <p class="prose" style="margin-bottom:0">Around 11 am New York time on weekdays the pipeline runs on its own and this package lands in Telegram. That hour is on purpose: it is <strong>after the opening bell</strong>, so there are articles to summarise. First, the <strong>shape</strong> of a real run, shortened. Then the five steps that make it; the technical words are in one small block underneath.</p>
+
+    <div class="built">
+      <!-- DEMO CHAT -->
+      <div>
+        <div class="chat" role="figure" aria-label="Stylised Telegram chat showing the briefing message">
+          <div class="chat__bar">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+            <div class="who"><b>Finance Briefing</b><span>bot</span></div>
+            <div class="avatar">
+              <!-- original mascot: round avatar, dark suit + fedora silhouette in the site blue, lighter face -->
+              <svg viewBox="0 0 40 40" role="img" aria-label="Briefing bot avatar: a small figure in a suit and hat">
+                <defs><clipPath id="av-clip"><circle cx="20" cy="20" r="20"/></clipPath></defs>
+                <g clip-path="url(#av-clip)">
+                  <circle cx="20" cy="20" r="20" fill="#0F1B33"/>
+                  <path d="M4 42 C4 30 11 27 20 27 C29 27 36 30 36 42 Z" fill="#4F8CFF"/>
+                  <path d="M16.5 27 L20 34 L23.5 27 Z" fill="#E8EAED"/>
+                  <path d="M19 28.5 L20 34 L21 28.5 Z" fill="#0F1B33"/>
+                  <circle cx="20" cy="19.5" r="7" fill="#BFD4FF"/>
+                  <path d="M13.5 14.5 C13.5 7.5 26.5 7.5 26.5 14.5 Z" fill="#2F63D6"/>
+                  <rect x="13.5" y="12.2" width="13" height="2.4" fill="#0B0D10"/>
+                  <ellipse cx="20" cy="14.7" rx="11.5" ry="2.3" fill="#4F8CFF"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="chat__body">
+            <!-- 1 · header + audio + sections -->
+            <div class="msg">
+              <div class="kicker">Global briefing · Sep 16</div>
+              <div class="h">Fed hikes, Dow drags in a mixed session</div>
+              <div class="msg__player">
+                <div class="msg__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></div>
+                <div class="msg__wave" aria-hidden="true">
+                  <i style="--h:8px;--d:0s"></i><i style="--h:16px;--d:.1s"></i><i style="--h:22px;--d:.2s"></i><i style="--h:12px;--d:.3s"></i><i style="--h:24px;--d:.4s"></i><i style="--h:14px;--d:.5s"></i><i style="--h:20px;--d:.6s"></i><i style="--h:9px;--d:.7s"></i><i style="--h:18px;--d:.8s"></i><i style="--h:24px;--d:.9s"></i><i style="--h:11px;--d:1s"></i><i style="--h:17px;--d:1.1s"></i><i style="--h:22px;--d:1.2s"></i><i style="--h:10px;--d:1.3s"></i><i style="--h:15px;--d:1.4s"></i><i style="--h:7px;--d:1.5s"></i>
+                </div>
+                <span class="dur">3:40</span>
+              </div>
+              <p class="msg__sec"><b>Policy</b>The Fed raised rates a quarter point, its first hike in three years.</p>
+              <p class="msg__sec"><b>Markets</b>Most indexes slipped a little; the Dow fell harder, dragged by a few big names.</p>
+              <p class="msg__sec"><b>Tech</b>A public jab between two AI labs made the front pages.</p>
+              <div class="sp"></div>
+              <span class="time">10:59 AM</span>
+            </div>
+            <!-- 2 · photo cards (album) -->
+            <div class="msg">
+              <div class="kicker">Photo cards</div>
+              <div class="album">
+                <div class="pcard">
+                  <div class="photo"><!--@img:card-fed-eccles srcw="480,800" sizes="(max-width: 720px) 45vw, 240px" loading="lazy"--></div>
+                  <div class="txt"><div class="card-h">Fed raises rates for the first time in 3 years <span>· SCMP</span></div><div class="card-why">Why: the Fed–White House tension, first hand.</div><span class="lnk">read article</span></div>
+                </div>
+                <div class="pcard">
+                  <div class="photo"><!--@img:card-silicon-wafer srcw="480,800" sizes="(max-width: 720px) 45vw, 240px" loading="lazy"--></div>
+                  <div class="txt"><div class="card-h">China runs a weather model on 100,000 home-grown AI chips <span>· SCMP</span></div><div class="card-why">Why: domestic chips at scale, despite export controls.</div><span class="lnk">read article</span></div>
+                </div>
+              </div>
+              <div class="sp"></div>
+              <span class="time">10:59 AM</span>
+            </div>
+            <!-- 4 · link list -->
+            <div class="msg">
+              <div class="kicker">Global · all stories</div>
+              <ul class="msg__list">
+                <li class="star"><i></i><div><span class="lnk">Fed raises rates for the first time in 3 years</span> <span>— SCMP</span></div></li>
+                <li class="star"><i></i><div><span class="lnk">Takeaways from the Fed's decision</span> <span>— New York Times</span></div></li>
+                <li><i></i><div><span class="lnk">Fuel prices push UK inflation higher</span> <span>— BBC</span></div></li>
+                <li><i></i><div><span class="lnk">Hong Kong plans to double innovation spending</span> <span>— SCMP</span></div></li>
+                <li><i></i><div><span class="muted">… and the rest of the day's stories</span></div></li>
+              </ul>
+              <div class="sp"></div>
+              <span class="time">10:59 AM</span>
+            </div>
+          </div>
+          <div class="chat__input"><span class="field">Message</span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v11M8 8a4 4 0 0 0 8 0V5a4 4 0 0 0-8 0v3zM5 11a7 7 0 0 0 14 0M12 18v4"/></svg></div>
+        </div>
+        <div class="caption"><b>Illustration:</b> the shape of the real Sep 16, 2026 run, text shortened. Photos are illustrative, open-licence (the real cards carry press photos). Highlighted dots = the day’s top stories.</div>
+        <p class="photo-credit">Photos: Federal Reserve (public domain); U.S. Dept. of Energy (public domain) — illustrative</p>
+      </div>
+
+      <!-- PIPELINE -->
+      <div>
+        <div class="eyebrow">How I built it · five plain steps</div>
+        <div class="pipe">
+          <div class="node"><span class="n">01</span><div><b>A timer starts it</b><span>Weekdays, around 11 am New York time: after the opening bell, so there are articles to summarise. Nothing to press.</span></div><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle class="box" cx="68" cy="66" r="44"/><path d="M68 26v6M108 66h-6M68 106v-6M28 66h6"/><path d="M68 66L57 47"/><path class="hi hand" d="M68 66V36"/><circle class="pk" cx="68" cy="66" r="2.5"/><path class="dim" stroke-dasharray="4 5" d="M116 66H150"/><rect class="hi box" x="156" y="48" width="68" height="36" rx="8"/><path class="hi" d="M184 58l14 8-14 8z"/><text x="190" y="104" text-anchor="middle">11:00 NY</text><text x="68" y="132" text-anchor="middle">weekdays</text></svg></div></div>
+          <svg class="wire" viewBox="0 0 2 24" aria-hidden="true"><line x1="1" y1="0" x2="1" y2="24"/></svg>
+          <div class="node"><span class="n">02</span><div><b>It collects the news</b><span>Small Python scripts pull stories from several finance-news services and major newspapers, plus the day’s market moves, and skip repeats.</span></div><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect class="box" x="10" y="6" width="68" height="32" rx="6"/><path class="dim" d="M10 15h68"/><path d="M18 24h40M18 30h28"/><rect class="box" x="10" y="54" width="68" height="32" rx="6"/><path class="dim" d="M10 63h68"/><path d="M18 72h44M18 78h24"/><rect class="box" x="10" y="102" width="68" height="32" rx="6"/><path class="dim" d="M10 111h68"/><path d="M22 128v-8M32 128v-12M42 128v-5M52 128v-10"/><path class="dim" d="M78 22C110 22 110 70 140 70M78 118C110 118 110 70 140 70"/><path d="M78 70H140M136 66l4 4-4 4"/><rect class="dim" x="158" y="32" width="70" height="60" rx="8"/><rect class="hi box" x="150" y="40" width="70" height="60" rx="8"/><path d="M162 56h46M162 66h34M162 76h42M162 86h26"/><g class="dim"><rect x="188" y="108" width="34" height="24" rx="5"/><path d="M198 114l14 12M212 114l-14 12"/></g><text x="182" y="125" text-anchor="end">repeats</text><circle class="pk packet" cx="78" cy="70" r="3"/></svg></div></div>
+          <svg class="wire" viewBox="0 0 2 24" aria-hidden="true"><line x1="1" y1="0" x2="1" y2="24"/></svg>
+          <div class="node"><span class="n">03</span><div><b>An AI model picks and writes</b><span>It ranks what actually moved markets, ties the moves to their causes, and writes a short script in a fixed shape — a global edition and one filtered to what I follow.</span></div><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><g class="dim"><circle cx="14" cy="24" r="2.5"/><path d="M22 24h44"/><circle cx="14" cy="64" r="2.5"/><path d="M22 64h44"/><circle cx="14" cy="104" r="2.5"/><path d="M22 104h44"/></g><circle cx="14" cy="44" r="2.5"/><path d="M22 44h44"/><circle cx="14" cy="84" r="2.5"/><path d="M22 84h44"/><path d="M66 44C80 44 80 64 92 64M66 84C80 84 80 76 92 76"/><rect class="hi box" x="92" y="46" width="48" height="48" rx="10"/><circle class="hi" cx="108" cy="66" r="3"/><circle class="hi" cx="124" cy="66" r="3"/><path class="hi" d="M108 80h16M116 46V38"/><circle class="hi" cx="116" cy="35" r="2.5"/><path class="dim" d="M140 62C150 62 150 40 158 40M140 78C150 78 150 100 158 100"/><rect class="box" x="158" y="14" width="68" height="52" rx="6"/><path d="M168 28h48M168 38h30"/><path class="caret" d="M202 33v10"/><text x="168" y="58">global</text><rect class="box" x="158" y="76" width="68" height="52" rx="6"/><path d="M168 90h48M168 100h22"/><text x="168" y="120">mine</text></svg></div></div>
+          <svg class="wire" viewBox="0 0 2 24" aria-hidden="true"><line x1="1" y1="0" x2="1" y2="24"/></svg>
+          <div class="node"><span class="n">04</span><div><b>A voice reads it</b><span>Text-to-speech turns the script into audio. I tested voices first; this one takes notes on tone, so it doesn’t sound like a robot.</span></div><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect class="box" x="12" y="34" width="52" height="72" rx="6"/><path d="M22 48h32M22 58h24M22 68h32M22 78h18M22 88h28"/><path d="M70 70H88M84 66l4 4-4 4"/><g class="hi wave" stroke-width="2.5"><path d="M98 65v10"/><path d="M106 59v22"/><path d="M114 53v34"/><path d="M122 61v18"/><path d="M130 50v40"/><path d="M138 57v26"/><path d="M146 63v14"/><path d="M154 55v30"/></g><path d="M162 70H178M174 66l4 4-4 4"/><path d="M190 78V68a18 18 0 0 1 36 0v10"/><rect x="188" y="74" width="8" height="14" rx="3"/><rect x="220" y="74" width="8" height="14" rx="3"/><g class="dim"><rect x="114" y="104" width="24" height="20" rx="5"/><circle cx="121" cy="112" r="2"/><circle cx="131" cy="112" r="2"/><path d="M110 128l32-28"/></g></svg></div></div>
+          <svg class="wire" viewBox="0 0 2 24" aria-hidden="true"><line x1="1" y1="0" x2="1" y2="24"/></svg>
+          <div class="node"><span class="n">05</span><div><b>Telegram gets the package</b><span>The audio is stored online, the bot posts the recap, audio, photo cards and link list, and a tiny status file is updated for this site.</span></div><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><g class="plane"><path d="M10 60L56 42 40 82 32 66Z"/><path d="M32 66L56 42"/></g><path d="M10 92h10l6 6v14H10zM20 92v6h6"/><path class="dim" stroke-dasharray="3 4" d="M30 102H40"/><rect x="42" y="92" width="30" height="20" rx="4"/><path class="dim" d="M42 98h30"/><text x="10" y="130">this site</text><rect class="hi box" x="84" y="8" width="144" height="110" rx="14"/><path class="hi" d="M212 118l8 10 2-10"/><path d="M98 26h84M98 36h60"/><rect x="98" y="46" width="118" height="22" rx="8"/><path d="M108 52l8 5-8 5z"/><path stroke-width="2" d="M124 55v4M130 52v10M136 53v8M142 50v14M148 54v6M154 52v10M160 55v4"/><rect x="98" y="76" width="50" height="32" rx="5"/><circle cx="108" cy="86" r="3"/><path d="M100 106l14-12 10 8 8-6 14 10"/><circle cx="160" cy="84" r="1.5"/><circle cx="160" cy="94" r="1.5"/><circle cx="160" cy="104" r="1.5"/><path class="dim" d="M166 84h44M166 94h36M166 104h40"/></svg></div></div>
+          <svg class="wire" viewBox="0 0 2 24" aria-hidden="true"><line x1="1" y1="0" x2="1" y2="24"/></svg>
+          <div class="decide"><span class="diamond"></span><div><b>I decide what to read in full.</b><br><span>Every card links back to the original article.</span></div></div>
+        </div>
+        <div class="legend">
+          <span><i class="sw"></i>built</span>
+          <span><i class="sw sw--wire"></i>runs on a schedule</span>
+          <span><i class="sw sw--dia"></i>a person decides</span>
+          <span><i class="sw sw--grey"></i>the old way</span>
+        </div>
+        <div class="techblock">
+          <div class="lbl">for the technical reader</div>
+          <p><b>scheduler</b> = a program that runs a task at set times; here n8n · <b>feed</b> = the machine-readable version of a news site · <b>Claude API</b> = the AI model, called by code with my instructions and rules · <b>Inworld TTS</b> = the voice service, Google’s voice as the backup · <b>Cloudflare R2</b> = file storage; it also feeds a private podcast app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DECIDES (was stacked under the pipeline; now its own section with room) ===== -->
+  <section data-reveal>
+    <div class="decides">
+      <div>
+        <div class="eyebrow">What a person still decides</div>
+        <h2 class="h2">Nothing is reviewed before it sends. That’s the point.</h2>
+      </div>
+      <div class="gate">
+        <span class="diamond"></span>
+        <div>
+          <div class="lbl">the green diamond</div>
+          <p>It’s my own briefing, so no one signs off on each message. What I decide is <strong>what to open</strong> (every story links back to the original), <strong>what stays in</strong> (I tweak the format run after run; the first version is never right), and <strong>what stays out</strong>. Generated charts looked convincing but their numbers weren’t reliable, so I dropped the generated charts. Video stayed an experiment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REMOVED ===== -->
+  <section data-reveal>
+    <div class="eyebrow">What it removed</div>
+    <h2 class="h2">Three things I stopped doing by hand.</h2>
+    <div class="tiles">
+      <div class="tile">
+        <div class="t"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Repetition</div>
+        <div class="was">was: open several sites, every morning</div>
+        <p>Summaries and the links now arrive <strong>in one place</strong>.</p>
+      </div>
+      <div class="tile">
+        <div class="t"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Hand-starting</div>
+        <div class="was">was: remember to go and look</div>
+        <p>Nothing to trigger. It <strong>runs itself</strong> on weekdays and tells me if a step failed.</p>
+      </div>
+      <div class="tile">
+        <div class="t"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Reading</div>
+        <div class="was">was: read everything to find the few that matter</div>
+        <p><strong>Listen</strong> instead, a few minutes a day. Open a link only when I want more.</p>
+      </div>
+    </div>
+    <div class="caption" style="margin-top:32px">A personal tool that runs itself each weekday.</div>
+  </section>
+
+  <!-- ===== MY PART ===== -->
+  <section data-reveal>
+    <div class="eyebrow">Honest split</div>
+    <h2 class="h2">My part, and not my part.</h2>
+    <div class="parts">
+      <div class="part mine">
+        <h3>My part</h3>
+        <ul>
+          <li><strong>The idea and the bar:</strong> useful every day, not AI slop.</li>
+          <li>Choosing the sources and what counts as important.</li>
+          <li>Designing the pipeline and wiring the pieces together.</li>
+          <li>Picking the voice after testing options, and tuning its tone.</li>
+          <li>Testing image tools (cinematic vs cartoon) and dropping charts when their numbers weren't right.</li>
+          <li>Tweaking the output, run after run. Adding fallbacks and the status file.</li>
+        </ul>
+      </div>
+      <div class="part theirs">
+        <h3>Not my part</h3>
+        <ul>
+          <li><strong>The journalism.</strong> Every item links to the original article and names its source.</li>
+          <li><strong>The summaries and the narration.</strong> Claude and Inworld do those, inside rules I set.</li>
+          <li><strong>The timing.</strong> A scheduler starts it; I don't press anything.</li>
+          <li>AI helped me research each tool before I built with it, and dig further when it wasn’t sure.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tools">
+    <div class="eyebrow">Tools</div>
+    <div class="chips">
+      <span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>Python</span>
+      <span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg>n8n</span>
+      <span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>Claude API</span>
+      <span class="chip"><span class="word">Inworld</span>TTS</span>
+      <span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727"/></svg>Cloudflare R2</span>
+      <span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram</span>
+    </div>
+    </div>
+  </section>
+
+  <!-- ===== NEXT STORY ===== -->
+  <div class="next-story" data-reveal>
+    <p class="next-story__note">The "last run" line on the status card is written by the workflow itself, and goes grey if it is silent for two days. The code stays private for now.</p>
+    <a class="next-story__link" href="/tech/work/deeplob/">Next: Does a bigger model trade better? <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a class="next-story__back" href="/tech/#work"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All work</a>
+  </div>
+</main>
+
+<!--@include:footer-->
+</body>
+</html>

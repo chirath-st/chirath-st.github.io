@@ -1,0 +1,10 @@
+/* Main edition: the stylesheet bundle for the four case (story) pages, linked from each page's <head>
+   (a <link>, not a JS import, so the page is styled with JavaScript off, in dev and in the build).
+   Order matters: tokens → base → shared components → case head → story template v2 → interaction kit.
+   Per-case styles come after this, from /src/styles/biz/cases/<slug>.css. */
+@import './tokens.css';
+@import './base.css';
+@import './components.css';
+@import './case.css';
+@import './story.css';
+@import './kit.css';

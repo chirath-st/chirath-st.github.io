@@ -1,0 +1,4 @@
+/* Shared by the four story pages and the 404 page. Page-specific styles are in pages/<slug>.css. */
+.nav__brand-sep{margin:0 6px;color:var(--line)}
+.nf{padding:var(--sec) 0;min-height:60vh}
+.nf__p{margin-top:24px;color:var(--muted);max-width:52ch}

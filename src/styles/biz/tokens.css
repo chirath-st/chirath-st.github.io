@@ -1,0 +1,36 @@
+/* Main (light) edition: tokens. Values from the approved mockup A2 and annex §8.1 (contrast measured there).
+   One blue for accents; the colour bands (hero panel, glance band, contact band) are deep navy by default
+   (Chirath, Sep 23) and bright blue with html.accent-blue (footer switch or ?accent=blue). */
+
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/newsreader-400.woff2") format("woff2")}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:400;font-display:swap;src:url("/fonts/newsreader-italic-400-subset.woff2") format("woff2")}
+@font-face{font-family:"Plex";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Plex";font-style:normal;font-weight:500 700;font-display:swap;src:url("/fonts/ibm-plex-sans-latin-500-normal.woff2") format("woff2")}
+/* metric-matched fallbacks (same numbers as the tech edition, measured with fontTools) so the swap barely moves text */
+@font-face{font-family:"Newsreader Fallback";src:local("Georgia");size-adjust:97.7%;ascent-override:75.2%;descent-override:27.1%;line-gap-override:0%}
+@font-face{font-family:"Plex Fallback";src:local("Arial");size-adjust:101.4%;ascent-override:101%;descent-override:27.1%;line-gap-override:0%}
+
+:root{
+  --paper:#F8F7F3; --paper-2:#F1EFE9; --card:#FFFFFF;
+  --ink:#0E1726; --ink-2:#2E3747; --muted:#5F6878; --tone:#636B78; --pending:#7A818D;
+  --rule:#DAD7CE; --rule-2:#E7E5DE;
+  --navy:#0F2147; --on-navy:#EEF1F8;
+  --cobalt:#2346D8; --cobalt-deep:#1A35A8; --on-cobalt-2:#DDE4FB;
+  --t1:#E8EDFC; --t2:#C9D4F6; --t3:#93ACEE; --t4:#5F82E6;
+  --live:#17704A; --live-bg:#E5F2EB; --live-ink:#17603F; --live-on-band:#7BE0A8;
+
+  /* the identity band colour */
+  --band:var(--navy);
+
+  --serif:"Newsreader","Newsreader Fallback","Iowan Old Style",Georgia,serif;
+  --sans:"Plex","Plex Fallback",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --gutter:clamp(20px,4vw,72px);
+  --wrap-max:1560px;
+  --wrap-w:min(100vw - 2*var(--gutter), var(--wrap-max));
+  --head-h:72px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --ease-out:cubic-bezier(.22,.8,.24,1);
+  --shadow-card:0 24px 48px -32px rgb(14 23 38 / .18);
+}
+html.accent-blue{--band:var(--cobalt)}
+@media (max-width:640px){:root{--head-h:60px}}

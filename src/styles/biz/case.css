@@ -1,0 +1,31 @@
+/* Main edition: case pages and the 404. */
+.page{padding-block:clamp(56px,7vw,104px) 0}
+.cp-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:clamp(28px,3vw,44px);font:500 15px/1 var(--sans);color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:5px}
+.cp-back:hover{color:var(--cobalt);border-color:var(--cobalt)}
+.cp-head{display:grid;grid-template-columns:minmax(0,1fr) clamp(260px,32vw,520px);gap:22px clamp(32px,4vw,72px);align-items:end}
+.cp-head .case__title{font-size:clamp(36px,4vw,64px)}
+.cp-head .ph{grid-row:2/5}
+.cp-badges{grid-column:1;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.cp-badges small{font-size:14px;color:var(--muted)}
+.sixty{margin-top:clamp(56px,6vw,96px);max-width:980px;background:var(--card);border:1px solid var(--rule-2);border-radius:6px;padding:clamp(24px,3vw,40px);box-shadow:var(--shadow-card)}
+.sixty__h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;padding-bottom:16px;margin-bottom:8px;border-bottom:1px solid var(--rule-2)}
+.sixty__h h2{font:400 clamp(24px,2.2vw,32px)/1.2 var(--serif)}
+.sixty dl{margin:0}
+.sixty__row{display:grid;grid-template-columns:160px minmax(0,1fr);gap:8px 32px;padding:18px 0;border-bottom:1px solid var(--rule-2)}
+.sixty__row:last-child{border-bottom:0;padding-bottom:0}
+.sixty dt{font:500 12.5px/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt)}
+.sixty dd{margin:0;color:var(--ink-2);max-width:62ch}
+.sixty__row--so dd{color:var(--ink)}
+.nf{min-height:52vh;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.nf__code{font:400 22px/1 var(--serif);color:var(--cobalt)}
+.nf h1{font:400 clamp(40px,5vw,80px)/1.04 var(--serif);letter-spacing:-.02em}
+.nf p{color:var(--ink-2);max-width:56ch}
+.nf__links{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+@media (max-width:1180px){.top__resume{margin-left:auto}}
+@media (max-width:960px){
+  .cp-head{grid-template-columns:1fr}
+  .cp-head .ph{grid-row:auto}
+}
+@media (max-width:640px){
+  .sixty__row{grid-template-columns:1fr;gap:6px}
+}

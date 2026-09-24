@@ -1,0 +1,120 @@
+/* Main edition: reset, page frame, header, buttons, badges, section heads, footer. Shared by every main page. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--head-h) + 16px);background:var(--paper)}
+/* smooth anchor scrolling, but only after load (html.smooth, set by JS): a smooth jump to a #fragment on page load
+   would be cut short when the motion code measures the page */
+@media (prefers-reduced-motion:no-preference){html:not(.js),html.smooth:not(.no-motion){scroll-behavior:smooth}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4{margin:0;font-weight:400}
+b,strong{font-weight:500}
+figure{margin:0}
+button{font:inherit;color:inherit}
+.wrap{width:min(100% - 2*var(--gutter), var(--wrap-max));margin-inline:auto}
+.label{font:500 12.5px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tone{color:var(--tone)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+::selection{background:var(--cobalt);color:#fff}
+
+/* focus: always visible, never hidden under the sticky header (scroll-padding above) */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:3px}
+.on-band a:focus-visible,.on-band button:focus-visible,.on-band summary:focus-visible{outline-color:#fff}
+.skip{position:absolute;left:var(--gutter);top:-80px;z-index:100;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;font-size:15px;text-decoration:none}
+.skip:focus{top:12px}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:50;height:var(--head-h);background:var(--paper);border-bottom:1px solid var(--rule-2)}
+.top__row{height:100%;display:flex;align-items:center;gap:32px}
+.brand{font:400 22px/1 var(--serif);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.top__nav{display:flex;gap:28px;margin-left:auto}
+.top__nav a{font-size:15px;text-decoration:none;color:var(--ink-2)}
+.top__nav a:hover{color:var(--cobalt)}
+.pager{display:flex;align-items:baseline;gap:10px;font-size:13px;color:var(--muted);white-space:nowrap;min-width:220px;justify-content:flex-end}
+.pager b{font:500 13px/1 var(--sans);color:var(--cobalt);font-variant-numeric:tabular-nums}
+.pager__t{max-width:190px;overflow:hidden;text-overflow:ellipsis}
+html:not(.js) .pager{visibility:hidden}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px}
+.progress i{display:block;height:100%;background:var(--cobalt);transform-origin:left;transform:scaleX(var(--p,0))}
+html:not(.js) .progress{display:none}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:12px;font:500 16px/1 var(--sans);text-decoration:none;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.btn svg{width:16px;height:16px}
+.btn--ink{background:var(--ink);color:#fff}
+.btn--ink:hover{background:var(--cobalt-deep)}
+.btn--line{border:1px solid var(--ink);color:var(--ink)}
+.btn--line:hover{background:var(--ink);color:#fff}
+.btn--sm{height:40px;padding:0 18px;font-size:14.5px}
+.btn__meta{font-size:12px;letter-spacing:.08em;color:inherit;opacity:.6}
+
+/* ---------- section head ---------- */
+.sec-head{display:flex;align-items:center;gap:18px;margin-bottom:clamp(40px,5vw,72px)}
+.sec-num{font:400 22px/1 var(--serif);color:var(--cobalt);font-variant-numeric:tabular-nums}
+.sec-rule{flex:1;height:1px;background:var(--rule-2);position:relative;overflow:hidden}
+.sec-rule i{position:absolute;inset:0;background:var(--ink);transform-origin:left}
+.sec-title{font:500 12.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.h2{font:400 clamp(36px,4.2vw,66px)/1.06 var(--serif);letter-spacing:-.02em;max-width:22ch}
+
+/* ---------- badges (status is hand-set in the HTML: data-status-manual) ---------- */
+.badge{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:6px;font:500 13px/1 var(--sans);white-space:nowrap;background:var(--t1);color:var(--cobalt-deep)}
+.badge--live{background:var(--live-bg);color:var(--live-ink)}
+.badge--live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--live)}
+.dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 0 4px var(--live-bg);transform:translateY(-1px)}
+
+/* ---------- colour bands (navy by default) ---------- */
+.band{background:var(--band);color:#fff}
+.band .sec-num{color:#fff}
+.band .sec-rule{background:rgba(255,255,255,.26)}
+.band .sec-rule i{background:#fff}
+.band .sec-title{color:var(--on-cobalt-2)}
+
+/* ---------- footer (sits inside the contact band on the home page, in its own band elsewhere) ---------- */
+.foot{padding-top:26px;border-top:1px solid rgba(255,255,255,.22);font-size:14.5px;color:var(--on-cobalt-2);display:grid;gap:22px}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:14px 32px}
+.foot__note{max-width:70ch}
+.foot__links{display:flex;flex-wrap:wrap;gap:10px 26px}
+.foot a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(238,241,248,.35);padding-bottom:3px}
+.foot a:hover{border-bottom-color:#fff}
+.foot__row--small{font-size:13.5px}
+.prefs{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 28px}
+html:not(.js) .prefs{display:none}
+.prefs__colour{display:flex;align-items:baseline;gap:8px}
+.prefs button{all:unset;cursor:pointer;color:var(--on-cobalt-2);border-bottom:1px solid transparent;padding-bottom:2px;font-size:13.5px}
+.prefs button:hover{color:#fff}
+.prefs button[aria-pressed="true"]{color:#fff;border-bottom-color:#fff}
+.prefs button:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:2px}
+.prefs__motion{border-bottom-color:rgba(238,241,248,.35)!important}
+.credits{font-size:13px}
+.credits summary{cursor:pointer;width:max-content;color:var(--on-cobalt-2)}
+.credits summary:hover{color:#fff}
+.credits__list{display:grid;gap:6px;margin-top:12px;max-width:110ch}
+.credits__list a{border-bottom-color:rgba(238,241,248,.3);padding-bottom:1px}
+.credits__what{color:#fff}
+.foot-band{position:relative;padding-block:clamp(96px,10vw,150px) 44px}
+.foot-band > .wrap{position:relative}
+.band-grid::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right, rgba(196,210,244,.06) 1px, transparent 1px),linear-gradient(to bottom, rgba(196,210,244,.06) 1px, transparent 1px);background-size:56px 56px}
+.foot-band--sub{margin-top:clamp(96px,10vw,140px);padding-top:48px}
+.foot-band--sub .foot{border-top:0;padding-top:0}
+
+/* cross-page fade (Chrome 126+, Safari 18.2+); skipped for reduced motion and "Turn off animation" */
+@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
+html.no-motion::view-transition-group(*),html.no-motion::view-transition-old(*),html.no-motion::view-transition-new(*){animation:none}
+
+@media (max-width:1180px){
+  .top__nav{display:none}
+  .pager{margin-left:auto}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  .brand{font-size:19px}
+  .pager{min-width:0;font-size:12px}
+  .pager__t{display:none}
+  .top__row{gap:14px}
+  .btn--sm{height:36px;padding:0 14px;font-size:13.5px}
+  .btn--sm .btn__meta{display:none}
+  .btn{height:50px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

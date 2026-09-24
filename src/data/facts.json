@@ -1,0 +1,32 @@
+{
+  "_about": "Shared facts for both editions. Rendered at build time by the html-includes plugin in vite.config.js: <!--@fact:key.path--> in any page or partial. A missing key fails the build. Sources: evidence bank + EVIDENCE_ADDENDUM.md (Sep 23 decisions: Agoda badge says only 'Live', no date, no source; show only what was built and that it is live, never what is missing or planned).",
+  "name": "Chirath Soithong",
+  "school": "Rutgers University–New Brunswick",
+  "degree": "B.S. Data Science and Economics, minor in Computer Science",
+  "grad": "May 2028",
+  "education": "B.S. Data Science and Economics, minor in Computer Science. Rutgers University–New Brunswick, expected May 2028.",
+  "eyebrow": "Rutgers University–New Brunswick · Data Science and Economics · May 2028",
+  "availability": "Looking for part-time or remote work in AI automation, data analysis, machine learning or consulting · NYC hybrid",
+  "availability_short": "Part-time or remote work in AI automation, data analysis, machine learning or consulting · NYC hybrid",
+  "contact": {
+    "email": "chirath.s@outlook.com",
+    "linkedin": "https://www.linkedin.com/in/chirath-so",
+    "github": "https://github.com/chirath-st"
+  },
+  "resume": {
+    "path": "/Chirath_Soithong_Resume.pdf",
+    "tech": "/Chirath_Soithong_Resume_Tech.pdf"
+  },
+  "editions": {
+    "main": "/",
+    "tech": "/tech/"
+  },
+  "status": {
+    "agoda": { "label": "Live" },
+    "briefing": { "label": "Running" },
+    "planner": { "label": "Running" },
+    "client": { "label": "Client agreed on data" },
+    "pitch": { "label": "Pitch · clickable prototype" },
+    "research": { "label": "Submitted to the Rutgers Quant Finance Club" }
+  }
+}

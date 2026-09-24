@@ -1,0 +1,35 @@
+/* Main edition, shared by the home page and the case pages: case head (meta, title, Before → After, photo), result,
+   so-what and the "read" link. The home page's own story steps and four exhibits live in home-exhibits.css. */
+
+
+.case__meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 0;font-size:14.5px;color:var(--muted)}
+.case__meta span{padding:0 16px;border-left:1px solid var(--rule)}
+.case__meta span:first-child{padding-left:0;border-left:0;color:var(--cobalt);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12.5px;align-self:center}
+.case__title{grid-column:1;font:400 clamp(32px,3.2vw,54px)/1.08 var(--serif);letter-spacing:-.02em;max-width:26ch}
+.ba{grid-column:1;display:flex;flex-wrap:wrap;align-items:stretch;gap:10px 12px}
+.ba__p{display:flex;flex-direction:column;gap:6px;padding:12px 16px;border-radius:8px;font-size:16.5px;line-height:1.4;max-width:36ch}
+.ba__p small{font:500 12.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ba__b{background:var(--paper-2);color:var(--ink-2)}
+.ba__a{background:var(--t1);color:var(--ink)}
+.ba__a small{color:var(--cobalt-deep)}
+.ba__arr{align-self:center;color:var(--cobalt);font-size:22px;line-height:1}
+
+/* photo window: figure (static parent, shadow) › frame (clip, radius) › img */
+.ph{grid-column:2;grid-row:2/4;align-self:end;display:flex;flex-direction:column;gap:10px}
+.ph__frame{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:var(--t1);box-shadow:var(--shadow-card)}
+.ph__frame img{width:100%;height:100%;object-fit:cover}
+.ph figcaption,.cap{font-size:13px;line-height:1.45;color:var(--muted)}
+.cap__credit{display:block}
+.result{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:16px}
+.sowhat{margin-top:22px!important;padding:18px 20px;background:var(--card);border:1px solid var(--rule-2);border-left:3px solid var(--cobalt);border-radius:4px;font-size:17.5px!important;color:var(--ink)!important}
+.sowhat b{color:var(--cobalt);font-weight:500;margin-right:6px}
+.read{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font:500 16px/1 var(--sans);text-decoration:none;color:var(--ink);padding-bottom:6px;border-bottom:1.5px solid var(--ink)}
+.read:hover{color:var(--cobalt);border-color:var(--cobalt)}
+.read svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.read:hover svg{transform:translateX(4px)}
+@media (max-width:960px){
+  .ph{grid-column:1;grid-row:auto}
+}
+@media (max-width:640px){
+  .case__meta span{padding:0 10px}
+}

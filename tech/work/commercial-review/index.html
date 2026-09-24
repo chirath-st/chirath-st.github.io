@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commercial checks, reviewed by a person — Chirath Soithong</title>
+  <meta name="description" content="At Agoda, a commercial team used to find sales opportunities by hand; now one tool runs the checks and lists the candidates, and a manager still decides which are real." />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0B0D10" />
+  <meta property="og:title" content="Commercial checks, reviewed by a person — Chirath Soithong" />
+  <meta property="og:description" content="One tool runs the routine commercial checks and lists the candidates. A manager still decides which are real, then edits a ready-made draft. Built at Agoda, summer 2026." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://chirath-st.github.io/tech/work/commercial-review/" />
+  <!--@include:og-image-->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%234F8CFF'/%3E%3C/svg%3E" />
+  <link rel="preload" href="/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/newsreader-italic-subset.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="module" src="/src/page.js"></script>
+  <link rel="stylesheet" href="/src/styles/pages/agoda-review.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+<!--@include:nav-story-->
+
+<!-- ============ STORY: Agoda 01 — commercial checks, reviewed by a person ============ -->
+<main id="main" class="story">
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="wordmark">Agoda</span>
+      <span class="mono">Bangkok · Jun–Aug 2026 · Commercial Operations &amp; AI Automation Intern · project 01 of 2</span>
+    </div>
+    <h1>Commercial checks, <em>reviewed</em> by a person</h1>
+    <p class="sum">A commercial team used to find sales opportunities by hand. Now one tool runs the checks and lists the candidates. <span class="muted">A manager still decides which are real — then edits a ready-made draft for the account manager.</span></p>
+    <div class="status">
+      <span class="pill pill--live"><span class="dot"></span><!--@fact:status.agoda.label--></span>
+    </div>
+    <div class="facts">
+      <div><span class="mono">Built for</span>My manager (commercial background, not technical) and the regional account-manager teams.</div>
+      <div><span class="mono">Runs as</span>Fixed checks and message templates — same input, same output. No generative AI while it runs.</div>
+      <div><span class="mono">Handed over</span>A week teaching my manager how the tool works and how to use AI well.</div>
+    </div>
+  </div>
+</section>
+
+<section class="story-sec" data-reveal>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2"><span class="n">01</span>The problem</h2>
+      <p class="lead">Finding an opportunity meant answering the same four questions for every hotel, by hand — then finding the right colleague and writing to them.</p>
+    </div>
+    <div class="split">
+      <div class="txt">
+        <p>Which hotels sell with us but are not yet switched on with partner platforms such as Booking.com and Priceline? Is each one <b>allowed</b> to be — does it issue invoices, does its market qualify? And is it really <b>worth a call</b>?</p>
+        <p>Someone answered those questions by hand. Then they looked up who manages that hotel and wrote them a message.</p>
+        <p class="muted" style="font-size:15px">Three of the four are routine. One is judgement. Then a lookup and a message. All of it in the same spreadsheet, by the same person — and again for the next row.</p>
+      </div>
+      <div class="old">
+        <span class="mono">the old way</span>
+        <svg class="wall" viewBox="0 0 540 258" role="img" aria-label="Line drawing: a spreadsheet of hotels, six manual checks per row, repeated row after row">
+<g class="lines"><g transform="translate(149,8)"><path d="M3 9a4 4 0 0 1 4-4h2M13 9a4 4 0 0 1-4 4H7" /><path d="M6 9h4"/></g><g transform="translate(209,7)"><rect x="3" y="2" width="10" height="13" rx="1.5"/><path d="M5.5 6h5M5.5 9h5M5.5 12h3"/></g><g transform="translate(269,7)"><circle cx="8" cy="8.5" r="6"/><path d="M2 8.5h12M8 2.5c-2.5 2-2.5 10 0 12M8 2.5c2.5 2 2.5 10 0 12"/></g><g transform="translate(329,7)"><circle cx="8" cy="6" r="3.2"/><path d="M2.5 15c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/><path d="M12.5 3.5l1.5-1.5M14 6h2" stroke-dasharray="1.5 1.5"/></g><g transform="translate(389,7)"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14.5 14.5"/></g><g transform="translate(449,7)"><rect x="1.5" y="3.5" width="13" height="9.5" rx="1.5"/><path d="m1.5 4.5 6.5 5 6.5-5"/></g></g>
+<g class="labs"><text x="157" y="34" text-anchor="middle" class="lab">on partner?</text><text x="217" y="47" text-anchor="middle" class="lab">invoice?</text><text x="277" y="34" text-anchor="middle" class="lab">market?</text><text x="337" y="47" text-anchor="middle" class="lab">worth it?</text><text x="397" y="34" text-anchor="middle" class="lab">find manager</text><text x="457" y="47" text-anchor="middle" class="lab">write</text></g>
+<g class="lines"><rect x="16" y="52" width="20" height="16" rx="2"/><rect x="20" y="56" width="3.5" height="3.5"/><rect x="28.5" y="56" width="3.5" height="3.5"/><rect x="24" y="62" width="4" height="6"/><path d="M46 61 h62" stroke-dasharray="16 3 9 3 22" opacity=".7"/><rect x="150" y="53" width="14" height="14" rx="2.5"/><rect x="210" y="53" width="14" height="14" rx="2.5"/><rect x="270" y="53" width="14" height="14" rx="2.5"/><rect x="330" y="53" width="14" height="14" rx="2.5" stroke-dasharray="3 2"/><rect x="390" y="53" width="14" height="14" rx="2.5"/><rect x="450" y="53" width="14" height="14" rx="2.5"/><rect x="16" y="92" width="20" height="16" rx="2"/><rect x="20" y="96" width="3.5" height="3.5"/><rect x="28.5" y="96" width="3.5" height="3.5"/><rect x="24" y="102" width="4" height="6"/><path d="M46 101 h62" stroke-dasharray="16 3 9 3 22" opacity=".7"/><rect x="150" y="93" width="14" height="14" rx="2.5"/><rect x="210" y="93" width="14" height="14" rx="2.5"/><rect x="270" y="93" width="14" height="14" rx="2.5"/><rect x="330" y="93" width="14" height="14" rx="2.5" stroke-dasharray="3 2"/><rect x="390" y="93" width="14" height="14" rx="2.5"/><rect x="450" y="93" width="14" height="14" rx="2.5"/><rect x="16" y="132" width="20" height="16" rx="2"/><rect x="20" y="136" width="3.5" height="3.5"/><rect x="28.5" y="136" width="3.5" height="3.5"/><rect x="24" y="142" width="4" height="6"/><path d="M46 141 h62" stroke-dasharray="16 3 9 3 22" opacity=".7"/><rect x="150" y="133" width="14" height="14" rx="2.5"/><rect x="210" y="133" width="14" height="14" rx="2.5"/><rect x="270" y="133" width="14" height="14" rx="2.5"/><rect x="330" y="133" width="14" height="14" rx="2.5" stroke-dasharray="3 2"/><rect x="390" y="133" width="14" height="14" rx="2.5"/><rect x="450" y="133" width="14" height="14" rx="2.5"/><rect x="16" y="172" width="20" height="16" rx="2"/><rect x="20" y="176" width="3.5" height="3.5"/><rect x="28.5" y="176" width="3.5" height="3.5"/><rect x="24" y="182" width="4" height="6"/><path d="M46 181 h62" stroke-dasharray="16 3 9 3 22" opacity=".7"/><rect x="150" y="173" width="14" height="14" rx="2.5"/><rect x="210" y="173" width="14" height="14" rx="2.5"/><rect x="270" y="173" width="14" height="14" rx="2.5"/><rect x="330" y="173" width="14" height="14" rx="2.5" stroke-dasharray="3 2"/><rect x="390" y="173" width="14" height="14" rx="2.5"/><rect x="450" y="173" width="14" height="14" rx="2.5"/><g opacity=".3"><rect x="16" y="212" width="20" height="16" rx="2"/><path d="M46 221 h62" stroke-dasharray="16 3 9 3 22"/><rect x="150" y="213" width="14" height="14" rx="2.5"/><rect x="210" y="213" width="14" height="14" rx="2.5"/><rect x="270" y="213" width="14" height="14" rx="2.5"/><rect x="330" y="213" width="14" height="14" rx="2.5"/><rect x="390" y="213" width="14" height="14" rx="2.5"/><rect x="450" y="213" width="14" height="14" rx="2.5"/></g><text x="16" y="250" class="lab labs" opacity=".8">…and the next hotel, and the next — same person, same afternoon</text></g>
+<g><path class="tk" style="--i:0" d="M153.2 60.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:1" d="M213.2 60.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:2" d="M273.2 60.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:3" d="M333.2 60.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:4" d="M393.2 60.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:5" d="M453.2 60.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:6" d="M153.2 100.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:7" d="M213.2 100.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:8" d="M273.2 100.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:9" d="M333.2 100.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:10" d="M393.2 100.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:11" d="M453.2 100.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:12" d="M153.2 140.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:13" d="M213.2 140.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:14" d="M273.2 140.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:15" d="M333.2 140.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:16" d="M393.2 140.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:17" d="M453.2 140.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:18" d="M153.2 180.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:19" d="M213.2 180.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:20" d="M273.2 180.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:21" d="M333.2 180.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:22" d="M393.2 180.2 l3 3 l5.5 -6.8"/><path class="tk" style="--i:23" d="M453.2 180.2 l3 3 l5.5 -6.8"/></g>
+</svg>
+        <p class="cap">By hand: three routine checks, one judgement call, one lookup, one message.<span class="k">grey line drawing = done by hand · dashed box = a brain check</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story-sec" data-reveal>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2"><span class="n">02</span>What I built</h2>
+      <p class="lead">One flow instead of a wall of rows. The routine checks run on their own; the judgement stays with a person.</p>
+    </div>
+
+    <div class="legend"><span class="l1"><i></i>grey = old way</span><span class="l2"><i></i>colour = built</span><span class="l3"><i></i>green diamond = a person decides</span></div>
+
+    <div class="built">
+      <div class="vflow" role="group" aria-label="Flow: find the gaps, apply the rules, post a review list, a manager decides, draft ready to edit, notify if chosen">
+        <div class="vnode"><span class="vnode__mk">01</span><div class="bx"><b>Find the gaps</b><small>Compares what sells with us against what is switched on with a partner platform — the check the team used to do by eye.</small></div></div>
+        <div class="vwire"></div>
+        <div class="vnode"><span class="vnode__mk">02</span><div class="bx"><b>Apply the rules</b><small>Invoice capability and market eligibility are checked first. A gap that fails the rules never reaches the list.</small></div></div>
+        <div class="vwire"></div>
+        <div class="vnode"><span class="vnode__mk">03</span><div class="bx"><b>Post a review list in Slack</b><small>One card per hotel, with the responsible account manager already named — no looking it up.</small></div></div>
+        <div class="vwire"></div>
+        <div class="vnode g"><span class="vnode__mk"><i></i></span><div class="bx"><b>A manager decides</b><small>She ticks the candidates that make commercial sense and leaves the rest. The tool prepares; it does not choose.</small></div></div>
+        <div class="vwire"></div>
+        <div class="vnode"><span class="vnode__mk">04</span><div class="bx"><b>Draft, ready to edit</b><small>A pre-filled message for the account manager opens in a pop-up. She edits it in Slack and saves.</small></div></div>
+        <div class="vwire"></div>
+        <div class="vnode"><span class="vnode__mk">05</span><div class="bx"><b>Notify — if chosen</b><small>Email or Slack DM, as a separate click. Nothing is switched on automatically.</small></div></div>
+      </div>
+      <div class="chat" role="group" aria-label="Illustration of the Slack review message">
+        <div class="chat__bar"><span class="hash">#</span>commercial-checks<span class="members">review channel · illustration</span></div>
+        <div class="msg">
+          <div class="ava"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div>
+            <div class="msg__head"><b>Commercial checks</b><span class="app">APP</span><span class="time">today</span></div>
+            <p>2 hotels passed the rules this run. Tick the ones worth a call, then <b>Next</b>.</p>
+            <ul class="rows">
+              <li class="row on" style="--d:.2s"><span class="cb"></span><div><span class="nm">Harbour View Hotel</span><span class="sub">sells with us · not on the partner platform</span></div><div class="tags"><i>invoice ok</i><i>market ok</i><i class="am">manager · J. T.</i></div></li>
+              <li class="row off"><span class="cb"></span><div><span class="nm">Lakeside Resort</span><span class="sub">passes the rules · reviewer: “not this one, not now”</span></div><div class="tags"><i>invoice ok</i><i>market ok</i><i class="am">manager · M. K.</i></div></li>
+            </ul>
+            <div class="btns"><span class="btn pri">Next → draft</span><span class="btn">Skip this run</span></div>
+          </div>
+        </div>
+        <div class="popup">
+          <div class="t">Draft for the account manager<span>pop-up · editable</span></div>
+          <div class="txt">Hi J. — Harbour View Hotel sells with us but isn’t switched on with the partner platform yet. It passes the invoice and market checks. Could you raise it with the hotel?</div>
+          <div class="btns" style="margin-bottom:0"><span class="btn">Edit</span><span class="btn pri">Done · save</span></div>
+          <p class="popup__note">Then, as a separate step, notify by email or Slack DM — the reviewer chooses.</p>
+        </div>
+        <div class="chat__label">illustration · names invented · the real cards carry more fields and a table view</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="decide" data-reveal>
+  <div class="wrap">
+    <div class="bigdia"><svg viewBox="0 0 110 110" role="img" aria-label="Green diamond with a person inside: the point where a person decides"><rect class="d" x="22" y="22" width="66" height="66" rx="8" transform="rotate(45 55 55)"/><g class="p"><circle cx="55" cy="46" r="8"/><path d="M40 72c1.5-8 7.5-12 15-12s13.5 4 15 12"/></g></svg></div>
+    <div>
+      <h2 class="h2"><span class="n">03</span>What a person still <em>decides</em></h2>
+      <p>The tool never contacts anyone on its own. My manager reads each candidate and ticks the ones that make commercial sense — it cannot know what she knows about a hotel or a market. She can rewrite the draft before saving it, and notifying the account manager is a separate click.</p>
+      <p class="why">We chose not to trust automation with the judgement. That was the design, not a limitation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="story-sec" data-reveal>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2"><span class="n">04</span>What it removed</h2>
+      <p class="lead">Three kinds of grunt work went away. The judgement did not — on purpose.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile"><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M4 8h18M4 13h18M4 18h18"/><path d="M8 5v16" stroke-dasharray="2 2"/></svg><b>Repetition</b><p><s>The same comparison, by hand, row after row.</s> Now it runs the same way every time; a person only reads the result.</p></div>
+      <div class="tile"><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m15.5 15.5 6 6"/><path d="M8 11h6M11 8v6"/></svg><b>False leads</b><p><s>Chase a gap, then learn it wasn’t allowed anyway.</s> The invoice and market rules run first, so those never reach the list.</p></div>
+      <div class="tile"><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><rect x="4" y="4" width="13" height="16" rx="2"/><path d="M9 9h13v13H9z"/><path d="M13 14h5M13 17h5"/></svg><b>Copy-paste</b><p><s>Look up the account manager, write each message by hand.</s> The name is on the card; the draft arrives pre-filled.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story-sec" data-reveal>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2"><span class="n">05</span>How I built it</h2>
+      <p class="lead">In detail, not in jargon. Five steps, roughly in the order they happened.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="k">STEP 1</div><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false">
+  <g class="bub bub-1"><path d="M16 14h84a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H36l-8 7v-7h-4a8 8 0 0 1-8-8V22a8 8 0 0 1 8-8z" class="pf"/><path d="M28 24h56M28 34h34"/></g>
+  <g class="bub bub-2"><path d="M16 52h84a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H36l-8 7v-7h-4a8 8 0 0 1-8-8V60a8 8 0 0 1 8-8z" class="pf"/><path d="M28 62h44M28 72h58"/></g>
+  <g class="bub bub-3"><path d="M16 90h84a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H36l-8 7v-7h-4a8 8 0 0 1-8-8V98a8 8 0 0 1 8-8z" class="pf"/><path d="M28 100h50M28 110h28"/></g>
+  <path d="M116 70h16M128 65l5 5-5 5"/>
+  <rect x="140" y="26" width="84" height="80" rx="8" class="pf hi"/>
+  <path d="M152 42h36" class="hi"/>
+  <rect x="152" y="56" width="6" height="6" rx="1.5"/><path d="M166 59h44"/>
+  <rect x="152" y="72" width="6" height="6" rx="1.5"/><path d="M166 75h30"/>
+  <rect x="152" y="88" width="6" height="6" rx="1.5"/><path d="M166 91h40"/>
+  <text x="182" y="126" text-anchor="middle" class="tx">template</text>
+</svg>
+      <b>Asked first</b><p>I asked my manager and the account-manager teams what a useful notification needs: which facts, what wording, what to do next. That became the message template.</p></div>
+      <div class="step"><div class="k">STEP 2</div><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false">
+  <rect x="16" y="14" width="130" height="76" rx="8" class="pf"/>
+  <path d="M28 32h26" class="hi"/><path d="M60 32h58"/>
+  <path d="M28 48h18M52 48h64"/>
+  <path d="M28 64h24M58 64h30"/>
+  <text x="92" y="69" class="tx hi-t">?</text>
+  <rect x="102" y="57" width="1.5" height="14" rx=".75" class="hf caret"/>
+  <text x="28" y="110" class="tx">SQL</text>
+  <path d="M152 52h14M161 47l5 5-5 5"/>
+  <ellipse cx="200" cy="30" rx="22" ry="7"/>
+  <path d="M178 30v44M222 30v44M178 74a22 7 0 0 0 44 0M178 52a22 7 0 0 0 44 0"/>
+  <path d="M186 90h28l-10 12v12l-8 4v-16z"/>
+  <text x="182" y="132" class="tx">rules</text>
+</svg>
+      <b>Wrote each check as a fixed question</b><p>A check is an <abbr title="Structured Query Language">SQL</abbr> query — a written question to the database: “which hotels sell with us but are not switched on with the partner?” The invoice and market rules run before anything is shown.</p></div>
+      <div class="step"><div class="k">STEP 3</div><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false">
+  <rect x="16" y="44" width="52" height="52" rx="10" class="hi"/>
+  <circle cx="33" cy="66" r="3" class="hf"/><circle cx="51" cy="66" r="3" class="hf"/>
+  <path d="M42 44v-9" class="hi"/><circle cx="42" cy="32" r="3" class="hi"/>
+  <path d="M34 82h16" class="hi"/>
+  <text x="42" y="118" text-anchor="middle" class="tx">service</text>
+  <path d="M68 70h44"/>
+  <circle cx="72" cy="70" r="3.5" class="hf packet"/>
+  <rect x="112" y="14" width="112" height="112" rx="8" class="pf"/>
+  <circle cx="124" cy="26" r="4"/><text x="134" y="30" class="tx">slack</text>
+  <path d="M112 36h112"/>
+  <rect x="122" y="46" width="92" height="40" rx="6" class="hi"/>
+  <rect x="130" y="54" width="8" height="8" rx="2"/><path d="M146 58h50"/>
+  <rect x="130" y="70" width="8" height="8" rx="2"/><path d="M146 74h36"/>
+  <rect x="140" y="96" width="74" height="22" rx="6" class="hi"/>
+  <path d="M148 107h38"/><path d="M192 102v10" class="hi"/>
+</svg>
+      <b>Built a small Python service that talks to Slack</b><p>It runs the checks and posts the cards, checkboxes and draft pop-up. Same inputs, same outputs, every time.</p><p class="why">Fixed logic was also the fit for the guidance I was given.</p></div>
+      <div class="step"><div class="k">STEP 4</div><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false">
+  <rect x="16" y="14" width="16" height="16" rx="4"/><rect x="36" y="14" width="16" height="16" rx="4" class="ok"/><rect x="56" y="14" width="16" height="16" rx="4"/><rect x="76" y="14" width="16" height="16" rx="4" class="ok"/><rect x="96" y="14" width="16" height="16" rx="4"/><rect x="116" y="14" width="16" height="16" rx="4"/><rect x="136" y="14" width="16" height="16" rx="4"/>
+  <circle cx="44" cy="22" r="2.5" class="okf"/><circle cx="84" cy="22" r="2.5" class="okf"/>
+  <text x="16" y="48" class="tx">2×/week</text>
+  <rect x="16" y="60" width="132" height="66" rx="8" class="pf"/>
+  <rect x="26" y="70" width="10" height="10" rx="2.5"/><path d="M28 75l3 3 5-6" class="ok"/><path d="M46 75h60"/>
+  <rect x="26" y="88" width="10" height="10" rx="2.5"/><path d="M28 93l3 3 5-6" class="ok"/><path d="M46 93h76"/>
+  <rect x="26" y="106" width="10" height="10" rx="2.5"/><path d="M28 111l3 3 5-6" class="ok tick"/><path d="M46 111h48"/>
+  <path d="M212 68a24 24 0 1 1-12-20" class="hi"/><path d="M194 44h10v10" class="hi"/>
+  <text x="196" y="132" text-anchor="middle" class="tx">re-run</text>
+</svg>
+      <b>Reviewed with my manager, twice a week or more</b><p>Her feedback caught wrong tags, hotels already switched on, and tables too dense for Slack. I logged each finding, fixed it with AI coding assistants, re-ran, re-checked.</p></div>
+      <div class="step"><div class="k">STEP 5</div><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false">
+  <rect x="16" y="16" width="68" height="28" rx="6" class="pf"/><path d="M28 26l-4 4 4 4M38 26l4 4-4 4"/><text x="47" y="34" class="tx">code</text>
+  <rect x="16" y="56" width="68" height="28" rx="6" class="pf"/><path d="M25 70l4 4 7-8"/><text x="42" y="74" class="tx">tests</text>
+  <rect x="16" y="96" width="68" height="28" rx="6" class="pf"/><path d="M26 106h10M26 112h14M26 118h8"/><text x="47" y="114" class="tx">docs</text>
+  <path d="M94 72h86M175 67l5 5-5 5" stroke-dasharray="2 5"/>
+  <g class="doc"><path d="M100 46h24l10 10v34a4 4 0 0 1-4 4h-30a4 4 0 0 1-4-4V50a4 4 0 0 1 4-4z" class="pf hi"/><path d="M124 46v10h10" class="hi"/><path d="M104 66h18M104 74h18M104 82h10"/></g>
+  <circle cx="206" cy="54" r="10"/><path d="M188 92a18 14 0 0 1 36 0"/>
+  <text x="206" y="118" text-anchor="middle" class="tx">manager</text>
+</svg>
+      <b>Handed over</b><p>Validated first in a dry run delivered only to a reviewer, then handed over: code in GitLab, automated tests, a written handover, and a week teaching my manager how the pieces connect and how to work with AI.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story-sec" data-reveal>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2"><span class="n">06</span>My part · not my part</h2>
+      <p class="lead">Credit where it belongs. I designed and built the tool; the commercial thinking and the final calls were never mine.</p>
+    </div>
+    <div class="parts">
+      <div class="col mine">
+        <h3><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="stroke:var(--cobalt);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M20 6 9 17l-5-5"/></svg>My part</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Designed the checks and the rules they apply, from my manager’s goals</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Built the Python service, the Slack review cards and the draft pop-up</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Validated results with my manager; logged and fixed what was wrong</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Asked the account-manager teams what a message needs to say</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Wrote the handover; spent a week training my manager</span></li>
+        </ul>
+      </div>
+      <div class="col not">
+        <h3><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round"><path d="M5 12h14"/></svg>Not my part</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg><span><b>The commercial ideas and the final judgement</b> — my manager’s</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg><span><b>Talking to hotels</b> — the account managers’</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg><span><b>Agoda’s data, definitions and platform rules</b> — given, not mine</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg><span><b>Hosting and deployment</b> — Agoda’s, not mine</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg><span><b>Every automated test</b> — I ran the validation; I didn’t write them all</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tools">
+      <span class="mono">Built with</span>
+      <span class="chip"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>Python</span>
+      <span class="chip">SQL</span>
+      <span class="chip wm">Slack</span>
+      <span class="chip"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m23.6004 9.5927-.0337-.0862L20.3.9814a.851.851 0 0 0-.3362-.405.8748.8748 0 0 0-.9997.0539.8748.8748 0 0 0-.29.4399l-2.2055 6.748H7.5375l-2.2057-6.748a.8573.8573 0 0 0-.29-.4412.8748.8748 0 0 0-.9997-.0537.8585.8585 0 0 0-.3362.4049L.4332 9.5015l-.0325.0862a6.0657 6.0657 0 0 0 2.0119 7.0105l.0113.0087.03.0213 4.976 3.7264 2.462 1.8633 1.4995 1.1321a1.0085 1.0085 0 0 0 1.2197 0l1.4995-1.1321 2.4619-1.8633 5.006-3.7489.0125-.01a6.0682 6.0682 0 0 0 2.0094-7.003z"/></svg>GitLab</span>
+      <span class="chip"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude · Cursor <span class="muted" style="font-size:11px">(coding help)</span></span>
+    </div>
+    <div class="tech"><span class="mono">For the technical reader</span>A Python service that runs fixed SQL checks and posts Slack cards, checkboxes and an editable pop-up; drafts come from templates filled with the check’s output. Code in GitLab with automated tests; validated in a dry run that delivered only to one reviewer, then handed over with written docs.</div>
+  </div>
+</section>
+
+<section class="story-next" data-reveal>
+  <div class="wrap">
+    <div class="bottom">
+      <a class="next" href="/tech/work/slack-support-desk/"><span><small>next story · Agoda 02</small>Questions in one channel, answered or routed</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <p class="honest">Facts on this page come from my own notes and interviews only. Anything drawn as an example is labelled “illustration”. Partner platforms are named as companies I worked with — never for.</p>
+    </div>
+    <a class="all" href="/tech/#work"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px;stroke:var(--cobalt);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All work</a>
+  </div>
+</section>
+</main>
+
+<!--@include:footer-->
+</body>
+</html>
