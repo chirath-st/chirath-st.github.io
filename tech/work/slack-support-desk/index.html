@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Questions in one channel, answered or routed — Chirath Soithong</title>
+  <meta name="description" content="At Agoda, one Slack channel now reads every colleague question, answers the common ones, looks things up when needed, and opens a ticket for a person when it has to." />
+  <link rel="canonical" href="https://chirath-st.github.io/tech/work/slack-support-desk/" />
+  <meta property="og:site_name" content="Chirath Soithong" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Questions in one channel, answered or routed — Chirath Soithong" />
+  <meta property="og:description" content="At Agoda, one Slack channel now reads every colleague question, answers the common ones, looks things up when needed, and opens a ticket for a person when it has to." />
+  <meta property="og:url" content="https://chirath-st.github.io/tech/work/slack-support-desk/" />
+  <meta property="og:image" content="https://chirath-st.github.io/og/tech-work-slack-support-desk.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Questions in one channel, answered or routed — Chirath Soithong" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0B0D10" />
+  
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%234F8CFF'/%3E%3C/svg%3E" />
+  <link rel="preload" href="/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/newsreader-italic-subset.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+  <script type="module" crossorigin src="/assets/motion-C8IefbVz.js"></script>
+  <script type="module" crossorigin src="/assets/lenis-joCcgj7t.js"></script>
+  <script type="module" crossorigin src="/assets/copy-27uorfge.js"></script>
+  <script type="module" crossorigin src="/assets/page-CWuxiLL5.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/copy-Ks2ZnMse.css">
+  <link rel="stylesheet" crossorigin href="/assets/page-ChRt5tSt.css">
+  <link rel="stylesheet" crossorigin href="/assets/techSlackSupportDesk-NQaMBvl5.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav__row">
+    <a class="nav__brand mono" href="/tech/">← All work <span class="nav__brand-sep">·</span> chirath-st.github.io</a>
+    <nav class="nav__links">
+      <a href="/tech/#running">Running now</a>
+      <a href="/tech/#work">Work</a>
+      <a href="/tech/#process">How I work</a>
+      <a href="/Chirath_Soithong_Resume_Tech.pdf">Resume ↗</a>
+      <a class="nav__main" href="/">Main site →</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<header class="head">
+  <div class="wrap">
+    <div class="head__top">
+      <div>
+        <div class="mono eyebrow"><span class="tint">Agoda</span> · Bangkok · Jun–Aug 2026 · Commercial Operations &amp; AI Automation Intern</div>
+        <h1>Questions in one channel, <em>answered</em> or routed</h1>
+        <p class="lede">Colleagues' questions used to arrive by <b>email, Slack and Teams</b>, and each one needed back-and-forth before anyone could help. Now <b>one Slack channel</b> reads every question, answers the common ones, looks things up when needed, and opens a ticket for a person when it has to.</p>
+      </div>
+      <div class="head__status">
+        <span class="pill pill--live"><span class="dot"></span>Live</span>
+      </div>
+    </div>
+    <div class="facts" data-reveal>
+      <div class="fact"><div class="k">Built with</div><div class="v">My manager<small>she set what the team needed</small></div></div>
+      <div class="fact"><div class="k">Built on</div><div class="v">Existing AI tools<small>supplied by Agoda; I combined three</small></div></div>
+      <div class="fact"><div class="k">Versions</div><div class="v">Four<small>the fourth is the one in use</small></div></div>
+      <div class="fact"><div class="k">Intake</div><div class="v">One channel<small>questions used to arrive by email, Slack and Teams</small></div></div>
+    </div>
+  </div>
+</header>
+
+
+<section class="chapter" data-reveal id="problem">
+  <div class="wrap">
+    <div class="sec-head sec-head--inline"><span class="mono eyebrow">01 · the problem</span><h2 class="h2">Three inboxes, one small <em>team</em></h2></div>
+    <div class="grid">
+      <div class="copy">
+        <p class="lead">Every question landed wherever the asker happened to be.</p>
+        <p>Day-to-day <b>operational questions</b> reached the team as an email, a Slack message or a Teams chat. Whoever saw it first had to ask for the missing details, <b>wait, ask again</b>, and only then start investigating.</p>
+        <p>The same kind of question came back again and again, and each time somebody typed the answer again. When a case needed a ticket, the context was <b>copied over by hand</b>.</p>
+        <p>The team wanted <b>one place to ask</b>, where a question gets dealt with.</p>
+      </div>
+      <figure class="fig fig--grey">
+        <span class="fig__label">the old way · line drawing</span>
+        <svg class="draw only-phone" viewBox="0 0 322 372" role="img" aria-label="Three inboxes (email, Slack, Teams) send questions to one team; each needs a round of follow-up first.">
+          <g transform="translate(8,22)">
+            <rect class="node" width="190" height="56" rx="10"/>
+            <g class="grey" transform="translate(12,17)"><rect width="22" height="16" rx="3"/><path d="M0 2l11 8 11-8"/></g>
+            <text x="44" y="24">Email</text><text class="small" x="44" y="43">"BOOKINGS DROPPED?"</text>
+            <g transform="translate(176,-8)"><circle class="qbub" r="12"/><text class="t" text-anchor="middle" y="4.5" style="fill:var(--muted)">?</text></g>
+          </g>
+          <g transform="translate(8,100)">
+            <rect class="node" width="190" height="56" rx="10"/>
+            <g class="grey" transform="translate(14,17)"><path d="M6 0v20M14 0v20M0 6h20M0 14h20"/></g>
+            <text x="44" y="24">Slack</text><text class="small" x="44" y="43">"NO ROOMS SHOWING?"</text>
+            <g transform="translate(176,-8)"><circle class="qbub" r="12"/><text class="t" text-anchor="middle" y="4.5" style="fill:var(--muted)">?</text></g>
+          </g>
+          <g transform="translate(8,178)">
+            <rect class="node" width="190" height="56" rx="10"/>
+            <g class="grey" transform="translate(12,16)"><rect width="18" height="14" rx="3"/><path d="M18 5h6a3 3 0 0 1 3 3v6h-9M6 14v6l6-6"/></g>
+            <text x="44" y="24">Teams</text><text class="small" x="44" y="43">"WRONG POLICY?"</text>
+            <g transform="translate(176,-8)"><circle class="qbub" r="12"/><text class="t" text-anchor="middle" y="4.5" style="fill:var(--muted)">?</text></g>
+          </g>
+          <path class="wire wire--grey" d="M198 50 C 206 50, 204 128, 212 128"/>
+          <path class="wire wire--grey" d="M198 128 L212 128"/>
+          <path class="wire wire--grey" d="M198 206 C 206 206, 204 128, 212 128"/>
+          <g transform="translate(212,74)">
+            <rect class="node" width="104" height="108" rx="12"/>
+            <g class="grey" transform="translate(23,22)">
+              <circle cx="0" cy="0" r="7"/><path d="M-11 21c0-7 5-10 11-10s11 3 11 10"/>
+              <circle cx="29" cy="0" r="7"/><path d="M18 21c0-7 5-10 11-10s11 3 11 10"/>
+              <circle cx="58" cy="0" r="7"/><path d="M47 21c0-7 5-10 11-10s11 3 11 10"/>
+            </g>
+            <text x="52" y="70" text-anchor="middle">the team</text>
+            <text class="small" x="52" y="87" text-anchor="middle">WHEN SOMEONE</text>
+            <text class="small" x="52" y="101" text-anchor="middle">LOOKS</text>
+          </g>
+          <g transform="translate(14,262)"><rect class="tag" x="-6" y="-12" width="118" height="24" rx="12"/><path class="grey" d="M4 0a5 5 0 1 0 5-5" style="stroke-width:1.2"/><path class="grey-fill" d="M9 -8l2 3h-4z"/><text class="small" x="18" y="4">WHICH HOTEL?</text></g>
+          <g transform="translate(140,262)"><rect class="tag" x="-6" y="-12" width="110" height="24" rx="12"/><path class="grey" d="M4 0a5 5 0 1 0 5-5" style="stroke-width:1.2"/><path class="grey-fill" d="M9 -8l2 3h-4z"/><text class="small" x="18" y="4">SINCE WHEN?</text></g>
+          <g transform="translate(14,292)"><rect class="tag" x="-6" y="-12" width="124" height="24" rx="12"/><path class="grey" d="M4 0a5 5 0 1 0 5-5" style="stroke-width:1.2"/><path class="grey-fill" d="M9 -8l2 3h-4z"/><text class="small" x="18" y="4">MORE DETAILS?</text></g>
+          <g class="grey" transform="translate(20,330)"><circle r="11"/><path d="M0 -6.5v6.5h5.5"/></g>
+          <text class="small" x="40" y="334">HOURS UNTIL A REPLY</text>
+          <text class="small" x="9" y="364" style="opacity:.7">SAME QUESTION, AGAIN</text>
+        </svg>
+        <svg class="draw only-desk" viewBox="0 0 580 280" role="img" aria-label="Three inboxes (email, Slack, Teams) send questions along tangled lines to one team; each line loops back asking for more details.">
+          
+          <g transform="translate(14,18)">
+            <rect class="node" width="190" height="62" rx="10"/>
+            <g class="grey" transform="translate(16,19)"><rect width="24" height="17" rx="3"/><path d="M0 2l12 9 12-9"/></g>
+            <text x="54" y="27">Email</text>
+            <text class="small" x="54" y="47">"BOOKINGS DROPPED?"</text>
+            <g transform="translate(164,-12)"><circle class="qbub" r="13"/><text class="t" text-anchor="middle" y="4.5" style="fill:var(--muted)">?</text></g>
+          </g>
+          <g transform="translate(14,107)">
+            <rect class="node" width="190" height="62" rx="10"/>
+            <g class="grey" transform="translate(18,18)"><path d="M6 0v20M14 0v20M0 6h20M0 14h20"/></g>
+            <text x="54" y="27">Slack</text>
+            <text class="small" x="54" y="47">"NO ROOMS SHOWING?"</text>
+            <g transform="translate(164,-12)"><circle class="qbub" r="13"/><text class="t" text-anchor="middle" y="4.5" style="fill:var(--muted)">?</text></g>
+          </g>
+          <g transform="translate(14,196)">
+            <rect class="node" width="190" height="62" rx="10"/>
+            <g class="grey" transform="translate(16,17)"><rect width="18" height="14" rx="3"/><path d="M18 5h6a3 3 0 0 1 3 3v6h-9M6 14v6l6-6"/></g>
+            <text x="54" y="27">Teams</text>
+            <text class="small" x="54" y="47">"WRONG POLICY?"</text>
+            <g transform="translate(164,-12)"><circle class="qbub" r="13"/><text class="t" text-anchor="middle" y="4.5" style="fill:var(--muted)">?</text></g>
+          </g>
+          
+          <path class="wire wire--grey" d="M204 49 C 290 49, 310 188, 412 138"/>
+          <path class="wire wire--grey" d="M204 138 C 280 138, 310 110, 412 138"/>
+          <path class="wire wire--grey" d="M204 227 C 290 227, 310 86, 412 138"/>
+          
+          <g transform="translate(250,68)"><rect class="tag" x="-6" y="-12" width="118" height="24" rx="12"/><path class="grey" d="M4 0a5 5 0 1 0 5-5" style="stroke-width:1.2"/><path class="grey-fill" d="M9 -8l2 3h-4z"/><text class="small" x="18" y="4">WHICH HOTEL?</text></g>
+          <g transform="translate(254,157)"><rect class="tag" x="-6" y="-12" width="110" height="24" rx="12"/><path class="grey" d="M4 0a5 5 0 1 0 5-5" style="stroke-width:1.2"/><path class="grey-fill" d="M9 -8l2 3h-4z"/><text class="small" x="18" y="4">SINCE WHEN?</text></g>
+          <g transform="translate(250,244)"><rect class="tag" x="-6" y="-12" width="124" height="24" rx="12"/><path class="grey" d="M4 0a5 5 0 1 0 5-5" style="stroke-width:1.2"/><path class="grey-fill" d="M9 -8l2 3h-4z"/><text class="small" x="18" y="4">MORE DETAILS?</text></g>
+          
+          <g transform="translate(412,84)">
+            <rect class="node" width="154" height="108" rx="12"/>
+            <g class="grey" transform="translate(30,22)">
+              <circle cx="0" cy="0" r="8"/><path d="M-13 24c0-8 6-12 13-12s13 4 13 12"/>
+              <circle cx="46" cy="0" r="8"/><path d="M33 24c0-8 6-12 13-12s13 4 13 12"/>
+              <circle cx="92" cy="0" r="8"/><path d="M79 24c0-8 6-12 13-12s13 4 13 12"/>
+            </g>
+            <text x="77" y="74" text-anchor="middle">the team</text>
+            <text class="small" x="77" y="93" text-anchor="middle">WHEN SOMEONE LOOKS</text>
+          </g>
+          
+          <g class="grey" transform="translate(422,226)"><circle r="11"/><path d="M0 -6.5v6.5h5.5"/></g>
+          <text class="small" x="440" y="230">HOURS UNTIL A REPLY</text>
+          <text class="small" x="412" y="264" style="opacity:.7">SAME QUESTION, AGAIN</text>
+        </svg>
+        <figcaption class="fig__cap">Three places to look, and every question needed a round of follow-up before work could start. A first reply could take <b>hours</b> <span class="est">his estimate</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="chapter" data-reveal id="built">
+  <div class="wrap">
+    <div class="sec-head sec-head--inline"><span class="mono eyebrow">02 · what I built</span><h2 class="h2">One channel, three helpers, three <em>outcomes</em></h2></div>
+    <div class="grid">
+        <div class="copy">
+          <p class="lead">Post the question once. The channel sorts it.</p>
+          <p>A reader bot <b>reads every message</b> in the channel, no tagging needed. If it is a known question, it answers straight away from an <b>prepared answers</b> the team keeps for recurring issues.</p>
+          <p>If the question needs looking up, it calls a second bot that <b>searches internal documents</b> and writes a clear reply. If a person has to step in, a third bot <b>opens a Jira ticket</b> with the original message, what was found and a suggested next step, and tags the right teammate.</p>
+        </div>
+        <figure class="fig fig--colour">
+          <span class="fig__label">the built thing · how a question is sorted</span>
+          <svg class="draw only-phone" viewBox="0 0 322 498" role="img" aria-label="A question posted in the channel goes to the reader bot, which sends it to one of three outcomes: answered from the prepared answers, looked up by the research bot, or a Jira ticket with a teammate tagged, where a person decides.">
+            <g transform="translate(12,10)">
+              <rect class="node node--ink" width="200" height="54" rx="10"/>
+              <text x="100" y="24" text-anchor="middle">A question posted</text>
+              <text x="100" y="42" text-anchor="middle">in the channel</text>
+            </g>
+            <path class="wire" d="M112 64 L112 92"/>
+            <g transform="translate(12,92)">
+              <rect class="node node--tint" width="200" height="54" rx="10"/>
+              <text x="100" y="24" text-anchor="middle">Reader bot reads it</text>
+              <text class="small" x="100" y="43" text-anchor="middle">NO TAGGING NEEDED</text>
+            </g>
+            <path class="wire" d="M36 146 L36 214 L60 214"/>
+            <path class="wire" d="M36 214 L36 304 L60 304"/>
+            <path class="wire" d="M36 304 L36 394 L60 394"/>
+            <text class="small route" x="60" y="176">KNOWN</text>
+            <text class="small route" x="74" y="266">LOOK-UP</text>
+            <text class="small route" x="60" y="356">PERSON</text>
+            <g transform="translate(60,184)">
+              <rect class="node node--tint" width="232" height="60" rx="10"/>
+              <text x="116" y="26" text-anchor="middle">Answered right away</text>
+              <text class="small" x="116" y="45" text-anchor="middle">A PREPARED ANSWER</text>
+            </g>
+            <g transform="translate(60,274)">
+              <rect class="node node--tint" width="232" height="60" rx="10"/>
+              <text x="116" y="26" text-anchor="middle">Research bot replies</text>
+              <text class="small" x="116" y="45" text-anchor="middle">FROM INTERNAL DOCS</text>
+            </g>
+            <g transform="translate(60,364)">
+              <rect class="node node--tint" width="232" height="60" rx="10"/>
+              <text x="116" y="26" text-anchor="middle">Ticket + teammate tagged</text>
+              <text class="small" x="116" y="45" text-anchor="middle">JIRA · WITH CONTEXT</text>
+            </g>
+            <path class="wire" d="M176 424 L176 440"/>
+            <g transform="translate(176,456)"><rect class="dia" x="-11" y="-11" width="22" height="22" rx="3" transform="rotate(45)"/></g>
+            <text class="small" x="176" y="490" text-anchor="middle" style="fill:var(--green)">A PERSON DECIDES</text>
+          </svg>
+          <svg class="draw only-desk" viewBox="0 0 590 322" role="img" aria-label="A question posted in the channel goes to the reader bot, which sends it to one of three outcomes: answered from the prepared answers, looked up by the research bot, or a Jira ticket with a teammate tagged, where a person decides.">
+            
+            <g transform="translate(4,128)">
+              <rect class="node node--ink" width="128" height="64" rx="10"/>
+              <text x="64" y="28" text-anchor="middle">A question posted</text>
+              <text x="64" y="46" text-anchor="middle">in the channel</text>
+            </g>
+            <path class="wire" d="M132 160 L166 160"/>
+            
+            <g transform="translate(166,128)">
+              <rect class="node node--tint" width="146" height="64" rx="10"/>
+              <text x="73" y="28" text-anchor="middle">Reader bot reads it</text>
+              <text class="small" x="73" y="47" text-anchor="middle">NO TAGGING NEEDED</text>
+            </g>
+            
+            <path class="wire" d="M312 160 C 346 160, 336 56, 370 56"/>
+            <path class="wire" d="M312 160 L370 160"/>
+            <path class="wire" d="M312 160 C 346 160, 336 264, 370 264"/>
+            <text class="small route" x="320" y="100">KNOWN</text>
+            <text class="small route" x="326" y="152">LOOK-UP</text>
+            <text class="small route" x="318" y="232">PERSON</text>
+            
+            <g transform="translate(370,24)">
+              <rect class="node node--tint" width="160" height="64" rx="10"/>
+              <text x="80" y="28" text-anchor="middle">Answered right away</text>
+              <text class="small" x="80" y="47" text-anchor="middle">A PREPARED ANSWER</text>
+            </g>
+            <g transform="translate(370,128)">
+              <rect class="node node--tint" width="160" height="64" rx="10"/>
+              <text x="80" y="28" text-anchor="middle">Research bot replies</text>
+              <text class="small" x="80" y="47" text-anchor="middle">FROM INTERNAL DOCS</text>
+            </g>
+            <g transform="translate(370,232)">
+              <rect class="node node--tint" width="160" height="64" rx="10"/>
+              <text x="80" y="28" text-anchor="middle">Ticket + teammate</text>
+              <text class="small" x="80" y="47" text-anchor="middle">JIRA · WITH CONTEXT</text>
+            </g>
+            
+            <path class="wire" d="M530 264 L546 264"/>
+            <g transform="translate(560,264)"><rect class="dia" x="-11" y="-11" width="22" height="22" rx="3" transform="rotate(45)"/></g>
+            <text class="small" x="560" y="296" text-anchor="middle" style="fill:var(--green)">A PERSON</text>
+            <text class="small" x="560" y="310" text-anchor="middle" style="fill:var(--green)">DECIDES</text>
+          </svg>
+          <div class="legend"><span><i></i>a bot</span><span><i class="grey"></i>a colleague</span><span><i class="dia"></i>a person decides</span><span><i class="wire"></i>message flow</span></div>
+        </figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="chapter" data-reveal id="decides">
+  <div class="wrap">
+    <div class="sec-head sec-head--inline"><span class="mono eyebrow">03 · what a person still decides</span><h2 class="h2">The bots fetch and type. <em>People</em> judge.</h2></div>
+    <div class="grid grid--even">
+        <div class="decide">
+          <div class="decide__dia" aria-hidden="true"></div>
+          <div class="decide__body">
+            <p>No bot closes a case on its own. When a question needs real work — a fix, a decision, a call to someone — a ticket lands with a <b>teammate who investigates and resolves it</b>. I prepared the first set of answers; the team can add an agreed answer once, and the first bot reuses it instead of a person retyping it.</p>
+          </div>
+        </div>
+
+      
+      <div class="chat" role="figure" aria-label="Stylised demo of the support channel. Names and messages are invented.">
+        <div class="chat__bar">
+          <div class="chat__name"><span class="hash">#</span>ask-the-team</div>
+          <span class="chat__note">illustration · names invented</span>
+        </div>
+        <div class="chat__body">
+          <div class="day">Monday · a known question</div>
+          <div class="msg"><div class="av av--p1">MK</div><div class="msg__c"><div class="msg__h"><b>Mina K.</b><time>9:41</time></div><p>Bookings for one of my hotels dropped since last week — did anything change on our side?</p></div></div>
+          <div class="msg msg--bot"><div class="av av--bot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 0 1 2 2v1h3a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h3V4a2 2 0 0 1 2-2zm-3 8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM8 20h8v2H8z"/></svg></div><div class="msg__c"><div class="msg__h"><b>Reader bot</b><span class="app">APP</span><time>9:41</time></div><p>Known issue — the same drop was raised last week and a fix is in progress. Nothing to change on your side; I'll post here when it's done.</p><span class="out"><i></i>answered · from the prepared answers</span></div></div>
+
+          <div class="day">later · needs a person</div>
+          <div class="msg"><div class="av av--p3">AP</div><div class="msg__c"><div class="msg__h"><b>Ana P.</b><time>11:03</time></div><p>A booking shows the wrong cancellation policy. Can someone fix it before the guest calls?</p></div></div>
+          <div class="msg msg--bot"><div class="av av--bot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 0 1 2 2v1h3a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h3V4a2 2 0 0 1 2-2zm-3 8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM8 20h8v2H8z"/></svg></div><div class="msg__c"><div class="msg__h"><b>Reader bot</b><span class="app">APP</span><time>11:03</time></div><p>This needs a person. <span class="mention">@Ticket bot</span>, open a ticket with the details.</p></div></div>
+          <div class="msg msg--bot msg--reply"><div class="av av--bot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z"/></svg></div><div class="msg__c"><div class="msg__h"><b>Ticket bot</b><span class="app">APP</span><time>11:05</time></div><p>Ticket created and <span class="mention person">@Priya</span> tagged — she handles booking issues.</p>
+            <div class="ticket">
+              <div class="ticket__h"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z"/></svg>Wrong cancellation policy on one booking <span class="id">TEAM-0412</span></div>
+              <ul>
+                <li><b>Context:</b> Ana's message and the booking details</li>
+                <li><b>Found so far:</b> policy text differs from the hotel's current one</li>
+                <li><b>Suggested next step:</b> confirm with the hotel, then correct the booking</li>
+              </ul>
+            </div>
+            <span class="out out--person"><i></i>a teammate takes over</span></div></div>
+        </div>
+        <div class="chat__foot"><span>Message #ask-the-team</span><span class="typing"><i></i><i></i><i></i></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="chapter" data-reveal id="removed">
+  <div class="wrap">
+    <div class="sec-head sec-head--inline"><span class="mono eyebrow">04 · what it removed</span><h2 class="h2">Gone: the <em>grunt</em> work</h2></div>
+    <div class="tiles">
+      <div class="tile"><h3><s>Repetition</s></h3><p>Typing the <b>same answer</b> for every new asker. Recurring issues get one agreed answer, reused automatically.</p><span class="ref">prepared answers</span></div>
+      <div class="tile"><h3><s>Waiting</s></h3><p>Three inboxes and a <b>round of "which hotel?"</b> before anything started. One channel, read the moment a message lands.</p><span class="ref">reader bot</span></div>
+      <div class="tile"><h3><s>Copy-paste</s></h3><p>Writing up a ticket <b>by hand</b>. The ticket arrives with the message, the findings and a suggested next step.</p><span class="ref">Jira handoff</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="chapter" data-reveal id="how">
+  <div class="wrap">
+    <div class="sec-head sec-head--inline"><span class="mono eyebrow">05 · how I built it</span><h2 class="h2">Listen, map, try, <em>wire</em>, fill</h2></div>
+    <div class="steps">
+      <div class="step"><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <g><circle cx="22" cy="28" r="6"/><path d="M11 44c2-7 20-7 22 0"/><circle cx="22" cy="70" r="6"/><path d="M11 86c2-7 20-7 22 0"/><circle cx="22" cy="112" r="6"/><path d="M11 128c2-7 20-7 22 0"/></g>
+  <g class="bub d1"><rect x="42" y="20" width="54" height="18" rx="6" class="pnl"/><path d="M48 38l-3 6 7-6M50 27h32M50 32h20"/></g>
+  <g class="bub d2"><rect x="42" y="62" width="54" height="18" rx="6" class="pnl"/><path d="M48 80l-3 6 7-6M50 69h26M50 74h34"/></g>
+  <g class="bub d3"><rect x="42" y="104" width="54" height="18" rx="6" class="pnl"/><path d="M48 122l-3 6 7-6M50 111h32M50 116h16"/></g>
+  <path d="M100 29 130 62M100 71 130 70M100 113 130 78"/>
+  <rect x="130" y="26" width="98" height="88" rx="8" class="pnl"/>
+  <text x="140" y="43" class="hi">rules</text>
+  <g class="hi"><rect x="140" y="53" width="18" height="10" rx="3"/><rect x="140" y="73" width="24" height="10" rx="3"/><rect x="140" y="93" width="14" height="10" rx="3"/></g>
+  <path d="M164 58h22M182 55l4 3-4 3M170 78h16M182 75l4 3-4 3M160 98h26M182 95l4 3-4 3"/>
+  <g><circle cx="204" cy="56" r="4"/><path d="M197 66c1-4 13-4 14 0"/><circle cx="204" cy="76" r="4"/><path d="M197 86c1-4 13-4 14 0"/><circle cx="204" cy="96" r="4"/><path d="M197 106c1-4 13-4 14 0"/></g>
+</svg>
+        <h3>Listened first</h3><p>I <b>interviewed every team member</b>: what do you handle, which cases should reach you? Their answers became the <span class="term" title="which teammate gets tagged for which kind of question">routing rules</span>.</p></div>
+      <div class="step"><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M118 69c16 0 16-49 32-49M118 69c16 0 16-15 32-15M118 69c16 0 16 19 32 19M118 69c16 0 16 53 32 53M50 69h32"/>
+  <path class="pk" pathLength="100" d="M50 69h68c16 0 16-15 32-15"/>
+  <path class="hi pnl" d="M100 51 118 69 100 87 82 69z"/>
+  <rect x="8" y="58" width="42" height="22" rx="8" class="pnl"/><text x="29" y="74" text-anchor="middle" class="hi">?</text>
+  <rect x="150" y="10" width="78" height="20" rx="6" class="pnl"/><text x="160" y="24">answer</text>
+  <rect x="150" y="44" width="78" height="20" rx="6" class="pnl"/><text x="160" y="58">look up</text>
+  <rect x="150" y="78" width="78" height="20" rx="6" class="pnl"/><text x="160" y="92">ask back</text>
+  <rect x="150" y="112" width="78" height="20" rx="6" class="pnl"/><text x="160" y="126">ticket</text>
+  <g class="go"><circle cx="214" cy="119" r="3.5"/><path d="M208 128c1-3 11-3 12 0"/></g>
+</svg>
+        <h3>Mapped the flow</h3><p>With my manager I turned the team's needs into a <b>workflow map</b>: when to answer, when to look something up, when to ask the asker for more, when to open a ticket.</p></div>
+      <div class="step"><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <g class="dim"><rect x="14" y="34" width="44" height="56" rx="8" class="pnl"/><rect x="29" y="56" width="14" height="12" rx="3"/><circle cx="33" cy="61" r="1.3" class="eye"/><circle cx="39" cy="61" r="1.3" class="eye"/><path d="M48 40l4 4M52 40l-4 4"/></g>
+  <g class="dim"><rect x="70" y="34" width="44" height="56" rx="8" class="pnl"/><rect x="85" y="46" width="14" height="12" rx="3"/><circle cx="89" cy="51" r="1.3" class="eye"/><circle cx="95" cy="51" r="1.3" class="eye"/><path d="M92 58v6"/><rect x="85" y="64" width="14" height="12" rx="2"/><path d="M88 69h8M88 73h5M104 40l4 4M108 40l-4 4"/></g>
+  <g class="dim"><rect x="126" y="34" width="44" height="56" rx="8" class="pnl"/><rect x="130" y="56" width="14" height="12" rx="3"/><circle cx="134" cy="61" r="1.3" class="eye"/><circle cx="140" cy="61" r="1.3" class="eye"/><rect x="152" y="56" width="14" height="12" rx="3"/><circle cx="156" cy="61" r="1.3" class="eye"/><circle cx="162" cy="61" r="1.3" class="eye"/><path d="M144 62h8M160 40l4 4M164 40l-4 4"/></g>
+  <g class="hi"><rect x="182" y="34" width="44" height="56" rx="8" class="pnl"/><rect x="197" y="42" width="14" height="12" rx="3"/><circle cx="201" cy="47" r="1.3" class="eye"/><circle cx="207" cy="47" r="1.3" class="eye"/><path d="M204 54v5h-11v7M204 59h11v7"/><rect x="186" y="66" width="14" height="12" rx="3"/><circle cx="190" cy="71" r="1.3" class="eye"/><circle cx="196" cy="71" r="1.3" class="eye"/><rect x="208" y="66" width="14" height="12" rx="3"/><circle cx="212" cy="71" r="1.3" class="eye"/><circle cx="218" cy="71" r="1.3" class="eye"/></g>
+  <path class="dr d1" pathLength="100" d="M58 62h12M66 59l4 3-4 3"/>
+  <path class="dr d2" pathLength="100" d="M114 62h12M122 59l4 3-4 3"/>
+  <path class="dr d3" pathLength="100" d="M170 62h12M178 59l4 3-4 3"/>
+  <text x="36" y="112" text-anchor="middle">v1</text><text x="92" y="112" text-anchor="middle">v2</text><text x="148" y="112" text-anchor="middle">v3</text><text x="204" y="112" text-anchor="middle" class="hi">v4</text>
+</svg>
+        <h3>Tried four versions</h3><p>Each version was shaped by what the one before could not do. <b>The fourth</b> — three existing bots working together — is the one in use.</p></div>
+      <div class="step"><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="16" cy="60" r="5"/><path d="M8 72c1-5 15-5 16 0M30 57h26M30 63h18"/>
+  <text x="8" y="92">no tag</text>
+  <path d="M110 66c20 0 20-38 40-38M110 66c20 0 20 40 40 40M58 60c8 0 8 6 16 6"/>
+  <path class="pk" pathLength="100" d="M58 60c8 0 8 6 16 6h36c20 0 20-38 40-38"/>
+  <path class="pk d2" pathLength="100" d="M58 60c8 0 8 6 16 6h36c20 0 20 40 40 40"/>
+  <g class="hi"><rect x="74" y="50" width="36" height="32" rx="8" class="pnl"/><circle cx="86" cy="63" r="2" class="eye"/><circle cx="98" cy="63" r="2" class="eye"/><path d="M87 72h10"/></g>
+  <text x="92" y="100" text-anchor="middle" class="hi">reader</text>
+  <rect x="150" y="14" width="32" height="28" rx="8" class="pnl"/><circle cx="160" cy="26" r="1.8" class="eye"/><circle cx="172" cy="26" r="1.8" class="eye"/><path d="M161 34h10M192 22h32M192 28h24M192 34h32"/>
+  <text x="166" y="56" text-anchor="middle">research</text>
+  <rect x="150" y="92" width="32" height="28" rx="8" class="pnl"/><circle cx="160" cy="104" r="1.8" class="eye"/><circle cx="172" cy="104" r="1.8" class="eye"/><path d="M161 112h10M182 106h10"/>
+  <rect x="192" y="94" width="36" height="24" rx="4" class="pnl"/><path d="M198 101h14M198 107h22M198 113h10"/>
+  <text x="166" y="134" text-anchor="middle">ticket</text>
+</svg>
+        <h3>Wired the three</h3><p>I wrote the <b>behaviour rules</b>: the reader bot reads without being tagged and decides which helper to call; the research bot answers in a clean format; the ticket bot connects to the team's Jira.</p></div>
+      <div class="step"><svg class="sg" viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" fill="none" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <g class="dim"><circle cx="24" cy="40" r="6"/><path d="M13 56c2-7 20-7 22 0"/><rect x="8" y="62" width="32" height="10" rx="2"/><path d="M13 67h3M19 67h3M25 67h3M31 67h3M6 80L42 28"/></g>
+  <text x="24" y="92" text-anchor="middle" class="dim">retype</text>
+  <g class="hi"><rect x="82" y="50" width="64" height="48" rx="6" class="pnl"/><rect x="78" y="46" width="64" height="48" rx="6" class="pnl"/></g><path d="M84 58h9M99 62h22M84 72h9M99 76h14M84 86h9M99 90h18"/>
+  <g class="hi"><rect x="160" y="30" width="32" height="28" rx="8" class="pnl"/><circle cx="170" cy="42" r="1.8" class="eye"/><circle cx="182" cy="42" r="1.8" class="eye"/><path d="M171 50h10"/></g>
+  <rect x="150" y="76" width="80" height="38" rx="8" class="pnl"/><path d="M172 76l4-8 4 8M160 89h50M160 97h36M160 105h44"/>
+  <g class="card"><rect x="74" y="42" width="64" height="48" rx="6" class="pnl hi"/><g class="hi"><rect x="80" y="49" width="9" height="9" rx="2"/><path d="M82 54l2 2 4-4"/><rect x="80" y="63" width="9" height="9" rx="2"/><path d="M82 68l2 2 4-4"/><rect x="80" y="77" width="9" height="9" rx="2"/><path d="M82 82l2 2 4-4"/></g><text x="95" y="58">known</text><text x="95" y="72">fix</text><text x="95" y="86">next</text></g>
+</svg>
+        <h3>Filled the prepared answers</h3><p>Prepared answers for recurring issues — what is known, whether a fix exists, what to do next — so the first bot can <b>reuse them</b> instead of a person retyping.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="chapter" data-reveal id="parts">
+  <div class="wrap">
+    <div class="sec-head sec-head--inline"><span class="mono eyebrow">06 · my part / not my part</span><h2 class="h2">Honest <em>credit</em></h2></div>
+    <div class="parts">
+      <div>
+        <h3><i></i>My part</h3>
+        <ul>
+          <li class="yes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5 11-11"/></svg><div>Interviewed each team member and turned that into routing rules</div></li>
+          <li class="yes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5 11-11"/></svg><div>Designed the whole flow: intake, asking back, looking up, escalating</div></li>
+          <li class="yes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5 11-11"/></svg><div>Chose and combined the three existing bots; wrote their behaviour logic</div></li>
+          <li class="yes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5 11-11"/></svg><div>Designed the Jira handoff: what a ticket must contain before a person sees it</div></li>
+          <li class="yes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5 11-11"/></svg><div>Prepared the answer-bank entries for recurring issues</div></li>
+        </ul>
+      </div>
+      <div>
+        <h3><i class="no"></i>Not my part</h3>
+        <ul>
+          <li class="no"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><div>The AI bots themselves <span>— existing AI tools supplied by Agoda</span></div></li>
+          <li class="no"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><div>The idea of one team channel <span>— my manager's requirement</span></div></li>
+          <li class="no"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><div>Platform choices <span>— Agoda's guidance was to reuse existing bots</span></div></li>
+          <li class="no"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><div>Training or building any AI model <span>— none was built</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="chapter chapter--last" id="tools" data-reveal>
+  <div class="wrap">
+    <div class="tools-row"><span class="mono eyebrow">07 · tools used</span>
+    <div class="chips">
+      <span class="chip"><span class="word">Slack</span><small>the channel</small></span>
+      <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z"/></svg>Jira<small>tickets</small></span>
+      <span class="chip">Existing AI bots<small>supplied by Agoda</small></span>
+      <span class="chip">Team interviews<small>routing rules</small></span>
+      <span class="chip">Workflow mapping<small>with my manager</small></span>
+      <span class="chip">Prepared answers<small>recurring issues</small></span>
+    </div></div>
+    <div class="honest">
+      <span class="k">Honesty note</span>
+      <div>Everything on this page comes from my own account of the work. The channel name, people and messages in the demo are invented; nothing here is a screenshot of Agoda's Slack, and no internal tool is named.</div>
+    </div>
+    <div class="story-foot">
+      <a class="back" href="/tech/#work"><small>Back</small><span class="arrow">←</span> All work</a>
+      <a class="back back--next" href="/tech/work/finance-briefing/"><small>Next story</small>The morning news, read to me <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__row">
+      <div>
+        <div class="foot__links"><a href="mailto:chirath.s@outlook.com">Email</a><a href="https://github.com/chirath-st" rel="me">GitHub</a><a href="https://www.linkedin.com/in/chirath-so" rel="me">LinkedIn</a><a href="/Chirath_Soithong_Resume_Tech.pdf">Resume ↗</a><a class="foot__main" href="/">Main site →</a></div>
+        <p>Every fact on this page comes from work I can walk you through in an interview. The green dots in "Running now" are set by me: green while a tool runs, grey if it breaks.</p>
+      </div>
+      <span class="mono">Chirath Soithong · New Brunswick, NJ · 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
