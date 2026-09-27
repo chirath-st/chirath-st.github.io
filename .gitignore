@@ -12,3 +12,5 @@ dev-fixtures/
 .env.*
 .vite/
 *.local
+scripts/_*
+_scratch/
