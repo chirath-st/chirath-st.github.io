@@ -21,7 +21,8 @@
 .nf h1{font:400 clamp(40px,5vw,80px)/1.04 var(--serif);letter-spacing:-.02em}
 .nf p{color:var(--ink-2);max-width:56ch}
 .nf__links{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
-@media (max-width:1180px){.top__resume{margin-left:auto}}
+@media (max-width:1180px){.top__resume{margin-left:auto}.top__gh{margin-left:auto}.top__gh + .top__resume{margin-left:-20px}}
+@media (max-width:640px){.top__gh + .top__resume{margin-left:-6px}}
 @media (max-width:960px){
   .cp-head{grid-template-columns:1fr}
   .cp-head .ph{grid-row:auto}

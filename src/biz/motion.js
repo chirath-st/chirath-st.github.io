@@ -345,6 +345,8 @@ export function start() {
 // Case index: the case photo follows the mouse over the list (fine pointer only; everyone else sees inline thumbnails).
 function follower() {
   const list = $('.index');
+  // Hover photo removed (Chirath + friend, Sep 26: it made the list hard to read). The desktop list layout stays.
+  if (true) return () => {};
   if (!list || !root.classList.contains('has-follower')) return () => {};
   const rows = $$('a', list);
   const card = document.createElement('div');

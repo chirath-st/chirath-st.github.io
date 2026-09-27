@@ -48,6 +48,9 @@ html:not(.js) .progress{display:none}
 .btn--line{border:1px solid var(--ink);color:var(--ink)}
 .btn--line:hover{background:var(--ink);color:#fff}
 .btn--sm{height:40px;padding:0 18px;font-size:14.5px}
+.top__gh{gap:8px}
+.top__gh-ic{width:16px;height:16px;fill:currentColor;flex:none}
+.top__gh + .btn{margin-left:-20px}
 .btn__meta{font-size:12px;letter-spacing:.08em;color:inherit;opacity:.6}
 
 /* ---------- section head ---------- */
@@ -115,6 +118,9 @@ html.no-motion::view-transition-group(*),html.no-motion::view-transition-old(*),
   .top__row{gap:14px}
   .btn--sm{height:36px;padding:0 14px;font-size:13.5px}
   .btn--sm .btn__meta{display:none}
+  .top__gh{width:36px;padding:0;justify-content:center}
+  .top__gh-t{display:none}
+  .top__gh + .btn{margin-left:-6px}
   .btn{height:50px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
