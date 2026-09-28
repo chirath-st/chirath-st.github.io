@@ -3,33 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Case 01 · Possible sales opportunities, flagged automatically · Chirath Soithong</title>
-  <meta name="description" content="Case 01, Agoda: the commercial team ran its sales checks by hand. Now the checks run on their own, and a person approves each opportunity." />
-  <meta property="og:title" content="Case 01 · Possible sales opportunities, flagged automatically, approved by a person" />
-  <meta property="og:description" content="Case 01, Agoda: the commercial team ran its sales checks by hand. Now the checks run on their own, and a person approves each opportunity." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://chirath-st.github.io/cases/sales-checks/" />
+  <title>Project 01 · Possible sales opportunities, flagged automatically · Chirath Soithong</title>
+  <meta name="description" content="Project 01, Agoda: the commercial team ran its sales checks by hand. Now the checks run on their own, and a person approves each opportunity." />
   <!--@include:biz-head-->
-  <link rel="stylesheet" href="/src/styles/biz/story-page.css" />
-  <link rel="stylesheet" href="/src/styles/biz/builtwith.css" />
+  <!-- Briefing template v3: if a stylesheet ever fails to load, an icon without width/height (e.g. in a shared partial)
+       stays 1em instead of filling the screen. Zero specificity, so every real CSS rule wins. -->
+  <style>:where(svg:not([width])){width:1em;height:1em}</style>
+  <link rel="stylesheet" href="/src/styles/biz/briefing.css" />
   <link rel="stylesheet" href="/src/styles/biz/cases/sales-checks.css" />
-  <script type="module" src="/src/biz/story.js"></script>
+  <script type="module" src="/src/biz/briefing.js"></script>
   <script type="module" src="/src/biz/cases/sales-checks.js"></script>
 </head>
 <body>
 <!--@include:biz-header-sub-->
 
-<!-- Case page, template v2 (design/STORY_TEMPLATE_v2.md), the reference example for Cases 02-04:
-     case bar · head (meta, title, status, Before → After, photo) · 60-second version · the story: chapters that each
-     pair their text with their OWN picture (.ch, alternating sides with .ch--flip) and full-width picture bands (.bandv)
-     · Built with (the only place with tool names) · next links.
-     Honesty: every sentence comes from the honesty-checked copy (annex §10.5, §10.7) or the evidence bank (Agoda project 2);
-     status wording "Live" only (Sep 23); only what was built and that it is live, never what is missing.
-     Pictures are illustrative (rows stand for hotels and suppliers; no real names or counts). -->
-<main id="main" class="page sp">
+<!-- Project 01, "The Briefing" (story template v3, design/STORY_TEMPLATE_v3.md): the reference page for the template.
+     project bar · head (meta, title, Before → After, RESULT, jump links, photo) · "In this project" card beside the
+     60-second box (What I did · Who did what · Runs as) · five numbered bands (01 problem · 02 what I built · 03 who it
+     was for · 04 how I checked it · 05 the result, navy), each: claim headline, lead, ONE exhibit, one detail row ·
+     Built with (still) · next project.
+     Honesty: every sentence comes from the honesty-checked copy (the Technical edition page tech/work/commercial-review,
+     the Sep 24 Case 01) or the evidence bank (Agoda project 2 + handover). Status wording "Live" only (Sep 23); only
+     what was built and that it is live, never what is missing. Pictures are illustrative (rows stand for hotels and
+     suppliers; no real names or counts). Every inline svg has width/height attributes (no giant icons if the CSS fails). -->
+<main id="main" class="page sp bq">
   <div class="wrap">
-    <nav class="cbar" aria-label="Cases">
-      <a class="cp-back" href="/#cases">← All cases</a>
+    <nav class="cbar" aria-label="Projects">
+      <a class="cp-back" href="/#cases">← All projects</a>
       <ol class="cbar__chips">
         <li><a href="/cases/sales-checks/" aria-current="page"><b>01</b>Sales checks</a></li>
         <li><a href="/cases/questions-desk/"><b>02</b>Questions desk</a></li>
@@ -38,408 +38,418 @@
       </ol>
     </nav>
 
-    <header class="cp-head sp-head">
-      <p class="case__meta"><span>Case 01</span><span>Agoda, Bangkok</span><span>Commercial Operations and AI Automation Intern</span><span>Jun–Aug 2026</span></p>
+    <header class="cp-head sp-head bq-head">
+      <p class="case__meta"><span>Project 01</span><span>Agoda, Bangkok</span><span>Commercial Operations and AI Automation Intern</span><span>Jun–Aug 2026</span></p>
       <h1 class="case__title sp-title">Possible sales opportunities, flagged automatically, <span class="tone">approved by a person.</span></h1>
-      <p class="cp-badges"><span class="badge badge--live" data-status-manual><!--@fact:status.agoda.label--></span></p>
       <p class="ba"><span class="ba__p ba__b"><small>Before</small>The team ran its sales checks by hand.</span><span class="ba__arr" aria-hidden="true">→</span><span class="ba__p ba__a"><small>After</small>The checks run on their own. A person approves each opportunity.</span></p>
+      <p class="bq-result"><span class="bq-result__k">Result</span><span class="badge badge--live" data-status-manual><!--@fact:status.agoda.label--></span><span class="bq-result__t">Built to take three kinds of routine work off the team.</span></p>
+      <p class="bq-jump"><a class="bq-jump__a bq-jump__a--main" href="#result">Jump to the result<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="bq-jump__a" href="#decides">See the demo<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="bq-jump__a bq-jump__a--out" href="/tech/work/commercial-review/">Technical deep dive<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
       <figure class="ph">
-        <div class="ph__frame"><picture><source media="(max-width: 640px)" srcset="/img/photos/agoda-one-bangkok-a-480.webp 480w, /img/photos/agoda-one-bangkok-a-800.webp 800w" sizes="100vw"><!--@img:agoda-one-bangkok-a sizes="(max-width: 960px) calc(100vw - 40px), 32vw" fetchpriority="high"--></picture></div>
-        <figcaption><!--@caption:agoda-one-bangkok-a--> <span class="cap__credit"><!--@credit:agoda-one-bangkok-a--></span></figcaption>
+        <div class="ph__frame"><picture><source media="(max-width: 640px)" srcset="/img/photos/agoda-one-bangkok-a-480.webp 480w, /img/photos/agoda-one-bangkok-a-800.webp 800w" sizes="100vw"><!--@img:agoda-one-bangkok-a sizes="(max-width: 960px) calc(100vw - 40px), 30vw" fetchpriority="high"--></picture></div>
+        <figcaption><!--@caption:agoda-one-bangkok-a--></figcaption>
       </figure>
     </header>
 
-    <section class="sixty sixty--wide sc-sixty" aria-labelledby="sixty-t">
-      <div class="sixty__h"><h2 id="sixty-t">The <span class="nw">60-second</span> version</h2><span class="label">Case 01 · Agoda</span></div>
-      <dl class="sc-dl1">
-        <div class="sixty__row"><dt>Situation</dt><dd>The commercial team ran its sales checks by hand.</dd></div>
-        <div class="sixty__row"><dt>What I did</dt><dd>Mapped the process with my manager, turned the team’s market and invoicing rules into automatic checks, and built a review step where she ticks the opportunities worth pursuing before an editable draft note is prepared for the account manager.</dd></div>
-      </dl>
-      <figure class="sixty__pic sc-map" data-visual aria-labelledby="map-t">
-        <ol class="sc-map__steps">
-          <li class="sc-map__auto"><span class="sc-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span>Find the gap</li>
-          <li class="sc-map__auto"><span class="sc-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16l-6.2 7.4V19l-3.6-1.8v-4.8z"/></svg></span>Apply the rules</li>
-          <li class="sc-map__person"><span class="sc-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3.5"/><path d="m8.2 12.4 2.8 2.8 5-5.6"/></svg></span>Review</li>
-          <li><span class="sc-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span>Write the note</li>
-        </ol>
-        <figcaption id="map-t">The first two steps run on their own; a person reviews.</figcaption>
-      </figure>
-      <dl class="sc-dl2">
-        <div class="sixty__row"><dt>Result</dt><dd><!--@fact:status.agoda.label-->. Handed over with a week of training.</dd></div>
-        <div class="sixty__row sixty__row--so"><dt>So what</dt><dd>The aim: the team spends its time on the calls worth making, not on finding them.</dd></div>
-      </dl>
-    </section>
-
-    <div class="st">
-
-      <!-- 1 · The problem  ↔  Exhibit 1: before / after slider -->
-      <section class="ch" id="situation" aria-labelledby="problem-t">
-        <div class="ch__text">
-          <div class="ch__head">
-            <p class="sp-kicker">The problem</p>
-            <h2 class="sp-h" id="problem-t">The team ran its sales checks by hand.</h2>
-          </div>
-          <div class="ch__body">
-            <p>One check looked for hotels and suppliers selling on Agoda but not yet switched on with partner platforms such as Booking.com and Priceline.</p>
-            <p>My manager wanted the checks to run on their own, with the results shown for review.</p>
-            <aside class="plate" aria-label="What it is built to take off the team’s plate">
-              <p class="plate__k">What it is built to take off the team’s plate</p>
-              <p>Running the checks by hand. The checks find the possible gaps; people decide which ones to pursue.</p>
-            </aside>
-          </div>
+    <div class="bq-art">
+      <aside class="bq-side" aria-label="In this project">
+        <div class="bq-file">
+          <nav class="bq-toc" aria-label="Parts of this project">
+            <p class="bq-file__k">In this project <span class="bq-file__rt">5 parts · about 4 min to read</span></p>
+            <ol>
+              <li><a href="#problem"><b>01</b><span>The problem</span></a></li>
+              <li><a href="#built"><b>02</b><span>What I built</span></a></li>
+              <li><a href="#decides"><b>03</b><span>Who it was for</span></a></li>
+              <li><a href="#checked"><b>04</b><span>How I checked it</span></a></li>
+              <li><a href="#result"><b>05</b><span>What happened</span></a></li>
+            </ol>
+          </nav>
+          <button type="button" class="bq-openall" aria-pressed="false"><span class="bq-openall__ic" aria-hidden="true"></span><span class="bq-openall__l">Open all details</span></button>
+          <dl class="bq-facts">
+            <div class="bq-fact"><dt>Built with</dt><dd>SQL · Python · Slack</dd></div>
+          </dl>
+          <p class="bq-src">Source: my Agoda internship, Jun–Aug 2026.</p>
         </div>
-        <figure data-visual class="ch__vis vis k-cmp sc-cmp" data-kit="compare" aria-labelledby="ex1-t">
-          <div class="vis__head">
-            <p class="vis__title"><span class="vis__num">Exhibit 1</span><span class="vis__name" id="ex1-t">One sales check, by hand and on its own</span></p>
-            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8 4 12l4 4M16 8l4 4-4 4M4 12h16"/></svg>Drag to compare</span>
+      </aside>
+
+      <div class="bq-main">
+        <section class="sixty sixty--wide sc-sixty" aria-labelledby="sixty-t">
+          <div class="sixty__h"><h2 id="sixty-t">The <span class="nw">60-second</span> version</h2></div>
+          <dl class="sc-dl1">
+            <div class="sixty__row"><dt>What I did</dt><dd>Mapped the process with my manager, turned the team’s market and invoicing rules into automatic checks, and built a review step where she ticks the opportunities worth pursuing before an editable draft note is prepared for the account manager.</dd></div>
+          </dl>
+          <figure class="sixty__pic sc-map" data-visual aria-labelledby="map-t">
+            <ol class="sc-map__steps">
+              <li class="sc-map__auto"><span class="sc-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span>Find the gap</li>
+              <li class="sc-map__auto"><span class="sc-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 5h16l-6.2 7.4V19l-3.6-1.8v-4.8z"/></svg></span>Apply the rules</li>
+              <li class="sc-map__person"><span class="sc-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="4" y="4" width="16" height="16" rx="3.5"/><path d="m8.2 12.4 2.8 2.8 5-5.6"/></svg></span>Review</li>
+              <li><span class="sc-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span>Write the note</li>
+            </ol>
+            <figcaption id="map-t">The first two steps run on their own; a person reviews.</figcaption>
+          </figure>
+          <dl class="sc-dl2">
+            <div class="sixty__row sixty__row--so"><dt>Who did what</dt><dd>I designed and built the tool, with AI coding assistants. The commercial ideas and the final calls were my manager’s.</dd></div>
+            <div class="sixty__row"><dt>Runs as</dt><dd>Fixed checks and message templates: the same input always gives the same output, as the guidance I was given asked.</dd></div>
+          </dl>
+        </section>
+
+        <section class="bp" id="problem" aria-labelledby="problem-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>01</b><span>/ 05</span></p>
+            <p class="bp__k"><span class="sr">Part 1 of 5: </span>The problem</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li><li></li></ol>
+          </header>
+          <div class="bp__grid bp__grid--wide">
+            <div class="bp__text">
+              <h2 class="sp-h bp__h" id="problem-t">My manager wanted the checks to run on their own, with the results shown for review.</h2>
+              <p class="bp__lead">One check looked for hotels and suppliers selling on Agoda but not yet switched on with partner platforms such as Booking.com and Priceline.</p>
+            </div>
+            <figure data-visual class="vis k-cmp sc-cmp bp__vis" data-kit="compare" aria-labelledby="ex1-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 1</span><span class="vis__name" id="ex1-t">One sales check, by hand and on its own</span></p>
+                <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M8 8 4 12l4 4M16 8l4 4-4 4M4 12h16"/></svg>Drag to compare</span>
+              </div>
+              <p class="sr">Illustrative picture. Each row is a hotel or supplier selling on Agoda. Before: the team checked by hand whether each one was also switched on at a partner platform. Now: the checks run on their own. Most rows are switched on at a partner platform. Three are not yet: a possible gap. One of them is greyed out by the market and invoicing rules, because that gap is there on purpose. A person ticks the two that remain.</p>
+              <div class="k-cmp__stage">
+                <div class="k-cmp__pane k-cmp__pane--before" aria-hidden="true">
+                  <span class="k-cmp__tag">Before<span class="k-cmp__more"> · by hand</span></span>
+                  <p class="sc-lh"><span>Hotel or supplier</span><span class="sc-lh__c">On Agoda</span><span class="sc-lh__c"><span class="sc-l">On a partner platform</span><span class="sc-s">Partner</span></span><span></span></p>
+                  <ol class="sc-rows">
+                    <li class="sc-row"><span class="sc-nm">Hotel A</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
+                    <li class="sc-row"><span class="sc-nm">Hotel B</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
+                    <li class="sc-row"><span class="sc-nm">Supplier C</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
+                    <li class="sc-row"><span class="sc-nm">Hotel D</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
+                    <li class="sc-row"><span class="sc-nm">Hotel E</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
+                    <li class="sc-row"><span class="sc-nm">Supplier F</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
+                  </ol>
+                </div>
+                <div class="k-cmp__pane k-cmp__pane--after" aria-hidden="true">
+                  <span class="k-cmp__tag">Now<span class="k-cmp__more"> · on its own</span></span>
+                  <p class="sc-lh"><span>Hotel or supplier</span><span class="sc-lh__c">On Agoda</span><span class="sc-lh__c"><span class="sc-l">On a partner platform</span><span class="sc-s">Partner</span></span><span></span></p>
+                  <ol class="sc-rows">
+                    <li class="sc-row"><span class="sc-nm">Hotel A</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-res"></span></li>
+                    <li class="sc-row sc-row--pick"><span class="sc-nm">Hotel B</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--gap"></span><span class="sc-res"><span class="sc-chip sc-chip--gap"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span><span class="sc-cb sc-cb--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span></span></li>
+                    <li class="sc-row"><span class="sc-nm">Supplier C</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-res"></span></li>
+                    <li class="sc-row sc-row--out"><span class="sc-nm">Hotel D</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--gap"></span><span class="sc-res"><span class="sc-chip sc-chip--rule"><span class="sc-chip__l">There on purpose</span><span class="sc-chip__s">Rule</span></span></span></li>
+                    <li class="sc-row sc-row--pick"><span class="sc-nm">Hotel E</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--gap"></span><span class="sc-res"><span class="sc-chip sc-chip--gap"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span><span class="sc-cb sc-cb--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span></span></li>
+                    <li class="sc-row"><span class="sc-nm">Supplier F</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-res"></span></li>
+                  </ol>
+                </div>
+              </div>
+              <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Each row stands for a hotel or supplier; the names are examples.</span></figcaption>
+            </figure>
           </div>
-          <p class="sr">Illustrative picture. Each row is a hotel or supplier selling on Agoda. Before: the team checked by hand whether each one was also switched on at a partner platform. Now: the checks run on their own. Most rows are switched on at a partner platform. Three are not yet: a possible gap. One of them is greyed out by the market and invoicing rules, because that gap is there on purpose. A person ticks the two that remain.</p>
-          <div class="k-cmp__stage">
-            <div class="k-cmp__pane k-cmp__pane--before" aria-hidden="true">
-              <span class="k-cmp__tag">Before<span class="k-cmp__more"> · by hand</span></span>
-              <p class="sc-lh"><span>Hotel or supplier</span><span class="sc-lh__c">On Agoda</span><span class="sc-lh__c"><span class="sc-l">On a partner platform</span><span class="sc-s">Partner</span></span><span></span></p>
-              <ol class="sc-rows">
-                <li class="sc-row"><span class="sc-nm">Hotel A</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
-                <li class="sc-row"><span class="sc-nm">Hotel B</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
-                <li class="sc-row"><span class="sc-nm">Supplier C</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
-                <li class="sc-row"><span class="sc-nm">Hotel D</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
-                <li class="sc-row"><span class="sc-nm">Hotel E</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
-                <li class="sc-row"><span class="sc-nm">Supplier F</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--q">?</span><span class="sc-res"></span></li>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">What each mark in Exhibit 1 means</span><span class="bp__rt">Key · under 1 min</span></summary>
+            <div class="bp__detail bp__detail--key">
+              <p class="sc-key"><span class="sc-key__i"><i class="sc-st sc-st--q">?</i>Checked by hand</span><span class="sc-key__i"><i class="sc-st sc-st--on"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></i>Switched on</span><span class="sc-key__i"><i class="sc-st sc-st--gap"></i>Possible gap: on Agoda, not yet on a partner platform</span><span class="sc-key__i"><i class="sc-sw"></i>There on purpose: filtered out by the rules</span><span class="sc-key__i"><i class="sc-cb sc-cb--on sc-key__cb"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></i>Ticked by a person</span></p>
+            </div>
+          </details>
+        </section>
+
+        <section class="bp bp--tint" id="built" aria-labelledby="did-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>02</b><span>/ 05</span></p>
+            <p class="bp__k"><span class="sr">Part 2 of 5: </span>What I built</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li class="is-on"></li><li></li><li></li><li></li></ol>
+          </header>
+          <div class="bp__intro">
+            <h2 class="sp-h bp__h" id="did-t">I mapped the process, then built the team’s rules into the checks.</h2>
+            <div class="bp__intro-r">
+              <p class="bp__callout"><span class="bp__callout-k">The team’s rules, built into the checks</span><span class="bp__callout-t">Not every gap is an opportunity.</span><span class="bp__callout-s">The checks apply the team’s market and invoicing rules first, so only the gaps that pass reach review.</span></p>
+            </div>
+          </div>
+          <figure data-visual class="vis sc-proc bp__wide" id="process" aria-labelledby="ex3-t">
+            <div class="vis__head">
+              <p class="vis__title"><span class="vis__num">Exhibit 2</span><span class="vis__name" id="ex3-t">The process I mapped with my manager</span></p>
+              <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to send six rows through it</span>
+            </div>
+            <p class="sr">Illustrative picture of the four steps, with six example rows. Step 1, find the gap, runs on its own: six hotels or suppliers are flagged as a possible gap. Step 2, apply the rules, runs on its own: two gaps are there on purpose and are filtered out, four pass. Step 3, review: a person ticks three of the four. Step 4: each ticked row becomes an editable draft note for the account manager.</p>
+            <div class="sc-proc__map" data-kit="sc-funnel">
+              <ol class="sc-steps">
+                <li class="sc-step">
+                  <span class="sc-tally" aria-hidden="true"><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i></span>
+                  <span class="sc-stop"><b>1</b></span>
+                  <div class="k-node k-node--auto sc-card">
+                    <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span>
+                    <span class="k-node__t">Find the gap</span><small>Automatic</small>
+                  </div>
+                </li>
+                <li class="sc-step">
+                  <span class="sc-tally" aria-hidden="true"><i class="sc-tk sc-tk--out"></i><i class="sc-tk sc-tk--out"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i></span>
+                  <span class="sc-stop"><b>2</b></span>
+                  <div class="k-node k-node--auto sc-card">
+                    <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 5h16l-6.2 7.4V19l-3.6-1.8v-4.8z"/></svg></span>
+                    <span class="k-node__t">Apply the rules</span><small>Automatic</small>
+                  </div>
+                </li>
+                <li class="sc-step">
+                  <span class="sc-tally" aria-hidden="true"><i class="sc-tk"></i><i class="sc-tk sc-tk--tick"><b><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></b></i><i class="sc-tk sc-tk--tick"><b><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></b></i><i class="sc-tk sc-tk--tick"><b><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></b></i></span>
+                  <span class="sc-stop sc-stop--person"><b>3</b></span>
+                  <div class="k-node k-node--person sc-card">
+                    <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="4" y="4" width="16" height="16" rx="3.5"/><path d="m8.2 12.4 2.8 2.8 5-5.6"/></svg></span>
+                    <span class="k-node__t">Review</span><small>A person decides</small>
+                  </div>
+                </li>
+                <li class="sc-step">
+                  <span class="sc-tally" aria-hidden="true"><i class="sc-tk sc-tk--note"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></i><i class="sc-tk sc-tk--note"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></i><i class="sc-tk sc-tk--note"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></i></span>
+                  <span class="sc-stop"><b>4</b></span>
+                  <div class="k-node sc-card">
+                    <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span>
+                    <span class="k-node__t">Write the note</span><small>Prewritten draft, editable</small>
+                  </div>
+                </li>
               </ol>
             </div>
-            <div class="k-cmp__pane k-cmp__pane--after" aria-hidden="true">
-              <span class="k-cmp__tag">Now<span class="k-cmp__more"> · on its own</span></span>
-              <p class="sc-lh"><span>Hotel or supplier</span><span class="sc-lh__c">On Agoda</span><span class="sc-lh__c"><span class="sc-l">On a partner platform</span><span class="sc-s">Partner</span></span><span></span></p>
-              <ol class="sc-rows">
-                <li class="sc-row"><span class="sc-nm">Hotel A</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-res"></span></li>
-                <li class="sc-row sc-row--pick"><span class="sc-nm">Hotel B</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--gap"></span><span class="sc-res"><span class="sc-chip sc-chip--gap"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span><span class="sc-cb sc-cb--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span></span></li>
-                <li class="sc-row"><span class="sc-nm">Supplier C</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-res"></span></li>
-                <li class="sc-row sc-row--out"><span class="sc-nm">Hotel D</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--gap"></span><span class="sc-res"><span class="sc-chip sc-chip--rule"><span class="sc-chip__l">There on purpose</span><span class="sc-chip__s">Rule</span></span></span></li>
-                <li class="sc-row sc-row--pick"><span class="sc-nm">Hotel E</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--gap"></span><span class="sc-res"><span class="sc-chip sc-chip--gap"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span><span class="sc-cb sc-cb--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span></span></li>
-                <li class="sc-row"><span class="sc-nm">Supplier F</span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-res"></span></li>
+            <p class="sc-tkey" aria-hidden="true"><span><i class="sc-tk"></i>A hotel or supplier with a possible gap</span><span><i class="sc-tk sc-tk--out"></i>There on purpose: filtered out</span><span><i class="sc-tk sc-tk--tick"><b><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></b></i>Ticked by a person</span><span><i class="sc-tk sc-tk--note"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></i>Draft note</span></p>
+            <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Six example rows; the counts are an example.</span></figcaption>
+          </figure>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">Try it: sort four possible gaps by the team’s rules</span><span class="bp__rt">Interactive · under 1 min</span></summary>
+            <div class="bp__detail">
+              <figure data-visual class="vis k-sort sc-sort" data-kit="sort" data-done="All sorted: two gaps reach review, two are there on purpose." aria-labelledby="ex5-t">
+                <div class="vis__head">
+                  <p class="vis__title"><span class="vis__num">Exhibit 2.1</span><span class="vis__name" id="ex5-t">Which possible gaps reach review?</span></p>
+                  <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-4.6-2.2L4.3 15a1.6 1.6 0 0 1 2.4-2.1L9 15"/></svg>Scroll, or drag the cards yourself</span>
+                </div>
+                <div class="k-sort__tray" data-label="Possible gaps the check found" aria-hidden="true"><span class="k-sort__slot"></span><span class="k-sort__slot"></span><span class="k-sort__slot"></span><span class="k-sort__slot"></span></div>
+                <div class="k-sort__arrow" aria-hidden="true"><svg viewBox="0 0 22 28" width="16" height="20"><path d="M11 2v22M4 17l7 7 7-7"/></svg><span class="sc-sort__rules"><i>Market rule</i><i>Invoicing rule</i></span></div>
+                <div class="k-sort__buckets">
+                  <div class="k-sort__bucket sc-bk-review" data-bucket="review">
+                    <p class="k-sort__bh"><span class="k-dia" aria-hidden="true"></span>Reaches review</p>
+                    <ul class="k-sort__cards">
+                      <li class="k-card" data-to="review" data-slot="0">Possible gap<small>Passes both rules</small></li>
+                      <li class="k-card" data-to="review" data-slot="3">Possible gap<small>Passes both rules</small></li>
+                    </ul>
+                  </div>
+                  <div class="k-sort__bucket sc-bk-out" data-bucket="out">
+                    <p class="k-sort__bh"><span class="sc-sw" aria-hidden="true"></span>There on purpose: filtered out</p>
+                    <ul class="k-sort__cards">
+                      <li class="k-card" data-to="out" data-slot="1">Possible gap<small>A market rule applies</small></li>
+                      <li class="k-card" data-to="out" data-slot="2">Possible gap<small>An invoicing rule applies</small></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="k-sort__bar"><button type="button" class="k-sort__try">Sort them yourself</button><p class="k-sort__note" aria-live="polite"></p></div>
+                <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Each card stands for a possible gap.</span></figcaption>
+              </figure>
+            </div>
+          </details>
+        </section>
+
+        <section class="bp bp--white" id="decides" aria-labelledby="decides-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>03</b><span>/ 05</span></p>
+            <p class="bp__k bp__k--person"><span class="sr">Part 3 of 5: </span>Who it was for</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li></li><li class="is-on"></li><li></li><li></li></ol>
+          </header>
+          <div class="bp__grid">
+            <div class="bp__text">
+              <h2 class="sp-h bp__h" id="decides-t">It was built for my manager and the account managers.</h2>
+              <p class="bp__lead">My manager, the business owner, reviews the results. For each opportunity she approves, a draft note is prepared for the account manager.</p>
+              <p class="bp__callout bp__callout--sm"><span class="bp__callout-k">What I did</span>Asked account managers what a useful note must say and what they should do next.</p>
+            </div>
+            <figure data-visual class="vis sc-demo bp__vis" aria-labelledby="ex6-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 3</span><span class="vis__name" id="ex6-t">From a tick to a draft note</span></p>
+              </div>
+              <div class="k-chat sc-chat" data-kit="chat" role="group" aria-label="Demo: from a tick to a draft note">
+                <button class="k-chat__replay" type="button"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg>Replay</button>
+                <ol class="k-chat__log">
+                  <li class="k-msg k-msg--in"><span class="k-msg__who"><i class="sc-av sc-av--auto" aria-hidden="true"></i>The checks</span><div class="k-msg__bubble">Possible opportunities are ready for review.</div></li>
+                  <li class="k-msg k-msg--out" data-wait="700"><span class="k-msg__who">My manager<i class="k-dia" aria-hidden="true"></i></span><div class="k-msg__bubble">Ticks the ones worth pursuing, then Next.</div></li>
+                  <li class="k-msg k-msg--in sc-draft" data-type data-wait="500"><span class="k-msg__who"><i class="sc-av" aria-hidden="true"></i>Draft note · editable · for the account manager</span><div class="k-msg__bubble">Hi <mark>[account manager]</mark>, <mark>[supplier]</mark> sells on Agoda but is not yet switched on with <mark>[partner platform]</mark>. Could you talk to them about switching it on?</div></li>
+                  <li class="k-msg k-msg--out" data-wait="600"><span class="k-msg__who">My manager<i class="k-dia" aria-hidden="true"></i></span><div class="k-msg__bubble">Edits the wording, then <b>Done</b>. The draft is saved.</div></li>
+                </ol>
+              </div>
+              <figcaption class="vis__cap"><span><span class="ill">Illustrative demo</span> The draft is a prewritten template; the words in brackets fill themselves in.</span></figcaption>
+            </figure>
+          </div>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">The review screen I built, part by part</span><span class="bp__rt">2 exhibits · about 1 min</span></summary>
+            <div class="bp__detail bp__detail--pairs">
+              <div class="bq-pair">
+                <div class="bq-pair__text">
+                  <p class="sp-kicker">What a person still decides</p>
+                  <ul class="decides">
+                    <li><b>Which flagged opportunities to pursue.</b> The checks only flag possible opportunities; she ticks the ones worth pursuing.</li>
+                    <li><b>What the draft note says.</b> It can be edited before it is saved.</li>
+                  </ul>
+                </div>
+                <figure data-visual class="vis sc-who" aria-labelledby="ex2-t">
+                  <div class="vis__head">
+                    <p class="vis__title"><span class="vis__num">Exhibit 3.1</span><span class="vis__name" id="ex2-t">Who does what</span></p>
+                  </div>
+                  <div class="sc-roles" data-kit="scrub" data-start="top 85%">
+                    <div class="sc-role k-node k-node--auto" data-step="1">
+                      <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span>
+                      <span class="k-node__t">The checks</span>
+                      <small>Run on their own and flag the possible gaps.</small>
+                    </div>
+                    <span class="sc-arrow" data-step="2" data-fx="grow" aria-hidden="true"></span>
+                    <div class="sc-role k-node k-node--person" data-step="2">
+                      <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span>
+                      <span class="k-node__t">My manager</span>
+                      <small>Reviews the results and ticks the opportunities worth pursuing.</small>
+                    </div>
+                    <span class="sc-arrow" data-step="3" data-fx="grow" aria-hidden="true"></span>
+                    <div class="sc-role k-node" data-step="3">
+                      <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span>
+                      <span class="k-node__t">The account manager</span>
+                      <small>An editable draft note is prepared for them.</small>
+                    </div>
+                  </div>
+                  <figcaption class="vis__cap"><span><span class="k-dia" aria-hidden="true"></span> <b>Green</b> marks the step where a person decides.</span></figcaption>
+                </figure>
+              </div>
+              <div class="bq-pair bq-pair--full">
+                <figure data-visual class="vis k-hs sc-rev" data-kit="hotspots" aria-labelledby="ex4-t">
+                  <div class="vis__head">
+                    <p class="vis__title"><span class="vis__num">Exhibit 3.2</span><span class="vis__name" id="ex4-t">The review step I built</span></p>
+                    <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Point at a number</span>
+                  </div>
+                  <div class="k-hs__stage sc-rev__stage" data-kit="scrub" data-start="top 80%" data-end="center 45%">
+                    <div class="sc-win">
+                      <div class="sc-win__bar" data-spot="1"><span class="sc-win__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sc-win__t">Possible opportunities, for review</span><span class="k-spot" aria-hidden="true">1</span></div>
+                      <ol class="sc-win__rows">
+                        <li class="sc-r sc-r--pick" data-step="1"><span class="sc-cb sc-cb--on" data-step="3" data-fx="pop" data-spot="3"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg><span class="k-spot" aria-hidden="true">3</span></span><span class="sc-name" style="--n:42%"></span><span class="sc-chip sc-chip--gap" data-step="2" data-fx="pop" data-spot="2"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span><span class="k-spot" aria-hidden="true">2</span></span></li>
+                        <li class="sc-r" data-step="1"><span class="sc-cb"></span><span class="sc-name" style="--n:46%"></span><span class="sc-chip sc-chip--gap" data-step="2" data-fx="pop"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span></li>
+                        <li class="sc-r sc-r--pick" data-step="1"><span class="sc-cb sc-cb--on" data-step="3" data-fx="pop"><svg viewBox="0 0 12 12" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-name" style="--n:54%"></span><span class="sc-chip sc-chip--gap" data-step="2" data-fx="pop"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span></li>
+                        <li class="sc-r" data-step="1"><span class="sc-cb"></span><span class="sc-name" style="--n:70%"></span><span class="sc-chip sc-chip--gap" data-step="2" data-fx="pop"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span></li>
+                      </ol>
+                      <div class="sc-win__foot"><span class="sc-btn" data-step="3" data-fx="fade" data-spot="4">Next: draft note →<span class="k-spot" aria-hidden="true">4</span></span></div>
+                    </div>
+                    <div class="sc-pop" data-step="4" data-fx="right" data-spot="5">
+                      <p class="sc-pop__h">Draft note</p>
+                      <p class="sc-pop__to">Editable · for the account manager</p>
+                      <span class="sc-line"></span><span class="sc-line" style="width:84%"></span><span class="sc-line" style="width:58%"></span>
+                      <span class="sc-pop__btns"><span class="sc-pop__b">Edit</span><span class="sc-pop__b sc-pop__b--done">Done · save</span></span>
+                      <span class="k-spot" aria-hidden="true">5</span>
+                    </div>
+                  </div>
+                  <ol class="k-hs__list">
+                    <li data-spot="1"><b>The list.</b> The possible opportunities the checks flagged, ready for review.</li>
+                    <li data-spot="2"><b>Possible gap.</b> The check compares the list with what is switched on at each partner platform.</li>
+                    <li data-spot="3"><b>A person ticks.</b> My manager ticks the ones worth pursuing. Nothing moves on without a person.</li>
+                    <li data-spot="4"><b>Next.</b> For each opportunity she ticks, a draft note is prepared for the account manager.</li>
+                    <li data-spot="5"><b>Draft note.</b> A prewritten draft fills itself in. The reviewer can edit it before it is saved.</li>
+                  </ol>
+                  <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Rows stand for hotels and suppliers.</span></figcaption>
+                </figure>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <section class="bp k-hs" id="checked" data-kit="hotspots" aria-labelledby="checked-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>04</b><span>/ 05</span></p>
+            <p class="bp__k"><span class="sr">Part 4 of 5: </span>How I checked it</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li></li><li></li><li class="is-on"></li><li></li></ol>
+          </header>
+          <div class="bp__grid">
+            <div class="bp__text">
+              <h2 class="sp-h bp__h" id="checked-t">My manager and I reviewed the results at least twice a week.</h2>
+              <p class="bp__lead">I showed her working versions early, logged the issues we found, and changed course when she said so.</p>
+            </div>
+            <figure data-visual class="vis sc-caught bp__vis" aria-labelledby="ex7-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 4</span><span class="vis__name" id="ex7-t">What the reviews caught, and what I changed</span></p>
+              </div>
+              <div class="sc-caught__tbl" role="table" aria-labelledby="ex7-t" data-kit="scrub" data-start="top 90%" data-end="top 62%">
+                <div class="sc-caught__row sc-caught__row--h" role="row"><span role="columnheader">Caught in review</span><span aria-hidden="true"></span><span role="columnheader">What I changed</span></div>
+                <div class="sc-caught__row" role="row" data-step="1" data-fx="up"><span class="sc-caught__q" role="cell">Wrong tags</span><span class="sc-caught__arr" aria-hidden="true">→</span><span class="sc-caught__a" role="cell"><i class="sc-caught__ok" aria-hidden="true"><svg viewBox="0 0 12 12" aria-hidden="true" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></i>Revised the checks</span></div>
+                <div class="sc-caught__row" role="row" data-step="2" data-fx="up"><span class="sc-caught__q" role="cell">Hotels already switched on</span><span class="sc-caught__arr" aria-hidden="true">→</span><span class="sc-caught__a" role="cell"><i class="sc-caught__ok" aria-hidden="true"><svg viewBox="0 0 12 12" aria-hidden="true" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></i>Revised the checks</span></div>
+                <div class="sc-caught__row" role="row" data-step="3" data-fx="up"><span class="sc-caught__q" role="cell">Tables too dense to read in Slack</span><span class="sc-caught__arr" aria-hidden="true">→</span><span class="sc-caught__a" role="cell"><i class="sc-caught__ok" aria-hidden="true"><svg viewBox="0 0 12 12" aria-hidden="true" width="20" height="20"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></i>Changed the layout</span></div>
+              </div>
+              <figcaption class="vis__cap"><span>Each round: I logged each finding, revised the checks and re-ran them.</span></figcaption>
+            </figure>
+          </div>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">The review loop, step by step</span><span class="bp__rt">1 exhibit · under 1 min</span></summary>
+            <div class="bp__detail bp__detail--pairs">
+              <div class="bq-pair">
+                <div class="bq-pair__text">
+                  <ol class="k-hs__list">
+                    <li data-spot="1"><b>Show.</b> I showed her working versions early.</li>
+                    <li data-spot="2"><b>Check.</b> Are the flagged hotels and suppliers real candidates? Is the table easy to work with?</li>
+                    <li data-spot="3"><b>Log.</b> I logged the issues we found.</li>
+                    <li data-spot="4"><b>Change.</b> I revised the checks or the layout, then ran them again.</li>
+                  </ol>
+                </div>
+                <figure data-visual class="vis sc-loopfig" aria-labelledby="ex7b-t">
+                  <div class="vis__head">
+                    <p class="vis__title"><span class="vis__num">Exhibit 4.1</span><span class="vis__name" id="ex7b-t">One round of review, again and again</span></p>
+                    <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Point at a step</span>
+                  </div>
+                  <div class="k-hs__stage sc-loop" data-kit="flow" data-shape="curve" data-closed data-start=".85" data-end=".4">
+                    <div class="sc-loop__c" aria-hidden="true"><span>At least</span><b>2×</b><span>a week</span></div>
+                    <div class="k-node sc-lp sc-lp--1" data-flow-node="1" data-spot="1">
+                      <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                      <span class="k-node__t">Show a working version</span><span class="k-spot" aria-hidden="true">1</span>
+                    </div>
+                    <div class="k-node k-node--person sc-lp sc-lp--2" data-flow-node="2" data-spot="2">
+                      <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span>
+                      <span class="k-node__t">She checks the results</span><span class="k-spot" aria-hidden="true">2</span>
+                    </div>
+                    <div class="k-node sc-lp sc-lp--3" data-flow-node="3" data-spot="3">
+                      <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 19h4L19.5 8.5a2.1 2.1 0 0 0-3-3L6 16z"/></svg></span>
+                      <span class="k-node__t">Log the issues we found</span><span class="k-spot" aria-hidden="true">3</span>
+                    </div>
+                    <div class="k-node k-node--auto sc-lp sc-lp--4" data-flow-node="4" data-spot="4">
+                      <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg></span>
+                      <span class="k-node__t">Change course, run it again</span><span class="k-spot" aria-hidden="true">4</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <section class="bp bp--result on-band" id="result" aria-labelledby="happened-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>05</b><span>/ 05</span></p>
+            <p class="bp__k"><span class="sr">Part 5 of 5: </span>What happened</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li class="is-on"></li></ol>
+          </header>
+          <div class="bp__grid bp__grid--result">
+            <div class="bp__text">
+              <p class="result"><span class="badge badge--live" data-status-manual><!--@fact:status.agoda.label--></span></p>
+              <h2 class="sp-h bp__h" id="happened-t">Built to take three kinds of routine work off the team. The judgement stays with a person, on purpose.</h2>
+              <p class="bp__note">I handed it over with a week spent teaching my manager how it works.</p>
+              <p class="sp-skills"><span class="label">Skills</span>Process mapping · Business rules · Stakeholder reviews</p>
+            </div>
+            <figure data-visual class="vis sc-gone" aria-labelledby="ex8-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 5</span><span class="vis__name" id="ex8-t">What it takes off the team</span></p>
+                <span class="vis__how"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to cross out the old way</span>
+              </div>
+              <ol class="sc-gone__list" data-kit="scrub" data-start="top 90%" data-end="top 58%">
+                <li class="sc-gone__i"><p class="sc-gone__k">Repetition</p><p class="sc-gone__old"><span class="sr">Before: </span>The same comparison, by hand, row after row.<i class="sc-gone__x" data-step="1" data-fx="grow" aria-hidden="true">The same comparison, by hand, row after row.</i></p><p class="sc-gone__new" data-step="1" data-fx="up"><span class="sr">Now: </span>It runs the same way every time.</p></li>
+                <li class="sc-gone__i"><p class="sc-gone__k">False leads</p><p class="sc-gone__old"><span class="sr">Before: </span>Chase a gap, then learn it wasn’t allowed anyway.<i class="sc-gone__x" data-step="2" data-fx="grow" aria-hidden="true">Chase a gap, then learn it wasn’t allowed anyway.</i></p><p class="sc-gone__new" data-step="2" data-fx="up"><span class="sr">Now: </span>The market and invoicing rules run first, so gaps that fail them are filtered out before review.</p></li>
+                <li class="sc-gone__i"><p class="sc-gone__k">Copy-paste</p><p class="sc-gone__old"><span class="sr">Before: </span>Write each message by hand.<i class="sc-gone__x" data-step="3" data-fx="grow" aria-hidden="true">Write each message by hand.</i></p><p class="sc-gone__new" data-step="3" data-fx="up"><span class="sr">Now: </span>A prewritten draft fills itself in.</p></li>
               </ol>
-            </div>
+            </figure>
           </div>
-          <p class="sc-key" aria-hidden="true"><span class="sc-key__i"><i class="sc-st sc-st--q">?</i>Checked by hand</span><span class="sc-key__i"><i class="sc-st sc-st--on"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></i>Switched on</span><span class="sc-key__i"><i class="sc-st sc-st--gap"></i>Possible gap: on Agoda, not yet on a partner platform</span><span class="sc-key__i"><i class="sc-sw"></i>There on purpose: filtered out by the rules</span><span class="sc-key__i"><i class="sc-cb sc-cb--on sc-key__cb"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></i>Ticked by a person</span></p>
-          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Each row stands for a hotel or supplier; the names are examples.</span><span>Source: my Agoda internship, Jun–Aug 2026.</span></figcaption>
-        </figure>
-      </section>
-
-      <!-- 2 · Who it was for  ↔  Exhibit 2: who does what (scroll-built) -->
-      <section class="ch ch--flip" id="who" aria-labelledby="who-t">
-        <div class="ch__text">
-          <div class="ch__head">
-            <p class="sp-kicker">Who it was for</p>
-            <h2 class="sp-h" id="who-t">It was built for my manager and the account managers.</h2>
-          </div>
-          <div class="ch__body">
-            <p>My manager, the business owner, reviews the results. For each opportunity she approves, a draft note is prepared for the account manager, who follows up.</p>
-          </div>
-        </div>
-        <figure data-visual class="ch__vis vis sc-who" aria-labelledby="ex2-t">
-          <div class="vis__head">
-            <p class="vis__title"><span class="vis__num">Exhibit 2</span><span class="vis__name" id="ex2-t">Who does what</span></p>
-          </div>
-          <div class="sc-roles" data-kit="scrub" data-start="top 85%">
-            <div class="sc-role k-node k-node--auto" data-step="1">
-              <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span>
-              <span class="k-node__t">The checks</span>
-              <small>Run on their own and flag the possible gaps.</small>
-            </div>
-            <span class="sc-arrow" data-step="2" data-fx="grow" aria-hidden="true"></span>
-            <div class="sc-role k-node k-node--person" data-step="2">
-              <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span>
-              <span class="k-node__t">My manager</span>
-              <small>Reviews the results and ticks the opportunities worth pursuing.</small>
-            </div>
-            <span class="sc-arrow" data-step="3" data-fx="grow" aria-hidden="true"></span>
-            <div class="sc-role k-node" data-step="3">
-              <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span>
-              <span class="k-node__t">The account manager</span>
-              <small>Gets an editable draft note and follows up.</small>
-            </div>
-          </div>
-          <figcaption class="vis__cap"><span><span class="k-dia" aria-hidden="true"></span> <b>Green</b> marks the step where a person decides.</span><span>Source: my Agoda internship, Jun–Aug 2026.</span></figcaption>
-        </figure>
-      </section>
-
-      <!-- band · Exhibit 3 (the signature): the process I mapped, as a funnel. On a flat board, six example rows travel
-           through the four steps with scroll (and back on the way up): two are filtered out by the
-           rules, a person ticks three, and those three become draft notes. Finished picture = every step's tally. -->
-      <figure data-visual class="bandv vis sc-proc" id="process" aria-labelledby="ex3-t">
-        <div class="vis__head">
-          <p class="vis__title"><span class="vis__num">Exhibit 3</span><span class="vis__name" id="ex3-t">The process I mapped with my manager</span></p>
-          <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to send six rows through it</span>
-        </div>
-        <p class="sr">Illustrative picture of the four steps, with six example rows. Step 1, find the gap, runs on its own: six hotels or suppliers are flagged as a possible gap. Step 2, apply the rules, runs on its own: two gaps are there on purpose and are filtered out, four pass. Step 3, review: a person ticks three of the four. Step 4: each ticked row becomes an editable draft note for the account manager.</p>
-        <div class="sc-proc__map" data-kit="sc-funnel">
-          <ol class="sc-steps">
-            <li class="sc-step">
-              <span class="sc-tally" aria-hidden="true"><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i></span>
-              <span class="sc-stop"><b>1</b></span>
-              <div class="k-node k-node--auto sc-card">
-                <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span>
-                <span class="k-node__t">Find the gap</span><small>Automatic</small>
-                <p class="sc-card__d">The check compares the list with what is switched on at each partner platform.</p>
-              </div>
-            </li>
-            <li class="sc-step">
-              <span class="sc-tally" aria-hidden="true"><i class="sc-tk sc-tk--out"></i><i class="sc-tk sc-tk--out"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i><i class="sc-tk"></i></span>
-              <span class="sc-stop"><b>2</b></span>
-              <div class="k-node k-node--auto sc-card">
-                <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16l-6.2 7.4V19l-3.6-1.8v-4.8z"/></svg></span>
-                <span class="k-node__t">Apply the rules</span><small>Automatic</small>
-                <p class="sc-card__d">Market and invoicing rules remove gaps that are there on purpose.</p>
-              </div>
-            </li>
-            <li class="sc-step">
-              <span class="sc-tally" aria-hidden="true"><i class="sc-tk"></i><i class="sc-tk sc-tk--tick"><b><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></b></i><i class="sc-tk sc-tk--tick"><b><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></b></i><i class="sc-tk sc-tk--tick"><b><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></b></i></span>
-              <span class="sc-stop sc-stop--person"><b>3</b></span>
-              <div class="k-node k-node--person sc-card">
-                <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3.5"/><path d="m8.2 12.4 2.8 2.8 5-5.6"/></svg></span>
-                <span class="k-node__t">Review</span><small>A person decides</small>
-                <p class="sc-card__d">My manager ticks the ones worth pursuing. Nothing moves on without a person.</p>
-              </div>
-            </li>
-            <li class="sc-step">
-              <span class="sc-tally" aria-hidden="true"><i class="sc-tk sc-tk--note"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></i><i class="sc-tk sc-tk--note"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></i><i class="sc-tk sc-tk--note"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></i></span>
-              <span class="sc-stop"><b>4</b></span>
-              <div class="k-node sc-card">
-                <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span>
-                <span class="k-node__t">Write the note</span><small>Prewritten draft, editable</small>
-                <p class="sc-card__d">A prewritten draft fills itself in. The reviewer can edit it before it is saved.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <p class="sc-tkey" aria-hidden="true"><span><i class="sc-tk"></i>A hotel or supplier with a possible gap</span><span><i class="sc-tk sc-tk--out"></i>There on purpose: filtered out</span><span><i class="sc-tk sc-tk--tick"><b><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></b></i>Ticked by a person</span><span><i class="sc-tk sc-tk--note"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></i>Draft note</span></p>
-        <figcaption class="vis__cap"><span>The process I mapped with my manager. The first two steps now run on their own.</span><span><span class="ill">Illustrative</span> Six example rows; the counts are an example.</span></figcaption>
-      </figure>
-
-      <!-- 3 · What I did  ↔  Exhibit 4: the review step, point at a part (hotspots), built with scroll -->
-      <section class="ch" id="what-i-did" aria-labelledby="did-t">
-        <div class="ch__text">
-          <div class="ch__head">
-            <p class="sp-kicker">What I did</p>
-            <h2 class="sp-h" id="did-t">I mapped the process, then built the team’s rules into the checks.</h2>
-          </div>
-          <div class="ch__body">
-            <ol class="sp-steps">
-              <li>Mapped the process with the business owner, my manager: find the gap, apply the rules, review, write the note.</li>
-              <li>Asked account managers what a useful note must say and what they should do next.</li>
-              <li>Built the team’s market and invoicing rules into the checks, so gaps that are there on purpose are filtered out before anyone reviews them.</li>
-              <li>Built a review step where my manager ticks the opportunities worth pursuing, before an editable draft note is prepared for the account manager.</li>
-            </ol>
-          </div>
-        </div>
-        <figure data-visual class="ch__vis vis k-hs sc-rev" data-kit="hotspots" aria-labelledby="ex4-t">
-          <div class="vis__head">
-            <p class="vis__title"><span class="vis__num">Exhibit 4</span><span class="vis__name" id="ex4-t">The review step I built</span></p>
-            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Point at a number</span>
-          </div>
-          <div class="k-hs__stage sc-rev__stage" data-kit="scrub" data-start="top 80%" data-end="center 45%">
-            <div class="sc-win">
-              <div class="sc-win__bar" data-spot="1"><span class="sc-win__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sc-win__t">Possible opportunities, for review</span><span class="k-spot" aria-hidden="true">1</span></div>
-              <ol class="sc-win__rows">
-                <li class="sc-r sc-r--pick" data-step="1"><span class="sc-cb sc-cb--on" data-step="3" data-fx="pop" data-spot="3"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg><span class="k-spot" aria-hidden="true">3</span></span><span class="sc-name" style="--n:42%"></span><span class="sc-chip sc-chip--gap" data-step="2" data-fx="pop" data-spot="2"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span><span class="k-spot" aria-hidden="true">2</span></span></li>
-                <li class="sc-r" data-step="1"><span class="sc-cb"></span><span class="sc-name" style="--n:46%"></span><span class="sc-chip sc-chip--gap" data-step="2" data-fx="pop"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span></li>
-                <li class="sc-r sc-r--pick" data-step="1"><span class="sc-cb sc-cb--on" data-step="3" data-fx="pop"><svg viewBox="0 0 12 12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></span><span class="sc-name" style="--n:54%"></span><span class="sc-chip sc-chip--gap" data-step="2" data-fx="pop"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span></li>
-                <li class="sc-r" data-step="1"><span class="sc-cb"></span><span class="sc-name" style="--n:70%"></span><span class="sc-chip sc-chip--gap" data-step="2" data-fx="pop"><span class="sc-chip__l">Possible gap</span><span class="sc-chip__s">Gap</span></span></li>
-              </ol>
-              <div class="sc-win__foot"><span class="sc-btn" data-step="3" data-fx="fade" data-spot="4">Next: draft note →<span class="k-spot" aria-hidden="true">4</span></span></div>
-            </div>
-            <div class="sc-pop" data-step="4" data-fx="right" data-spot="5">
-              <p class="sc-pop__h">Draft note</p>
-              <p class="sc-pop__to">Editable · for the account manager</p>
-              <span class="sc-line"></span><span class="sc-line" style="width:84%"></span><span class="sc-line" style="width:58%"></span>
-              <span class="sc-pop__btns"><span class="sc-pop__b">Edit</span><span class="sc-pop__b sc-pop__b--done">Done · save</span></span>
-              <span class="k-spot" aria-hidden="true">5</span>
-            </div>
-          </div>
-          <ol class="k-hs__list">
-            <li data-spot="1"><b>The list.</b> The possible opportunities the checks flagged, ready for review.</li>
-            <li data-spot="2"><b>Possible gap.</b> The check compares the list with what is switched on at each partner platform.</li>
-            <li data-spot="3"><b>A person ticks.</b> My manager ticks the ones worth pursuing. Nothing moves on without a person.</li>
-            <li data-spot="4"><b>Next.</b> For each opportunity she ticks, a draft note is prepared for the account manager.</li>
-            <li data-spot="5"><b>Draft note.</b> A prewritten draft fills itself in. The reviewer can edit it before it is saved.</li>
-          </ol>
-          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Rows stand for hotels and suppliers.</span><span>Source: my Agoda internship, Jun–Aug 2026.</span></figcaption>
-        </figure>
-      </section>
-
-      <!-- band · Exhibit 5: the rules, as cards that sort themselves (or that you sort) -->
-      <section class="bandv sc-rules" id="rules" aria-labelledby="rules-t">
-        <div class="bandv__head">
-          <div>
-            <p class="sp-kicker">The team’s rules, built into the checks</p>
-            <h2 class="sp-h" id="rules-t">Gaps that are there on purpose are filtered out before anyone reviews them.</h2>
-          </div>
-          <p class="bandv__lede">Not every gap is an opportunity. The checks apply the team’s market and invoicing rules first, so only the gaps that pass reach review.</p>
-        </div>
-        <figure data-visual class="vis k-sort sc-sort" data-kit="sort" data-done="All sorted: two gaps reach review, two are there on purpose." aria-labelledby="ex5-t">
-          <div class="vis__head">
-            <p class="vis__title"><span class="vis__num">Exhibit 5</span><span class="vis__name" id="ex5-t">Which possible gaps reach review?</span></p>
-            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-4.6-2.2L4.3 15a1.6 1.6 0 0 1 2.4-2.1L9 15"/></svg>Scroll, or drag the cards yourself</span>
-          </div>
-          <div class="k-sort__tray" data-label="Possible gaps the check found" aria-hidden="true"><span class="k-sort__slot"></span><span class="k-sort__slot"></span><span class="k-sort__slot"></span><span class="k-sort__slot"></span></div>
-          <div class="k-sort__arrow" aria-hidden="true"><svg viewBox="0 0 22 28"><path d="M11 2v22M4 17l7 7 7-7"/></svg><span class="sc-sort__rules"><i>Market rule</i><i>Invoicing rule</i></span></div>
-          <div class="k-sort__buckets">
-            <div class="k-sort__bucket sc-bk-review" data-bucket="review">
-              <p class="k-sort__bh"><span class="k-dia" aria-hidden="true"></span>Reaches review</p>
-              <ul class="k-sort__cards">
-                <li class="k-card" data-to="review" data-slot="0">Possible gap<small>Passes both rules</small></li>
-                <li class="k-card" data-to="review" data-slot="3">Possible gap<small>Passes both rules</small></li>
-              </ul>
-            </div>
-            <div class="k-sort__bucket sc-bk-out" data-bucket="out">
-              <p class="k-sort__bh"><span class="sc-sw" aria-hidden="true"></span>There on purpose: filtered out</p>
-              <ul class="k-sort__cards">
-                <li class="k-card" data-to="out" data-slot="1">Possible gap<small>A market rule applies</small></li>
-                <li class="k-card" data-to="out" data-slot="2">Possible gap<small>An invoicing rule applies</small></li>
-              </ul>
-            </div>
-          </div>
-          <div class="k-sort__bar"><button type="button" class="k-sort__try">Sort them yourself</button><p class="k-sort__note" aria-live="polite"></p></div>
-          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Each card stands for a possible gap.</span><span>Source: my Agoda internship, Jun–Aug 2026.</span></figcaption>
-        </figure>
-      </section>
-
-      <!-- 4 · What a person still decides  ↔  Exhibit 6: the draft note, as a demo that plays itself -->
-      <section class="ch ch--flip" id="result" aria-labelledby="decides-t">
-        <div class="ch__text">
-          <div class="ch__head">
-            <p class="sp-kicker sp-kicker--person">What a person still decides</p>
-            <h2 class="sp-h" id="decides-t">My manager decides which opportunities are worth pursuing.</h2>
-          </div>
-          <div class="ch__body">
-            <ul class="decides">
-              <li><b>Which flagged opportunities to pursue.</b> The checks only flag possible opportunities; she ticks the ones worth pursuing.</li>
-              <li><b>What the draft note says.</b> It can be edited before it is saved.</li>
-            </ul>
-          </div>
-        </div>
-        <figure data-visual class="ch__vis vis sc-demo" aria-labelledby="ex6-t">
-          <div class="vis__head">
-            <p class="vis__title"><span class="vis__num">Exhibit 6</span><span class="vis__name" id="ex6-t">From a tick to a draft note</span></p>
-          </div>
-          <div class="k-chat sc-chat" data-kit="chat" role="group" aria-label="Demo: from a tick to a draft note">
-            <button class="k-chat__replay" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg>Replay</button>
-            <ol class="k-chat__log">
-              <li class="k-msg k-msg--in"><span class="k-msg__who"><i class="sc-av sc-av--auto" aria-hidden="true"></i>The checks</span><div class="k-msg__bubble">Possible opportunities are ready for review.</div></li>
-              <li class="k-msg k-msg--out" data-wait="700"><span class="k-msg__who">My manager<i class="k-dia" aria-hidden="true"></i></span><div class="k-msg__bubble">Ticks the ones worth pursuing, then Next.</div></li>
-              <li class="k-msg k-msg--in sc-draft" data-type data-wait="500"><span class="k-msg__who"><i class="sc-av" aria-hidden="true"></i>Draft note · editable · for the account manager</span><div class="k-msg__bubble">Hi <mark>[account manager]</mark>, <mark>[supplier]</mark> sells on Agoda but is not yet switched on with <mark>[partner platform]</mark>. Could you talk to them about switching it on?</div></li>
-              <li class="k-msg k-msg--out" data-wait="600"><span class="k-msg__who">My manager<i class="k-dia" aria-hidden="true"></i></span><div class="k-msg__bubble">Edits the wording, then <b>Done</b>. The draft is saved.</div></li>
-            </ol>
-          </div>
-          <figcaption class="vis__cap"><span><span class="ill">Illustrative demo</span> The draft is a prewritten template; the words in brackets fill themselves in.</span><span>Source: my Agoda internship, Jun–Aug 2026.</span></figcaption>
-        </figure>
-      </section>
-
-      <!-- 5 · How I checked it  ↔  Exhibit 7: the review loop (scroll sends a dot round it; point at a step) -->
-      <section class="ch" id="checked" aria-labelledby="checked-t">
-        <div class="ch__text">
-          <div class="ch__head">
-            <p class="sp-kicker">How I checked it</p>
-            <h2 class="sp-h" id="checked-t">My manager and I reviewed the results at least twice a week.</h2>
-          </div>
-          <div class="ch__body">
-            <p>I showed her working versions early, logged the issues we found, and changed course when she said so.</p>
-          </div>
-        </div>
-        <figure data-visual class="ch__vis vis k-hs sc-loopfig" data-kit="hotspots" aria-labelledby="ex7-t">
-          <div class="vis__head">
-            <p class="vis__title"><span class="vis__num">Exhibit 7</span><span class="vis__name" id="ex7-t">One round of review, again and again</span></p>
-            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Point at a step</span>
-          </div>
-          <div class="k-hs__stage sc-loop" data-kit="flow" data-shape="curve" data-closed data-start=".85" data-end=".4">
-            <div class="sc-loop__c" aria-hidden="true"><span>At least</span><b><span class="k-count" data-kit="count" data-to="2">2</span>×</b><span>a week</span></div>
-            <div class="k-node sc-lp sc-lp--1" data-flow-node="1" data-spot="1">
-              <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
-              <span class="k-node__t">Show a working version</span><span class="k-spot" aria-hidden="true">1</span>
-            </div>
-            <div class="k-node k-node--person sc-lp sc-lp--2" data-flow-node="2" data-spot="2">
-              <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span>
-              <span class="k-node__t">She checks the results</span><span class="k-spot" aria-hidden="true">2</span>
-            </div>
-            <div class="k-node sc-lp sc-lp--3" data-flow-node="3" data-spot="3">
-              <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19h4L19.5 8.5a2.1 2.1 0 0 0-3-3L6 16z"/></svg></span>
-              <span class="k-node__t">Log the issues we found</span><span class="k-spot" aria-hidden="true">3</span>
-            </div>
-            <div class="k-node k-node--auto sc-lp sc-lp--4" data-flow-node="4" data-spot="4">
-              <span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg></span>
-              <span class="k-node__t">Change course, run it again</span><span class="k-spot" aria-hidden="true">4</span>
-            </div>
-          </div>
-          <ol class="k-hs__list">
-            <li data-spot="1"><b>Show.</b> I showed her working versions early.</li>
-            <li data-spot="2"><b>Check.</b> Are the flagged hotels and suppliers real candidates? Is the table easy to work with?</li>
-            <li data-spot="3"><b>Log.</b> What we caught together: wrong tags, hotels already switched on, tables too dense to read.</li>
-            <li data-spot="4"><b>Change.</b> I fixed the checks or the layout, then ran them again.</li>
-          </ol>
-          <figcaption class="vis__cap"><span>Reviews at least twice a week, with my manager.</span><span>Source: my Agoda internship, Jun–Aug 2026.</span></figcaption>
-        </figure>
-      </section>
-
-      <!-- 6 · What happened  ↔  Exhibit 8: the handover week, topic by topic -->
-      <section class="ch ch--flip ch--vis-last" id="happened" aria-labelledby="happened-t">
-        <div class="ch__text">
-          <div class="ch__head">
-            <p class="sp-kicker">What happened</p>
-            <h2 class="sp-h" id="happened-t">The checks are live, and a person approves every opportunity.</h2>
-          </div>
-          <div class="ch__body">
-            <p class="result"><span class="badge badge--live" data-status-manual><!--@fact:status.agoda.label--></span></p>
-            <p>A person still ticks each opportunity before a draft note is prepared for the account manager. I handed it over with a week spent teaching my manager how it works.</p>
-            <p class="sowhat"><b>So what</b>The aim: the team spends its time on the calls worth making, not on finding them.</p>
-            <p class="sp-skills"><span class="label">Skills</span>Process mapping · Business rules · Stakeholder reviews</p>
-          </div>
-        </div>
-        <figure data-visual class="ch__vis vis sc-hand" aria-labelledby="ex8-t">
-          <div class="vis__head">
-            <p class="vis__title"><span class="vis__num">Exhibit 8</span><span class="vis__name" id="ex8-t">The handover: a week of teaching</span></p>
-            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Pick a topic</span>
-          </div>
-          <div class="k-stp sc-stp" data-kit="stepper" data-auto data-start=".75" data-end=".45">
-            <div class="k-stp__nav" aria-label="What the handover week covered">
-              <button type="button" aria-selected="true">How it works</button>
-              <button type="button" aria-selected="false" tabindex="-1">Where it lives</button>
-              <button type="button" aria-selected="false" tabindex="-1">AI for everyday work</button>
-              <button type="button" aria-selected="false" tabindex="-1">From problem to automation</button>
-            </div>
-            <ol class="k-stp__panels">
-              <li class="k-stp__panel is-on">
-                <span class="sc-tp__ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="4" y="8" width="14" height="10" rx="3"/><rect x="30" y="8" width="14" height="10" rx="3"/><rect x="17" y="31" width="14" height="10" rx="3"/><path d="M18 13h12M11 18v6h13v7M37 18v6H24"/></svg></span>
-                <div><p class="k-stp__k">How it works</p><p>How the checks, the review step and the draft notes connect, where the settings are kept, and how a change affects the automation.</p></div>
-              </li>
-              <li class="k-stp__panel">
-                <span class="sc-tp__ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M14 34h21a8 8 0 0 0 1.2-15.9A12 12 0 0 0 13 19a7.6 7.6 0 0 0 1 15z"/><rect x="19" y="24" width="10" height="8" rx="1.5"/><path d="M21 24v-2.5a3 3 0 0 1 6 0V24"/></svg></span>
-                <div><p class="k-stp__k">Where it lives</p><p>The cloud setup and its security basics, the company’s developer portal, and how changes to the code are made and tracked.</p></div>
-              </li>
-              <li class="k-stp__panel">
-                <span class="sc-tp__ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 10h36v22H18l-8 7v-7H6z"/><path d="M24 15v12M18 21h12"/></svg></span>
-                <div><p class="k-stp__k">AI for everyday work</p><p>Practical AI use and prompting for her everyday work, beyond this project.</p></div>
-              </li>
-              <li class="k-stp__panel">
-                <span class="sc-tp__ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="11" cy="24" r="6"/><path d="M11 21.5v3M11 27h.01"/><path d="M20 24h10M26 19l5 5-5 5"/><rect x="34" y="15" width="10" height="18" rx="2.5"/><path d="M37 21h4M37 25h4M37 29h2"/></svg></span>
-                <div><p class="k-stp__k">From problem to automation</p><p>A way to turn a commercial problem into an automation, so she can follow the reasoning behind the tools and future changes.</p></div>
-              </li>
-            </ol>
-          </div>
-          <figcaption class="vis__cap"><span>What the handover week covered.</span><span>Source: my Agoda internship, Jun–Aug 2026.</span></figcaption>
-        </figure>
-      </section>
+        </section>
+      </div>
     </div>
 
-    <div data-visual><!-- the "Built with" band is a picture of the tools (logos); data-visual tells story-qa so -->
-    <!--@include:builtwith-sales-checks-->
+    <div class="bq-bw" data-visual><!-- the "Built with" band is a picture of the tools (logos); data-visual tells story-qa so -->
+      <!--@include:builtwith-sales-checks-->
     </div>
 
-    <nav class="next" aria-label="More cases">
-      <p class="next__links"><a href="/#cases">← All cases</a><a href="/tech/work/commercial-review/">Technical deep dive →</a></p>
+    <nav class="next bq-next" aria-label="More projects">
+      <p class="next__links"><a href="/#cases">← All projects</a><a href="/tech/work/commercial-review/">Technical deep dive →</a></p>
       <a class="next__case" href="/cases/questions-desk/">
-        <span class="next__img"><!--@img:agoda-one-bangkok-b srcw="480,800" sizes="(max-width: 640px) 100vw, 220px" alt="" loading="lazy"--></span>
-        <span class="next__txt"><span class="next__k">Next case · 02 · Agoda</span><span class="next__t">One place for a team’s questions, each sent to the right lane.</span></span>
-        <span class="next__arrow" aria-hidden="true">→</span>
+      <span class="next__img"><!--@img:agoda-one-bangkok-b srcw="480,800" sizes="(max-width: 640px) 100vw, (max-width: 960px) 30vw, 340px" alt="" loading="lazy"--></span>
+      <span class="next__txt"><span class="next__k">Next project · 02 · Agoda</span><span class="next__t">One place for a team’s questions, each sent to the right lane.</span></span>
+      <span class="next__arrow" aria-hidden="true">→</span>
       </a>
     </nav>
   </div>

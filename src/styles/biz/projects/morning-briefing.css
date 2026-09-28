@@ -1,0 +1,203 @@
+/* /projects/morning-briefing/ only (Morning news briefing), linked after the Briefing template (briefing.css). Prefix: mb-.
+   Every picture is finished in the HTML; the kit pieces add the interaction (compare, hotspots, stepper, scrub).
+   Pale cobalt for the pictures, cobalt for meaning, green only for "a person decides".
+   Exhibits: 1 compare, several sites vs one message (band 01) · 2 the three messages, hotspots, list under them (band 02) ·
+   2.1 the five steps (band 02 detail) · 3 three tests, stepper (band 03) · my part / the AI's part (band 03 detail) ·
+   4 what I stopped doing, scrub (band 04). */
+
+/* ---------- head photo: on phones the strip keeps the headline of the paper in view ---------- */
+@media (max-width:640px){.mb-ph .ph__frame img{object-position:50% 72%}}
+.mb-ph .cap__credit{margin-top:2px;font-size:12px}
+
+/* ---------- the 60-second box (rows split around the picture, as on Project 01) ---------- */
+@media (min-width:961px){
+  .mb-sixty .mb-dl1{grid-row:1}
+  .mb-sixty .mb-dl2{grid-row:2;align-self:start}
+}
+.mb-sixty .mb-dl1 .sixty__row:last-child{padding-bottom:18px;border-bottom:1px solid var(--rule-2)}
+.mb-sixty .mb-dl2 .sixty__row:first-child{padding-top:18px}
+@media (max-width:960px){
+  .mb-sixty .sixty__pic{margin:0;padding:20px 0 22px;border-top:0;border-bottom:1px solid var(--rule-2)}
+  .mb-sixty .mb-dl2 .sixty__row:first-child{padding-top:14px}
+}
+.mb-map__steps{position:relative;display:grid;gap:9px}
+.mb-map__steps::before{content:"";position:absolute;left:15px;top:16px;bottom:16px;width:2px;background:var(--t2)}
+.mb-map__steps li{position:relative;display:flex;align-items:center;gap:12px;font:500 14.5px/1.3 var(--sans);color:var(--ink)}
+.mb-map__ic{flex:none;display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--t2);border-radius:8px;background:var(--t1);color:var(--cobalt)}
+.mb-map__ic svg,.mb-run .k-node__ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.mb-map__me .mb-map__ic{background:var(--live-bg);border-color:#9FCDB3;color:var(--live)}
+.mb-map__me{color:var(--live-ink)!important}
+@media (max-width:960px){
+  .mb-map__steps{grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+  .mb-map__steps::before{left:8.33%;right:8.33%;top:16px;bottom:auto;width:auto;height:2px}
+  .mb-map__steps li{flex-direction:column;gap:8px;text-align:center;font-size:13px}
+}
+@media (max-width:640px){
+  .mb-map__steps{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:14px}
+  .mb-map__steps::before{display:none}
+}
+
+/* ---------- the Telegram message (Exhibits 1 and 2): the bot, one bubble per part ---------- */
+.mb-tg{position:relative;border:1px solid var(--rule);border-radius:12px;background:var(--paper-2)}
+.mb-tg__bar{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--rule-2);border-radius:12px 12px 0 0;background:var(--card)}
+.mb-av{flex:none;display:block;width:34px;height:34px;border-radius:50%;overflow:hidden}
+.mb-av svg{display:block;width:100%;height:100%}
+.mb-tg__who{display:flex;flex-direction:column;gap:2px;font-size:12.5px;line-height:1.2;color:var(--muted)}
+.mb-tg__who b{font-weight:500;font-size:14.5px;color:var(--ink)}
+.mb-tg__body{display:grid;gap:10px;padding:14px}
+.mb-m{position:relative;max-width:460px;padding:12px 14px 24px;border-radius:4px 12px 12px 12px;background:var(--card);box-shadow:0 1px 0 var(--rule-2),0 12px 24px -20px rgb(15 33 71 / .4)}
+.mb-m__k{font:500 11.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--cobalt)}
+.mb-m__h{margin-top:4px;font:400 19px/1.25 var(--serif);color:var(--ink)}
+.mb-m__t{position:absolute;right:12px;bottom:6px;font-size:11.5px;color:var(--muted)}
+.mb-play{position:relative;display:flex;align-items:center;gap:10px;margin-top:10px;padding:7px 14px 7px 7px;border-radius:999px;background:var(--t1)}
+.mb-play__b{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--cobalt);color:#fff}
+.mb-play__b svg{width:12px;height:12px;fill:currentColor}
+.mb-wave{flex:1;display:flex;align-items:center;justify-content:space-between;gap:3px;min-width:0;height:24px;overflow:hidden}
+.mb-wave i{flex:0 1 3px;min-width:2px;height:calc(var(--h) * 100%);border-radius:2px;background:var(--t4)}
+.mb-play__d{flex:none;font:500 12.5px/1 var(--sans);color:var(--cobalt-deep);font-variant-numeric:tabular-nums}
+.mb-m__more{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.mb-m__more span{display:inline-flex;align-items:center;height:24px;padding:0 9px;border:1px solid var(--rule-2);border-radius:5px;background:var(--paper);font-size:12.5px;color:var(--ink-2)}
+.mb-rc{position:relative;display:grid;gap:5px;margin-top:10px;padding:2px 26px 2px 0;border-radius:6px}
+.mb-rc p{font-size:14px;line-height:1.45;color:var(--ink-2)}
+.mb-rc b{margin-right:6px;font-weight:500;color:var(--ink)}
+.mb-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+.mb-card{overflow:hidden;border:1px solid var(--rule-2);border-radius:8px;background:var(--card)}
+.mb-card__img{display:block;aspect-ratio:16/10;background:var(--t1)}
+.mb-card__img img{display:block;width:100%;height:100%;object-fit:cover}
+.mb-card__t{display:grid;gap:4px;padding:8px 10px 10px;font-size:13px;line-height:1.35;color:var(--ink-2)}
+.mb-card__t b{font-weight:500;color:var(--ink)}
+.mb-card__t small{font-weight:400;font-size:12px;color:var(--muted)}
+.mb-card__a{font-weight:500;color:var(--cobalt)}
+.mb-links{display:grid;gap:5px;margin-top:8px}
+.mb-links li{position:relative;padding-left:15px;font-size:13.5px;line-height:1.4;color:var(--cobalt-deep)}
+.mb-links li::before{content:"";position:absolute;left:1px;top:.5em;width:6px;height:6px;border-radius:50%;background:var(--rule)}
+.mb-links li.is-top::before{background:var(--cobalt)}
+.mb-links small{font-size:12px;color:var(--muted)}
+.mb-links .mb-links__more{color:var(--muted)}
+/* hotspot numbers: on each part's top-right corner, never over its words */
+.mb-pkg [data-spot]{position:relative}
+.mb-pkg .k-spot{--x:100%;--y:0%}
+.mb-pkg .mb-m[data-spot]>.k-spot{--x:calc(100% - 22px);--y:20px}
+
+/* ---------- Exhibit 1 (band 01): several sites by hand vs one message (compare) ---------- */
+.mb-cmp .k-cmp__pane{padding-bottom:16px}
+.mb-pile{position:relative;height:236px}
+.mb-w{position:absolute;left:var(--l);top:var(--t);width:60%;border:1px solid var(--rule);border-radius:8px;background:var(--card);box-shadow:0 14px 26px -20px rgb(15 33 71 / .45)}
+.mb-w--1{--l:0%;--t:0px}
+.mb-w--2{--l:13%;--t:38px}
+.mb-w--3{--l:26%;--t:76px}
+.mb-w--4{--l:39%;--t:114px}
+.mb-w__bar{display:flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-bottom:1px solid var(--rule-2);font:500 11.5px/1 var(--sans);color:var(--muted)}
+.mb-w__bar i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--rule)}
+.mb-w__bar span{min-width:0;margin-left:6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.mb-w__body{display:grid;gap:7px;padding:11px 12px 13px}
+.mb-w__body b,.mb-w__body s{display:block;width:var(--w);border-radius:3px}
+.mb-w__body b{height:9px;margin-bottom:2px;background:#C9C6BD}
+.mb-w__body s{height:6px;background:var(--rule-2)}
+.mb-pile__note{max-width:calc(50% - 24px);margin-top:14px;font-size:14px;line-height:1.4;color:var(--muted)}
+.mb-now{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:center}
+.mb-now__say{display:none}
+@container (min-width:540px){ /* the message starts just right of the resting split, so it reads whole at 50 % */
+  .mb-now{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .mb-now__say{display:grid;gap:10px;padding-right:12px}
+}
+.mb-now__say b{font:400 25px/1.15 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+.mb-now__say span{font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.mb-tg--mini .mb-tg__body{padding:12px}
+
+/* ---------- Exhibit 2 (band 02, full band width): the three messages side by side, the parts listed under them ---------- */
+@media (min-width:961px){
+  .mb-pkg .mb-tg__body{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr) minmax(0,.95fr);align-items:start}
+  .mb-pkg .mb-m{max-width:none}
+}
+.mb-pkg .mb-parts li{font-size:15px}
+
+/* Exhibit 2.1 (detail row): the five steps, then the person */
+.mb-run__steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.mb-run .k-node{padding-top:14px}
+.mb-run__n{position:absolute;right:12px;top:11px;font:500 12px/1 var(--sans);color:var(--cobalt-deep);font-variant-numeric:tabular-nums}
+.mb-run__n--me{width:10px;height:10px;top:14px;background:var(--live);transform:rotate(45deg);border-radius:2px}
+.mb-run .vis__cap .k-dia{width:9px;height:9px;margin:0 3px 0 6px}
+@media (max-width:960px){.mb-run__steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.mb-run__steps{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- Exhibit 3 (band 03): three tests (stepper) ---------- */
+.js .mb-stp .k-stp__k{display:none} /* the tab says it */
+.mb-stp .k-stp__panel{display:grid;gap:14px}
+.mb-t__pic{position:relative;height:176px;padding:16px 18px;border:1px solid var(--rule-2);border-radius:10px;background:var(--paper)}
+.mb-t__txt{max-width:56ch;font-size:16px;line-height:1.55;color:var(--ink-2)}
+/* the voice: two read-outs of the same script */
+.mb-voice{display:grid;align-content:center;gap:34px}
+.mb-voice__row{display:grid;grid-template-columns:120px minmax(0,1fr);align-items:center;gap:14px}
+.mb-voice__l{font:500 12.5px/1.3 var(--sans);color:var(--muted)}
+.mb-voice__row--on .mb-voice__l{color:var(--cobalt-deep)}
+.mb-bars{position:relative;display:flex;align-items:center;justify-content:space-between;gap:3px;height:40px}
+.mb-bars i{flex:0 1 5px;min-width:2px;height:calc(var(--h,.34) * 100%);border-radius:2px;background:var(--cobalt)}
+.mb-bars--flat i{background:#B9B6AD}
+.mb-bars em{position:absolute;left:var(--at);top:-27px;padding:2px 7px;border:1px solid var(--t2);border-radius:4px;background:var(--card);font:500 11.5px/1.3 var(--sans);font-style:normal;color:var(--cobalt-deep);white-space:nowrap}
+/* the pictures: two looks side by side */
+.mb-look{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:12px}
+.mb-look__i{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:6px;min-width:0}
+.mb-look__i i{display:block;border-radius:6px}
+.mb-look__i b{font:500 12.5px/1.2 var(--sans);color:var(--ink-2)}
+.mb-look__i--cine i{background:linear-gradient(#0E1726,#0E1726) 8% 100%/13% 46% no-repeat,linear-gradient(#0E1726,#0E1726) 24% 100%/10% 64% no-repeat,linear-gradient(#0E1726,#0E1726) 38% 100%/15% 38% no-repeat,linear-gradient(#0E1726,#0E1726) 58% 100%/9% 72% no-repeat,linear-gradient(#0E1726,#0E1726) 74% 100%/14% 50% no-repeat,linear-gradient(#0E1726,#0E1726) 92% 100%/11% 34% no-repeat,radial-gradient(circle at 70% 78%,#F2B872 0 7%,transparent 30%),linear-gradient(#1B2A55,#3E4C86 55%,#C98B62)}
+.mb-look__i--toon i{background:radial-gradient(circle at 78% 28%,#FFC94A 0 11%,transparent 11.5%),radial-gradient(ellipse 13% 8% at 28% 27%,#fff 0 97%,transparent 100%),radial-gradient(ellipse 9% 8% at 35% 21%,#fff 0 97%,transparent 100%),radial-gradient(ellipse 60% 40% at 18% 106%,#5DBB7E 0 99%,transparent 100%),radial-gradient(ellipse 66% 36% at 86% 110%,#8FD8A5 0 99%,transparent 100%),linear-gradient(#9CCBFF,#E1F0FF)} /* sun, cloud, two hills: a scene, not a chart */
+/* the charts: one label that does not match its bar */
+.mb-chart{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:center}
+.mb-chart__plot{display:flex;align-items:flex-end;justify-content:space-around;gap:10px;height:132px;padding:0 6px;border-bottom:1.5px solid var(--rule)}
+.mb-chart__plot span{position:relative;flex:0 1 38px;height:calc(var(--v) * 100%);border-radius:4px 4px 0 0;background:linear-gradient(var(--t4),var(--cobalt))}
+.mb-chart__plot em{position:absolute;left:50%;bottom:calc(100% + 5px);transform:translateX(-50%);font:500 12px/1 var(--sans);font-style:normal;color:var(--ink-2);white-space:nowrap}
+.mb-chart__plot .is-off em{padding:3px 5px;border:1.5px dashed var(--cobalt);border-radius:5px;color:var(--cobalt-deep)}
+.mb-chart__chk{display:grid;gap:10px}
+.mb-chart__chk li{display:flex;align-items:center;gap:9px;font:500 14px/1.3 var(--sans);color:var(--ink)}
+.mb-chart__chk i{flex:none;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--cobalt)}
+.mb-chart__chk .is-no i{background:var(--muted)}
+.mb-chart__chk .is-no{color:var(--muted)}
+.mb-chart__chk svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* band 03 detail: my part and the AI's part */
+.mb-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.mb-split__c{padding:18px 20px 20px;border:1px solid var(--rule);border-radius:10px;background:var(--card)}
+.mb-split__c--me{border-color:#9FCDB3;background:var(--live-bg)}
+.mb-split__k{display:flex;align-items:center;gap:9px;margin-bottom:10px;font:500 12.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--cobalt-deep)}
+.mb-split__c--me .mb-split__k{color:var(--live-ink)}
+.mb-split__c--me .k-dia{width:9px;height:9px}
+.mb-split__dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--cobalt)}
+.mb-split ul{display:grid;gap:8px}
+.mb-split li{position:relative;padding-left:16px;font-size:15.5px;line-height:1.5;color:var(--ink-2)}
+.mb-split li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--muted)}
+
+/* ---------- Exhibit 4 (band 04): what I stopped doing by hand (scrub) ---------- */
+.mb-gone__list{display:grid;margin:2px 0 0;padding:0;list-style:none}
+.mb-gone__i{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 22px;padding:16px 0;border-top:1px solid var(--rule-2)}
+.mb-gone__i:first-child{border-top:0;padding-top:6px}
+.mb-gone__k{grid-row:1/3;font:400 22px/1.2 var(--serif);color:var(--ink)}
+.mb-gone__old{position:relative;justify-self:start;font-size:15.5px;line-height:1.45;color:var(--muted)}
+.mb-gone__x{position:absolute;inset:0;font-style:normal;color:transparent;text-decoration:line-through 2px var(--cobalt);text-decoration-skip-ink:none;transform-origin:0 50%;pointer-events:none}
+.mb-gone__new{display:flex;gap:8px;font-size:16.5px;line-height:1.45;font-weight:500;color:var(--ink)}
+.mb-gone__new::before{content:"→";flex:none;color:var(--cobalt)}
+
+/* ---------- phones ---------- */
+@media (max-width:640px){
+  .mb-pile{height:214px}
+  .mb-w{width:74%}
+  .mb-w--2{--l:9%;--t:34px}
+  .mb-w--3{--l:18%;--t:68px}
+  .mb-w--4{--l:26%;--t:102px}
+  .mb-pile__note{font-size:13.5px}
+  .mb-tg__body{padding:10px}
+  .mb-m{padding:11px 12px 24px}
+  .mb-m__h{font-size:17.5px}
+  .mb-rc p{font-size:13.5px}
+  .mb-card__t{padding:7px 8px 9px;font-size:12.5px}
+  .mb-t__pic{height:auto;min-height:150px;padding:14px}
+  .mb-voice{gap:30px;padding-top:30px}
+  .mb-voice__row{grid-template-columns:minmax(0,1fr);gap:8px}
+  .mb-voice__row--on .mb-voice__l{order:2}
+  .mb-chart{grid-template-columns:minmax(0,1fr);gap:14px;padding-top:26px}
+  .mb-chart__plot{height:104px}
+  .mb-look__i i{height:104px}
+  .mb-split{grid-template-columns:minmax(0,1fr)}
+  .mb-gone__i{grid-template-columns:minmax(0,1fr);gap:4px}
+  .mb-gone__k{grid-row:auto;font-size:20px}
+}

@@ -97,9 +97,11 @@
 [data-armed~="qd-scene"] .qd-w--old{stroke:var(--t3);stroke-dasharray:none}
 @media (prefers-reduced-motion:no-preference){html:not(.no-motion) [data-armed~="qd-scene"] .qd-w{stroke-dasharray:6 7;animation:qd-march 1.2s linear infinite}}
 @keyframes qd-march{to{stroke-dashoffset:-26}}
-/* a question card: rests on a tile's top edge like a badge, hops to the next tile; shows its outcome when it arrives */
-.qd-tok{position:absolute;left:0;top:0;z-index:5;display:flex;align-items:center;justify-content:center;width:42px;height:32px;border:1.5px solid var(--cobalt);border-radius:8px;background:#fff;box-shadow:0 8px 16px -10px rgba(15,33,71,.55);transform-origin:50% 50%;pointer-events:none;font:600 16px/1 var(--sans);color:var(--cobalt);will-change:transform;transition:box-shadow .2s}
+/* a question card: travels along its own wire (scene.js measures the wire and the tiles), passes UNDER the tiles on
+   its way (z-index below .qd-t), and shows its outcome when it arrives */
+.qd-tok{position:absolute;left:0;top:0;z-index:0;display:flex;align-items:center;justify-content:center;width:42px;height:32px;border:1.5px solid var(--cobalt);border-radius:8px;background:#fff;box-shadow:0 8px 16px -10px rgba(15,33,71,.55);transform-origin:50% 50%;pointer-events:none;font:600 16px/1 var(--sans);color:var(--cobalt);will-change:transform;transition:box-shadow .2s}
 .qd-tok.is-fly{box-shadow:0 16px 22px -12px rgba(15,33,71,.5)}
+.qd-tok.is-under{box-shadow:none} /* passing under a tile: no shadow leaking out past its edge */
 .qd-tok__a{display:none;width:20px;height:20px}
 .qd-tok.is-done{background:var(--cobalt);color:#fff}
 .qd-tok.is-done .qd-tok__q{display:none}
@@ -381,8 +383,8 @@ html.no-motion .qd-flip__in{transition:none}
   .qd-scene__key li{position:relative;padding-left:30px;font-size:14px;line-height:1.45;color:var(--ink-2)}
   .qd-scene__key li::before{counter-increment:k;content:counter(k);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:var(--t1);border:1px solid var(--t2);font:500 11px/18px var(--sans);text-align:center;color:var(--cobalt-deep)}
   .qd-scene__key b{font-weight:500;color:var(--ink)}
-  .qd-tok{width:34px;height:26px;font-size:14px}
-  .qd-tok__a{width:16px;height:16px}
+  .qd-tok{width:30px;height:22px;border-radius:6px;font-size:13px}
+  .qd-tok__a{width:15px;height:15px}
   /* Exhibit 3 */
   .qd-case{flex-direction:column;align-items:flex-start;gap:6px;min-height:0;margin:0 3px;padding:8px;font-size:12.5px}
   .qd-case__ic{width:20px;height:20px;line-height:20px;font-size:11px}

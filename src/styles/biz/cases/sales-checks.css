@@ -1,6 +1,9 @@
-/* Case 01 (/cases/sales-checks/) only: the eight pictures. Prefix: sc-. Linked after story-page.css.
-   Every picture is finished in the HTML; kit pieces (compare, scrub, flow, hotspots, sort, chat, count,
-   stepper) add the interaction. Pale cobalt for the diagram, cobalt for meaning, green only for "a person decides". */
+/* Project 01 (/cases/sales-checks/) only: its pictures, on top of the Briefing template (briefing.css). Prefix: sc-.
+   Every picture is finished in the HTML; kit pieces (compare, scrub, flow, hotspots, sort, chat) and the case piece
+   sc-funnel add the interaction. Pale cobalt for the diagram, cobalt for meaning, green only for "a person decides".
+   Exhibits: 1 compare (band 01) · 2 the process, sc-funnel (band 02) · 2.1 sort (band 02 detail) · 3 chat (band 03) ·
+   3.1 who does what + 3.2 the review step (band 03 detail) · 4 what the reviews caught (band 04) · 4.1 the review
+   loop (band 04 detail) · 5 what went away (band 05). */
 
 /* ---------- the 60-second box ---------- */
 /* the rows are split in two lists, so on phones the picture sits between them (no long run of text), as on Case 03 */
@@ -35,7 +38,6 @@
 .sc-key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;margin-top:14px;font-size:13px;line-height:1.35;color:var(--muted)}
 .sc-key__i{display:inline-flex;align-items:center;gap:7px}
 .sc-sw{flex:none;display:inline-block;width:20px;height:13px;border-radius:3px;background:var(--paper-2);border:1px solid var(--rule)}
-.sc-sw--gap{background:var(--t1);border-color:var(--t2)}
 .sc-key .k-dia{width:9px;height:9px;margin:0 3px}
 
 /* ---------- the 60-second box: the process in four steps ---------- */
@@ -52,7 +54,7 @@
   .sc-map__steps li{flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:13px}
 }
 
-/* ---------- Exhibit 1: before / after ---------- */
+/* ---------- Exhibit 1 (band 01): one check, by hand and on its own (compare) ---------- */
 /* each row: name · on Agoda · on a partner platform · result (chip + a person's tick). Both panes share the grid, so at
    the resting split the names (left) come from Before and the partner cells, chips and ticks (right) from Now. */
 .sc-cmp{--sc-c:86px;--sc-r:150px}
@@ -86,7 +88,7 @@
   .sc-res{gap:5px}
 }
 
-/* ---------- Exhibit 2: who does what ---------- */
+/* ---------- Exhibit 3.1 (band 03 detail): who does what (scrub) ---------- */
 .sc-roles{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr) 34px minmax(0,1fr);align-items:stretch;padding:4px 0}
 .sc-role{justify-content:flex-start;min-height:100%}
 .sc-role small{max-width:24ch}
@@ -94,7 +96,7 @@
 .sc-arrow::after{content:"";position:absolute;right:-2px;top:-4px;border:5px solid transparent;border-left:7px solid var(--t4);border-right:0}
 .sc-who .vis__cap .k-dia{width:9px;height:9px;margin-right:4px}
 
-/* ---------- Exhibit 3 (the signature): the process as a funnel ---------- */
+/* ---------- Exhibit 2 (band 02, the signature): the process as a funnel (sc-funnel) ---------- */
 /* Finished picture (JS off, reduced motion): every step shows its tally of example rows. With motion (sc-funnel) the
    rows travel step to step with scroll on a flat, still board (see src/biz/cases/sales-checks/). */
 .sc-proc__map{--g:clamp(16px,2vw,32px);padding-top:60px}
@@ -107,7 +109,6 @@
 .sc-stop--person b{transform:rotate(-45deg)}
 .sc-stop b{font-weight:500}
 .sc-card{width:100%;flex:1}
-.sc-card__d{margin-top:6px;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
 /* the tally over each step: small rows (a tick box and a name bar), grey when filtered out, green when ticked, notes */
 .sc-tally{position:absolute;left:0;right:0;top:-44px;z-index:2;display:flex;justify-content:center;gap:5px}
 .sc-tk{position:relative;flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:24px;border:1px solid var(--t2);border-radius:5px;background:var(--card);color:var(--cobalt-deep);box-shadow:0 6px 12px -8px rgba(15,33,71,.55)}
@@ -139,7 +140,7 @@
 [data-armed~="sc-funnel"] .sc-stop:not(.is-reached)+.sc-card .k-node__ic{color:var(--t3)}
 [data-armed~="sc-funnel"] .sc-card{transition:background-color .35s,border-color .35s}
 
-/* ---------- Exhibit 4: the review step (hotspots + scroll build) ---------- */
+/* ---------- Exhibit 3.2 (band 03 detail): the review step (hotspots + scrub) ---------- */
 .sc-rev__stage{min-height:0}
 .sc-win{position:relative;width:62%;border:1px solid var(--rule);border-radius:8px;background:var(--card);box-shadow:0 18px 36px -28px rgba(15,33,71,.5);overflow:visible}
 .sc-win__bar{position:relative;display:flex;align-items:center;gap:12px;height:44px;padding:0 44px 0 14px;border-bottom:1px solid var(--rule-2);background:var(--paper);border-radius:8px 8px 0 0;font:500 13.5px/1.2 var(--sans);color:var(--ink)}
@@ -163,7 +164,7 @@
 .sc-pop>.k-spot{--x:0%;--y:0%}
 .sc-rev [data-spot]{outline-offset:2px}
 
-/* ---------- Exhibit 5: the rules sort the gaps ---------- */
+/* ---------- Exhibit 2.1 (band 02 detail): the rules sort the gaps (sort) ---------- */
 .sc-sort{--cw:200px}
 .sc-sort .k-sort__tray{max-width:none}
 .sc-sort .k-sort__slot{display:flex;align-items:center;justify-content:center;gap:6px;font:500 12.5px/1.2 var(--sans);color:var(--muted)}
@@ -179,7 +180,7 @@
 .sc-bk-out .k-card{border-color:var(--rule);color:var(--ink-2)}
 .sc-bk-out .k-sort__bh .sc-sw{width:12px;height:12px}
 
-/* ---------- Exhibit 6: from a tick to a draft note ---------- */
+/* ---------- Exhibit 3 (band 03): from a tick to a draft note (chat) ---------- */
 .sc-chat{padding-top:6px}
 .sc-av{display:inline-block;width:16px;height:16px;border-radius:50%;background:var(--t2)}
 .sc-av--auto{background:var(--cobalt)}
@@ -190,7 +191,7 @@
 .sc-chat .k-chat__replay svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .sc-demo .k-chat__replay{top:-2px}
 
-/* ---------- Exhibit 7: the review loop ---------- */
+/* ---------- Exhibit 4.1 (band 04 detail): the review loop (flow + hotspots on the band) ---------- */
 .sc-loop{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 12px;align-items:center;justify-items:center;padding:4px 0}
 .sc-loop::before{content:"";position:absolute;left:17%;right:17%;top:15%;bottom:15%;border:1.5px dashed var(--t3);border-radius:50%} /* the loop, without JS */
 .sc-loop[data-armed~="flow"]::before{visibility:hidden}
@@ -205,21 +206,6 @@
 .sc-loop__c{grid-area:2/2;display:flex;flex-direction:column;align-items:center;gap:2px;font:500 12.5px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center}
 .sc-loop__c b{font:400 clamp(44px,4vw,60px)/1 var(--serif);letter-spacing:-.02em;color:var(--cobalt);text-transform:none}
 .sc-loopfig .k-hs__list{margin-top:22px}
-
-/* ---------- Exhibit 8: the handover week ---------- */
-.k-stp__panel.sc-tp,.sc-stp .k-stp__panel{display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start}
-.sc-tp__ic{display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:14px;background:var(--t1);color:var(--cobalt)}
-.sc-tp__ic svg{width:44px;height:44px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.sc-stp .k-stp__panel p:last-child{font-size:16.5px;line-height:1.55;color:var(--ink)}
-/* all four topics stay in view (2 × 2); the stepper lights up one at a time (text never dims) */
-.js .sc-stp .k-stp__panels{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.js .sc-stp .k-stp__panel{grid-area:auto;visibility:visible;opacity:1;grid-template-columns:52px minmax(0,1fr);gap:14px;padding:16px;border:1px solid var(--rule-2);border-radius:8px;background:var(--card);transition:border-color .3s,background-color .3s,box-shadow .3s}
-.js .sc-stp .k-stp__panel.is-on{border-color:var(--cobalt);background:var(--t1);box-shadow:0 0 0 3px var(--t1)}
-.js .sc-stp .sc-tp__ic{width:52px;height:52px;border-radius:10px;transition:background-color .3s,color .3s}
-.js .sc-stp .sc-tp__ic svg{width:34px;height:34px}
-.js .sc-stp .k-stp__panel:not(.is-on) .sc-tp__ic{background:var(--paper-2);color:var(--t4)}
-.js .sc-stp .k-stp__panel.is-on .sc-tp__ic{background:var(--card)}
-.js .sc-stp .k-stp__panel p:last-child{font-size:15px;line-height:1.5}
 
 /* ---------- phones and narrow screens ---------- */
 @media (max-width:960px){
@@ -253,12 +239,49 @@
   .sc-lp .k-node__t{font-size:13px}
   .sc-loop__c{font-size:11px}
   .sc-loop__c b{font-size:40px}
-  .sc-stp .k-stp__panel{grid-template-columns:52px minmax(0,1fr);gap:14px}
-  .js .sc-stp .k-stp__panels{grid-template-columns:minmax(0,1fr);gap:10px}
-  .js .sc-stp .k-stp__panel{padding:12px}
   .sc-key{gap:5px 14px;font-size:12.5px}
   .sc-tkey{gap:6px 14px;font-size:12.5px}
-  .sc-tp__ic{width:52px;height:52px;border-radius:10px}
-  .sc-tp__ic svg{width:34px;height:34px}
-  .js .sc-stp .k-stp__nav{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px}
+}
+
+/* ---------- Exhibit 4 (band 04): what the reviews caught, and what I changed (scrub) ---------- */
+/* Three plain rows; they slide in as the card arrives (finished by the time its top is at 62 %).
+   JS off and reduced motion: the finished table. Phones: two columns, no arrows. */
+.sc-caught__tbl{display:grid;gap:8px;margin-top:4px}
+.sc-caught__row{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);align-items:center;gap:10px}
+.sc-caught__row--h{padding:0 14px;font:500 11.5px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sc-caught__row--h span:last-child{color:var(--cobalt)}
+.sc-caught__q,.sc-caught__a{display:flex;align-items:center;gap:10px;min-height:52px;padding:10px 14px;border-radius:10px;font-size:16px;line-height:1.35}
+.sc-caught__q{background:var(--paper-2);color:var(--ink-2)}
+.sc-caught__a{background:var(--t1);color:var(--ink);font-weight:500}
+.sc-caught__arr{justify-self:center;color:var(--cobalt);font-size:17px}
+.sc-caught__ok{flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--live)}
+.sc-caught__ok svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Exhibit 5 (band 05, the result): what went away (scrub) ---------- */
+/* As the card arrives the old way is crossed out and the new way slides in (reverses on the way up).
+   JS off and reduced motion: already crossed out. */
+.sc-gone__list{display:grid;gap:0;margin:2px 0 0;padding:0;list-style:none}
+.sc-gone__i{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 22px;padding:16px 0;border-top:1px solid var(--rule-2)}
+.sc-gone__i:first-child{border-top:0;padding-top:6px}
+.sc-gone__k{grid-row:1/3;font:400 22px/1.2 var(--serif);color:var(--ink)}
+.sc-gone__old{position:relative;justify-self:start;font-size:15.5px;line-height:1.45;color:var(--muted)}
+.sc-gone__x{position:absolute;inset:0;font-style:normal;color:transparent;text-decoration:line-through 2px var(--cobalt);text-decoration-skip-ink:none;transform-origin:0 50%;pointer-events:none}
+.sc-gone__new{display:flex;gap:8px;font-size:16.5px;line-height:1.45;font-weight:500;color:var(--ink)}
+.sc-gone__new::before{content:"→";flex:none;color:var(--cobalt)}
+
+/* ---------- the pictures inside the Briefing bands ---------- */
+.bp__detail--key .sc-key{margin:0;font-size:14px;gap:10px 22px} /* band 01 detail row: the key to Exhibit 1 */
+@media (min-width:961px){.bp .sc-proc .sc-proc__map{padding-top:44px}} /* phones keep 6 px: the tallies sit inside the cards */
+.bp .sc-loop{padding:8px 0}
+.bp .sc-loop .k-flow__dot{z-index:0}
+.bp .sc-loop .sc-lp{z-index:1}
+
+@media (max-width:640px){
+  .sc-caught__arr,.sc-caught__row--h span[aria-hidden]{display:none}
+  .sc-caught__row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px}
+  .sc-caught__row--h{padding:0 10px;font-size:10.5px;letter-spacing:.1em}
+  .sc-caught__q,.sc-caught__a{min-height:56px;padding:8px 10px;font-size:14.5px;gap:8px}
+  .sc-caught__ok{width:18px;height:18px}
+  .sc-gone__i{grid-template-columns:minmax(0,1fr);gap:4px}
+  .sc-gone__k{grid-row:auto;font-size:20px}
 }

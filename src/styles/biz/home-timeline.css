@@ -1,0 +1,76 @@
+/* Home: 04 Experience and education. Two lanes (Bangkok: internships · New Brunswick: school years at Rutgers) over
+   six year columns, 2023–2028. An entry sits in its year column, never at a date-scaled point. Each entry's marker
+   sits on its lane's line, next to its date; two entries in one year stack, joined by a short stem.
+   Markers: filled = an internship (in its project's colour) · hollow = school-year work, not a job · dashed = still ahead.
+   Wide screens with motion: the lines draw in as the timeline arrives and each marker appears as its line reaches it
+   (scrubbed, so it reverses; finished while the timeline is still low on the screen). Phones: two vertical lists.
+   JS off, reduced motion, phones: the finished timeline. */
+
+.exp{padding-top:clamp(64px,6vw,96px)}
+.exp__h{font:400 clamp(28px,2.6vw,40px)/1.12 var(--serif);letter-spacing:-.02em;max-width:52ch;margin:-6px 0 clamp(22px,2.4vw,34px)}
+.tl{--m:14px;--stack:18px;--lane-head:clamp(128px,10.5vw,168px);--gap:clamp(12px,1.5vw,24px)}
+.tl__years{display:none}
+.tl__lane{position:relative;padding-block:22px 24px;border-top:1px solid var(--rule)}
+.tl__place{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.tl__pic{flex:none;display:block;width:88px;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:var(--paper-2)}
+.tl__pic img{width:100%;height:100%;object-fit:cover}
+.tl__name{font:400 22px/1.1 var(--serif);color:var(--ink)}
+.tl__name small{display:block;margin-top:4px;font:500 12px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tl__line{display:none}
+.tl__cells,.tl__cell{display:flex;flex-direction:column;gap:var(--stack)}
+
+/* an entry: marker at the left, next to the date; the text hangs from the date */
+.tl__it{position:relative;padding-left:26px}
+.tl__it::before{content:"";position:absolute;z-index:2;left:0;top:4px;width:var(--m);height:var(--m);box-sizing:border-box;border-radius:50%;background:var(--deep,var(--cobalt));box-shadow:0 0 0 4px var(--paper);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.tl__it--school::before{background:var(--paper);border:2px solid var(--deep,var(--cobalt))}
+.tl__it--next::before{background:var(--paper);border:1.5px dashed var(--cobalt)}
+/* the stem from this marker down to the next one (same year on wide screens; the whole lane on phones) */
+.tl__it::after{content:"";position:absolute;z-index:1;left:calc(var(--m) / 2 - 1px);top:calc(4px + var(--m));bottom:calc(-1 * var(--stack) - 4px);width:2px;background:var(--t2)}
+.tl__cell:last-child .tl__it:last-child::after{display:none}
+.tl__d{position:relative;z-index:1;display:inline-block;font:400 19px/1.15 var(--serif);color:var(--cobalt);white-space:nowrap}
+.tl__o{margin-top:5px;font-weight:500;font-size:16px;line-height:1.35}
+.tl__x{display:block;font-weight:400;font-size:14px;color:var(--muted)}
+.tl__r{margin-top:2px;font-size:14px;line-height:1.4;color:var(--muted)}
+.tl__w{margin-top:6px;max-width:44ch;font-size:14px;line-height:1.5;color:var(--ink-2)}
+.tl__c{display:inline-block;margin-top:9px;font:500 14px/1.3 var(--sans);color:var(--deep,var(--cobalt));text-decoration:none;white-space:nowrap;border-bottom:1px solid var(--pale,var(--t2));padding-bottom:2px}
+.tl__c:hover{border-bottom-color:currentColor}
+
+/* wide screens: the two lanes read left to right, one year per column */
+@media (min-width:1024px){
+  .tl__years{display:grid;grid-template-columns:var(--lane-head) repeat(6,minmax(0,1fr));column-gap:var(--gap);padding-bottom:10px}
+  .tl__years li{font:500 12.5px/1 var(--sans);letter-spacing:.14em;color:var(--muted);font-variant-numeric:tabular-nums}
+  .tl__years li:first-child{grid-column:2}
+  .tl__lane{display:grid;grid-template-columns:var(--lane-head) repeat(6,minmax(0,1fr));column-gap:var(--gap);align-items:start;padding-block:24px 26px}
+  .tl__place{grid-column:1;grid-row:1;flex-direction:column;align-items:flex-start;gap:10px;margin:0}
+  .tl__pic{width:100%}
+  .tl__name{font-size:21px}
+  /* the lane's line runs through the first marker of every year, behind the dates */
+  .tl__line{display:block;grid-row:1;position:relative;height:2px;margin-top:calc(4px + var(--m) / 2 - 1px);background:var(--rule)}
+  .tl__line i{position:absolute;inset:0;background:var(--cobalt);transform-origin:0 50%;transform:scaleX(var(--tl,1))}
+  /* each line runs from its lane's first marker to its last: Bangkok 2023 → 2026, New Brunswick 2024 → 2028 */
+  .tl__lane--bkk .tl__line{grid-column:2 / 5;margin-right:calc(-1 * var(--gap) - var(--m) / 2)}
+  .tl__lane--nb .tl__line{grid-column:3 / 7;margin-right:calc(-1 * var(--gap) - var(--m) / 2)}
+  .tl__cells{grid-column:2/-1;grid-row:1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--gap);align-items:start}
+  .tl__cell{grid-column:var(--col) / span var(--span,1)}
+  .tl__cell:first-child .tl__it:first-child::before{left:0}
+  /* the date masks the line behind it, so the line reads "● Jul 2023 ────" */
+  .tl__it:first-child .tl__d{margin-left:-8px;padding:0 10px 0 8px;background:var(--paper)}
+  .tl__it::after{display:none}
+  .tl__it:not(:last-child)::after{display:block}
+  .tl__w{max-width:40ch}
+  html.tl-anim .tl__it:not(.is-on)::before{transform:scale(0)}
+}
+@media (min-width:1024px) and (max-width:1279px){
+  .tl{--gap:12px}
+  .tl__d{font-size:17.5px}
+  .tl__o{font-size:15px}
+  .tl__r,.tl__w{font-size:13.5px}
+}
+@media (max-width:640px){
+  .exp{padding-top:64px}
+  .exp__h{font-size:27px;margin-top:-8px}
+  .tl{--stack:16px}
+  .tl__lane{padding-block:18px 20px}
+  .tl__d{font-size:17px}
+  .tl__o{font-size:15.5px}
+}

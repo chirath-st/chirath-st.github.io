@@ -1,0 +1,318 @@
+/* Home: 03 Projects, "the casebook". Wide screens with JS (html.cb-book, ≥ 1180 × 600): all four projects in one
+   screen, rows on the left and one panel on the right; the open row joins its panel in one tint. Phones, tablets and
+   JS off: four tinted cards, stacked, under a sticky 01–04 bar. Motion is CSS transitions driven by
+   src/biz/casebook.js (no gsap on the home page). */
+
+/* One tint per project: the blue family, clearly different at a glance
+   (01 cobalt · 02 sky · 03 stone, the palette's --paper-2 family · 04 steel). */
+.c1{--tint:#E6ECFD;--tint-2:#D6E0FB;--pale:#C0CEF6;--mid:#5F82E6;--deep:#1A35A8}
+.c2{--tint:#DCEEF9;--tint-2:#C7E2F4;--pale:#A4CCE9;--mid:#3485C2;--deep:#0B4F85}
+.c3{--tint:#EFEBE1;--tint-2:#E4DDCE;--pale:#D3C9B3;--mid:#7D879C;--deep:#1D3A78}
+.c4{--tint:#D9E0EC;--tint-2:#C7D0E2;--pale:#A9B7D1;--mid:#4F6690;--deep:#35507F}
+
+/* the moving highlight's tint glides from one project's colour to the next */
+@property --hl{syntax:"<color>";inherits:true;initial-value:#E6ECFD}
+
+.cases{padding-block:clamp(56px,6vw,96px) 0}
+.cb-head{margin-bottom:clamp(16px,1.8vw,24px)}
+.cb-head .sec-head{margin-bottom:14px}
+.cb-head__row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 28px}
+.cb-h2{flex:none;font:400 clamp(28px,2.6vw,40px)/1.1 var(--serif);letter-spacing:-.02em}
+.cb-sum{flex:1 1 30ch;max-width:62ch;font-size:16.5px;line-height:1.45;color:var(--ink-2)}
+
+/* ---- the sticky 01–04 bar (phones, tablets, JS off) ---- */
+.cb-tabs{position:sticky;top:var(--head-h);z-index:20;margin:0 calc(-1 * var(--gutter)) 14px;padding:0 var(--gutter);background:rgba(248,247,243,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule-2)}
+.cb-tabs ol{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding-block:6px}
+.cb-tabs a{display:flex;align-items:baseline;gap:9px;padding:10px 12px 11px;border-radius:10px;text-decoration:none;color:var(--ink-2);transition:color .25s}
+.cb-tabs b{font:400 20px/1 var(--serif);color:var(--deep);font-variant-numeric:tabular-nums}
+.cb-tabs span{font:500 14px/1.2 var(--sans)}
+.cb-tabs a.is-on{color:var(--ink)}
+/* the marker slides under the project being read and takes its tint (JS); without JS there is none */
+.cb-tabs__ind{position:absolute;z-index:0;left:0;top:0;width:var(--w,0);height:var(--h,0);border-radius:10px;background:var(--ind,#E6ECFD);box-shadow:inset 0 -3px 0 var(--ind-d,#1A35A8);opacity:0;pointer-events:none;
+  transform:translate(var(--x,0),var(--y,0));transition:transform .45s var(--ease-out),width .45s var(--ease-out),height .45s var(--ease-out),opacity .2s,background-color .3s}
+.cb-tabs__ind.is-on{opacity:1}
+.cb-tabs__ind.is-still{transition:none}
+html.cb-book .cb-tabs{display:none}
+
+/* ---- parts shared by both layouts ---- */
+.cb-row{text-decoration:none;color:var(--ink);position:relative}
+.cb-num{font:400 clamp(44px,4.4vw,66px)/.86 var(--serif);letter-spacing:-.03em;color:var(--deep);font-variant-numeric:tabular-nums lining-nums}
+.cb-num small{font:400 .34em/1 var(--sans);letter-spacing:.04em;color:var(--muted);margin-left:.2em;vertical-align:.2em}
+.cb-meta{font:500 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--deep)}
+@media (max-width:640px){.cb-tool{display:none}}
+@media (max-width:1439px){html.cb-book .cb-what{display:none}} /* narrow laptops: the timeline says it; keeps the label on one line */
+.cb-title{font:400 clamp(21px,1.62vw,25px)/1.2 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.cb-title em{font-style:normal;color:var(--deep)}
+/* the result line: a check in the project's colour + serif text */
+.cb-result{display:flex;align-items:flex-start;gap:9px;font:400 16.5px/1.35 var(--serif);color:var(--ink-2)}
+.cb-ok{flex:none;width:17px;height:17px;margin-top:.12em}
+.cb-ok circle{fill:var(--deep)}
+.cb-ok path{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cb-go{display:none}
+.cb-media{position:relative;display:block;overflow:hidden;border-radius:14px;background:var(--tint-2);text-decoration:none}
+.cb-photo{position:absolute;inset:0}
+/* the photo: a slight zoom (1.08), a drift of at most 3 % towards the pointer (--dx/--dy) and, on phones, a settle
+   from 6 % larger as the card arrives (--ps); all set by casebook.js */
+.cb-photo img{width:100%;height:100%;object-fit:cover;transform:translate(var(--dx,0%),var(--dy,0%)) scale(calc(1.08 * var(--ps,1)));transition:transform .8s var(--ease-out)}
+.cb-photo.is-scrub img{transition:none}
+.c4 .cb-photo img{object-position:22% 72%}
+.cb-big{display:none}
+.ba{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);align-items:stretch;gap:6px}
+.ba__p{display:block;padding:11px 14px 12px;border-radius:10px;font-size:15px;line-height:1.4}
+.ba__p small{display:block;margin-bottom:4px;font:500 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.ba__b{background:rgba(255,255,255,.5);color:var(--ink-2)}
+.ba__b small{color:var(--muted)}
+.ba__a{background:#fff;color:var(--ink);box-shadow:0 1px 0 rgba(14,23,38,.04)}
+.ba__a small{color:var(--deep)}
+.ba__arr{align-self:center;justify-self:center;color:var(--deep);font-size:17px}
+.cb-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px}
+.cb-tools{font-size:14px;line-height:1.35;color:var(--ink-2)}
+.cb-tools span{margin-right:6px;font:500 11.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--deep)}
+.read{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:10px;background:var(--ink);color:#fff;font:500 15px/1 var(--sans);text-decoration:none;white-space:nowrap;transition:background .2s}
+.read span{transition:transform .3s var(--ease)}
+.read:hover{background:var(--deep)}
+.read:hover span{transform:translateX(4px)}
+
+/* ---- mini pictures (the finished picture is the default: JS off and reduced motion see it) ---- */
+.mx{position:relative;z-index:1;background:#fff;border-radius:14px;padding:16px 18px 11px;box-shadow:0 22px 40px -26px rgba(14,23,38,.42),0 1px 2px rgba(14,23,38,.07)}
+.mx-cap{margin-top:9px;font-size:12px;line-height:1.3;color:var(--muted)}
+.ok{display:inline-grid;place-items:center;flex:none;width:18px;height:18px;border-radius:50%;background:var(--live);color:#fff}
+.ok svg{width:11px;height:11px}
+/* 01 funnel */
+.mx-funnel{display:grid;grid-template-columns:minmax(0,1fr) 118px;column-gap:18px;row-gap:6px;align-items:center}
+.fz{grid-column:1;display:grid;grid-template-columns:136px minmax(0,1fr);align-items:center;gap:10px;height:28px;border-radius:8px;padding-inline:8px;margin-inline:-8px}
+.fz__l{font-size:12.5px;line-height:1.2;color:var(--ink-2);white-space:nowrap}
+.fz__t{position:relative;height:13px}
+.fz__t i{position:absolute;left:0;top:0;bottom:0;width:var(--w);border-radius:3px;background:var(--pale);transform-origin:left}
+.fz:nth-child(2) .fz__t i{background:color-mix(in srgb, var(--pale) 55%, var(--mid))}
+.fz:nth-child(3) .fz__t i{background:var(--mid)}
+.fz--person{background:#fff;box-shadow:0 10px 22px -12px rgba(14,23,38,.45),0 0 0 1px var(--pale);transform:translateY(-1px)}
+.fz--person .fz__l{color:var(--ink);font-weight:500}
+.fz--person .fz__t i{background:var(--deep)}
+.fz--person .ok{position:absolute;top:50%;left:calc(var(--w) + 8px);margin-top:-9px}
+.fz-note{grid-column:2;grid-row:2 / span 3;align-self:stretch;display:flex;flex-direction:column;gap:6px;padding:10px 11px;border:1px solid var(--rule);border-radius:8px;background:var(--paper)}
+.fz-note span{font:500 11px/1.25 var(--sans);color:var(--ink-2)}
+.fz-note i{display:block;height:4px;border-radius:2px;background:var(--rule)}
+.fz-note i:nth-of-type(2){width:80%}.fz-note i:nth-of-type(3){width:55%}
+/* 02 route: three inboxes → one channel → three lanes. The wires meet each box at the middle of its edge; casebook.js
+   redraws them from the boxes' real positions, and one question (a dot) rides each wire, all three together. */
+.mx-route{display:grid;grid-template-columns:minmax(54px,.62fr) 40px minmax(76px,.72fr) 40px minmax(0,1.5fr);height:132px}
+.rt-in,.rt-lanes{display:flex;flex-direction:column;justify-content:space-between}
+.rt-in span{height:36px;display:grid;place-items:center;border:1px solid var(--rule);border-radius:8px;background:var(--paper);font-size:12.5px;color:var(--ink-2)}
+.rt-hub{display:grid;align-items:center}
+.rt-hub span{display:grid;place-items:center;height:54px;padding:0 10px;border-radius:10px;background:var(--deep);color:#fff;font:500 13px/1.2 var(--sans);text-align:center}
+.rt-w{width:100%;height:132px;overflow:visible}
+.rt-w path{fill:none;stroke:var(--mid);stroke-width:1.6;stroke-dasharray:1;stroke-dashoffset:0}
+.rt-w circle{fill:var(--deep);opacity:0;stroke:#fff;stroke-width:1.5}
+html:not(.js) .rt-w circle{display:none} /* the questions only travel with JS */
+.rt-lanes span{display:flex;align-items:center;justify-content:space-between;gap:8px;height:36px;padding:0 10px 0 12px;border-radius:8px;background:var(--tint);font-size:12.5px;line-height:1.15;color:var(--ink);transition:box-shadow .3s}
+.rt-lanes .rt-person{background:#fff;font-weight:500;box-shadow:0 10px 22px -12px rgba(14,23,38,.45),0 0 0 1px var(--pale)}
+.rt-lanes span.is-hit{box-shadow:0 0 0 2px var(--mid)}
+.rt-lanes .rt-person.is-hit{box-shadow:0 10px 22px -12px rgba(14,23,38,.45),0 0 0 2px var(--mid)}
+/* 03 sort */
+.mx-sort{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;height:132px}
+.st-b{display:flex;flex-direction:column;gap:6px;padding:9px 10px 10px;border-radius:10px;border:1px dashed var(--rule);background:var(--paper)}
+.st-b p{display:flex;justify-content:space-between;gap:6px;min-height:32px;font:500 12px/1.3 var(--sans);color:var(--ink-2)}
+.st-b--yes{border:0;background:#fff;box-shadow:0 10px 22px -12px rgba(14,23,38,.45),0 0 0 1px var(--pale)}
+.st-b--yes p{color:var(--ink)}
+.st-b--yes .ok{background:var(--deep)} /* green only means live or a person decides */
+.st-c{position:relative;height:24px;border-radius:5px;border:1px solid var(--rule);background:#fff}
+.st-c::before{content:"";position:absolute;left:9px;top:6px;width:10px;height:10px;border-radius:2px;border:1.5px solid var(--mid)}
+.st-c::after{content:"";position:absolute;left:26px;right:28%;top:10px;height:3px;border-radius:2px;background:var(--pale)}
+.st-b--yes .st-c{border-color:var(--pale);background:var(--tint)}
+.st-b--no .st-c{opacity:.5}
+/* 04 map (schematic, not to scale) */
+.mx-map{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:18px;align-items:center;min-height:132px}
+.mp{position:relative;width:100%;aspect-ratio:440/150}
+.mp svg{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;border-radius:8px}
+.mp-river{fill:none;stroke:var(--tint);stroke-width:16;stroke-linecap:round}
+.mp-bus{fill:none;stroke:#8A919C;stroke-width:2.2;stroke-dasharray:.01 .016;stroke-linecap:round}
+.mp-rides path{fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.mp-ring circle{fill:#fff;stroke:var(--pale);stroke-width:2.5}
+.mp-dot circle{fill:var(--ink);transform-box:fill-box;transform-origin:center}
+.mp-l{position:absolute;font:500 11px/1 var(--sans);color:var(--ink-2);white-space:nowrap;background:rgba(255,255,255,.9);padding:2px 4px;border-radius:3px}
+.mp-l--below{transform:translate(-50%,58%)}
+.mp-l--left{transform:translate(calc(-100% - 11px),-50%)}
+.mp-key{display:grid;gap:10px;font-size:12.5px;line-height:1.3;color:var(--ink-2)}
+.mp-key li{display:flex;align-items:center;gap:10px}
+.mp-key svg{flex:none;width:30px;height:6px;color:var(--deep)}
+
+/* pre-build states: only with JS and motion, only until the picture is built (.is-built). Every label sits in its own
+   box, so nothing overlaps mid-build. */
+@media (prefers-reduced-motion:no-preference){
+  html.js:not(.no-motion) .mx .fz__t i{transition:transform .55s var(--ease-out) calc(var(--r,0) * 110ms)}
+  .fz:nth-child(2){--r:1}.fz:nth-child(3){--r:2}.fz:nth-child(4){--r:3}
+  html.js:not(.no-motion) .mx .fz--person{transition:transform .4s var(--ease-out) .62s,box-shadow .4s .62s}
+  html.js:not(.no-motion) .mx .ok{transition:transform .38s cubic-bezier(.3,1.7,.5,1) .78s,opacity .2s .78s}
+  html.js:not(.no-motion) .mx .fz-note{transition:transform .45s var(--ease-out) .9s,opacity .3s .9s}
+  html.js:not(.no-motion) .mx:not(.is-built) .fz__t i{transform:scaleX(0)}
+  html.js:not(.no-motion) .mx:not(.is-built) .fz--person{transform:none;box-shadow:0 0 0 1px transparent}
+  html.js:not(.no-motion) .mx:not(.is-built) .ok{transform:scale(0);opacity:0}
+  html.js:not(.no-motion) .mx:not(.is-built) .fz-note{transform:translateX(-10px);opacity:0}
+
+  html.js:not(.no-motion) .mx .rt-w path{transition:stroke-dashoffset .45s var(--ease-out) .1s}
+  html.js:not(.no-motion) .mx .rt-w--out path{transition-delay:.55s}
+  html.js:not(.no-motion) .mx .rt-lanes span{transition:transform .4s var(--ease-out),opacity .3s,box-shadow .4s}
+  html.js:not(.no-motion) .mx .rt-lanes span:nth-child(1){transition-delay:.75s}
+  html.js:not(.no-motion) .mx .rt-lanes span:nth-child(2){transition-delay:.85s}
+  html.js:not(.no-motion) .mx .rt-lanes span:nth-child(3){transition-delay:.95s,.95s,1.25s}
+  html.js:not(.no-motion) .mx.is-built .rt-lanes span.is-hit{transition-delay:0s}
+  html.js:not(.no-motion) .mx:not(.is-built) .rt-w path{stroke-dashoffset:1}
+  html.js:not(.no-motion) .mx:not(.is-built) .rt-lanes span{transform:translateX(-8px);opacity:0}
+  html.js:not(.no-motion) .mx:not(.is-built) .rt-lanes .rt-person{box-shadow:0 0 0 1px transparent}
+
+  /* the example data sets drop in from just above their own box (never across the labels) */
+  html.js:not(.no-motion) .mx .st-c{transition:transform .5s cubic-bezier(.3,1.25,.5,1) calc(120ms + var(--k) * 90ms),opacity .25s calc(120ms + var(--k) * 90ms)}
+  html.js:not(.no-motion) .mx .st-b--yes{transition:box-shadow .4s .8s,transform .4s var(--ease-out) .8s}
+  html.js:not(.no-motion) .mx:not(.is-built) .st-c{transform:translateY(-8px);opacity:0}
+  html.js:not(.no-motion) .mx:not(.is-built) .st-b--yes{box-shadow:0 0 0 1px var(--pale)}
+
+  html.js:not(.no-motion) .mx .mp-bus{transition:opacity .4s .05s}
+  html.js:not(.no-motion) .mx .mp-rides path{transition:stroke-dashoffset .6s var(--ease-out)}
+  html.js:not(.no-motion) .mx .mp-rides path:nth-child(1){transition-delay:.35s}
+  html.js:not(.no-motion) .mx .mp-rides path:nth-child(2){transition-delay:.55s}
+  html.js:not(.no-motion) .mx .mp-rides path:nth-child(3){transition-delay:.75s}
+  html.js:not(.no-motion) .mx .mp-dot circle{transition:transform .35s cubic-bezier(.3,1.7,.5,1)}
+  html.js:not(.no-motion) .mx .mp-dot circle:nth-child(2){transition-delay:.06s}
+  html.js:not(.no-motion) .mx .mp-dot circle:nth-child(3){transition-delay:.12s}
+  html.js:not(.no-motion) .mx .mp-dot circle:nth-child(4){transition-delay:.18s}
+  html.js:not(.no-motion) .mx:not(.is-built) .mp-bus{opacity:0}
+  html.js:not(.no-motion) .mx:not(.is-built) .mp-rides path{stroke-dashoffset:1}
+  html.js:not(.no-motion) .mx:not(.is-built) .mp-dot circle{transform:scale(0)}
+}
+
+/* ---- stacked layout: phones, tablets and JS off. Each project is its own tinted card with a coloured top edge. ---- */
+.cb{display:grid;gap:16px}
+.cb-hl{display:none}
+.cb-case{border-radius:20px;background:var(--tint);overflow:hidden;border-top:4px solid var(--deep);scroll-margin-top:calc(var(--head-h) + 76px)}
+.cb-row{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"num badge" "meta meta" "title title" "result result";align-items:start;gap:8px 16px;padding:24px 22px 18px}
+.cb-num{grid-area:num}
+.cb-row .badge{grid-area:badge;justify-self:end;margin-top:4px}
+.cb-meta{grid-area:meta;margin-top:10px}
+.cb-title{grid-area:title;font-size:clamp(22px,5.8vw,26px)}
+.cb-result{grid-area:result}
+.cb-panel{display:flex;flex-direction:column;gap:14px;padding:0 22px 24px}
+.cb-media{height:132px}
+.cb-panel .mx{margin:0}
+
+/* phones and tablets: photo strip with the big numeral on top, no mini picture (it lives on the project page),
+   Before / After as two rows, tools, one button. About 50 words a project. */
+@media (max-width:1179px){
+  .cb-case{display:flex;flex-direction:column}
+  .cb-panel{display:contents}
+  .cb-media{order:-1;height:clamp(112px,26vw,180px);border-radius:0}
+  .cb-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,16,36,.55),rgba(8,16,36,0) 62%)}
+  .cb-big{display:block;position:absolute;z-index:1;left:18px;bottom:10px;font:400 60px/.86 var(--serif);letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums lining-nums}
+  .cb-big small{font:500 13px/1 var(--sans);letter-spacing:.06em;margin-left:10px;vertical-align:.3em;opacity:.85}
+  .cb-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding:16px 18px 14px}
+  .cb-meta{flex:1 1 auto;margin-top:0;align-self:center}
+  .cb-row .badge{flex:none;margin-top:0}
+  .cb-title,.cb-result{flex:1 1 100%}
+  .cb-num{display:none}
+  .cb-panel .mx{display:none}
+  .ba{margin:0 18px;grid-template-columns:1fr;gap:0;border-top:1px solid rgba(14,23,38,.12)}
+  .ba__arr{display:none}
+  .ba__p{display:grid;grid-template-columns:62px minmax(0,1fr);gap:12px;align-items:baseline;padding:10px 0;border-radius:0;background:none;box-shadow:none;border-bottom:1px solid rgba(14,23,38,.12)}
+  .ba__p small{margin:0}
+  .cb-foot{margin:14px 18px 20px;gap:14px}
+}
+@media (min-width:1180px){
+  /* JS off (or a very short window) on a wide screen: each project is one wide card, text left and its panel right */
+  html:not(.cb-book) .cb-case{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+  html:not(.cb-book) .cb-row{align-content:center;padding:34px 36px}
+  html:not(.cb-book) .cb-panel{padding:22px 22px 22px 0}
+  html:not(.cb-book) .cb-media{height:200px}
+}
+
+/* ---- the casebook: JS on, wide screen. Rows left, one panel right; the open row joins its panel in one tint. ---- */
+html.cb-book .cb{
+  --panel-w:53%; --inset:40px; --r:24px;
+  position:relative;isolation:isolate;display:flex;flex-direction:column;gap:0;
+  min-height:var(--cb-h,clamp(560px, calc(100svh - var(--head-h) - 170px), 700px));
+  padding:var(--inset) var(--panel-w) var(--inset) 0}
+html.cb-book .cb-case{flex:1 1 0;display:flex;min-height:0;border-radius:0;border:0;background:none;overflow:visible}
+html.cb-book .cb-row{flex:1;grid-template-columns:clamp(74px,6.4vw,100px) minmax(0,1fr) auto;grid-template-areas:"num meta badge" "num title title" "num result result";align-content:center;gap:7px 0;padding:16px 48px 16px 18px;border-radius:18px 0 0 18px;cursor:pointer}
+html.cb-book .cb-row > *{position:relative;z-index:2}
+html.cb-book .cb-row .badge{margin-top:-4px;margin-left:12px}
+html.cb-book .cb-meta{margin-top:0}
+html.cb-book .cb-title{font-size:clamp(20px,1.6vw,25px);max-width:30ch}
+html.cb-book .cb-result{font-size:16px;margin-top:2px}
+html.cb-book .cb-num small{display:none}
+html.cb-book .cb-case + .cb-case .cb-row::before{content:"";position:absolute;left:18px;right:34px;top:0;height:1px;background:var(--rule);z-index:0}
+html.cb-book .cb-row:focus-visible{outline-offset:-3px;border-radius:18px 0 0 18px}
+/* a chevron on every row says "this opens"; it nudges on hover and turns solid on the open project */
+html.cb-book .cb-go{display:grid;place-items:center;position:absolute;right:12px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:50%;color:var(--deep);opacity:.45;transition:opacity .25s,transform .3s var(--ease),background .25s,color .25s}
+html.cb-book .cb-go svg{width:13px;height:13px}
+html.cb-book .cb-row:hover .cb-go{opacity:1;transform:translateX(3px)}
+html.cb-book .cb-case.is-active .cb-go{opacity:1;background:var(--deep);color:#fff}
+/* rows that are not open stay fully readable (colour, never opacity); the numeral keeps its project colour */
+html.cb-book .cb-case:not(.is-active) .cb-title{color:var(--ink-2)}
+html.cb-book .cb-case:not(.is-active) .cb-row:hover .cb-title{color:var(--ink)}
+/* the moving highlight: the open row, in its tint, joined to the panel by two small inward curves (casebook.js sets
+   --y, --h and --hl; it glides unless it carries .is-still) */
+html.cb-book .cb-hl{display:block;position:absolute;left:0;top:0;z-index:1;width:calc(100% - var(--panel-w) + 2px);height:var(--h,0);border-radius:18px 0 0 18px;background:var(--hl);pointer-events:none;
+  transform:translateY(var(--y,0));transition:transform .42s var(--ease-out),height .42s var(--ease-out),--hl .3s}
+html.cb-book .cb-hl.is-still{transition:none}
+.cb-hl i{position:absolute;right:2px;width:18px;height:18px}
+.cb-hl__t{top:-18px;background:radial-gradient(circle at 0 0, transparent 17.5px, var(--hl) 18px)}
+.cb-hl__b{bottom:-18px;background:radial-gradient(circle at 0 100%, transparent 17.5px, var(--hl) 18px)}
+/* panels: all four share one slot; the open one is shown, the next one wipes in over it. Closed panels are inert (JS). */
+html.cb-book .cb-panel{position:absolute;z-index:3;top:0;right:0;bottom:0;width:var(--panel-w);visibility:hidden;padding:20px 22px 22px;gap:14px;border-radius:var(--r);background:var(--tint);box-shadow:inset 0 4px 0 var(--deep)}
+html.cb-book .cb-panel.is-shown{visibility:visible}
+html.cb-book .cb:not(:has(.is-shown)) .c1 .cb-panel{visibility:visible} /* before casebook.js runs, or if it fails: project 01 is open */
+html.cb-book .cb-panel.is-front{z-index:4}
+/* the photo is a slim strip carrying the project's big numeral; Before → After comes first, the mini picture second */
+html.cb-book .cb-media{flex:1 1 118px;height:auto;min-height:118px;max-height:300px;cursor:pointer} /* the photo takes up the slack, so no empty tint above the button */
+html.cb-book .cb-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(8,16,36,.55),rgba(8,16,36,0) 58%)}
+html.cb-book .cb-big{display:block;position:absolute;z-index:1;left:20px;bottom:14px;font:400 64px/.86 var(--serif);letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums lining-nums}
+html.cb-book .cb-big small{font:500 13px/1 var(--sans);letter-spacing:.06em;margin-left:10px;vertical-align:.3em;opacity:.85}
+html.cb-book .cb-panel .mx{margin:0}
+html.cb-book .cb-foot{margin-top:auto}
+@media (max-width:1279px){
+  html.cb-book .cb{--panel-w:55%}
+  html.cb-book .cb-row{padding-right:40px}
+  html.cb-book .fz{grid-template-columns:118px minmax(0,1fr)}
+  html.cb-book .mx-funnel{grid-template-columns:minmax(0,1fr) 100px}
+  html.cb-book .cb-meta{font-size:11.5px;letter-spacing:.08em}
+}
+
+/* ---- scroll hold (JS on, wide screen, motion allowed): the casebook holds still for ONE screen while the open
+   project steps 01 → 04 (a quarter screen each; it settles on the nearest one when you stop), then lets go.
+   The stage is only as tall as the casebook, so there is no empty gap when it lets go. ---- */
+html.cb-scrub .cb-zone{height:calc(var(--stage-h,100svh) + var(--cb-dist,100svh))}
+html.cb-scrub .cb-stage{position:sticky;top:var(--stick-top,var(--head-h))}
+html.cb-scrub .cb-stage > .wrap{padding-block:4px}
+
+/* short laptops: the casebook tightens so it still fits one screen */
+@media (min-width:1024px) and (max-height:800px){
+  .cb-head{margin-bottom:14px}
+  .cb-head .sec-head{margin-bottom:12px}
+  .cb-h2{font-size:clamp(26px,2.4vw,36px)}
+  html.cb-book .cb-head .sec-head{display:none}
+  html.cb-book .cb{--inset:24px;--cb-h:clamp(460px, calc(100svh - var(--head-h) - 100px), 640px)}
+  html.cb-book .cb-row{padding-block:10px;gap:5px 0}
+  html.cb-book .cb-num{font-size:clamp(44px,4vw,56px)}
+  html.cb-book .cb-panel{padding:16px 18px 18px;gap:11px}
+  html.cb-book .cb-media{height:88px;min-height:88px;max-height:88px}
+  html.cb-book .cb-big{font-size:52px;bottom:10px}
+  html.cb-book .cb-panel .mx{padding-block:12px 9px}
+  html.cb-book .cb-title{font-size:clamp(19px,1.45vw,22px)}
+  html.cb-book .cb-result{font-size:14.5px}
+  html.cb-book .ba__p{padding:9px 12px 10px;font-size:14px}
+  html.cb-book .read{height:38px}
+}
+@media (max-width:640px){
+  .cases{padding-top:44px}
+  .cb-head{margin-bottom:12px}
+  .cb-h2{font-size:26px}
+  .cb-sum{font-size:15.5px}
+  .cb-tabs ol{gap:2px;padding-block:5px}
+  .cb-tabs a{flex-direction:column;gap:3px;padding:8px 6px 9px 8px}
+  .cb-tabs b{font-size:17px}
+  .cb-tabs span{font-size:11.5px;line-height:1.2}
+  .cb-case{scroll-margin-top:calc(var(--head-h) + 70px)}
+  .cb{gap:14px}
+  .cb-title{font-size:23px}
+  .cb-result{font-size:16px}
+  .ba__p{font-size:14.5px;grid-template-columns:56px minmax(0,1fr)}
+}

@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research report · Does a bigger model predict prices better? · Chirath Soithong</title>
+  <meta name="description" content="Research report, submitted to the Rutgers Quant Finance Club: in my AI-assisted tests on one public dataset, a model 3.8 times smaller scored about the same." />
+  <!--@include:biz-head-->
+  <!-- Briefing template v3: if a stylesheet ever fails to load, an icon without width/height (e.g. in a shared partial)
+       stays 1em instead of filling the screen. Zero specificity, so every real CSS rule wins. -->
+  <style>:where(svg:not([width])){width:1em;height:1em}</style>
+  <link rel="stylesheet" href="/src/styles/biz/briefing.css" />
+  <link rel="stylesheet" href="/src/styles/biz/projects/research-report.css" />
+  <script type="module" src="/src/biz/briefing.js"></script>
+  <script type="module" src="/src/biz/projects/research-report.js"></script>
+</head>
+<body>
+<!--@include:biz-header-sub-->
+
+<!-- /projects/research-report/ ("Also made" on the home page), on "The Briefing" (story template v3,
+     design/STORY_TEMPLATE_v3.md), with Project 01 (cases/sales-checks/) as the reference.
+     project bar (the three "Also made" pages) · head (meta, title, Before → After, RESULT with status.research.label,
+     jump links, photo) · "In this project" card beside the 60-second box (What I did · Who did what · Tools) · four
+     numbered bands (01 the question · 02 what I built · 03 trading costs · 04 what I found, navy), each: claim headline,
+     lead, ONE exhibit, one detail row · Built with (still) · previous / next among the three pages + All projects.
+     Interactions in the bands: hotspots (Exhibit 1) · scroll build (Exhibits 2 and 4) · stepper (Exhibit 3).
+     Honesty: facts only from the evidence bank, Project 2 "DeepLOB Extension" (Basic facts, Origin, Research question,
+     Model comparison, Parameter-count correction, Cost-aware training, Tools) and EVIDENCE_ADDENDUM.md ("submitted to
+     the Rutgers Quant Finance Club", never "published" or "presented"). Numbers: 143,907 / 37,891 parameters (3.8×),
+     77.46 % / 78.13 % average accuracy, 95 = 35 + 60 experiments. No PnL figures, no speed claims, no claim that the
+     removed layers are unnecessary in general. Pictures of the model and the trades are illustrative and say so.
+     Every inline svg has width/height attributes (no giant icons if the CSS fails). -->
+<main id="main" class="page sp bq rr">
+  <div class="wrap">
+    <nav class="cbar" aria-label="Projects">
+      <a class="cp-back" href="/#cases">← All projects</a>
+      <ol class="cbar__chips" aria-label="Side projects">
+        <li><a href="/projects/morning-briefing/">Morning briefing</a></li>
+        <li><a href="/projects/daily-planner/">Daily planner</a></li>
+        <li><a href="/projects/research-report/" aria-current="page">Research report</a></li>
+      </ol>
+    </nav>
+
+    <header class="cp-head sp-head bq-head">
+      <p class="case__meta"><span>Research report</span><span>Rutgers Quant Finance Club</span><span>Independent, AI-assisted</span><span>Feb–May 2026</span></p>
+      <h1 class="case__title sp-title">Does a bigger model predict prices better? <span class="tone">I tested seven to find out.</span></h1>
+      <p class="ba"><span class="ba__p ba__b"><small>Before</small>The brief: rebuild one published model and its results.</span><span class="ba__arr" aria-hidden="true">→</span><span class="ba__p ba__a"><small>After</small>Seven models on the same data, and every simulated trade charged its cost.</span></p>
+      <p class="bq-result"><span class="bq-result__k">Result</span><span class="badge" data-status-manual><!--@fact:status.research.label--></span><span class="bq-result__t">In my tests on one public dataset, a model 3.8 times smaller scored about the same.</span></p>
+      <p class="bq-jump"><a class="bq-jump__a bq-jump__a--main" href="#result">Jump to the result<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="bq-jump__a" href="#built">See the bench<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="bq-jump__a bq-jump__a--out" href="/tech/work/deeplob/">Technical deep dive<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+      <figure class="ph">
+        <div class="ph__frame"><picture><source media="(max-width: 640px)" srcset="/img/photos/exp-old-queens-480.webp 480w, /img/photos/exp-old-queens-800.webp 800w" sizes="100vw"><!--@img:exp-old-queens sizes="(max-width: 960px) calc(100vw - 40px), 30vw" fetchpriority="high"--></picture></div>
+        <figcaption><!--@caption:exp-old-queens--></figcaption>
+      </figure>
+    </header>
+
+    <div class="bq-art">
+      <aside class="bq-side" aria-label="In this project">
+        <div class="bq-file">
+          <nav class="bq-toc" aria-label="Parts of this project">
+            <p class="bq-file__k">In this project <span class="bq-file__rt">4 parts · about 3 min to read</span></p>
+            <ol>
+              <li><a href="#question"><b>01</b><span>The question</span></a></li>
+              <li><a href="#built"><b>02</b><span>What I built</span></a></li>
+              <li><a href="#costs"><b>03</b><span>Trading costs</span></a></li>
+              <li><a href="#result"><b>04</b><span>What I found</span></a></li>
+            </ol>
+          </nav>
+          <button type="button" class="bq-openall" aria-pressed="false"><span class="bq-openall__ic" aria-hidden="true"></span><span class="bq-openall__l">Open all details</span></button>
+          <dl class="bq-facts">
+            <div class="bq-fact"><dt>Built with</dt><dd>Python · PyTorch · Rutgers GPU cluster</dd></div>
+          </dl>
+          <p class="bq-src">Source: my Rutgers Quant Finance Club project, Feb–May 2026.</p>
+        </div>
+      </aside>
+
+      <div class="bq-main">
+        <section class="sixty sixty--wide rr-sixty" aria-labelledby="sixty-t">
+          <div class="sixty__h"><h2 id="sixty-t">The <span class="nw">60-second</span> version</h2></div>
+          <dl class="rr-dl1">
+            <div class="sixty__row"><dt>What I did</dt><dd>Rebuilt a published model that predicts short-term price moves from the order book, then tested it against six others, from simple statistics to variations on its design: 95 experiments, written up in a research report.</dd></div>
+          </dl>
+          <figure class="sixty__pic rr-map" data-visual aria-labelledby="map-t">
+            <ol class="rr-map__steps">
+              <li class="rr-map__auto"><span class="rr-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M4 9.5h16M4 14.5h16M9.5 4v16"/></svg></span>Same public data</li>
+              <li class="rr-map__auto"><span class="rr-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3.5 3.5 8l8.5 4.5L20.5 8z"/><path d="m3.5 12 8.5 4.5 8.5-4.5M3.5 16l8.5 4.5 8.5-4.5"/></svg></span>Seven models, 95 runs</li>
+              <li class="rr-map__person"><span class="rr-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 4v16M8 20h8M5 7.5h14"/><path d="M5 7.5 2.8 13a2.3 2.3 0 0 0 4.4 0zM19 7.5 16.8 13a2.3 2.3 0 0 0 4.4 0z"/></svg></span>Weigh accuracy, size and cost</li>
+              <li><span class="rr-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span>Write the report</li>
+            </ol>
+            <figcaption id="map-t">The runs are automatic; weighing the results was my part.</figcaption>
+          </figure>
+          <dl class="rr-dl2">
+            <div class="sixty__row sixty__row--so"><dt>Who did what</dt><dd>The club set the brief. I took it further on my own, with AI assistants helping me explore the research, write the code and draft the report.</dd></div>
+            <div class="sixty__row"><dt>Tools</dt><dd>Python and PyTorch. I asked for access to the Rutgers Amarel GPU cluster; each run was a settings file, queued there and saved with its results.</dd></div>
+          </dl>
+        </section>
+
+        <section class="bp" id="question" aria-labelledby="question-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>01</b><span>/ 04</span></p>
+            <p class="bp__k"><span class="sr">Part 1 of 4: </span>The question</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li></ol>
+          </header>
+          <div class="bp__grid bp__grid--wide">
+            <div class="bp__text">
+              <h2 class="sp-h bp__h" id="question-t">The brief was to rebuild one published model. I asked whether all of it was needed.</h2>
+              <p class="bp__lead">The model, DeepLOB, reads the order book, the list of open offers to buy and sell a stock, and predicts whether the price goes up, down or stays flat.</p>
+              <p class="bp__callout bp__callout--sm"><span class="bp__callout-k">What I did</span>Kept the published model as the yardstick and tested six others beside it.</p>
+            </div>
+            <figure data-visual class="vis k-hs rr-model bp__vis" data-kit="hotspots" aria-labelledby="ex1-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 1</span><span class="vis__name" id="ex1-t">The published model, part by part</span></p>
+                <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Point at a number</span>
+              </div>
+              <p class="sr">Illustrative picture of the published model. On the left, the order book goes in. Three layers work on it in turn: one spots patterns, one looks at several time scales at once, one remembers what came before. The last two carry the question: needed? On the right comes the prediction: up, flat or down.</p>
+              <div class="k-hs__stage rr-model__stage">
+                <div class="rr-flow">
+                  <div class="rr-book" data-spot="1">
+                    <span class="rr-book__lab">Sell</span>
+                    <span class="rr-book__side rr-book__side--ask" aria-hidden="true"><i style="--w:44%"></i><i style="--w:68%"></i><i style="--w:36%"></i><i style="--w:56%"></i><i style="--w:28%"></i></span>
+                    <span class="rr-book__mid" aria-hidden="true"></span>
+                    <span class="rr-book__side rr-book__side--bid" aria-hidden="true"><i style="--w:32%"></i><i style="--w:60%"></i><i style="--w:40%"></i><i style="--w:72%"></i><i style="--w:50%"></i></span>
+                    <span class="rr-book__lab">Buy</span>
+                    <span class="rr-cap">Order book<small>last 100 updates</small></span>
+                    <span class="k-spot" aria-hidden="true" style="--x:100%;--y:0%">1</span>
+                  </div>
+                  <span class="rr-arr" aria-hidden="true"></span>
+                  <div class="rr-stack">
+                    <p class="rr-stack__k">The published model</p>
+                    <div class="rr-layer" data-spot="2"><span class="rr-layer__t">Spots patterns</span><small>CNN</small><span class="k-spot" aria-hidden="true" style="--x:100%;--y:0%">2</span></div>
+                    <div class="rr-layer rr-layer--q" data-spot="3"><span class="rr-layer__t">Several time scales</span><small>Inception</small><span class="rr-q">Needed?</span><span class="k-spot" aria-hidden="true" style="--x:100%;--y:0%">3</span></div>
+                    <div class="rr-layer rr-layer--q" data-spot="4"><span class="rr-layer__t">Memory</span><small>LSTM</small><span class="rr-q">Needed?</span><span class="k-spot" aria-hidden="true" style="--x:100%;--y:0%">4</span></div>
+                  </div>
+                  <span class="rr-arr" aria-hidden="true"></span>
+                  <div class="rr-out" data-spot="5">
+                    <span class="rr-dir rr-dir--up"><i aria-hidden="true"></i>Up</span>
+                    <span class="rr-dir rr-dir--flat"><i aria-hidden="true"></i>Flat</span>
+                    <span class="rr-dir rr-dir--dn"><i aria-hidden="true"></i>Down</span>
+                    <span class="rr-cap">Prediction</span>
+                    <span class="k-spot" aria-hidden="true" style="--x:100%;--y:0%">5</span>
+                  </div>
+                </div>
+              </div>
+              <ol class="k-hs__list">
+                <li data-spot="1"><b>The order book.</b> Offers to buy and sell, ten price levels on each side, over the last 100 updates.</li>
+                <li data-spot="2"><b>Spots patterns.</b> Finds shapes in the book.</li>
+                <li data-spot="3"><b>Several time scales.</b> Looks at short and longer stretches at once.</li>
+                <li data-spot="4"><b>Memory.</b> Carries what came before into the next step.</li>
+                <li data-spot="5"><b>The prediction.</b> Up, down or flat, 10 to 100 updates ahead.</li>
+              </ol>
+              <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> The published design, drawn simply; the technical names are in small type.</span></figcaption>
+            </figure>
+          </div>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">The data, in plain words</span><span class="bp__rt">Key · under 1 min</span></summary>
+            <div class="bp__detail">
+              <dl class="rr-data">
+                <div class="rr-data__i"><dt>The stocks</dt><dd>Five Finnish stocks over ten trading days, from a public benchmark (FI-2010).</dd></div>
+                <div class="rr-data__i"><dt>One example</dt><dd>The last 100 order-book updates, ten price levels on each side.</dd></div>
+                <div class="rr-data__i"><dt>The question</dt><dd>Up, down or flat, 10, 20, 30, 50 or 100 updates ahead.</dd></div>
+                <div class="rr-data__i"><dt>Learn, then test</dt><dd>Models learn on the first seven days and are scored on the last three.</dd></div>
+              </dl>
+            </div>
+          </details>
+        </section>
+
+        <section class="bp bp--tint" id="built" aria-labelledby="built-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>02</b><span>/ 04</span></p>
+            <p class="bp__k"><span class="sr">Part 2 of 4: </span>What I built</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li class="is-on"></li><li></li><li></li></ol>
+          </header>
+          <div class="bp__intro">
+            <h2 class="sp-h bp__h" id="built-t">I built a test bench: every model gets the same data and the same question.</h2>
+            <div class="bp__intro-r">
+              <p class="bp__callout"><span class="bp__callout-k">95 experiments</span><span class="bp__callout-t">Seven models, five horizons, four ways to train for trading.</span><span class="bp__callout-s">The published model, rebuilt, is one row. The other six range from simple statistics to variations on its design.</span></p>
+            </div>
+          </div>
+          <figure data-visual class="vis rr-bench bp__wide" aria-labelledby="ex2-t">
+            <div class="vis__head">
+              <p class="vis__title"><span class="vis__num">Exhibit 2</span><span class="vis__name" id="ex2-t">Every experiment on the bench</span></p>
+              <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to run all 95</span>
+            </div>
+            <p class="sr">Each square is one experiment. Left: 35 comparisons, seven models times five horizons (10, 20, 30, 50 and 100 updates ahead): three classical baselines, the published model rebuilt, and three variants of it. Right: 60 runs trained for trading, four training goals, three settings each, five horizons. 95 experiments in all.</p>
+            <div class="rr-bench__grid" data-kit="scrub" data-start="top 88%">
+              <div class="rr-blk">
+                <p class="rr-blk__h"><b>35</b> comparisons<span>7 models × 5 horizons</span></p>
+                <div class="rr-row rr-row--hz" aria-hidden="true"><span class="rr-nm">Updates ahead</span><span class="rr-cells"><span class="rr-c">10</span><span class="rr-c">20</span><span class="rr-c">30</span><span class="rr-c">50</span><span class="rr-c">100</span></span></div>
+                <ol class="rr-rows" aria-hidden="true">
+                  <li class="rr-row rr-row--base"><span class="rr-nm">Straight-line statistics<small>Logistic regression</small></span><span class="rr-cells"><span class="rr-c"><i data-step="1" data-fx="pop"></i></span><span class="rr-c"><i data-step="1" data-fx="pop"></i></span><span class="rr-c"><i data-step="1" data-fx="pop"></i></span><span class="rr-c"><i data-step="1" data-fx="pop"></i></span><span class="rr-c"><i data-step="1" data-fx="pop"></i></span></span></li>
+                  <li class="rr-row rr-row--base"><span class="rr-nm">Small neural net<small>MLP</small></span><span class="rr-cells"><span class="rr-c"><i data-step="2" data-fx="pop"></i></span><span class="rr-c"><i data-step="2" data-fx="pop"></i></span><span class="rr-c"><i data-step="2" data-fx="pop"></i></span><span class="rr-c"><i data-step="2" data-fx="pop"></i></span><span class="rr-c"><i data-step="2" data-fx="pop"></i></span></span></li>
+                  <li class="rr-row rr-row--base"><span class="rr-nm">Decision trees<small>XGBoost</small></span><span class="rr-cells"><span class="rr-c"><i data-step="3" data-fx="pop"></i></span><span class="rr-c"><i data-step="3" data-fx="pop"></i></span><span class="rr-c"><i data-step="3" data-fx="pop"></i></span><span class="rr-c"><i data-step="3" data-fx="pop"></i></span><span class="rr-c"><i data-step="3" data-fx="pop"></i></span></span></li>
+                  <li class="rr-row rr-row--ref"><span class="rr-nm">The published model, rebuilt<small>DeepLOB</small></span><span class="rr-cells"><span class="rr-c"><i data-step="4" data-fx="pop"></i></span><span class="rr-c"><i data-step="4" data-fx="pop"></i></span><span class="rr-c"><i data-step="4" data-fx="pop"></i></span><span class="rr-c"><i data-step="4" data-fx="pop"></i></span><span class="rr-c"><i data-step="4" data-fx="pop"></i></span></span></li>
+                  <li class="rr-row"><span class="rr-nm">Published, with attention for memory<small>CNN + Inception + Transformer</small></span><span class="rr-cells"><span class="rr-c"><i data-step="5" data-fx="pop"></i></span><span class="rr-c"><i data-step="5" data-fx="pop"></i></span><span class="rr-c"><i data-step="5" data-fx="pop"></i></span><span class="rr-c"><i data-step="5" data-fx="pop"></i></span><span class="rr-c"><i data-step="5" data-fx="pop"></i></span></span></li>
+                  <li class="rr-row"><span class="rr-nm">Patterns only<small>CNN</small></span><span class="rr-cells"><span class="rr-c"><i data-step="6" data-fx="pop"></i></span><span class="rr-c"><i data-step="6" data-fx="pop"></i></span><span class="rr-c"><i data-step="6" data-fx="pop"></i></span><span class="rr-c"><i data-step="6" data-fx="pop"></i></span><span class="rr-c"><i data-step="6" data-fx="pop"></i></span></span></li>
+                  <li class="rr-row"><span class="rr-nm">Patterns + attention<small>CNN + Transformer</small></span><span class="rr-cells"><span class="rr-c"><i data-step="7" data-fx="pop"></i></span><span class="rr-c"><i data-step="7" data-fx="pop"></i></span><span class="rr-c"><i data-step="7" data-fx="pop"></i></span><span class="rr-c"><i data-step="7" data-fx="pop"></i></span><span class="rr-c"><i data-step="7" data-fx="pop"></i></span></span></li>
+                </ol>
+              </div>
+              <div class="rr-blk rr-blk--cost">
+                <p class="rr-blk__h"><b>60</b> trained for trading<span>4 goals × 3 settings × 5 horizons</span></p>
+                <div class="rr-row rr-row--hz" aria-hidden="true"><span class="rr-nm">Setting</span><span class="rr-cells rr-cells--15"><span class="rr-g">1</span><span class="rr-g">2</span><span class="rr-g">3</span></span></div>
+                <ol class="rr-rows" aria-hidden="true">
+                  <li class="rr-row"><span class="rr-nm">Weigh rare moves more<small>Weighted cross-entropy</small></span><span class="rr-cells rr-cells--15"><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span><span class="rr-c"><i data-step="8" data-fx="pop"></i></span></span></li>
+                  <li class="rr-row"><span class="rr-nm">Focus on hard cases<small>Focal loss</small></span><span class="rr-cells rr-cells--15"><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span><span class="rr-c"><i data-step="9" data-fx="pop"></i></span></span></li>
+                  <li class="rr-row"><span class="rr-nm">Penalise frequent changes<small>Turnover penalty</small></span><span class="rr-cells rr-cells--15"><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span><span class="rr-c"><i data-step="10" data-fx="pop"></i></span></span></li>
+                  <li class="rr-row"><span class="rr-nm">Reward a steadier return<small>Sharpe-ratio loss</small></span><span class="rr-cells rr-cells--15"><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span><span class="rr-c"><i data-step="11" data-fx="pop"></i></span></span></li>
+                </ol>
+              </div>
+              <p class="rr-total" aria-hidden="true"><span class="rr-total__n" data-step="12" data-fx="pop"><b>95</b> experiments</span><span class="rr-total__t" data-step="12" data-fx="fade">35 comparisons + 60 trained for trading, each saved with its settings and results</span></p>
+            </div>
+            <figcaption class="vis__cap"><span class="rr-key"><span><i class="rr-key__c rr-key__c--base"></i>Classical baselines</span><span><i class="rr-key__c rr-key__c--ref"></i>The published model, rebuilt</span><span><i class="rr-key__c"></i>Deep models</span><span><i class="rr-key__c rr-key__c--cost"></i>Trained for trading</span></span><span>Each square is one experiment.</span></figcaption>
+          </figure>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">How one experiment runs, step by step</span><span class="bp__rt">1 exhibit · under 1 min</span></summary>
+            <div class="bp__detail">
+              <figure data-visual class="vis rr-run" aria-labelledby="ex21-t">
+                <div class="vis__head">
+                  <p class="vis__title"><span class="vis__num">Exhibit 2.1</span><span class="vis__name" id="ex21-t">One experiment, from settings file to saved result</span></p>
+                </div>
+                <ol class="rr-run__steps">
+                  <li class="k-node"><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span><span class="k-node__t">A settings file</span><small>Which model, which horizon, how to train.</small></li>
+                  <li class="k-node k-node--auto"><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="5" rx="1.5"/><rect x="3" y="9.5" width="18" height="5" rx="1.5"/><rect x="3" y="16" width="18" height="5" rx="1.5"/><path d="M7 5.5h.01M7 12h.01M7 18.5h.01"/></svg></span><span class="k-node__t">Queued on the cluster</span><small>A job on the Rutgers GPU cluster.</small></li>
+                  <li class="k-node k-node--auto"><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3.5 17 9 11.5l3.5 3.5 8-8"/><path d="M15 7h5.5v5.5"/></svg></span><span class="k-node__t">Trained and checked</span><small>The best version is kept, judged on held-back data.</small></li>
+                  <li class="k-node k-node--auto"><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/></svg></span><span class="k-node__t">Scored and saved</span><small>Scored on the test days, saved with its history.</small></li>
+                </ol>
+                <figcaption class="vis__cap"><span>The same four steps for all 95 experiments.</span></figcaption>
+              </figure>
+            </div>
+          </details>
+        </section>
+
+        <section class="bp bp--white" id="costs" aria-labelledby="costs-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>03</b><span>/ 04</span></p>
+            <p class="bp__k"><span class="sr">Part 3 of 4: </span>Trading costs</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li></li><li class="is-on"></li><li></li></ol>
+          </header>
+          <div class="bp__grid">
+            <div class="bp__text">
+              <h2 class="sp-h bp__h" id="costs-t">Then I charged every simulated trade its cost.</h2>
+              <p class="bp__lead">A second scorecard turns each model’s predictions into simple trades, and each change of position pays half the bid–ask spread. On that scorecard, a higher accuracy score did not reliably mean better simulated trading.</p>
+              <p class="bp__callout bp__callout--sm"><span class="bp__callout-k">What I did</span>Tested ways to trade less: holding longer, acting only when several horizons agree, sitting out volatile moments.</p>
+            </div>
+            <figure data-visual class="vis rr-cost bp__vis" aria-labelledby="ex3-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 3</span><span class="vis__name" id="ex3-t">Every change of position pays a cost</span></p>
+                <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Pick a way to trade</span>
+              </div>
+              <p class="sr">Illustrative example of sixteen signals from a model. Acting on every signal changes position 13 times, so it pays 13 charges of half the spread. Holding each position longer changes position 3 times: 3 charges.</p>
+              <div class="k-stp rr-stp" data-kit="stepper" data-auto>
+                <div class="k-stp__nav" aria-label="Two ways to trade"><button type="button" aria-selected="false" tabindex="-1">Act on every signal</button><button type="button" aria-selected="true">Hold each position longer</button></div>
+                <div class="rr-sigrow" aria-hidden="true">
+                  <span class="rr-tl">Signal</span>
+                  <span class="rr-sig"><i class="u"></i><i class="u"></i><i class="d"></i><i class="u"></i><i class="f"></i><i class="u"></i><i class="d"></i><i class="d"></i><i class="u"></i><i class="d"></i><i class="f"></i><i class="d"></i><i class="u"></i><i class="u"></i><i class="d"></i><i class="u"></i></span>
+                </div>
+                <ol class="k-stp__panels">
+                  <li class="k-stp__panel">
+                    <p class="k-stp__k">Act on every signal</p>
+                    <div class="rr-tape" aria-hidden="true">
+                      <span class="rr-tl">Position</span>
+                      <span class="rr-pos"><b class="u" style="--a:1;--b:3"></b><b class="d" style="--a:3;--b:4"></b><b class="u" style="--a:4;--b:5"></b><b class="u" style="--a:6;--b:7"></b><b class="d" style="--a:7;--b:9"></b><b class="u" style="--a:9;--b:10"></b><b class="d" style="--a:10;--b:11"></b><b class="d" style="--a:12;--b:13"></b><b class="u" style="--a:13;--b:15"></b><b class="d" style="--a:15;--b:16"></b><b class="u" style="--a:16;--b:17"></b></span>
+                      <span class="rr-tl">Charges</span>
+                      <span class="rr-fee"><i style="--c:1"></i><i style="--c:3"></i><i style="--c:4"></i><i style="--c:5"></i><i style="--c:6"></i><i style="--c:7"></i><i style="--c:9"></i><i style="--c:10"></i><i style="--c:11"></i><i style="--c:12"></i><i style="--c:13"></i><i style="--c:15"></i><i style="--c:16"></i></span>
+                    </div>
+                    <p class="rr-sum"><b>13</b> changes of position, so <b>13</b> charges</p>
+                  </li>
+                  <li class="k-stp__panel is-on">
+                    <p class="k-stp__k">Hold each position longer</p>
+                    <div class="rr-tape" aria-hidden="true">
+                      <span class="rr-tl">Position</span>
+                      <span class="rr-pos"><b class="u" style="--a:1;--b:7"></b><b class="d" style="--a:7;--b:13"></b><b class="u" style="--a:13;--b:17"></b></span>
+                      <span class="rr-tl">Charges</span>
+                      <span class="rr-fee"><i style="--c:1"></i><i style="--c:7"></i><i style="--c:13"></i></span>
+                    </div>
+                    <p class="rr-sum"><b>3</b> changes of position, so <b>3</b> charges</p>
+                  </li>
+                </ol>
+                <p class="rr-ckey" aria-hidden="true"><span><i class="rr-ckey__s u"></i>Signal or position: up</span><span><i class="rr-ckey__s d"></i>Down</span><span><i class="rr-ckey__s f"></i>Flat or out</span><span><i class="rr-ckey__fee"></i>One charge: half the spread</span></p>
+              </div>
+              <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Sixteen example signals; the counts follow from them.</span></figcaption>
+            </figure>
+          </div>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">What the bid–ask spread is, in one picture</span><span class="bp__rt">1 exhibit · under 1 min</span></summary>
+            <div class="bp__detail bp__detail--pairs">
+              <div class="bq-pair">
+                <div class="bq-pair__text">
+                  <p class="sp-kicker">Why each change costs</p>
+                  <p>The price is tracked in the middle, between the best offer to buy (the bid) and the best offer to sell (the ask). A real trade happens at the bid or the ask, half a spread away from the middle.</p>
+                </div>
+                <figure data-visual class="vis rr-spread" aria-labelledby="ex31-t">
+                  <div class="vis__head">
+                    <p class="vis__title"><span class="vis__num">Exhibit 3.1</span><span class="vis__name" id="ex31-t">Bid, ask and the middle</span></p>
+                  </div>
+                  <p class="sr">Illustrative picture of a price line. The bid, the best offer to buy, sits on the left; the ask, the best offer to sell, on the right; the middle price halfway between. The gap from bid to ask is the spread. Half of it, from the middle to either side, is the charge for each change of position.</p>
+                  <div class="rr-spread__line" aria-hidden="true">
+                    <span class="rr-spread__pt rr-spread__pt--bid"><b>Bid</b><small>best offer to buy</small></span>
+                    <span class="rr-spread__pt rr-spread__pt--mid"><b>Middle</b><small>the tracked price</small></span>
+                    <span class="rr-spread__pt rr-spread__pt--ask"><b>Ask</b><small>best offer to sell</small></span>
+                    <span class="rr-spread__br rr-spread__br--full">The spread</span>
+                    <span class="rr-spread__br rr-spread__br--half">Half the spread: one charge</span>
+                  </div>
+                  <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Not to scale.</span></figcaption>
+                </figure>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <section class="bp bp--result on-band" id="result" aria-labelledby="found-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>04</b><span>/ 04</span></p>
+            <p class="bp__k"><span class="sr">Part 4 of 4: </span>What I found</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li></li><li></li><li class="is-on"></li></ol>
+          </header>
+          <div class="bp__grid bp__grid--result">
+            <div class="bp__text">
+              <p class="result"><span class="badge" data-status-manual><!--@fact:status.research.label--></span></p>
+              <h2 class="sp-h bp__h" id="found-t">A model 3.8 times smaller scored about the same.</h2>
+              <p class="bp__note">On one public dataset, averaged over the five horizons. My takeaway: a more complicated model is not necessarily a better one.</p>
+              <p class="sp-skills"><span class="label">Skills</span>Research design · Model comparison · Backtesting · Report writing</p>
+            </div>
+            <figure data-visual class="vis rr-found" aria-labelledby="ex4-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 4</span><span class="vis__name" id="ex4-t">Size and accuracy, side by side</span></p>
+                <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to compare</span>
+              </div>
+              <p class="sr">Size, in learned parameters: the published model, rebuilt, has 143,907; the patterns-only model has 37,891, about 3.8 times smaller. Average accuracy over the five horizons: 77.5% for the published model, rebuilt, and 78.1% for the patterns-only model.</p>
+              <div class="rr-found__chart" data-kit="scrub" data-start="top 90%" data-end="top 58%" aria-hidden="true">
+                <div class="rr-m">
+                  <p class="rr-m__h">Size<span>learned parameters</span><em class="rr-m__x" data-step="2" data-fx="pop">3.8× smaller</em></p>
+                  <div class="rr-bar rr-bar--ref"><span class="rr-bar__n">The published model, rebuilt</span><span class="rr-bar__v">143,907</span><span class="rr-bar__t"><i data-step="1" data-fx="grow" style="--v:100%"></i></span></div>
+                  <div class="rr-bar rr-bar--me"><span class="rr-bar__n">Patterns only</span><span class="rr-bar__v">37,891</span><span class="rr-bar__t"><i data-step="1" data-fx="grow" style="--v:26.3%"></i></span></div>
+                </div>
+                <div class="rr-m">
+                  <p class="rr-m__h">Accuracy<span>average of the five horizons</span><em class="rr-m__x" data-step="4" data-fx="pop">About the same</em></p>
+                  <div class="rr-bar rr-bar--ref"><span class="rr-bar__n">The published model, rebuilt</span><span class="rr-bar__v">77.5%</span><span class="rr-bar__t"><i data-step="3" data-fx="grow" style="--v:77.46%"></i></span></div>
+                  <div class="rr-bar rr-bar--me"><span class="rr-bar__n">Patterns only</span><span class="rr-bar__v">78.1%</span><span class="rr-bar__t"><i data-step="3" data-fx="grow" style="--v:78.13%"></i></span></div>
+                </div>
+              </div>
+              <figcaption class="vis__cap"><span>Size counted from the code. Accuracy on the three test days; bars run from 0 to 100%.</span></figcaption>
+            </figure>
+          </div>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">All seven models’ accuracy, side by side</span><span class="bp__rt">Chart · under 1 min</span></summary>
+            <div class="bp__detail">
+              <figure data-visual class="vis rr-all" aria-labelledby="ex41-t">
+                <div class="vis__head">
+                  <p class="vis__title"><span class="vis__num">Exhibit 4.1</span><span class="vis__name" id="ex41-t">Average accuracy, all seven models</span></p>
+                </div>
+                <ol class="rr-all__bars">
+                  <li class="rr-bar"><span class="rr-bar__n">Patterns + attention<small>CNN + Transformer</small></span><span class="rr-bar__v">79.0%</span><span class="rr-bar__t"><i style="--v:78.98%"></i></span></li>
+                  <li class="rr-bar rr-bar--me"><span class="rr-bar__n">Patterns only<small>CNN</small></span><span class="rr-bar__v">78.1%</span><span class="rr-bar__t"><i style="--v:78.13%"></i></span></li>
+                  <li class="rr-bar"><span class="rr-bar__n">Published, with attention for memory<small>CNN + Inception + Transformer</small></span><span class="rr-bar__v">77.8%</span><span class="rr-bar__t"><i style="--v:77.77%"></i></span></li>
+                  <li class="rr-bar rr-bar--ref"><span class="rr-bar__n">The published model, rebuilt<small>DeepLOB</small></span><span class="rr-bar__v">77.5%</span><span class="rr-bar__t"><i style="--v:77.46%"></i></span></li>
+                  <li class="rr-bar rr-bar--base"><span class="rr-bar__n">Decision trees<small>XGBoost</small></span><span class="rr-bar__v">72.7%</span><span class="rr-bar__t"><i style="--v:72.68%"></i></span></li>
+                  <li class="rr-bar rr-bar--base"><span class="rr-bar__n">Small neural net<small>MLP</small></span><span class="rr-bar__v">58.7%</span><span class="rr-bar__t"><i style="--v:58.72%"></i></span></li>
+                  <li class="rr-bar rr-bar--base"><span class="rr-bar__n">Straight-line statistics<small>Logistic regression</small></span><span class="rr-bar__v">58.3%</span><span class="rr-bar__t"><i style="--v:58.32%"></i></span></li>
+                </ol>
+                <figcaption class="vis__cap"><span>Average test accuracy over the five horizons, one public dataset; bars run from 0 to 100%.</span></figcaption>
+              </figure>
+            </div>
+          </details>
+        </section>
+      </div>
+    </div>
+
+    <div class="bq-bw" data-visual><!-- the "Built with" band is a picture of the tools (logos); data-visual tells story-qa so -->
+      <!--@include:builtwith-research-report-->
+    </div>
+
+    <nav class="next bq-next" aria-label="More projects">
+      <p class="next__links"><a href="/#cases">← All projects</a><a href="/projects/daily-planner/">← Previous: Daily planner</a><a href="/tech/work/deeplob/">Technical deep dive →</a></p>
+      <a class="next__case" href="/projects/morning-briefing/">
+      <span class="next__img"><!--@img:also-business-newspaper srcw="480,800" sizes="(max-width: 640px) 100vw, (max-width: 960px) 30vw, 340px" alt="" loading="lazy"--></span>
+      <span class="next__txt"><span class="next__k">Next project · Morning news briefing</span><span class="next__t">A short news podcast on my phone each weekday morning.</span></span>
+      <span class="next__arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<div class="band on-band band-grid foot-band foot-band--sub">
+  <div class="wrap">
+<!--@include:biz-footer-->
+  </div>
+</div>
+</body>
+</html>

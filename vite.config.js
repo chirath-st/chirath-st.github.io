@@ -175,6 +175,10 @@ export default defineConfig({
         caseQuestionsDesk: page('cases/questions-desk/index.html'),
         caseClientData: page('cases/client-data/index.html'),
         caseCampusRides: page('cases/campus-rides/index.html'),
+        // "Also made" pages (Sep 27), on the Briefing template v3 (design/STORY_TEMPLATE_v3.md)
+        projectMorningBriefing: page('projects/morning-briefing/index.html'),
+        projectDailyPlanner: page('projects/daily-planner/index.html'),
+        projectResearchReport: page('projects/research-report/index.html'),
         tech: page('tech/index.html'),
         techCommercialReview: page('tech/work/commercial-review/index.html'),
         techSlackSupportDesk: page('tech/work/slack-support-desk/index.html'),

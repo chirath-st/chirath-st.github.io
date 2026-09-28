@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morning news briefing · Chirath Soithong</title>
+  <meta name="description" content="Morning news briefing, a personal project: each weekday after the market opens, a short news podcast, a recap and the links arrive on my phone on their own." />
+  <!--@include:biz-head-->
+  <!-- Briefing template v3: if a stylesheet ever fails to load, an icon without width/height (e.g. in a shared partial)
+       stays 1em instead of filling the screen. Zero specificity, so every real CSS rule wins. -->
+  <style>:where(svg:not([width])){width:1em;height:1em}</style>
+  <link rel="stylesheet" href="/src/styles/biz/briefing.css" />
+  <link rel="stylesheet" href="/src/styles/biz/projects/morning-briefing.css" />
+  <script type="module" src="/src/biz/briefing.js"></script>
+  <script type="module" src="/src/biz/projects/morning-briefing.js"></script>
+</head>
+<body>
+<!--@include:biz-header-sub-->
+
+<!-- /projects/morning-briefing/ ("Also made" on the home page), on the Briefing template v3 (design/STORY_TEMPLATE_v3.md),
+     with Project 01 (cases/sales-checks/) as the reference.
+     project bar (the three "Also made" pages) · head (meta, title, Before → After, RESULT with status.briefing.label, jump
+     links, photo with caption + credit) · "In this project" card beside the 60-second box (What I built · Who did what ·
+     Runs as) · four numbered bands (01 the problem: compare · 02 what I built: hotspots on the three messages (full band width), detail row with the
+     five steps · 03 my choices: stepper, detail row with my part and the AI's part · 04 what changed, navy: scroll cross-out)
+     · Built with (still) · next project.
+     Honesty: every sentence comes from the evidence bank ("Project 1: Business Workflow Automation": the personal news and
+     audio briefing, the voice and visual decisions), EVIDENCE_ADDENDUM.md (weekdays around 11 am New York time, after the
+     opening bell; still running, Sep 21; open-licence photos, Sep 23) or the honesty-checked tech page
+     tech/work/finance-briefing (the steps, the Sep 16 run, my part / not my part). Built for one listener: me; no users,
+     numbers or outcomes beyond that. The message pictures are the shape of the real Sep 16, 2026 run, shortened; the card
+     photos are open-licence stand-ins. Every inline svg has width/height attributes. -->
+<main id="main" class="page sp bq">
+  <div class="wrap">
+    <nav class="cbar" aria-label="Projects">
+      <a class="cp-back" href="/#cases">← All projects</a>
+      <ol class="cbar__chips" aria-label="Side projects">
+        <li><a href="/projects/morning-briefing/" aria-current="page">Morning briefing</a></li>
+        <li><a href="/projects/daily-planner/">Daily planner</a></li>
+        <li><a href="/projects/research-report/">Research report</a></li>
+      </ol>
+    </nav>
+
+    <header class="cp-head sp-head bq-head">
+      <p class="case__meta"><span>Side project</span><span>Built and run by me</span><span>2026</span></p>
+      <h1 class="case__title sp-title">A short news podcast on my phone, <span class="tone">every weekday morning.</span></h1>
+      <p class="ba"><span class="ba__p ba__b"><small>Before</small>I scrolled several news sites every morning.</span><span class="ba__arr" aria-hidden="true">→</span><span class="ba__p ba__a"><small>After</small>One message arrives on its own: a short audio briefing, a recap and the links.</span></p>
+      <p class="bq-result"><span class="bq-result__k">Result</span><span class="badge badge--live" data-status-manual><!--@fact:status.briefing.label--></span><span class="bq-result__t">It runs by itself every weekday, after the market opens.</span></p>
+      <p class="bq-jump"><a class="bq-jump__a bq-jump__a--main" href="#result">Jump to the result<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="bq-jump__a" href="#built">See what arrives<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="bq-jump__a bq-jump__a--out" href="/tech/work/finance-briefing/">Technical deep dive<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+      <figure class="ph mb-ph">
+        <div class="ph__frame"><picture><source media="(max-width: 640px)" srcset="/img/photos/also-business-newspaper-480.webp 480w, /img/photos/also-business-newspaper-800.webp 800w" sizes="100vw"><!--@img:also-business-newspaper sizes="(max-width: 960px) calc(100vw - 40px), 30vw" fetchpriority="high"--></picture></div>
+        <figcaption><!--@caption:also-business-newspaper--><span class="cap__credit"><!--@credit:also-business-newspaper--></span></figcaption>
+      </figure>
+    </header>
+
+    <div class="bq-art">
+      <aside class="bq-side" aria-label="In this project">
+        <div class="bq-file">
+          <nav class="bq-toc" aria-label="Parts of this project">
+            <p class="bq-file__k">In this project <span class="bq-file__rt">4 parts · about 3 min to read</span></p>
+            <ol>
+              <li><a href="#problem"><b>01</b><span>The problem</span></a></li>
+              <li><a href="#built"><b>02</b><span>What I built</span></a></li>
+              <li><a href="#choices"><b>03</b><span>My choices</span></a></li>
+              <li><a href="#result"><b>04</b><span>What changed</span></a></li>
+            </ol>
+          </nav>
+          <button type="button" class="bq-openall" aria-pressed="false"><span class="bq-openall__ic" aria-hidden="true"></span><span class="bq-openall__l">Open all details</span></button>
+          <dl class="bq-facts">
+            <div class="bq-fact"><dt>Built with</dt><dd>Python · n8n · Claude · Inworld · Telegram</dd></div>
+          </dl>
+          <p class="bq-src">Source: my own project, 2026.</p>
+        </div>
+      </aside>
+
+      <div class="bq-main">
+        <section class="sixty sixty--wide mb-sixty" aria-labelledby="sixty-t">
+          <div class="sixty__h"><h2 id="sixty-t">The <span class="nw">60-second</span> version</h2></div>
+          <dl class="mb-dl1">
+            <div class="sixty__row"><dt>What I built</dt><dd>A small automation that collects the day’s news, has an AI model pick what matters and write a short script, and has a natural-sounding voice read it. The audio, a recap, photo cards and the links land in my Telegram.</dd></div>
+          </dl>
+          <figure class="sixty__pic mb-map" data-visual aria-labelledby="map-t">
+            <ol class="mb-map__steps">
+              <li><span class="mb-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg></span>A timer starts it</li>
+              <li><span class="mb-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="4" y="4.5" width="16" height="15" rx="2"/><path d="M8 9h8M8 12.5h8M8 16h5"/></svg></span>Collect the news</li>
+              <li><span class="mb-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="m12 3.5 1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4L6 9.5l4.4-1.6z"/><path d="M5 19.5h14"/></svg></span>AI picks and writes</li>
+              <li><span class="mb-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 10.5v3M8 7.5v9M12 4.5v15M16 8v8M20 10.5v3"/></svg></span>A voice reads it</li>
+              <li><span class="mb-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M21 3.5 3 10.6l6.8 2.6z"/><path d="M9.8 13.2 12.6 20.5 21 3.5"/></svg></span>Sent to Telegram</li>
+              <li class="mb-map__me"><span class="mb-map__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4.5 15v-3a7.5 7.5 0 0 1 15 0v3"/><rect x="3.5" y="14" width="4" height="6" rx="1.5"/><rect x="16.5" y="14" width="4" height="6" rx="1.5"/></svg></span>I listen</li>
+            </ol>
+            <figcaption id="map-t">Every step runs on its own. I choose what to read in full.</figcaption>
+          </figure>
+          <dl class="mb-dl2">
+            <div class="sixty__row sixty__row--so"><dt>Who did what</dt><dd>The idea, the quality bar and the design were mine; AI helped me research each tool first. AI models write the summaries and read them aloud, inside rules I set. Every story links back to the original article.</dd></div>
+            <div class="sixty__row"><dt>Runs as</dt><dd>A timer, every weekday around 11 am New York time: after the opening bell, so there are articles to summarise. Nothing to press.</dd></div>
+          </dl>
+        </section>
+
+        <section class="bp" id="problem" aria-labelledby="problem-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>01</b><span>/ 04</span></p>
+            <p class="bp__k"><span class="sr">Part 1 of 4: </span>The problem</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li></ol>
+          </header>
+          <div class="bp__grid bp__grid--wide">
+            <div class="bp__text">
+              <h2 class="sp-h bp__h" id="problem-t">I wanted the day’s news without opening several sites every morning.</h2>
+              <p class="bp__lead">Markets, tech and world news in one place. If a machine was going to summarise it for me, it had to be good enough to listen to every day.</p>
+            </div>
+            <figure data-visual class="vis k-cmp mb-cmp bp__vis" data-kit="compare" aria-labelledby="ex1-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 1</span><span class="vis__name" id="ex1-t">My morning news, before and now</span></p>
+                <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M8 8 4 12l4 4M16 8l4 4-4 4M4 12h16"/></svg>Drag to compare</span>
+              </div>
+              <p class="sr">Illustrative picture. Before: four browser windows, a finance news site, a newspaper, a tech news site and a world news site, each full of headlines to read. Now: one message from my briefing bot in Telegram, with the day’s headline, a short audio briefing (3 minutes 40 seconds in this example), a recap, photo cards and all the day’s stories.</p>
+              <div class="k-cmp__stage">
+                <div class="k-cmp__pane k-cmp__pane--before" aria-hidden="true">
+                  <span class="k-cmp__tag">Before<span class="k-cmp__more"> · by hand</span></span>
+                  <div class="mb-pile">
+                    <div class="mb-w mb-w--1"><p class="mb-w__bar"><i></i><i></i><i></i><span>Finance news</span></p><div class="mb-w__body"><b style="--w:86%"></b><s style="--w:94%"></s><s style="--w:78%"></s><s style="--w:88%"></s></div></div>
+                    <div class="mb-w mb-w--2"><p class="mb-w__bar"><i></i><i></i><i></i><span>Newspaper</span></p><div class="mb-w__body"><b style="--w:72%"></b><s style="--w:90%"></s><s style="--w:96%"></s><s style="--w:64%"></s></div></div>
+                    <div class="mb-w mb-w--3"><p class="mb-w__bar"><i></i><i></i><i></i><span>Tech news</span></p><div class="mb-w__body"><b style="--w:80%"></b><s style="--w:86%"></s><s style="--w:70%"></s><s style="--w:92%"></s></div></div>
+                    <div class="mb-w mb-w--4"><p class="mb-w__bar"><i></i><i></i><i></i><span>World news</span></p><div class="mb-w__body"><b style="--w:68%"></b><s style="--w:92%"></s><s style="--w:84%"></s><s style="--w:74%"></s></div></div>
+                  </div>
+                  <p class="mb-pile__note">Several sites, every morning.</p>
+                </div>
+                <div class="k-cmp__pane k-cmp__pane--after" aria-hidden="true">
+                  <span class="k-cmp__tag">Now<span class="k-cmp__more"> · on its own</span></span>
+                  <div class="mb-now">
+                    <p class="mb-now__say"><b>One message, each weekday.</b><span>Press play, or read the recap. Open a link only when I want more.</span></p>
+                    <div class="mb-tg mb-tg--mini">
+                      <div class="mb-tg__bar"><span class="mb-av"><svg viewBox="0 0 40 40" width="34" height="34"><circle cx="20" cy="20" r="20" fill="#0F2147"/><path d="M4 42C4 30 11 27 20 27s16 3 16 15z" fill="#4F74E8"/><path d="M16.5 27 20 34l3.5-7z" fill="#F8F7F3"/><path d="M19 28.5 20 34l1-5.5z" fill="#0F2147"/><circle cx="20" cy="19.5" r="7" fill="#C9D4F6"/><path d="M13.5 14.5c0-7 13-7 13 0z" fill="#2346D8"/><rect x="13.5" y="12.2" width="13" height="2.4" fill="#0E1726"/><ellipse cx="20" cy="14.7" rx="11.5" ry="2.3" fill="#4F74E8"/></svg></span><span class="mb-tg__who"><b>Finance Briefing</b><span>bot</span></span></div>
+                      <div class="mb-tg__body">
+                        <div class="mb-m">
+                          <p class="mb-m__k">Global briefing · Sep 16</p>
+                          <p class="mb-m__h">Fed hikes, Dow drags in a mixed session</p>
+                          <div class="mb-play"><span class="mb-play__b"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="mb-wave"><i style="--h:.35"></i><i style="--h:.65"></i><i style="--h:.9"></i><i style="--h:.5"></i><i style="--h:1"></i><i style="--h:.6"></i><i style="--h:.8"></i><i style="--h:.4"></i><i style="--h:.75"></i><i style="--h:1"></i><i style="--h:.45"></i><i style="--h:.7"></i><i style="--h:.9"></i><i style="--h:.4"></i><i style="--h:.6"></i><i style="--h:.3"></i></span><span class="mb-play__d">3:40</span></div>
+                          <p class="mb-m__more"><span>Recap</span><span>Photo cards</span><span>All stories</span></p>
+                          <span class="mb-m__t">10:59 AM</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> The shape of a real run (Sep 16, 2026), shortened.</span></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="bp bp--tint mb-built" id="built" aria-labelledby="built-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>02</b><span>/ 04</span></p>
+            <p class="bp__k"><span class="sr">Part 2 of 4: </span>What I built</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li class="is-on"></li><li></li><li></li></ol>
+          </header>
+          <div class="bp__intro">
+            <h2 class="sp-h bp__h" id="built-t">One message each weekday: press play, or read the recap.</h2>
+            <div class="bp__intro-r">
+              <p class="bp__lead">Around 11 am New York time, after the opening bell, it runs on its own and sends the package to my Telegram.</p>
+            </div>
+          </div>
+          <figure data-visual class="vis k-hs mb-pkg bp__wide" data-kit="hotspots" aria-labelledby="ex2-t">
+            <div class="vis__head">
+              <p class="vis__title"><span class="vis__num">Exhibit 2</span><span class="vis__name" id="ex2-t">What lands in my Telegram each weekday</span></p>
+              <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Point at a number</span>
+            </div>
+            <p class="sr">Illustrative picture of one weekday message, the shape of a real run on Sep 16, 2026, shortened. Numbered parts: 1, the audio briefing, 3 minutes 40 seconds. 2, the recap: policy, markets and tech, one line each. 3, two photo cards, each with a headline, one line on why it matters and a link. 4, all the day’s stories, each with its source. The list under the picture explains each part.</p>
+            <div class="k-hs__stage mb-tg">
+              <div class="mb-tg__bar"><span class="mb-av"><svg viewBox="0 0 40 40" width="34" height="34"><circle cx="20" cy="20" r="20" fill="#0F2147"/><path d="M4 42C4 30 11 27 20 27s16 3 16 15z" fill="#4F74E8"/><path d="M16.5 27 20 34l3.5-7z" fill="#F8F7F3"/><path d="M19 28.5 20 34l1-5.5z" fill="#0F2147"/><circle cx="20" cy="19.5" r="7" fill="#C9D4F6"/><path d="M13.5 14.5c0-7 13-7 13 0z" fill="#2346D8"/><rect x="13.5" y="12.2" width="13" height="2.4" fill="#0E1726"/><ellipse cx="20" cy="14.7" rx="11.5" ry="2.3" fill="#4F74E8"/></svg></span><span class="mb-tg__who"><b>Finance Briefing</b><span>bot</span></span></div>
+              <div class="mb-tg__body">
+                <div class="mb-m">
+                  <p class="mb-m__k">Global briefing · Sep 16</p>
+                  <p class="mb-m__h">Fed hikes, Dow drags in a mixed session</p>
+                  <div class="mb-play" data-spot="1"><span class="mb-play__b"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="mb-wave"><i style="--h:.35"></i><i style="--h:.65"></i><i style="--h:.9"></i><i style="--h:.5"></i><i style="--h:1"></i><i style="--h:.6"></i><i style="--h:.8"></i><i style="--h:.4"></i><i style="--h:.75"></i><i style="--h:1"></i><i style="--h:.45"></i><i style="--h:.7"></i><i style="--h:.9"></i><i style="--h:.4"></i><i style="--h:.6"></i><i style="--h:.3"></i><i style="--h:.55"></i><i style="--h:.85"></i><i style="--h:.5"></i><i style="--h:.7"></i></span><span class="mb-play__d">3:40</span><span class="k-spot" aria-hidden="true">1</span></div>
+                  <div class="mb-rc" data-spot="2">
+                    <p><b>Policy</b>The Fed raised rates a quarter point, its first hike in three years.</p>
+                    <p><b>Markets</b>Most indexes slipped a little; the Dow fell harder, dragged by a few big names.</p>
+                    <p><b>Tech</b>A public jab between two AI labs made the front pages.</p>
+                    <span class="k-spot" aria-hidden="true">2</span>
+                  </div>
+                  <span class="mb-m__t">10:59 AM</span>
+                </div>
+                <div class="mb-m mb-m--cards" data-spot="3">
+                  <p class="mb-m__k">Photo cards</p>
+                  <div class="mb-cards">
+                    <div class="mb-card"><span class="mb-card__img"><!--@img:card-fed-eccles srcw="480" sizes="(max-width: 640px) 44vw, 220px" loading="lazy"--></span><p class="mb-card__t"><b>Fed raises rates for the first time in 3 years <small>· SCMP</small></b><span class="mb-card__why">Why: the Fed–White House tension, first hand.</span><span class="mb-card__a">read article</span></p></div>
+                    <div class="mb-card"><span class="mb-card__img"><!--@img:card-silicon-wafer srcw="480" sizes="(max-width: 640px) 44vw, 220px" loading="lazy"--></span><p class="mb-card__t"><b>China runs a weather model on 100,000 home-grown AI chips <small>· SCMP</small></b><span class="mb-card__why">Why: domestic chips at scale, despite export controls.</span><span class="mb-card__a">read article</span></p></div>
+                  </div>
+                  <span class="mb-m__t">10:59 AM</span>
+                  <span class="k-spot" aria-hidden="true">3</span>
+                </div>
+                <div class="mb-m" data-spot="4">
+                  <p class="mb-m__k">Global · all stories</p>
+                  <ul class="mb-links">
+                    <li class="is-top">Fed raises rates for the first time in 3 years <small>· SCMP</small></li>
+                    <li class="is-top">Takeaways from the Fed’s decision <small>· New York Times</small></li>
+                    <li>Fuel prices push UK inflation higher <small>· BBC</small></li>
+                    <li>Hong Kong plans to double innovation spending <small>· SCMP</small></li>
+                    <li class="mb-links__more">… and the rest of the day’s stories</li>
+                  </ul>
+                  <span class="mb-m__t">10:59 AM</span>
+                  <span class="k-spot" aria-hidden="true">4</span>
+                </div>
+              </div>
+            </div>
+            <ol class="k-hs__list mb-parts">
+              <li data-spot="1"><b>The audio.</b> A short spoken briefing, read by a voice I chose after testing others.</li>
+              <li data-spot="2"><b>The recap.</b> What moved the markets and why, in the same short shape every day.</li>
+              <li data-spot="3"><b>Photo cards.</b> The top stories, each with one line on why it matters and a link.</li>
+              <li data-spot="4"><b>All stories.</b> Every item names its source and links to the original article.</li>
+            </ol>
+            <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> The shape of a real run (Sep 16, 2026), text shortened. The card photos are open-licence stand-ins; the real cards carry the articles’ own photos. A blue dot marks a top story.</span></figcaption>
+          </figure>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">How one weekday run works, in five steps</span><span class="bp__rt">1 exhibit · under 1 min</span></summary>
+            <div class="bp__detail">
+              <figure data-visual class="vis mb-run" aria-labelledby="ex21-t">
+                <div class="vis__head">
+                  <p class="vis__title"><span class="vis__num">Exhibit 2.1</span><span class="vis__name" id="ex21-t">One weekday run, step by step</span></p>
+                </div>
+                <ol class="mb-run__steps">
+                  <li class="k-node k-node--auto"><span class="mb-run__n" aria-hidden="true">1</span><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg></span><span class="k-node__t">A timer starts it</span><small>Weekdays, around 11 am New York time. Nothing to press.</small></li>
+                  <li class="k-node k-node--auto"><span class="mb-run__n" aria-hidden="true">2</span><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="4" y="4.5" width="16" height="15" rx="2"/><path d="M8 9h8M8 12.5h8M8 16h5"/></svg></span><span class="k-node__t">It collects the news</span><small>Stories from several news sources: finance, technology and general news.</small></li>
+                  <li class="k-node k-node--auto"><span class="mb-run__n" aria-hidden="true">3</span><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="m12 3.5 1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4L6 9.5l4.4-1.6z"/><path d="M5 19.5h14"/></svg></span><span class="k-node__t">An AI model picks and writes</span><small>It picks what matters and writes a short script.</small></li>
+                  <li class="k-node k-node--auto"><span class="mb-run__n" aria-hidden="true">4</span><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 10.5v3M8 7.5v9M12 4.5v15M16 8v8M20 10.5v3"/></svg></span><span class="k-node__t">A voice reads it</span><small>Text-to-speech turns the script into audio.</small></li>
+                  <li class="k-node k-node--auto"><span class="mb-run__n" aria-hidden="true">5</span><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M21 3.5 3 10.6l6.8 2.6z"/><path d="M9.8 13.2 12.6 20.5 21 3.5"/></svg></span><span class="k-node__t">Telegram gets the package</span><small>The bot posts the audio, the recap, the photo cards and the links.</small></li>
+                  <li class="k-node k-node--person"><span class="mb-run__n mb-run__n--me" aria-hidden="true"></span><span class="k-node__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4.5 15v-3a7.5 7.5 0 0 1 15 0v3"/><rect x="3.5" y="14" width="4" height="6" rx="1.5"/><rect x="16.5" y="14" width="4" height="6" rx="1.5"/></svg></span><span class="k-node__t">I decide what to read in full</span><small>Every story links back to the original article.</small></li>
+                </ol>
+                <figcaption class="vis__cap"><span><span class="k-dia" aria-hidden="true"></span> <b>Green</b> marks where a person decides.</span></figcaption>
+              </figure>
+            </div>
+          </details>
+        </section>
+
+        <section class="bp bp--white" id="choices" aria-labelledby="choices-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>03</b><span>/ 04</span></p>
+            <p class="bp__k bp__k--person"><span class="sr">Part 3 of 4: </span>My choices</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li></li><li class="is-on"></li><li></li></ol>
+          </header>
+          <div class="bp__grid">
+            <div class="bp__text">
+              <h2 class="sp-h bp__h" id="choices-t">I tested each part before it went into the daily message.</h2>
+              <p class="bp__lead">I listened to different voices, compared image styles and tried AI-made charts. Then I kept tweaking the format, run after run.</p>
+              <p class="bp__callout bp__callout--sm"><span class="bp__callout-k">The bar I set</span>Worth listening to every day.</p>
+            </div>
+            <figure data-visual class="vis mb-tests bp__vis" aria-labelledby="ex3-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 3</span><span class="vis__name" id="ex3-t">Three things I tested</span></p>
+                <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Pick a test</span>
+              </div>
+              <div class="k-stp mb-stp" data-kit="stepper">
+                <div class="k-stp__nav"><button type="button">The voice</button><button type="button">The pictures</button><button type="button">The charts</button></div>
+                <ol class="k-stp__panels">
+                  <li class="k-stp__panel is-on">
+                    <p class="k-stp__k">The voice</p>
+                    <div class="mb-t__pic mb-voice" aria-hidden="true">
+                      <div class="mb-voice__row"><span class="mb-voice__l">Without tone notes</span><span class="mb-bars mb-bars--flat"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+                      <div class="mb-voice__row mb-voice__row--on"><span class="mb-voice__l">With tone notes</span><span class="mb-bars"><i style="--h:.3"></i><i style="--h:.55"></i><i style="--h:.4"></i><i style="--h:.7"></i><i style="--h:.5"></i><i style="--h:.35"></i><i style="--h:.8"></i><i style="--h:1"></i><i style="--h:.75"></i><i style="--h:.9"></i><i style="--h:.6"></i><i style="--h:.4"></i><i style="--h:.3"></i><i style="--h:.45"></i><i style="--h:.35"></i><i style="--h:.5"></i><i style="--h:.4"></i><i style="--h:.3"></i><i style="--h:.6"></i><i style="--h:.85"></i><i style="--h:.7"></i><i style="--h:.95"></i><i style="--h:.55"></i><i style="--h:.4"></i><em style="--at:2%">calm</em><em style="--at:30%">lively</em><em style="--at:56%">serious</em><em style="--at:80%">warm</em></span></div>
+                    </div>
+                    <p class="mb-t__txt">I listened to different text-to-speech voices and kept one that takes notes on tone and emotion, so the briefing sounds conversational, not robotic.</p>
+                  </li>
+                  <li class="k-stp__panel">
+                    <p class="k-stp__k">The pictures</p>
+                    <div class="mb-t__pic mb-look" aria-hidden="true">
+                      <span class="mb-look__i mb-look__i--cine"><i></i><b>Cinematic</b></span>
+                      <span class="mb-look__i mb-look__i--toon"><i></i><b>Cartoon-like</b></span>
+                    </div>
+                    <p class="mb-t__txt">I compared image tools that can run inside an automation, from cinematic to cartoon-like, against the look I wanted for financial news.</p>
+                  </li>
+                  <li class="k-stp__panel">
+                    <p class="k-stp__k">The charts</p>
+                    <div class="mb-t__pic mb-chart" aria-hidden="true">
+                      <div class="mb-chart__plot"><span style="--v:.42"><em>+1.2%</em></span><span style="--v:.66"><em>+2.0%</em></span><span class="is-off" style="--v:.26"><em>+4.8%</em></span><span style="--v:.5"><em>+1.5%</em></span></div>
+                      <ul class="mb-chart__chk">
+                        <li class="is-ok"><i><svg viewBox="0 0 12 12" width="12" height="12"><path d="M2.4 6.4 5 8.8l4.7-5.4"/></svg></i>Looks convincing</li>
+                        <li class="is-no"><i><svg viewBox="0 0 12 12" width="12" height="12"><path d="m3.2 3.2 5.6 5.6M8.8 3.2 3.2 8.8"/></svg></i>Numbers reliable</li>
+                      </ul>
+                    </div>
+                    <p class="mb-t__txt">AI-made charts looked convincing, but their numbers weren’t reliable.</p>
+                  </li>
+                </ol>
+              </div>
+              <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Sketches of each test, not real output. The tone words are examples.</span></figcaption>
+            </figure>
+          </div>
+          <details class="bp__more">
+            <summary><span class="bp__plus" aria-hidden="true"></span><span class="bp__sl">My part, and what the AI does</span><span class="bp__rt">2 short lists · under 1 min</span></summary>
+            <div class="bp__detail">
+              <div class="mb-split">
+                <div class="mb-split__c mb-split__c--me">
+                  <p class="mb-split__k"><span class="k-dia" aria-hidden="true"></span>My part</p>
+                  <ul>
+                    <li>The idea and the bar: worth listening to every day.</li>
+                    <li>Designing the steps and wiring the tools together.</li>
+                    <li>Choosing the voice after testing options, and tuning its tone.</li>
+                    <li>Tweaking the format, run after run.</li>
+                  </ul>
+                </div>
+                <div class="mb-split__c">
+                  <p class="mb-split__k"><span class="mb-split__dot" aria-hidden="true"></span>What the AI and the timer do</p>
+                  <ul>
+                    <li>AI models write the summaries and read them aloud, inside rules I set.</li>
+                    <li>AI helped me research each tool before I built with it.</li>
+                    <li>A timer starts every run; I don’t press anything.</li>
+                    <li>The journalism is the newsrooms’: every item names its source and links to it.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <section class="bp bp--result on-band" id="result" aria-labelledby="happened-t">
+          <header class="bp__top">
+            <p class="bp__num" aria-hidden="true"><b>04</b><span>/ 04</span></p>
+            <p class="bp__k"><span class="sr">Part 4 of 4: </span>What changed</p>
+            <span class="bp__rule" aria-hidden="true"></span>
+            <ol class="bp__dots" aria-hidden="true"><li></li><li></li><li></li><li class="is-on"></li></ol>
+          </header>
+          <div class="bp__grid bp__grid--result">
+            <div class="bp__text">
+              <p class="result"><span class="badge badge--live" data-status-manual><!--@fact:status.briefing.label--></span></p>
+              <h2 class="sp-h bp__h" id="happened-t">It runs by itself every weekday. I listen instead of scrolling.</h2>
+              <p class="bp__note">Built for one listener: me.</p>
+              <p class="sp-skills"><span class="label">Skills</span>Workflow automation · Testing AI tools · Setting a quality bar</p>
+            </div>
+            <figure data-visual class="vis mb-gone" aria-labelledby="ex4-t">
+              <div class="vis__head">
+                <p class="vis__title"><span class="vis__num">Exhibit 4</span><span class="vis__name" id="ex4-t">What I stopped doing by hand</span></p>
+                <span class="vis__how"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to cross out the old way</span>
+              </div>
+              <ol class="mb-gone__list" data-kit="scrub" data-start="top 90%" data-end="top 58%">
+                <li class="mb-gone__i"><p class="mb-gone__k">Repetition</p><p class="mb-gone__old"><span class="sr">Before: </span>Open several sites, every morning.<i class="mb-gone__x" data-step="1" data-fx="grow" aria-hidden="true">Open several sites, every morning.</i></p><p class="mb-gone__new" data-step="1" data-fx="up"><span class="sr">Now: </span>The summaries and the links arrive in one place.</p></li>
+                <li class="mb-gone__i"><p class="mb-gone__k">Hand-starting</p><p class="mb-gone__old"><span class="sr">Before: </span>Remember to go and look.<i class="mb-gone__x" data-step="2" data-fx="grow" aria-hidden="true">Remember to go and look.</i></p><p class="mb-gone__new" data-step="2" data-fx="up"><span class="sr">Now: </span>Nothing to press. It runs itself on weekdays and tells me if a step fails.</p></li>
+                <li class="mb-gone__i"><p class="mb-gone__k">Reading</p><p class="mb-gone__old"><span class="sr">Before: </span>Read everything to find the few that matter.<i class="mb-gone__x" data-step="3" data-fx="grow" aria-hidden="true">Read everything to find the few that matter.</i></p><p class="mb-gone__new" data-step="3" data-fx="up"><span class="sr">Now: </span>Listen for a few minutes. Open a link only when I want more.</p></li>
+              </ol>
+            </figure>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="bq-bw" data-visual><!-- the "Built with" band is a picture of the tools (logos); data-visual tells story-qa so -->
+      <!--@include:builtwith-morning-briefing-->
+    </div>
+
+    <nav class="next bq-next" aria-label="More projects">
+      <p class="next__links"><a href="/#cases">← All projects</a><a href="/tech/work/finance-briefing/">Technical deep dive →</a></p>
+      <a class="next__case" href="/projects/daily-planner/">
+      <span class="next__img"><!--@img:also-rutgers-campus srcw="480,800" sizes="(max-width: 640px) 100vw, (max-width: 960px) 30vw, 340px" alt="" loading="lazy"--></span>
+      <span class="next__txt"><span class="next__k">Next project · Daily planner</span><span class="next__t">One Slack plan for my whole day.</span></span>
+      <span class="next__arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<div class="band on-band band-grid foot-band foot-band--sub">
+  <div class="wrap">
+<!--@include:biz-footer-->
+  </div>
+</div>
+</body>
+</html>

@@ -1,9 +1,13 @@
 // Case 02 · Exhibit 2 (the signature picture): "one channel, three lanes".
 // The HTML is the finished, flat diagram (JS off, reduced motion, "Turn off animation"). With motion allowed, and only
 // while the picture is off screen (arm), the same flat diagram (never slanted: Sep 24, nobody reads text at an angle)
-// gets three question cards, one on each old inbox. Scroll position sends them through: into the one channel (each
-// inbox then fades to its pale "before" outline), past the reader bot, and down their three lanes to an outcome. A card
-// rests on the top edge of a tile, like a badge, so it never covers the tile's words, and hops to the next one.
+// gets three question cards. Scroll position sends them through, each one ALONG ITS OWN WIRE (the diagram's lines):
+// out of its old inbox, through the one channel and the reader bot (a card passes under a tile, like a message going
+// through it), and down its lane to an outcome.
+// Sep 27 (Chirath: "the three dots start not aligned, and end not aligned"): a card is never off its line. Every
+// position comes from the real geometry, measured again on every resize: the wire's own path (getPointAtLength,
+// mapped to board px) and the tiles' boxes. The three cards start on one shared line just past the inboxes and end
+// on one shared line just before the outcomes (a column on wide screens, a row on phones), each on its wire.
 // Everything depends only on scroll position, so scrolling up plays it backwards; all three cards have arrived once
 // the picture is in view (its top at 30 % of the screen at the latest: kit/util.js span). No gsap, no library.
 import { arm, track, armOn, armOff, clamp } from '../../kit/util.js';
@@ -14,7 +18,15 @@ const DONE = [
   '<svg viewBox="0 0 24 24"><path d="M6 8h12M6 12h12M6 16h7"/></svg>',
   '<svg viewBox="0 0 24 24"><path d="M3.5 7.5h17v3a2 2 0 0 0 0 4v3h-17v-3a2 2 0 0 0 0-4z"/></svg>',
 ];
-const SHARED = new Set(['c', 'r']); // tiles all three cards pass: they stand side by side there
+const STEP = 3; // px between samples along a wire
+const UNDER = 0.3; // share of scroll a px under a tile takes, against a px on a visible line
+// piecewise-linear map from one increasing array to another (arc length ↔ scroll "time")
+const lerp = (from, to, v) => {
+  let lo = 1, hi = from.length - 1;
+  while (lo < hi) { const mid = (lo + hi) >> 1; if (from[mid] < v) lo = mid + 1; else hi = mid; }
+  const a = from[lo - 1], b = from[lo];
+  return to[lo - 1] + (b > a ? Math.min(1, Math.max(0, (v - a) / (b - a))) : 0) * (to[lo] - to[lo - 1]);
+};
 const smooth = (t) => t * t * (3 - 2 * t);
 
 export function init(el, ctx) {
@@ -22,7 +34,6 @@ export function init(el, ctx) {
   if (!board) return;
   const tiles = {};
   board.querySelectorAll('[data-n]').forEach((t) => { tiles[t.dataset.n] = t; });
-  const wideQ = matchMedia('(min-width: 641px)');
   let disarm = null;
 
   const start = () => {
@@ -37,74 +48,133 @@ export function init(el, ctx) {
         return { route, tk };
       });
 
-      const pts = {};
-      let p = 0, legs = [];
-      // one hop: from a resting place, along the tile's top edge to the gap between the two columns, through the
-      // gap, and along the next tile's top edge, so a card never slides across a tile's words. Straight where the
-      // two tiles are level, or where the columns have no gap (phones: the card shrinks while it travels).
-      const rest = (n, k) => ({ x: pts[n].x + (SHARED.has(n) ? (k - 1) * (wideQ.matches ? 46 : 30) : 0), y: pts[n].y });
-      const leg = (na, nb, k) => {
-        const a = rest(na, k), b = rest(nb, k);
-        const ar = tiles[na].offsetLeft + tiles[na].offsetWidth, bl = tiles[nb].offsetLeft;
-        const q = Math.abs(a.y - b.y) < 12 || bl - ar < 36 ? [a, b] : [a, { x: (ar + bl) / 2, y: a.y }, { x: (ar + bl) / 2, y: b.y }, b];
-        const d = [0];
-        for (let j = 1; j < q.length; j++) d.push(d[j - 1] + Math.hypot(q[j].x - q[j - 1].x, q[j].y - q[j - 1].y));
-        return { q, d, elbow: q.length > 2 };
+      let p = 0, paths = [];
+
+      // the wires on screen (the wide or the phone set, whichever CSS shows), sampled in board px
+      const wire = (key) => [...board.querySelectorAll(`.qd-w[data-w="${key}"]`)].find((w) => w.getClientRects().length);
+      const sample = (w, br) => {
+        const m = w.getScreenCTM(), L = w.getTotalLength(), pts = [];
+        const len = L * Math.hypot(m.a, m.b, m.c, m.d); // rough px length, for the sample count only
+        const n = Math.max(2, Math.ceil(len / STEP));
+        for (let i = 0; i <= n; i++) {
+          const q = w.getPointAtLength((L * i) / n).matrixTransform(m);
+          pts.push({ x: q.x - br.left, y: q.y - br.top });
+        }
+        return pts;
       };
-      const along = ({ q, d }, e) => {
-        const L = d[d.length - 1] * e;
-        let j = 1;
-        while (j < q.length - 1 && d[j] < L) j++;
-        const t = d[j] > d[j - 1] ? (L - d[j - 1]) / (d[j] - d[j - 1]) : 1;
-        return { x: q[j - 1].x + (q[j].x - q[j - 1].x) * t, y: q[j - 1].y + (q[j].y - q[j - 1].y) * t };
+      const box = (n) => {
+        const t = tiles[n];
+        return { l: t.offsetLeft, t: t.offsetTop, r: t.offsetLeft + t.offsetWidth, b: t.offsetTop + t.offsetHeight };
       };
+      const inside = (q, r) => q.x > r.l && q.x < r.r && q.y > r.t && q.y < r.b;
+      // arc length (along a route) where the route first reaches `v` on the flow axis
+      const crossing = (P, ax, v, from = 0) => {
+        for (let i = Math.max(1, from); i < P.q.length; i++) {
+          const a = P.q[i - 1][ax], b = P.q[i][ax];
+          if ((a - v) * (b - v) <= 0 && a !== b) return P.d[i - 1] + ((v - a) / (b - a)) * (P.d[i] - P.d[i - 1]);
+        }
+        return null;
+      };
+      const at = (P, s) => {
+        let lo = 1, hi = P.d.length - 1;
+        while (lo < hi) { const mid = (lo + hi) >> 1; if (P.d[mid] < s) lo = mid + 1; else hi = mid; }
+        const d0 = P.d[lo - 1], d1 = P.d[lo], t = d1 > d0 ? clamp((s - d0) / (d1 - d0)) : 0;
+        return { x: P.q[lo - 1].x + (P.q[lo].x - P.q[lo - 1].x) * t, y: P.q[lo - 1].y + (P.q[lo].y - P.q[lo - 1].y) * t };
+      };
+
+      const geo = () => {
+        const br = board.getBoundingClientRect();
+        const w0 = wire('c-r');
+        if (!br.width || !w0) return;
+        // flow axis, from the straight channel → reader wire: along x when the diagram runs left to right (wide),
+        // along y when it runs top to bottom (phones)
+        const a0 = sample(w0, br);
+        const ax = Math.abs(a0[a0.length - 1].x - a0[0].x) >= Math.abs(a0[a0.length - 1].y - a0[0].y) ? 'x' : 'y';
+        const far = ax === 'x' ? 'r' : 'b', near = ax === 'x' ? 'l' : 't';
+        const tk0 = toks[0].tk;
+        const half = (ax === 'x' ? tk0.offsetWidth : tk0.offsetHeight) / 2;
+        const B = Object.fromEntries(Object.keys(tiles).map((n) => [n, box(n)]));
+        // start line: just past the furthest inbox edge, but never touching the channel tile (centre of the gap)
+        const srcEdge = Math.max(B.s1[far], B.s2[far], B.s3[far]);
+        const startV = Math.min(srcEdge + half + 6, (srcEdge + B.c[near]) / 2);
+        // end line: just before the nearest outcome edge, but never touching a lane tile (centre of the gap)
+        const outEdge = Math.min(B.o1[near], B.o2[near], B.o3[near]);
+        const laneEdge = Math.max(B.a1[far], B.a2[far], B.a3[far]);
+        const endV = Math.max(outEdge - half - 6, (laneEdge + outEdge) / 2);
+        paths = toks.map(({ route }) => {
+          const q = [];
+          route.slice(1).forEach((n, i) => {
+            const w = wire(`${route[i]}-${n}`);
+            if (w) q.push(...sample(w, br).slice(q.length ? 1 : 0));
+          });
+          const d = [0];
+          for (let j = 1; j < q.length; j++) d.push(d[j - 1] + Math.hypot(q[j].x - q[j - 1].x, q[j].y - q[j - 1].y));
+          const P = { q, d };
+          // where the route enters each tile it passes (lights it) and leaves it (the card is under it meanwhile)
+          P.span = route.map((n) => {
+            const r = B[n];
+            let s0 = null, s1 = null;
+            q.forEach((pt, j) => { if (inside(pt, r)) { if (s0 === null) s0 = d[j]; s1 = d[j]; } });
+            return { n, s0: s0 ?? 0, s1: s1 ?? 0 };
+          });
+          P.s0 = crossing(P, ax, startV) ?? P.span[0].s1;
+          // the last tile's approach: search from the lane tile onwards so a curve earlier on can't match first
+          const laneAt = q.findIndex((pt, j) => d[j] >= P.span[3].s1);
+          P.s1 = crossing(P, ax, endV, laneAt) ?? P.span[4].s0;
+          // scroll "time" along the route: the stretch under a tile counts for less (UNDER), so a card spends most
+          // of the scroll visible on its line and passes quickly through the channel, the reader bot and its lane
+          const hidden = (j) => route.some((n) => inside(q[j], B[n]));
+          const u = [0];
+          for (let j = 1; j < q.length; j++) u.push(u[j - 1] + (d[j] - d[j - 1]) * (hidden(j) && hidden(j - 1) ? UNDER : 1));
+          P.u = u;
+          P.u0 = lerp(d, u, P.s0);
+          P.u1 = lerp(d, u, P.s1);
+          return P;
+        });
+        paint();
+      };
+
       const paint = () => {
+        if (!paths.length) return;
         const lit = new Set(), gone = new Set(), hit = new Set();
         toks.forEach(({ route, tk }, k) => {
-          if (!legs[k]) return;
+          const P = paths[k];
           const lp = clamp((p - k * 0.08) / 0.76); // each card starts a little later; all have arrived at p = 0.92
-          const segs = route.length - 1;
-          const f = lp * segs;
-          const i = Math.min(segs - 1, Math.floor(f));
-          const e = smooth(clamp((f - i - 0.3) / 0.7)); // rest on a tile, then hop to the next
-          const lg = legs[k][i], s = Math.sin(Math.PI * e);
-          const { x, y } = along(lg, e);
-          tk.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -50%) scale(${(lg.elbow ? 1 + 0.06 * s : 1 - 0.4 * s).toFixed(3)})`;
-          const at = e >= 1 ? i + 1 : i; // the last tile this card has reached
-          for (let n = 1; n <= at; n++) lit.add(route[n]);
-          if (at > 0 || e > 0) gone.add(route[0]);
-          if (e <= 0 || e >= 1) hit.add(route[at]);
-          tk.classList.toggle('is-done', at === segs);
-          tk.classList.toggle('is-fly', e > 0 && e < 1);
+          const s = lerp(P.u, P.d, P.u0 + (P.u1 - P.u0) * smooth(lp));
+          const { x, y } = at(P, s);
+          tk.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -50%)`;
+          let under = false;
+          P.span.forEach(({ n, s0, s1 }, i) => {
+            if (i === 0) { if (lp > 0) gone.add(n); return; }
+            if (s > s0 && s < s1) under = true;
+            if (s >= s0 || (i === 4 && lp >= 1)) lit.add(n);
+            if ((s >= s0 && s <= s1) || (i === 4 && lp >= 1)) hit.add(n);
+          });
+          tk.classList.toggle('is-done', lp >= 1);
+          tk.classList.toggle('is-fly', lp > 0 && lp < 1);
+          tk.classList.toggle('is-under', under);
         });
         Object.entries(tiles).forEach(([n, t]) => {
           t.classList.toggle('is-lit', lit.has(n));
           t.classList.toggle('is-gone', gone.has(n));
-          t.classList.toggle('is-hit', hit.has(n) && !n.startsWith('s'));
+          t.classList.toggle('is-hit', hit.has(n));
         });
       };
-      // where a card rests on each tile: on its top edge (board layout px), centred on the shared tiles and near the
-      // right end on the others, clear of the tile's words (they sit on the left) and of the column headings
-      const geo = () => {
-        const wide = wideQ.matches;
-        const th = wide ? 32 : 26; // card height (CSS)
-        Object.entries(tiles).forEach(([n, t]) => {
-          const x = SHARED.has(n) ? t.offsetLeft + t.offsetWidth / 2 : t.offsetLeft + t.offsetWidth - (wide ? 32 : 18);
-          pts[n] = { x, y: t.offsetTop - th * 0.3 };
-        });
-        legs = toks.map(({ route }, k) => route.slice(1).map((n, i) => leg(route[i], n, k)));
-        paint();
-      };
-      const ro = new ResizeObserver(geo);
+
+      let queued = 0;
+      const regeo = () => { if (!queued) queued = requestAnimationFrame(() => { queued = 0; geo(); }); };
+      // the board keeps its size (aspect-ratio) while tiles change (web fonts arriving, text wrapping), so watch both
+      const ro = new ResizeObserver(regeo);
       ro.observe(board);
+      Object.values(tiles).forEach((t) => ro.observe(t));
+      document.fonts?.ready.then(regeo);
       geo();
       const stopTrack = track(el, (v) => { p = v; paint(); }, { start: 0.85, name: 'qd-scene' });
-      wideQ.addEventListener('change', geo);
 
       return () => {
         stopTrack();
         ro.disconnect();
-        wideQ.removeEventListener('change', geo);
+        cancelAnimationFrame(queued);
         toks.forEach(({ tk }) => tk.remove());
         Object.values(tiles).forEach((t) => t.classList.remove('is-lit', 'is-gone', 'is-hit'));
         armOff(el, 'qd-scene');

@@ -25,7 +25,7 @@
     "agoda": { "label": "Live" },
     "briefing": { "label": "Running" },
     "planner": { "label": "Running" },
-    "client": { "label": "Client agreed on data" },
+    "client": { "label": "Scope agreed with client" },
     "pitch": { "label": "Pitch · clickable prototype" },
     "research": { "label": "Submitted to the Rutgers Quant Finance Club" }
   }

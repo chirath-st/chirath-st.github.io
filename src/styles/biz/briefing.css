@@ -1,0 +1,290 @@
+/* Main edition: "The Briefing", story template v3 (design/STORY_TEMPLATE_v3.md). Approved Sep 27 (site v2 proposal).
+   One stylesheet bundle for every page built on it: the case pages as they are rebuilt (/cases/<slug>/, Case 01 first)
+   and the "Also made" pages (/projects/<slug>/). Linked from the page <head> (not a JS import), so the page is styled
+   with JavaScript off. Per-page styles come after it, from cases/<slug>.css or projects/<slug>.css.
+   The verdict first, the evidence on demand:
+     head (title, Before → After, the RESULT, jump links, photo)
+     → "In this project" card (sticky on wide screens) beside the 60-second box (What I did · Who did what · Runs as)
+     → 3–5 numbered colour bands (big 01–05, a claim headline, a lead line, ONE exhibit, then "detail rows")
+     → the result band (navy) → a still "Built with" strip → the next project.
+   JS off: every <details> opens natively, all anchors work, the "you are here" bar is simply not there.
+   Reduced motion / "Turn off animation": no scroll-driven or open/close motion, the finished state only.
+   Icons: every inline <svg> in the HTML carries width/height attributes, so a page whose stylesheet fails to load
+   never shows giant icons (the Sep 27 first-load bug). */
+@import './tokens.css';
+@import './base.css';
+@import './components.css';
+@import './case.css';
+@import './story.css';
+@import './kit.css';
+@import './builtwith.css';
+
+/* ---------- page frame ---------- */
+html{scroll-padding-top:calc(var(--head-h) + 20px)}
+@media (max-width:1279px){html{scroll-padding-top:calc(var(--head-h) + 64px)}} /* + the "you are here" bar */
+.bq .cbar{margin-bottom:clamp(26px,3vw,40px)}
+
+/* ---------- "you are here" (built by briefing.js; hidden with JS off) ----------
+   wide screens: a 5-part line along the bottom of the header (replaces the single progress line)
+   tablets and phones: a slim bar under the header, "02 / 05 · What I built" + the same line */
+.top:has(.bq-seg--head) .progress{display:none}
+.bq-seg{display:flex;gap:3px}
+.bq-seg i{position:relative;flex:1;overflow:hidden;border-radius:2px;background:var(--rule-2)}
+.bq-seg i::after{content:"";position:absolute;inset:0;background:var(--cobalt);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+.bq-seg--head{position:absolute;left:0;right:0;bottom:-2px;height:3px;display:none}
+@media (min-width:1280px){.bq-seg--head{display:flex}}
+html:not(.js) .bq-seg,html:not(.js) .bq-pill{display:none!important}
+
+.bq-pill{position:fixed;left:0;right:0;top:var(--head-h);z-index:40;background:rgb(248 247 243 / .95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule-2);transform:translateY(-100%);visibility:hidden;transition:transform .32s var(--ease),visibility 0s .32s}
+.bq-pill.is-on{transform:none;visibility:visible;transition:transform .32s var(--ease)}
+.bq-pill__row{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto 3px;align-items:baseline;gap:7px 12px;padding:9px 0}
+.bq-pill__n{display:flex;align-items:baseline;gap:5px;font:500 12px/1 var(--sans);color:var(--muted);font-variant-numeric:tabular-nums}
+.bq-pill__n b{font:400 21px/1 var(--serif);color:var(--cobalt)}
+.bq-pill__t{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:500 14.5px/1.2 var(--sans);color:var(--ink)}
+.bq-pill .bq-seg{grid-column:1/-1;height:3px}
+@media (min-width:1280px){.bq-pill{display:none}}
+@media (prefers-reduced-motion:reduce){.bq-pill,.bq-pill.is-on{transition:none}}
+html.no-motion .bq-pill,html.no-motion .bq-pill.is-on{transition:none}
+
+/* ---------- head: the whole project on the first screen (result included) ---------- */
+.bq-head{grid-template-columns:minmax(0,1fr) clamp(260px,30vw,470px);row-gap:18px}
+.bq-head .case__title{font-size:clamp(34px,3.7vw,58px)}
+.bq-head .ph{grid-row:2/6}
+.bq-result,.bq-jump{grid-column:1}
+@media (min-width:641px){.bq-head .ba{flex-wrap:nowrap}.bq-head .ba__p{flex:0 1 36ch;min-width:0}} /* Before → After on one line */
+.bq-result{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;width:fit-content;max-width:100%;padding:10px 16px 10px 14px;background:var(--card);border:1px solid var(--rule-2);border-radius:10px;box-shadow:0 14px 30px -26px rgb(14 23 38 / .35)}
+.bq-result__k{font:500 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.bq-result__t{font-size:17px;line-height:1.35;color:var(--ink)}
+.bq-jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.bq-jump__a{display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 18px;border:1px solid var(--rule);border-radius:999px;background:var(--card);font:500 14.5px/1 var(--sans);color:var(--ink);text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.bq-jump__a svg{flex:none;width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}
+.bq-jump__a:hover{border-color:var(--cobalt);color:var(--cobalt)}
+.bq-jump__a:hover svg{transform:translateY(3px)}
+.bq-jump__a--out:hover svg{transform:translateX(3px)}
+.bq-jump__a--main{background:var(--ink);border-color:var(--ink);color:#fff}
+.bq-jump__a--main:hover{background:var(--cobalt-deep);border-color:var(--cobalt-deep);color:#fff}
+
+/* ---------- article: the "In this project" card (left, sticky on wide screens) + the briefing (right) ---------- */
+.bq-art{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin-top:clamp(40px,4.4vw,64px)}
+@media (min-width:1280px){
+  .bq-art{grid-template-columns:clamp(240px,18vw,280px) minmax(0,1fr);gap:clamp(36px,3vw,56px);align-items:start}
+  .bq-side{position:sticky;top:calc(var(--head-h) + 24px);align-self:start}
+}
+.bq-side{z-index:3} /* floats above the full-width band colours */
+.bq-main{min-width:0}
+
+.bq-file{padding:20px 20px 18px;background:var(--card);border:1px solid var(--rule-2);border-radius:12px;box-shadow:var(--shadow-card)}
+.bq-file__k{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px;font:500 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt)}
+.bq-file__rt{flex-basis:100%;margin-top:4px;font-size:11.5px;letter-spacing:.04em;text-transform:none;color:var(--muted);white-space:nowrap}
+.bq-facts{margin:16px 0 0}
+.bq-fact{padding:9px 0 10px;border-top:1px solid var(--rule-2)}
+.bq-fact dt{margin-bottom:3px;font:500 12px/1.3 var(--sans);letter-spacing:.04em;color:var(--muted)}
+.bq-fact dd{margin:0;font:400 19px/1.2 var(--serif);letter-spacing:-.005em;color:var(--ink)}
+.bq-toc ol{display:grid;gap:2px}
+.bq-toc a{position:relative;display:grid;grid-template-columns:24px minmax(0,1fr);gap:6px;align-items:baseline;padding:7px 8px 8px 14px;border-radius:6px;font-size:14.5px;line-height:1.3;color:var(--ink-2);text-decoration:none;transition:background .25s,color .25s}
+.bq-toc a::before,.bq-toc a::after{content:"";position:absolute;left:0;top:7px;bottom:7px;width:2px;border-radius:2px;background:var(--rule-2)}
+.bq-toc a::after{background:var(--cobalt);transform-origin:50% 0;transform:scaleY(var(--p,0))}
+.bq-toc b{font:500 12px/1 var(--sans);color:var(--muted);font-variant-numeric:tabular-nums;transition:color .25s}
+.bq-toc a:hover{color:var(--cobalt)}
+.bq-toc a[aria-current="true"]{background:var(--t1);color:var(--ink)}
+.bq-toc a[aria-current="true"] b{color:var(--cobalt)}
+.bq-openall{display:flex;align-items:center;gap:10px;width:100%;margin-top:14px;padding:10px 12px;border:1px dashed var(--t3);border-radius:8px;background:none;font:500 14px/1.2 var(--sans);color:var(--cobalt-deep);text-align:left;cursor:pointer;transition:background .2s,border-color .2s}
+.bq-openall:hover{background:var(--t1);border-color:var(--cobalt)}
+.bq-openall__ic{position:relative;flex:none;width:18px;height:18px}
+.bq-openall__ic::before,.bq-openall__ic::after{content:"";position:absolute;left:3px;right:3px;top:50%;height:1.6px;margin-top:-.8px;background:currentColor;border-radius:1px;transition:transform .3s var(--ease)}
+.bq-openall__ic::after{transform:rotate(90deg)}
+.bq-openall[aria-pressed="true"] .bq-openall__ic::after{transform:rotate(0)}
+html:not(.js) .bq-openall{display:none}
+.bq-src{margin-top:14px;font-size:12.5px;line-height:1.45;color:var(--muted)}
+@media (max-height:760px) and (min-width:1280px){ /* short laptop screens: the whole card still fits */
+  .bq-fact{padding:6px 0 7px}
+  .bq-fact dd{font-size:17px}
+  .bq-toc a{padding-block:5px 6px}
+  .bq-src{display:none}
+}
+
+/* the 60-second box sits at the top of the briefing column */
+.bq .sixty--wide{margin-top:0;margin-bottom:clamp(40px,3.8vw,56px)}
+
+/* ---------- the numbered bands ---------- */
+/* Each part is a FULL-WIDTH band in its own tint, so a fast scroller sees separate parts. The colour bleeds to both
+   window edges (box-shadow + clip-path: no sideways scroll). Tints, in page order: .bp (paper) → .bp--tint (pale
+   cobalt) → .bp--white → .bp (paper) → .bp--result (navy, always the last part). */
+.bp{--bg:var(--paper-2);--edge:#E2DED3;--more:#DEDAD0;position:relative;padding:clamp(40px,3.4vw,54px) 0 clamp(14px,1.4vw,20px);background:var(--bg);box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax);scroll-margin-top:var(--head-h);view-timeline-name:--bp}
+.bp::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--edge);box-shadow:0 0 0 100vmax var(--edge);clip-path:inset(0 -100vmax)}
+.bp--tint{--bg:var(--t1);--edge:var(--t2);--more:var(--t2)}
+.bp--white{--bg:var(--card);--edge:var(--rule-2);--more:var(--rule-2)}
+.bp--result{--bg:var(--band);--edge:var(--band);--more:rgb(255 255 255 / .2);color:#fff}
+
+/* band header: big number · kicker · rule · one dot per part (dots are hidden on phones, where the bar shows the part) */
+.bp__top{display:flex;align-items:center;gap:16px;margin-bottom:clamp(14px,1.4vw,20px)}
+.bp__num{flex:none;display:flex;align-items:baseline;gap:7px}
+.bp__num b{display:block;font:400 clamp(56px,5vw,84px)/.86 var(--serif);letter-spacing:-.035em;color:var(--cobalt);font-variant-numeric:lining-nums tabular-nums}
+.bp__num span{font:500 13px/1 var(--sans);letter-spacing:.06em;color:var(--muted)}
+.bp__k{display:flex;align-items:center;gap:9px;font:500 13px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt-deep)}
+.bp__k--person{color:var(--live-ink)}
+.bp__k--person::before{content:"";flex:none;width:9px;height:9px;background:var(--live);transform:rotate(45deg);border-radius:1.5px}
+.bp__rule{flex:1;min-width:24px;height:1px;background:var(--rule);transform-origin:0 50%}
+.bp--tint .bp__rule{background:var(--t2)}
+.bp__dots{flex:none;display:flex;align-items:center;gap:6px}
+.bp__dots li{flex:none;width:8px;height:8px;border-radius:50%;border:1px solid var(--t3)}
+.bp__dots li.is-on{background:var(--cobalt);border-color:var(--cobalt)}
+
+/* band body: text (claim headline + lead) beside ONE exhibit, top-aligned (no empty area above a headline) */
+.bp__grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(26px,3vw,48px);align-items:start}
+.bp__grid--wide{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
+.bp__text{min-width:0}
+.bp__text>*+*{margin-top:16px}
+.bp .sp-h{margin-bottom:0;max-width:22ch}
+.bp__lead{max-width:46ch;color:var(--ink-2)}
+.bp .decides{max-width:46ch}
+.bp .vis{box-shadow:0 22px 44px -38px rgb(15 33 71 / .45)}
+.bp--tint .vis{border-color:var(--t2)}
+html:not(.js) .bp .k-cmp__stage{grid-template-columns:minmax(0,1fr)} /* JS off: "before" above "now", full width */
+
+/* a band whose exhibit runs across the whole band: headline row first (.bp__intro), then the exhibit */
+.bp__intro{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:14px clamp(26px,3vw,48px);align-items:start;margin-bottom:clamp(20px,2.2vw,30px)}
+.bp__intro-r>*+*{margin-top:14px}
+/* the callout: one sentence the reader should keep */
+.bp__callout{padding:14px 20px 16px;border-left:3px solid var(--cobalt);border-radius:0 8px 8px 0;background:var(--card);font:400 clamp(19px,1.5vw,22px)/1.3 var(--serif);letter-spacing:-.005em;color:var(--ink)}
+.bp__callout-k{display:block;margin-bottom:6px;font:500 11.5px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt-deep)}
+.bp__callout-t{display:block;font-size:clamp(24px,2vw,30px);line-height:1.15;letter-spacing:-.015em}
+.bp__callout-s{display:block;margin-top:8px;font:400 16px/1.5 var(--sans);letter-spacing:0;color:var(--ink-2)}
+.bp__callout--sm{background:var(--paper);font-size:clamp(18px,1.35vw,20px)}
+
+/* the result band (last part): on the identity band colour (navy; blue with the footer switch) */
+.bp--result .bp__num b,.bp--result .sp-h{color:#fff}
+.bp--result .bp__num span,.bp--result .bp__k{color:var(--on-cobalt-2)}
+.bp--result .bp__rule{background:rgb(255 255 255 / .26)}
+.bp--result .bp__dots li{border-color:rgb(255 255 255 / .45)}
+.bp--result .bp__dots li.is-on{background:#fff;border-color:#fff}
+.bp__grid--result .sp-h{font-size:clamp(28px,2.5vw,40px);max-width:20ch;margin-top:14px}
+.bp--result .result{margin:0}
+.bp--result .bp__text p{color:var(--on-navy)}
+.bp--result .sp-skills{color:var(--on-navy)}
+.bp--result .sp-skills .label{color:var(--on-cobalt-2)}
+.bp--result .vis{color:var(--ink);border-color:transparent;box-shadow:0 30px 60px -36px rgb(0 0 0 / .5)}
+.bp__note{max-width:44ch;font-size:16.5px;line-height:1.55} /* a one-line aside under a band's headline (e.g. the handover) */
+
+/* ---------- detail rows: "what's inside · how long", one small choice per band ---------- */
+.bp__more{margin-top:clamp(16px,1.6vw,22px);border-top:1px solid var(--more)}
+.bp__more>summary{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;min-height:48px;padding:10px 6px 2px 0;list-style:none;cursor:pointer;font-size:15.5px;line-height:1.35;color:var(--ink-2);border-radius:8px}
+.bp__more>summary::-webkit-details-marker{display:none}
+.bp__plus{position:relative;flex:none;width:32px;height:32px;border:1px solid var(--cobalt);border-radius:50%;transition:transform .35s var(--ease),background .2s}
+.bp__plus::before,.bp__plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.6px;margin:-.8px 0 0 -6px;border-radius:1px;background:var(--cobalt);transition:background .2s}
+.bp__plus::after{transform:rotate(90deg)}
+.bp__sl{font-weight:500;color:var(--ink)}
+.bp__rt{margin-left:auto;font:500 12.5px/1 var(--sans);letter-spacing:.05em;color:var(--muted);white-space:nowrap}
+.bp__more>summary:hover .bp__plus{background:var(--t1)}
+.bp__more>summary:hover .bp__sl{color:var(--cobalt)}
+.bp__more[open]>summary .bp__plus{transform:rotate(45deg);background:var(--cobalt)}
+.bp__more[open]>summary .bp__plus::before,.bp__more[open]>summary .bp__plus::after{background:#fff}
+.bp__detail{padding:clamp(18px,2vw,26px) 0 clamp(8px,1vw,14px)}
+.bp--result .bp__more>summary,.bp--result .bp__sl,.bp--result .bp__more>summary:hover .bp__sl{color:#fff}
+.bp--result .bp__rt{color:var(--on-cobalt-2)}
+.bp--result .bp__plus{border-color:#fff}
+.bp--result .bp__plus::before,.bp--result .bp__plus::after{background:#fff}
+.bp--result .bp__more>summary:hover .bp__plus{background:rgb(255 255 255 / .14)}
+.bp--result .bp__more[open]>summary .bp__plus{background:#fff}
+.bp--result .bp__more[open]>summary .bp__plus::before,.bp--result .bp__more[open]>summary .bp__plus::after{background:var(--band)}
+
+/* inside a detail row: text + exhibit pairs, separated by a dashed rule */
+.bp__detail--list .k-hs__list,.bq-pair__text .k-hs__list{margin:0;padding:0;border:0}
+.bq-pair__text .k-hs__list{grid-template-columns:minmax(0,1fr);gap:14px}
+.bq-pair{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,3vw,44px);align-items:center}
+.bq-pair+.bq-pair{margin-top:clamp(26px,2.6vw,40px);padding-top:clamp(26px,2.6vw,40px);border-top:1px dashed #D6D2C7}
+.bq-pair--full{grid-template-columns:minmax(0,1fr)}
+.bq-pair__text{min-width:0}
+.bq-pair__text>*+*{margin-top:12px}
+.bq-pair__text .sp-kicker{margin-bottom:0}
+.bq-pair__text p:not(.sp-kicker){max-width:50ch;font-size:16.5px;line-height:1.55;color:var(--ink-2)}
+
+/* ---------- ending: a still "Built with" strip, then a big next-project card ---------- */
+.bq-bw .bw{margin-top:clamp(44px,4vw,64px)} /* the partial: builtwith-<slug>.html, with .bw--still */
+@media (min-width:1100px){.bq-bw .bw__t:has(>.bw__i:nth-child(4):last-child){grid-template-columns:repeat(4,minmax(0,1fr))}.bq-bw .bw__i{padding-inline:clamp(16px,1.6vw,28px)}}
+.bq-next{margin-top:clamp(28px,3vw,44px)}
+.bq-next .next__case{grid-template-columns:clamp(200px,22vw,340px) minmax(0,1fr) 56px;padding:18px}
+.bq-next .next__t{max-width:26ch;font-size:clamp(24px,2.4vw,38px)}
+.bq-next .next__img{border-radius:8px}
+.bq-next .next__img img{transition:transform .6s var(--ease)}
+.bq-next .next__case:hover .next__img img{transform:scale(1.04)}
+main.bq+.foot-band--sub{margin-top:clamp(64px,6vw,96px)}
+
+/* ---------- motion (enhancement only): each band's number, rule and dot arrive while the band enters, finished
+   by the time its top is ~300 px above the bottom of the screen; they depend on scroll only, so they reverse ---------- */
+@keyframes bq-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes bq-rise{from{opacity:.12;transform:translateY(42%)}to{opacity:1;transform:none}}
+@keyframes bq-dot{from{transform:scale(.3)}to{transform:none}}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    html.js:not(.no-motion) .bp__rule{animation:bq-grow linear both;animation-timeline:--bp;animation-range:entry 0px entry 300px}
+    html.js:not(.no-motion) .bp__num b{animation:bq-rise linear both;animation-timeline:--bp;animation-range:entry 0px entry 240px}
+    html.js:not(.no-motion) .bp__dots li.is-on{animation:bq-dot linear both;animation-timeline:--bp;animation-range:entry 120px entry 300px}
+  }
+}
+/* a chapter link lands with a small lift of the band's number, so the reader sees where they arrived */
+@keyframes bq-land{0%,100%{transform:none}35%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:no-preference){html:not(.no-motion) .bp:target .bp__num b{animation:bq-land .7s .3s var(--ease-out) both}}
+/* a detail row opens smoothly where the browser can animate to "auto" height */
+@media (prefers-reduced-motion:no-preference){
+  html:not(.no-motion){interpolate-size:allow-keywords}
+  html:not(.no-motion) .bp__more::details-content{block-size:0;overflow-y:clip;transition:block-size .45s var(--ease-out),content-visibility .45s allow-discrete}
+  html:not(.no-motion) .bp__more[open]::details-content{block-size:auto}
+}
+
+/* ---------- tablets: the "In this project" card becomes a static strip under the head ---------- */
+@media (max-width:1279px){
+  .bq-file{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 clamp(24px,4vw,48px);align-items:start}
+  .bq-file>.bq-file__k,.bq-toc{grid-column:1/-1}
+  .bq-toc ol{grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:6px} /* one column per part, 3 to 5 */
+  .bq-toc a{grid-template-columns:minmax(0,1fr);padding:8px 10px 9px 14px}
+  .bq-facts{grid-column:2;grid-row:2;margin:12px 0 0}
+  .bq-openall{grid-column:1;grid-row:2;margin-top:12px;width:auto;justify-self:start}
+  .bq-src{grid-column:2;grid-row:3;margin-top:6px}
+}
+@media (max-width:960px){
+  .bq-head{grid-template-columns:minmax(0,1fr)}
+  .bq-head .ph{grid-row:auto}
+  .bp__grid,.bp__intro,.bq-pair{grid-template-columns:minmax(0,1fr)}
+  .bp__grid{gap:22px}
+  .bq-next .next__case{grid-template-columns:clamp(160px,30vw,260px) minmax(0,1fr) 40px}
+}
+/* ---------- phones: shorter without losing anything that is not said again lower down ---------- */
+@media (max-width:640px){
+  .bq-head{row-gap:14px}
+  .bq-head .ph__frame{aspect-ratio:3/1} /* the photo becomes a strip */
+  .bq-result{padding:9px 12px}
+  .bq-result__t{font-size:16px}
+  .bq-jump{gap:8px}
+  .bq-jump__a{height:40px;padding:0 14px;font-size:14px}
+  .bq-art{gap:20px;margin-top:30px}
+  .bq-file{display:block;padding:14px 16px 12px}
+  .bq-file>.bq-file__k{margin-bottom:6px}
+  .bq-file .bq-facts{display:none} /* "Built with" is the strip at the end of the page */
+  .bq-toc .bq-file__k{display:none}
+  /* one sideways row of chapter chips (the same pattern as the project chips at the top) */
+  .bq-toc ol{display:flex;gap:6px;width:calc(100% + 16px);margin-right:-16px;padding-right:16px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .bq-toc ol::-webkit-scrollbar{display:none}
+  .bq-toc li{flex:none}
+  .bq-toc a{display:inline-flex;gap:7px;padding:8px 12px;border:1px solid var(--rule);border-radius:999px;font-size:13.5px;white-space:nowrap}
+  .bq-toc a::before,.bq-toc a::after{display:none}
+  .bq-openall{margin-top:10px;padding:8px 12px}
+  .bq-src{margin-top:8px;font-size:12px}
+  /* bands: full-width, so exhibits keep the whole phone width */
+  .bp{padding:36px 0 14px}
+  .bq .sixty--wide{margin-bottom:36px}
+  .bp__grid--result{grid-template-columns:minmax(0,1fr)}
+  .bp__top{gap:12px;margin-bottom:16px}
+  .bp__num b{font-size:54px}
+  .bp__dots{display:none} /* the bar under the header shows the part and the progress */
+  .bp__callout{font-size:18.5px}
+  .bp__more>summary{font-size:15px;padding-top:12px}
+  .bp__sl{flex:1;min-width:0}
+  .bp__rt{flex-basis:calc(100% - 46px);margin-left:46px;margin-top:-2px}
+  .bq-next .next__case{grid-template-columns:1fr}
+  .bq-next .next__img{aspect-ratio:3/1}
+  .bq-bw .bw__t{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bq-bw .bw__i{grid-template-columns:minmax(0,1fr);row-gap:4px;padding:10px 8px;border-bottom:0}
+  .bq-bw .bw__i>.bw__lg,.bq-bw .bw__i>.bw__lgs{grid-row:auto}
+  .bq-bw .bw__n{font-size:19px}
+}

@@ -167,7 +167,7 @@
     "credit": "Photo: Supanut Arunoprayote, CC BY 4.0, via Wikimedia Commons (cropped)",
     "licence": "CC BY 4.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:Chao_Praya_River_view_(II).jpg",
-    "slot": "Case 03 head + index thumb (BuzzeBees, Bangkok); was Experience (Bangkok). A general Bangkok view: the caption makes no claim about where the office was",
+    "slot": "NOT WIRED since Sep 27 (brown water; replaced by case03-bangkok-makkasan-night). Was Case 03 head + index thumb (BuzzeBees, Bangkok); was Experience (Bangkok). A general Bangkok view: the caption makes no claim about where the office was",
     "author": "Supanut Arunoprayote",
     "licence_url": "https://creativecommons.org/licenses/by/4.0/",
     "aspect": "16:10",
@@ -448,11 +448,11 @@
     "id": "agoda-one-bangkok-a",
     "file_base": "/img/photos/agoda-one-bangkok-a",
     "alt": "The Wireless House at One Bangkok: a restored green-and-white heritage house on raised posts, reached by a wooden walkway through a lawn garden, framed by the complex's glass and stone buildings under a blue evening sky",
-    "caption": "The Wireless House garden at One Bangkok, where I worked at Agoda.",
+    "caption": "The Wireless House garden at One Bangkok. Agoda’s office is in Tower 5 of the same complex.",
     "credit": "Photo: Magnamonkun, CC0, via Wikimedia Commons (cropped, retouched)",
     "licence": "CC0",
     "source_url": "https://commons.wikimedia.org/wiki/File:The_Wireless_House_at_One_Bangkok-2024-11-03.jpg",
-    "slot": "Case 01 head + index thumb (Agoda, sales checks); re-cropped Sep 24 (shop sign out) and a bright advertising screen toned down to a dark panel",
+    "slot": "Case 01 head + index thumb (Agoda, sales checks); re-cropped Sep 24 (shop sign out) and a bright advertising screen toned down to a dark panel; caption rewritten Sep 27 (final wording, final review): it names the garden as a place only and says the office is in Tower 5 of the same complex (Chirath never worked at or visited this garden: EVIDENCE_ADDENDUM.md, Sep 27). No open-licence photo of the One Bangkok fountain green area exists yet (Commons, Openverse, Flickr CC searched Sep 27)",
     "author": "Magnamonkun",
     "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
     "aspect": "16:10",
@@ -488,11 +488,11 @@
     "id": "agoda-one-bangkok-b",
     "file_base": "/img/photos/agoda-one-bangkok-b",
     "alt": "The Forum at One Bangkok: a curved, wave-topped building of pale metal fins over a band of glass, with young trees and people crossing the stone plaza in soft late-afternoon light",
-    "caption": "The Forum at One Bangkok, where I worked at Agoda.",
+    "caption": "The Forum at One Bangkok, next to Agoda’s office in Tower 5.",
     "credit": "Photo: Chainwit., CC BY 4.0, via Wikimedia Commons (cropped)",
     "licence": "CC BY 4.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:One_Bangkok_Forum_(2024-10-26)_-_img_02.jpg",
-    "slot": "Case 02 head + index thumb (Agoda, questions desk); re-exported Sep 24 with a little more contrast and colour",
+    "slot": "Case 02 head + index thumb (Agoda, questions desk); re-exported Sep 24 with a little more contrast and colour; caption corrected Sep 27 (the Forum is next to Tower 5, his office: EVIDENCE_ADDENDUM.md, Sep 27). No openly licensed photo of the inside of Agoda's office found",
     "author": "Chainwit.",
     "licence_url": "https://creativecommons.org/licenses/by/4.0/",
     "aspect": "16:10",
@@ -560,6 +560,86 @@
         "w": 192,
         "h": 120,
         "kb": 4.8,
+        "use": "index thumbnail"
+      }
+    ]
+  },
+  {
+    "id": "case03-bangkok-makkasan-night",
+    "file_base": "/img/photos/case03-bangkok-makkasan-night",
+    "alt": "Bangkok at night from high above: glowing orange ribbons of an expressway interchange loop between lit buildings, and the city's lights stretch to the horizon under a dark sky",
+    "caption": "The Makkasan expressway interchange at night, Bangkok.",
+    "credit": "Photo: aotaro, CC BY 2.0, via Wikimedia Commons (cropped, lightly softened)",
+    "licence": "CC BY 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Highway_interchange_at_night_(35517755855).jpg",
+    "slot": "Case 03 head + index thumb (BuzzeBees, Bangkok); replaces exp-bangkok-river (brown river water, Chirath Sep 27). Taken from Baiyoke Tower II looking east over Makkasan, toward the Rama 9 side of the city; the caption makes no claim about the office",
+    "author": "aotaro",
+    "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+    "aspect": "16:10",
+    "files": [
+      {
+        "src": "/img/photos/case03-bangkok-makkasan-night-1600.webp",
+        "w": 1600,
+        "h": 1000,
+        "kb": 149.2
+      },
+      {
+        "src": "/img/photos/case03-bangkok-makkasan-night-800.webp",
+        "w": 800,
+        "h": 500,
+        "kb": 59.9
+      },
+      {
+        "src": "/img/photos/case03-bangkok-makkasan-night-480.webp",
+        "w": 480,
+        "h": 300,
+        "kb": 29.8
+      },
+      {
+        "src": "/img/photos/case03-bangkok-makkasan-night-192.webp",
+        "w": 192,
+        "h": 120,
+        "kb": 7.8,
+        "use": "index thumbnail"
+      }
+    ]
+  },
+  {
+    "id": "case03-bangkok-lake-ratchada",
+    "file_base": "/img/photos/case03-bangkok-lake-ratchada",
+    "alt": "A clear blue lake with a fountain in front of a row of glass office towers and tall apartment blocks, their reflections shimmering in the water under a cloudless late-afternoon sky",
+    "caption": "Lake Ratchada in Benjakitti Park, Bangkok.",
+    "credit": "Photo: Mark Fischer, CC BY-SA 2.0, via Wikimedia Commons (cropped)",
+    "licence": "CC BY-SA 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Lake_Ratchada.jpg",
+    "slot": "ALTERNATIVE for Case 03 head (not wired). Clean blue water; runner-up because the home page already shows a skyline-across-a-lake photo (case01-bangkok-lumphini)",
+    "author": "Mark Fischer",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "aspect": "16:10",
+    "files": [
+      {
+        "src": "/img/photos/case03-bangkok-lake-ratchada-1600.webp",
+        "w": 1600,
+        "h": 1000,
+        "kb": 136.5
+      },
+      {
+        "src": "/img/photos/case03-bangkok-lake-ratchada-800.webp",
+        "w": 800,
+        "h": 500,
+        "kb": 57.0
+      },
+      {
+        "src": "/img/photos/case03-bangkok-lake-ratchada-480.webp",
+        "w": 480,
+        "h": 300,
+        "kb": 20.9
+      },
+      {
+        "src": "/img/photos/case03-bangkok-lake-ratchada-192.webp",
+        "w": 192,
+        "h": 120,
+        "kb": 4.1,
         "use": "index thumbnail"
       }
     ]

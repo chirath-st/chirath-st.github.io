@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Link-preview images (Open Graph, 1200x630 JPG, <= 150 KB) for every page of the site.
 
-Usage (from anywhere):  python3 scripts/make-og.py
+Usage (from anywhere):  python3 scripts/make-og.py [name-prefix ...]
+  (no argument = every image; e.g. `python3 scripts/make-og.py projects` writes only the projects-*.jpg images)
 Writes site/public/og/<name>.jpg, where <name> is the page folder with "/" -> "-":
   home.jpg                 /          (also used by 404.html)      navy panel + portrait + name
-  cases-<slug>.jpg         /cases/<slug>/                         the case's head photo + case title on a navy band
+  cases-<slug>.jpg         /cases/<slug>/                         the project's head photo + title on a navy band
+  projects-<slug>.jpg      /projects/<slug>/                      the same card, for the three side-project pages
   tech.jpg                 /tech/                                 dark variant of home
   tech-work-<slug>.jpg     /tech/work/<slug>/                     dark card with the page title
 vite.config.js (link-previews plugin) maps each page to the same name, so re-run this after a title or head photo changes.
@@ -235,17 +237,26 @@ def tech_card(rel, slug):
 
 
 def main():
-    print('home')
-    save(person_card(False), 'home')
-    print('tech')
-    save(person_card(True), 'tech')
-    for rel in sorted(glob(os.path.join(SITE, 'cases/*/index.html'))):
-        slug = os.path.basename(os.path.dirname(rel))
-        img, title, pid = case_card(rel, slug)
-        print(f'cases/{slug}: "{title}"  photo={pid}')
-        save(img, f'cases-{slug}')
+    only = sys.argv[1:]
+    want = lambda name: not only or any(name.startswith(o) for o in only)
+    if want('home'):
+        print('home')
+        save(person_card(False), 'home')
+    if want('tech'):
+        print('tech')
+        save(person_card(True), 'tech')
+    for folder in ('cases', 'projects'):
+        for rel in sorted(glob(os.path.join(SITE, folder, '*/index.html'))):
+            slug = os.path.basename(os.path.dirname(rel))
+            if not want(f'{folder}-{slug}'):
+                continue
+            img, title, pid = case_card(rel, slug)
+            print(f'{folder}/{slug}: "{title}"  photo={pid}')
+            save(img, f'{folder}-{slug}')
     for rel in sorted(glob(os.path.join(SITE, 'tech/work/*/index.html'))):
         slug = os.path.basename(os.path.dirname(rel))
+        if not want(f'tech-work-{slug}'):
+            continue
         img, title = tech_card(rel, slug)
         print(f'tech/work/{slug}: "{title}"')
         save(img, f'tech-work-{slug}')
