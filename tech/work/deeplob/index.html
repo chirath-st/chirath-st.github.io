@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Does a bigger model trade better? — Chirath Soithong</title>
+  <meta name="description" content="Across 95 machine-learning experiments at the Rutgers Quant Finance Club, a higher accuracy score did not reliably mean better simulated trading once costs were charged — simpler models held up." />
+  <link rel="canonical" href="https://chirath-st.github.io/tech/work/deeplob/" />
+  <meta property="og:site_name" content="Chirath Soithong" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Does a bigger model trade better? — Chirath Soithong" />
+  <meta property="og:description" content="Across 95 machine-learning experiments at the Rutgers Quant Finance Club, a higher accuracy score did not reliably mean better simulated trading once costs were charged — simpler models held up." />
+  <meta property="og:url" content="https://chirath-st.github.io/tech/work/deeplob/" />
+  <meta property="og:image" content="https://chirath-st.github.io/og/tech-work-deeplob.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Does a bigger model trade better? — Chirath Soithong" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0B0D10" />
+  
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%234F8CFF'/%3E%3C/svg%3E" />
+  <link rel="preload" href="/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/newsreader-italic-subset.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+  <script type="module" crossorigin src="/assets/motion-C8IefbVz.js"></script>
+  <script type="module" crossorigin src="/assets/lenis-joCcgj7t.js"></script>
+  <script type="module" crossorigin src="/assets/copy-27uorfge.js"></script>
+  <script type="module" crossorigin src="/assets/page-CWuxiLL5.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/copy-Ks2ZnMse.css">
+  <link rel="stylesheet" crossorigin href="/assets/page-ChRt5tSt.css">
+  <link rel="stylesheet" crossorigin href="/assets/techDeeplob-DWIkV1Ln.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav__row">
+    <a class="nav__brand mono" href="/tech/">← All work <span class="nav__brand-sep">·</span> chirath-st.github.io</a>
+    <nav class="nav__links">
+      <a href="/tech/#running">Running now</a>
+      <a href="/tech/#work">Work</a>
+      <a href="/tech/#process">How I work</a>
+      <a href="/Chirath_Soithong_Resume_Tech.pdf">Resume ↗</a>
+      <a class="nav__main" href="/">Main site →</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="dl">
+
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">
+        <span class="mono num">04</span>
+        <span class="mono">Rutgers Quant Finance Club</span>
+        <span class="mono">Spring 2026</span>
+        <span class="mono">Research, not an automation</span>
+      </div>
+      <h1>Does a bigger model <em>trade better</em>?</h1>
+      <div class="pillrow">
+        <span class="pill pill--sky"><span class="dot"></span>Research &middot; submitted to the Rutgers Quant Finance Club</span>
+        <span class="mono">Independent &middot; AI-assisted &middot; simulated results</span>
+      </div>
+      <p class="lede"><strong>The finding:</strong> across 95 machine-learning experiments, a higher accuracy score <strong>did not reliably mean better simulated trading</strong> once costs were charged. Simpler models held up.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">95</div><div class="l">machine-learning experiments, each saved with its settings and results</div></div>
+      <div class="stat"><div class="n">7</div><div class="l">models, from straight-line statistics to the published deep model</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">horizons: 10 to 100 order-book updates ahead</div></div>
+    </div>
+  </div>
+</header>
+
+
+<section class="dl-sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono k">01 &middot; THE PROBLEM</span><h2 class="h2">One recipe, one score, <em>two</em> open questions</h2></div>
+    <div class="two">
+      <div>
+        <p>The club brief was to rebuild one published model &mdash; DeepLOB &mdash; and report how accurate it is. A fair brief. But it leaves open two questions a trader would ask first:</p>
+        <ol class="plain">
+          <li><strong>Is all of that machinery needed</strong>, or would something smaller do the same job?</li>
+          <li><strong>Does a good accuracy score turn into good trading</strong> once every trade costs money?</li>
+        </ol>
+        <p>The brief did not ask for answers. I made them the project.</p>
+      </div>
+      <div class="card old" data-reveal>
+        <div class="tag"><span class="mono">The old way &middot; the brief as given</span><span class="mono-lc">grey = line drawing</span></div>
+        <svg class="old-draw" viewBox="0 0 520 272" fill="none" stroke="currentColor" stroke-width="1.5" role="img" aria-labelledby="oldT">
+          <title id="oldT">One published paper becomes one big model, judged by a single accuracy number.</title>
+          
+          <g>
+            <rect x="22" y="70" width="86" height="120" rx="8"/>
+            <rect x="34" y="82" width="52" height="8" rx="2"/>
+            <rect x="34" y="96" width="40" height="8" rx="2"/>
+            <rect x="34" y="110" width="62" height="8" rx="2"/>
+            <line x1="30" y1="130" x2="100" y2="130" stroke-dasharray="3 3"/>
+            <rect x="34" y="138" width="58" height="8" rx="2"/>
+            <rect x="34" y="152" width="44" height="8" rx="2"/>
+            <rect x="34" y="166" width="66" height="8" rx="2"/>
+            <text x="65" y="210" text-anchor="middle">ORDER BOOK</text>
+            <text class="micro" x="65" y="224" text-anchor="middle">buy &amp; sell queues</text>
+          </g>
+          
+          <path d="M112 130 H150" stroke-dasharray="4 4"/><path d="M144 125 L152 130 L144 135"/>
+          
+          <g>
+            <rect x="222" y="12" width="36" height="42" rx="4"/>
+            <line x1="229" y1="24" x2="251" y2="24"/><line x1="229" y1="32" x2="251" y2="32"/><line x1="229" y1="40" x2="245" y2="40"/>
+            <text x="240" y="68" text-anchor="middle">ONE PAPER</text>
+          </g>
+          <path d="M240 76 V90" stroke-dasharray="3 3"/>
+          
+          <g>
+            <rect x="160" y="92" width="160" height="30" rx="7"/>
+            <text class="micro" x="240" y="111" text-anchor="middle">pattern layer</text>
+            <rect x="160" y="126" width="160" height="30" rx="7"/>
+            <text class="micro" x="240" y="145" text-anchor="middle">multi-scale layer</text>
+            <rect x="160" y="160" width="160" height="30" rx="7"/>
+            <text class="micro" x="240" y="179" text-anchor="middle">memory layer</text>
+            <text x="240" y="210" text-anchor="middle">ONE BIG MODEL</text>
+            <text class="micro" x="240" y="224" text-anchor="middle">rebuilt as-is</text>
+          </g>
+          
+          <path d="M324 140 H360" stroke-dasharray="4 4"/><path d="M354 135 L362 140 L354 145"/>
+          
+          <g>
+            <rect x="370" y="98" width="128" height="84" rx="8"/>
+            <text x="434" y="120" text-anchor="middle">ACCURACY</text>
+            <rect x="386" y="132" width="96" height="10" rx="2"/>
+            <rect x="386" y="132" width="74" height="10" rx="2" fill="currentColor" opacity=".35"/>
+            <text class="micro" x="434" y="166" text-anchor="middle">one number</text>
+            <text x="434" y="210" text-anchor="middle">THE SCORE</text>
+            <text class="micro" x="434" y="224" text-anchor="middle">judged once</text>
+          </g>
+          
+          <g class="q">
+            <rect x="156" y="236" width="170" height="32" rx="10" stroke-dasharray="4 3"/>
+            <text x="166" y="259" class="mark">?</text>
+            <text class="dk" x="186" y="256">all of it needed?</text><text class="ph" x="186" y="257">needed?</text>
+            <rect x="340" y="236" width="172" height="32" rx="10" stroke-dasharray="4 3"/>
+            <text x="350" y="259" class="mark">?</text>
+            <text class="dk" x="370" y="256">pays after costs?</text><text class="ph" x="370" y="257">pays off?</text>
+          </g>
+        </svg>
+        <p class="caption">The old way: one published recipe, rebuilt as-is, judged by one accuracy number. Dashed = the questions the brief left open.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="dl-sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono k">02 &middot; WHAT I BUILT</span><h2 class="h2">A test bench, <em>not</em> a bigger model</h2></div>
+    <p class="intro">Instead of one model, a bench that trains and scores many. Every model gets the same data and the same question: <strong>over the next 10 to 100 order-book updates, does the price go up, down or stay flat?</strong> Each run is a settings file, queued on the Amarel cluster and saved with its results; a second scorecard then charges every simulated trade its real cost.</p>
+
+    <div class="card built" data-reveal>
+      <div class="tag">
+        <span class="mono">What I built &middot; the bench</span>
+        <div class="legend">
+          <span><i class="sw solid"></i>sky = what I built</span>
+          <span><i class="sw"></i>dashed = data flows</span>
+          <span><i class="sw d"></i>green diamond = a person decides</span>
+          <span><i class="sw g"></i>grey = the old way</span>
+        </div>
+      </div>
+      <div class="flow">
+        <div class="node">
+          <div class="t">Order-book data</div>
+          <div class="s">5 stocks &middot; 10 days &middot; public benchmark</div>
+        </div>
+        <div class="wire"></div>
+        <div class="node">
+          <div class="t">7 models</div>
+          <div class="s">simple statistics &rarr; the published deep model</div>
+        </div>
+        <div class="wire"></div>
+        <div class="node">
+          <div class="t">5 horizons</div>
+          <div class="s">10 &rarr; 100 updates ahead</div>
+        </div>
+        <div class="wire"></div>
+        <div class="node">
+          <div class="t">Amarel cluster</div>
+          <div class="s">95 runs as queued jobs &middot; results saved</div>
+        </div>
+        <div class="wire"></div>
+        <div class="node">
+          <div class="t">Two scorecards</div>
+          <div class="s">accuracy &middot; simulated trading after costs</div>
+        </div>
+        <div class="wire"></div>
+        <div class="node decide">
+          <div class="diamond"></div>
+          <div class="t">I judge the trade-off</div>
+          <div class="s">size vs. accuracy vs. cost</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="charts">
+      
+      <div class="card" data-reveal>
+        <p class="chart-title">Average accuracy across the five horizons</p>
+        <p class="chart-sub">documented averages from the experiment log &middot; higher is better</p>
+        <div class="bars">
+          <div class="refline"></div>
+          <div class="bar-row"><div class="lab">Patterns + attention<small>CNN + Transformer, no Inception</small></div><div class="track"><div class="fill" style="--v:78.98;--i:0"></div></div><div class="val">78.98</div></div>
+          <div class="bar-row"><div class="lab">Patterns only<small>CNN-only</small></div><div class="track"><div class="fill" style="--v:78.13;--i:1"></div></div><div class="val">78.13</div></div>
+          <div class="bar-row"><div class="lab">Recipe, attention for memory<small>CNN + Inception + Transformer</small></div><div class="track"><div class="fill" style="--v:77.77;--i:2"></div></div><div class="val">77.77</div></div>
+          <div class="bar-row ref"><div class="lab">Published recipe, rebuilt<small>DeepLOB &middot; CNN + Inception + LSTM</small></div><div class="track"><div class="fill" style="--v:77.46;--i:3"></div></div><div class="val">77.46</div></div>
+          <div class="bar-row base"><div class="lab">Decision trees<small>XGBoost</small></div><div class="track"><div class="fill" style="--v:72.68;--i:4"></div></div><div class="val">72.68</div></div>
+          <div class="bar-row base"><div class="lab">Small neural net<small>MLP</small></div><div class="track"><div class="fill" style="--v:58.72;--i:5"></div></div><div class="val">58.72</div></div>
+          <div class="bar-row base"><div class="lab">Straight-line statistics<small>logistic regression</small></div><div class="track"><div class="fill" style="--v:58.32;--i:6"></div></div><div class="val">58.32</div></div>
+        </div>
+        <div class="axis"><span>0 %</span><span>50 %</span><span>100 %</span></div>
+        <p class="caption">Test accuracy, % &middot; sky = deep models &middot; grey = classical baselines &middot; dashed = the rebuilt recipe &middot; one seed, one dataset &middot; the rebuild sits below the paper&rsquo;s own numbers (gap documented in the report).</p>
+      </div>
+
+      
+      <div class="card" data-reveal>
+        <p class="chart-title">Same models, horizon by horizon</p>
+        <p class="chart-sub">does more complexity help? &middot; redrawn from the experiment figures</p>
+        <svg class="line-chart" viewBox="0 0 560 290" role="img" aria-labelledby="lcT">
+          <title id="lcT">Test accuracy per horizon for four deep models; the lines stay within a few points of each other.</title>
+          <g class="grid">
+            <line x1="56" y1="250" x2="540" y2="250"/><line x1="56" y1="173.3" x2="540" y2="173.3"/><line x1="56" y1="96.7" x2="540" y2="96.7"/><line x1="56" y1="20" x2="540" y2="20"/>
+          </g>
+          <g>
+            <text x="46" y="254" text-anchor="end">70</text><text x="46" y="177" text-anchor="end">75</text><text x="46" y="100" text-anchor="end">80</text><text x="46" y="24" text-anchor="end">85</text>
+            <text x="56" y="276" text-anchor="middle">k=10</text><text x="177" y="276" text-anchor="middle">k=20</text><text x="298" y="276" text-anchor="middle">k=30</text><text x="419" y="276" text-anchor="middle">k=50</text><text x="540" y="276" text-anchor="middle">k=100</text>
+          </g>
+          <polyline class="ser dash" pathLength="1" stroke="#9AA3AD" points="56,59.9 177,227 298,144.2 419,108.9 540,115.1"/>
+          <polyline class="ser" pathLength="1" stroke="#E8EAED" points="56,67.5 177,191.7 298,156.5 419,138.1 540,124.3"/>
+          <polyline class="ser" pathLength="1" stroke="#4F8CFF" points="56,38.4 177,170.3 298,135 419,112 540,105.9"/>
+          <polyline class="ser" pathLength="1" stroke="#7DD3FC" points="56,43 177,173.3 298,153.4 419,125.8 540,131.9"/>
+          <g class="pt">
+            <g fill="#9AA3AD"><circle cx="56" cy="59.9" r="3.5"/><circle cx="177" cy="227" r="3.5"/><circle cx="298" cy="144.2" r="3.5"/><circle cx="419" cy="108.9" r="3.5"/><circle cx="540" cy="115.1" r="3.5"/></g>
+            <g fill="#E8EAED"><circle cx="56" cy="67.5" r="3.5"/><circle cx="177" cy="191.7" r="3.5"/><circle cx="298" cy="156.5" r="3.5"/><circle cx="419" cy="138.1" r="3.5"/><circle cx="540" cy="124.3" r="3.5"/></g>
+            <g fill="#4F8CFF"><circle cx="56" cy="38.4" r="3.5"/><circle cx="177" cy="170.3" r="3.5"/><circle cx="298" cy="135" r="3.5"/><circle cx="419" cy="112" r="3.5"/><circle cx="540" cy="105.9" r="3.5"/></g>
+            <g fill="#7DD3FC"><circle cx="56" cy="43" r="3.5"/><circle cx="177" cy="173.3" r="3.5"/><circle cx="298" cy="153.4" r="3.5"/><circle cx="419" cy="125.8" r="3.5"/><circle cx="540" cy="131.9" r="3.5"/></g>
+          </g>
+        </svg>
+        <div class="lg">
+          <span><i style="background:#7DD3FC"></i>patterns only</span>
+          <span><i style="background:#4F8CFF"></i>patterns + attention</span>
+          <span><i style="background:#E8EAED"></i>published recipe, rebuilt</span>
+          <span><i class="dash"></i>published recipe + attention</span>
+        </div>
+        <p class="caption">Test accuracy, % per horizon (k = order-book updates ahead) &middot; same values as the project&rsquo;s figure, redrawn &middot; the simplest model is never far behind.</p>
+      </div>
+    </div>
+
+    
+    <div class="finding" data-reveal>
+      <div>
+        <span class="mono" style="color:var(--tint)">The honest finding</span>
+        <h3>A better score did not reliably mean better trading</h3>
+        <p>The second scorecard turns each model&rsquo;s predictions into a simple trading rule and charges <strong>half the bid&ndash;ask spread every time the position changes</strong> &mdash; the price of changing your mind. With that cost charged, the accuracy lead did not carry over consistently. In the exploratory runs, what moved the simulated result was trading less: holding longer, acting only when several horizons agreed, sitting out volatile moments.</p>
+        <p style="margin:0">Simulated on one dataset with one random seed: a research finding.</p>
+      </div>
+      <div>
+        <div class="scorecards">
+          <div class="sc">
+            <div class="k">Scorecard 1</div>
+            <div class="t">Accuracy: deep models ahead</div>
+            <svg viewBox="0 0 120 44" fill="none" aria-hidden="true"><polyline points="4,36 30,30 56,22 82,16 112,10" stroke="#7DD3FC" stroke-width="2.5" stroke-linecap="round"/><polyline points="4,40 112,40" stroke="#232830"/></svg>
+          </div>
+          <div class="neq" aria-hidden="true">&ne;</div>
+          <div class="sc">
+            <div class="k">Scorecard 2</div>
+            <div class="t">Trading after costs: lead not reliable</div>
+            <svg viewBox="0 0 120 44" fill="none" aria-hidden="true"><polyline points="4,26 30,32 56,20 82,30 112,24" stroke="#9AA3AD" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 3"/><polyline points="4,40 112,40" stroke="#232830"/></svg>
+          </div>
+        </div>
+        <p class="caption" style="margin-top:16px">schematic &middot; not to scale</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="dl-sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono k">03 &middot; STILL A PERSON&rsquo;S CALL</span><h2 class="h2">What a <em>person</em> still decides</h2></div>
+    <div class="dr">
+      <div class="decide-block" data-reveal>
+        <div class="big"></div>
+        <div>
+          <span class="mono" style="color:var(--live)">A person decides</span>
+          <p>The bench produces numbers; it does not say which ones matter. <strong>A person still decides</strong> whether a small gain in accuracy is worth a bigger, slower model, whether a result that only looks good in simulation deserves belief, and which negative results go into the report. Here that person was me: I kept the simpler models on the table, charged the costs, and wrote up what did not flatter the biggest model.</p>
+        </div>
+      </div>
+      <div data-reveal>
+        <span class="mono tiles-head">What it removed</span>
+        <div class="tiles">
+          <div class="tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="5"/><path d="M12 10v2l1.5 1.5"/></svg>
+            <div><h3>Removed: guesswork</h3><p>Whether extra complexity pays off was measured, not assumed &mdash; same data, same question, seven models side by side.</p></div>
+          </div>
+          <div class="tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8a8 8 0 0 1 14-3l2 2M20 3v4h-4M20 16a8 8 0 0 1-14 3l-2-2M4 21v-4h4"/></svg>
+            <div><h3>Removed: hand-run experiments</h3><p>Every run is a settings file, queued on the cluster and saved with its history &mdash; 95 runs in one format, none retyped by hand.</p></div>
+          </div>
+          <div class="tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 7l7-4 7 4"/><path d="M3 13l2-6 2 6a2 2 0 0 1-4 0zM17 13l2-6 2 6a2 2 0 0 1-4 0z"/></svg>
+            <div><h3>Removed: trusting one score</h3><p>A second scorecard charges real trading costs, so a model is judged on what it would do, not only on what it gets right.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="dl-sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono k">04 &middot; HOW I BUILT IT</span><h2 class="h2">Five steps, in <em>detail</em></h2></div>
+    <div class="steps" data-reveal>
+      <div class="step"><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+<rect x="42" y="22" width="70" height="7" rx="2"/><rect x="57" y="34" width="55" height="7" rx="2"/><rect x="50" y="46" width="62" height="7" rx="2"/><rect x="72" y="58" width="40" height="7" rx="2"/><rect x="64" y="70" width="48" height="7" rx="2"/>
+<rect x="128" y="22" width="44" height="7" rx="2"/><rect x="128" y="34" width="66" height="7" rx="2"/><rect x="128" y="46" width="52" height="7" rx="2"/><rect x="128" y="58" width="72" height="7" rx="2"/><rect x="128" y="70" width="38" height="7" rx="2"/>
+<line class="hi" x1="120" y1="16" x2="120" y2="82" stroke-dasharray="2 4"/>
+
+<path d="M214 30l5-5 5 5"/><path d="M214 48h10"/><path d="M214 61l5 5 5-5"/>
+
+<path d="M16 100v8 M24 100v8 M32 100v8 M40 100v8 M48 100v8 M56 100v8 M64 100v8 M72 100v8 M80 100v8 M88 100v8 M96 100v8 M104 100v8 M112 100v8 M120 100v8 M128 100v8 M136 100v8 M144 100v8 M152 100v8 M160 100v8 M168 100v8 M176 100v8 M184 100v8 M192 100v8 M200 100v8 M208 100v8 M216 100v8 M224 100v8" stroke-linecap="butt"/>
+<rect class="hi sg-win" x="150" y="96" width="60" height="16" rx="4"/>
+<text x="16" y="131">100 updates</text>
+</svg></div><div class="n">1</div><div>
+        <h3>Get the data ready</h3>
+        <p>A public order-book benchmark: five Finnish stocks, ten trading days, ten price levels each side. Each example is the last 100 updates; the label is whether the price then went up, down or stayed flat.</p>
+      </div></div>
+      <div class="step"><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+<text x="24" y="22">DeepLOB</text>
+<line x1="12" y1="52" x2="228" y2="52"/>
+<circle class="pk sg-pk" cx="12" cy="52" r="3.5"/>
+<rect class="box hi" x="24" y="32" width="52" height="40" rx="8"/><path class="hi" d="M32 58l8-10 8 8 8-12 8 8 4-4"/>
+<rect class="box hi" x="94" y="32" width="52" height="40" rx="8"/><path class="hi" d="M102 44h36M102 52h24M102 60h12"/>
+<rect class="box hi" x="164" y="32" width="52" height="40" rx="8"/><path class="hi" d="M198 46a10 10 0 1 1-3-9"/><path class="hi" d="M193 34l4 3-4 4"/>
+
+<rect x="24" y="90" width="44" height="28" rx="6"/><path d="M30 111l32-14"/><circle cx="38" cy="107" r="1.5"/><circle cx="50" cy="103" r="1.5"/>
+<rect x="98" y="90" width="44" height="28" rx="6"/><circle cx="108" cy="98" r="2.5"/><circle cx="108" cy="110" r="2.5"/><circle cx="132" cy="104" r="2.5"/><path d="M110 99l19 4M110 109l19-4"/>
+<rect x="172" y="90" width="44" height="28" rx="6"/><circle cx="194" cy="97" r="2.5"/><path d="M192 99l-8 7M196 99l8 7"/><circle cx="182" cy="110" r="2"/><circle cx="206" cy="110" r="2"/>
+<text x="216" y="133" text-anchor="end">baselines</text>
+</svg></div><div class="n">2</div><div>
+        <h3>Rebuild the published model</h3>
+        <p>DeepLOB in PyTorch: a pattern-spotting layer, a layer that looks at several time scales at once, and a memory layer. Three classical baselines beside it: straight-line statistics, a small neural net and decision trees.</p>
+      </div></div>
+      <div class="step"><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+<rect class="box" x="14" y="30" width="48" height="16" rx="5"/><rect class="box" x="14" y="52" width="48" height="16" rx="5"/><rect x="14" y="74" width="48" height="16" rx="5" stroke-dasharray="3 3"/>
+<path d="M68 78h12m-3-3l3 3-3 3M80 86H68m3-3l-3 3 3 3"/>
+
+<rect class="box" x="14" y="104" width="22" height="26" rx="4"/><path d="M19 111h12M19 117h12M19 123h8"/>
+<path d="M40 117h64m-3-3l3 3-3 3" stroke-dasharray="3 3"/><text x="42" y="108">settings</text>
+
+<g>
+<rect x="110" y="18" width="18" height="12" rx="2"/><rect x="132" y="18" width="18" height="12" rx="2"/><rect x="154" y="18" width="18" height="12" rx="2"/><rect x="176" y="18" width="18" height="12" rx="2"/><rect x="198" y="18" width="18" height="12" rx="2"/>
+<rect x="110" y="34" width="18" height="12" rx="2"/><rect x="132" y="34" width="18" height="12" rx="2"/><rect x="154" y="34" width="18" height="12" rx="2"/><rect x="176" y="34" width="18" height="12" rx="2"/><rect x="198" y="34" width="18" height="12" rx="2"/>
+<rect x="110" y="50" width="18" height="12" rx="2"/><rect x="132" y="50" width="18" height="12" rx="2"/><rect x="154" y="50" width="18" height="12" rx="2"/><rect x="176" y="50" width="18" height="12" rx="2"/><rect x="198" y="50" width="18" height="12" rx="2"/>
+<rect x="110" y="66" width="18" height="12" rx="2"/><rect x="132" y="66" width="18" height="12" rx="2"/><rect x="154" y="66" width="18" height="12" rx="2"/><rect x="176" y="66" width="18" height="12" rx="2"/><rect x="198" y="66" width="18" height="12" rx="2"/>
+<rect x="110" y="82" width="18" height="12" rx="2"/><rect x="132" y="82" width="18" height="12" rx="2"/><rect x="154" y="82" width="18" height="12" rx="2"/><rect x="176" y="82" width="18" height="12" rx="2"/><rect x="198" y="82" width="18" height="12" rx="2"/>
+<rect x="110" y="98" width="18" height="12" rx="2"/><rect x="132" y="98" width="18" height="12" rx="2"/><rect x="154" y="98" width="18" height="12" rx="2"/><rect x="176" y="98" width="18" height="12" rx="2"/><rect x="198" y="98" width="18" height="12" rx="2"/>
+<rect x="110" y="114" width="18" height="12" rx="2"/><rect x="132" y="114" width="18" height="12" rx="2"/><rect x="154" y="114" width="18" height="12" rx="2"/><rect x="176" y="114" width="18" height="12" rx="2"/><rect x="198" y="114" width="18" height="12" rx="2"/>
+</g>
+<rect class="hi sg-scan" x="110" y="18" width="106" height="12" rx="2"/>
+<text x="216" y="137" text-anchor="end">7 x 5</text>
+</svg></div><div class="n">3</div><div>
+        <h3>Try simpler and different builds</h3>
+        <p>Remove the memory layer. Swap memory for attention. Drop the multi-scale block. Seven models across five horizons: 35 comparisons, all from the same settings files.</p>
+      </div></div>
+      <div class="step"><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+<rect x="16" y="24" width="40" height="8" rx="2"/><rect x="16" y="36" width="40" height="8" rx="2"/><rect x="16" y="48" width="40" height="8" rx="2"/><rect x="16" y="60" width="40" height="8" rx="2"/><rect x="16" y="72" width="40" height="8" rx="2"/><rect x="16" y="84" width="40" height="8" rx="2"/>
+<text x="16" y="112">60 runs</text>
+<line x1="60" y1="56" x2="128" y2="56" stroke-dasharray="3 3"/>
+<rect class="hi sg-job" x="46" y="52" width="14" height="8" rx="2"/>
+
+<rect class="box" x="132" y="18" width="92" height="104" rx="8"/>
+<rect x="142" y="28" width="72" height="18" rx="4"/><circle cx="206" cy="37" r="2"/>
+<rect x="142" y="52" width="72" height="18" rx="4"/><circle cx="206" cy="61" r="2"/>
+<rect x="142" y="76" width="72" height="18" rx="4"/><circle cx="206" cy="85" r="2"/>
+<rect x="142" y="100" width="72" height="18" rx="4"/><circle cx="206" cy="109" r="2"/>
+<text x="224" y="137" text-anchor="end">cluster</text>
+</svg></div><div class="n">4</div><div>
+        <h3>Train for trading, not only for accuracy</h3>
+        <p>Sixty more runs with four training objectives that punish costly behaviour: weight rare moves, focus on hard cases, penalise churn, reward a smoother return. All queued on the Amarel cluster.</p>
+      </div></div>
+      <div class="step"><div class="sg"><svg viewBox="0 0 240 140" width="240" height="140" aria-hidden="true" focusable="false" stroke="#E8EAED" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+<line x1="16" y1="112" x2="112" y2="112"/>
+<rect x="28" y="30" width="26" height="82" rx="3"/>
+<rect class="hi sg-net" x="68" y="62" width="26" height="50" rx="3"/>
+<path d="M68 30h26" stroke-dasharray="2 3"/><path d="M100 32v28m-3-3l3 3 3-3"/><text x="106" y="50">cost</text>
+
+<rect class="box" x="146" y="18" width="66" height="104" rx="8"/>
+<path d="M156 36h46M156 46h46M156 56h28"/><path d="M156 70h46" stroke-dasharray="2 3"/>
+<circle class="go" cx="159" cy="84" r="2.5"/><path d="M167 84h35"/><circle class="go" cx="159" cy="96" r="2.5"/><path d="M167 96h29"/><circle class="go" cx="159" cy="108" r="2.5"/><path d="M167 108h33"/>
+<text x="146" y="137">report</text>
+</svg></div><div class="n">5</div><div>
+        <h3>Charge the costs, then write it up</h3>
+        <p>A backtest that charges half the bid&ndash;ask spread on each position change, plus filters that trade less. Then a research report with the limits stated plainly: one seed, one dataset, simulated.</p>
+      </div></div>
+      <div class="step tools">
+        <span class="mono">Built with</span>
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>Python</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.005 0L4.952 7.053a9.865 9.865 0 000 14.022 9.866 9.866 0 0014.022 0c3.984-3.9 3.986-10.205.085-14.023l-1.744 1.743c2.904 2.905 2.904 7.634 0 10.538s-7.634 2.904-10.538 0-2.904-7.634 0-10.538l4.647-4.646.582-.665zm3.568 3.899a1.327 1.327 0 00-1.327 1.327 1.327 1.327 0 001.327 1.328A1.327 1.327 0 0016.9 5.226 1.327 1.327 0 0015.573 3.9z"/></svg>PyTorch</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.315 4.876L6.3048 2.8517l-4.401 2.1965 4.1186 2.0683zm1.8381.9277l4.2045 2.1223-4.3622 2.1906-4.125-2.0718zm5.6153-2.9213l4.3193 2.1658-3.863 1.9402-4.2131-2.1252zm-1.859-.9329L12.021 0 8.1742 1.9193l4.0068 2.0208zm-3.0401 16.7443V24l4.7107-2.3507-.0053-5.3085zm4.7037-4.2057l-.0052-5.2528-4.6985 2.3356v5.2546zm5.6553-.9845v5.327l-4.0178 2.0052-.0029-5.3028zm0-1.8626V6.4214l-4.0253 2.001.0034 5.2633zM11.2062 11.571L8.0333 9.9756v6.895s-3.8804-8.2564-4.2399-8.998c-.0463-.0957-.2371-.2007-.2858-.2262C2.8118 7.2812.773 6.2485.773 6.2485V18.43l2.8204 1.5076v-6.3674s3.8392 7.3775 3.878 7.458c.0389.0807.4245.8582.8362 1.1314.5485.363 2.8992 1.7766 2.8992 1.7766z"/></svg>NumPy</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z"/></svg>pandas</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.157 22.201A1.784 1.799 0 0 1 5.374 24a1.784 1.799 0 0 1-1.784-1.799 1.784 1.799 0 0 1 1.784-1.799 1.784 1.799 0 0 1 1.783 1.799zM20.582 1.427a1.415 1.427 0 0 1-1.415 1.428 1.415 1.427 0 0 1-1.416-1.428A1.415 1.427 0 0 1 19.167 0a1.415 1.427 0 0 1 1.415 1.427zM4.992 3.336A1.047 1.056 0 0 1 3.946 4.39a1.047 1.056 0 0 1-1.047-1.055A1.047 1.056 0 0 1 3.946 2.28a1.047 1.056 0 0 1 1.046 1.056zm7.336 1.517c3.769 0 7.06 1.38 8.768 3.424a9.363 9.363 0 0 0-3.393-4.547 9.238 9.238 0 0 0-5.377-1.728A9.238 9.238 0 0 0 6.95 3.73a9.363 9.363 0 0 0-3.394 4.547c1.713-2.04 5.004-3.424 8.772-3.424zm.001 13.295c-3.768 0-7.06-1.381-8.768-3.425a9.363 9.363 0 0 0 3.394 4.547A9.238 9.238 0 0 0 12.33 21a9.238 9.238 0 0 0 5.377-1.729 9.363 9.363 0 0 0 3.393-4.547c-1.712 2.044-5.003 3.425-8.772 3.425Z"/></svg>Jupyter</span>
+          <span class="chip">scikit-learn</span>
+          <span class="chip">XGBoost</span>
+          <span class="chip">YAML configs</span>
+          <span class="chip">Matplotlib &middot; Seaborn</span>
+          <span class="chip">Rutgers Amarel HPC</span>
+          <span class="chip">SLURM</span>
+          <span class="chip">CUDA GPUs</span>
+        </div>
+      </div>
+    </div>
+    <div class="techblock" data-reveal>
+      <span class="mono">For the technical reader</span>
+      <dl>
+        <dt>Data</dt><dd>FI-2010 &middot; 40 features &middot; lookback 100 events &middot; horizons 10 / 20 / 30 / 50 / 100 &middot; days 1&ndash;7 train, 8&ndash;10 test</dd>
+        <dt>Models</dt><dd>DeepLOB = CNN + Inception + LSTM &middot; variants: CNN-only (global average pooling), CNN + Transformer, CNN + Inception + Transformer &middot; baselines: logistic regression, MLP, XGBoost &middot; early stopping on validation</dd>
+        <dt>Training</dt><dd>YAML configs &middot; 35 model &times; horizon runs + 60 cost-aware runs (weighted CE, focal, turnover-penalised CE, differentiable Sharpe; 3 settings &times; 5 horizons each) &middot; SLURM jobs on GPU</dd>
+        <dt>Backtest</dt><dd>half the bid&ndash;ask spread charged per position change &middot; filters: holding period, ensemble agreement, volatility &middot; one seed, one dataset &middot; report + experiment log</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<section class="dl-sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono k">05 &middot; OWNERSHIP</span><h2 class="h2">My part, <em>not</em> my part</h2></div>
+    <table class="parts" data-reveal>
+      <thead><tr><th>Mine</th><th class="g">Shared with AI</th><th>Not mine</th></tr></thead>
+      <tbody><tr>
+        <td><div class="h">Mine</div><ul>
+          <li>Choosing to go beyond the brief and compare models</li>
+          <li>Requesting and using the Rutgers cluster</li>
+          <li>Running, logging and comparing the 95 experiments</li>
+          <li>Deciding what to measure: accuracy, size, cost after trading</li>
+          <li>Owning the report and its stated limits</li>
+        </ul></td>
+        <td class="g"><div class="h">Shared with AI</div><ul>
+          <li>Reading around the field and choosing next steps</li>
+          <li>Implementation and debugging</li>
+          <li>Drafting the report</li>
+        </ul><p class="parts-note">AI-assisted throughout: I directed, questioned and checked. I can explain everything on this page.</p></td>
+        <td><div class="h">Not mine</div><ul>
+          <li>The DeepLOB design itself &mdash; a published paper</li>
+          <li>The FI-2010 dataset &mdash; a public benchmark</li>
+          <li>The club brief and the project assignment</li>
+        </ul><p class="parts-note">The report was submitted to the Rutgers Quant Finance Club as a showcase piece.</p></td>
+      </tr></tbody>
+    </table>
+  </div>
+</section>
+
+
+<nav class="next" aria-label="Next story">
+  <div class="wrap">
+    <a class="next__back" href="/tech/#work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All work</a>
+    <a class="next__link" href="/tech/work/commercial-review/"><small>next story</small>Commercial checks, reviewed by a person &rarr;</a>
+    <div class="next__fine">Every fact on this page comes from the project files and the experiment log. All trading results are simulated.</div>
+  </div>
+</nav>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__row">
+      <div>
+        <div class="foot__links"><a href="mailto:chirath.s@outlook.com">Email</a><a href="https://github.com/chirath-st" rel="me">GitHub</a><a href="https://www.linkedin.com/in/chirath-so" rel="me">LinkedIn</a><a href="/Chirath_Soithong_Resume_Tech.pdf">Resume ↗</a><a class="foot__main" href="/">Main site →</a></div>
+        <p>Every fact on this page comes from work I can walk you through in an interview. The green dots in "Running now" are set by me: green while a tool runs, grey if it breaks.</p>
+      </div>
+      <span class="mono">Chirath Soithong · New Brunswick, NJ · 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

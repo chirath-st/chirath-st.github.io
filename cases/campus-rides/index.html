@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project 04 · Cheaper rides between campuses: a campus ride-pooling pitch · Chirath Soithong</title>
+  <meta name="description" content="Project 04, Rutgers Road to Silicon Valley: I proposed a campus ride-pooling idea and designed how it works. Our team of three pitched it and showed the judges a clickable prototype." />
+  <link rel="canonical" href="https://chirath-st.github.io/cases/campus-rides/" />
+  <meta property="og:site_name" content="Chirath Soithong" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Project 04 · Cheaper rides between campuses: a campus ride-pooling pitch · Chirath Soithong" />
+  <meta property="og:description" content="Project 04, Rutgers Road to Silicon Valley: I proposed a campus ride-pooling idea and designed how it works. Our team of three pitched it and showed the judges a clickable prototype." />
+  <meta property="og:url" content="https://chirath-st.github.io/cases/campus-rides/" />
+  <meta property="og:image" content="https://chirath-st.github.io/og/cases-campus-rides.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Project 04 · Cheaper rides between campuses: a campus ride-pooling pitch · Chirath Soithong" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#F8F7F3" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F2147'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23F8F7F3'/%3E%3C/svg%3E" />
+  <link rel="preload" href="/fonts/newsreader-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  
+  <script>(function(r){var c=r.classList,s=null,a,m,q;c.add('js');try{s=window.localStorage}catch(e){}try{q=new URLSearchParams(location.search).get('accent');if(q==='blue'||q==='navy'){s&&s.setItem('biz-accent',q)}a=q||(s&&s.getItem('biz-accent'));m=s&&s.getItem('biz-motion')}catch(e){}if(a==='blue')c.add('accent-blue');if(m==='off')c.add('no-motion');if(m!=='off'&&!(navigator.connection&&navigator.connection.saveData)&&matchMedia('(hover:hover) and (pointer:fine) and (min-width:1024px) and (prefers-reduced-motion:no-preference)').matches)c.add('has-follower')})(document.documentElement)</script>
+  <script type="module" crossorigin src="/assets/caseCampusRides-RVyPfzNr.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="/assets/prefs-DT_caBDU.js">
+  <link rel="modulepreload" crossorigin href="/assets/util-CdALRRh4.js">
+  <link rel="modulepreload" crossorigin href="/assets/boot-Bh1MYxeY.js">
+  <link rel="modulepreload" crossorigin href="/assets/story-CwTWWIiu.js">
+  <link rel="stylesheet" crossorigin href="/assets/story-CVC8UfNX.css">
+  <link rel="stylesheet" crossorigin href="/assets/caseCampusRides-DJE-vPFy.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top__row">
+    <a class="brand" href="/">Chirath Soithong</a>
+    <nav class="top__nav" aria-label="Main site">
+      <a href="/#cases">All projects</a><a href="/#experience">Experience</a><a href="/#contact">Contact</a>
+    </nav>
+    <a class="btn btn--line btn--sm top__gh" href="https://github.com/chirath-st" rel="me noopener" aria-label="GitHub profile"><svg class="top__gh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="top__gh-t">GitHub</span></a>
+    <a class="btn btn--line btn--sm top__resume" href="/Chirath_Soithong_Resume.pdf">Résumé <span class="btn__meta">PDF</span></a>
+  </div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+</header>
+
+
+<main id="main" class="page sp">
+  <div class="wrap">
+    <nav class="cbar" aria-label="Projects">
+      <a class="cp-back" href="/#cases">← All projects</a>
+      <ol class="cbar__chips">
+        <li><a href="/cases/sales-checks/"><b>01</b>Sales checks</a></li>
+        <li><a href="/cases/questions-desk/"><b>02</b>Questions desk</a></li>
+        <li><a href="/cases/client-data/"><b>03</b>Client data</a></li>
+        <li><a href="/cases/campus-rides/" aria-current="page"><b>04</b>Campus rides</a></li>
+      </ol>
+    </nav>
+
+    <header class="cp-head sp-head">
+      <p class="case__meta"><span>Project 04</span><span>Rutgers Road to Silicon Valley</span><span>Team of three</span><span>2025</span></p>
+      <h1 class="case__title sp-title">Cheaper rides between campuses: <span class="tone">a campus ride-pooling pitch.</span></h1>
+      <p class="cp-badges"><span class="badge">Pitch · clickable prototype</span></p>
+      <p class="ba"><span class="ba__p ba__b"><small>Before</small>What we saw: crowded, slow buses between campuses.</span><span class="ba__arr" aria-hidden="true">→</span><span class="ba__p ba__a"><small>After</small>A ride-pooling idea, shown as a clickable prototype.</span></p>
+      <figure class="ph">
+        <div class="ph__frame"><picture><source media="(max-width: 640px)" srcset="/img/photos/case04-rutgers-livingston-480.webp 480w, /img/photos/case04-rutgers-livingston-800.webp 800w" sizes="100vw"><img src="/img/photos/case04-rutgers-livingston-800.webp" srcset="/img/photos/case04-rutgers-livingston-480.webp 480w, /img/photos/case04-rutgers-livingston-800.webp 800w, /img/photos/case04-rutgers-livingston-1600.webp 1600w" width="1600" height="1000" alt="Rutgers Business School on the Livingston campus at dusk: a tall glass-walled building joined to a second wing by a raised covered walkway, with bare trees and an empty campus road in front" decoding="async" sizes="(max-width: 960px) calc(100vw - 40px), 32vw" fetchpriority="high"></picture></div>
+        <figcaption>Rutgers Business School on the Livingston campus, Rutgers–New Brunswick. <span class="cap__credit">Photo: ajay_suresh, CC BY 4.0, via Wikimedia Commons (cropped)</span></figcaption>
+      </figure>
+    </header>
+
+    <section class="sixty sixty--wide" aria-labelledby="sixty-t">
+      <div class="sixty__h"><h2 id="sixty-t">The <span class="nw">60-second</span> version</h2><span class="label">Project 04 · Pitch</span></div>
+      <dl>
+        <div class="sixty__row"><dt>Situation</dt><dd>What we saw: buses between the Rutgers–New Brunswick campuses were crowded, slow and hard to track.</dd></div>
+        <div class="sixty__row"><dt>What I did</dt><dd>Proposed switching our idea to campus ride-pooling, designed how it works and co-presented the pitch, backed by our team’s student survey.</dd></div>
+        <div class="sixty__row"><dt>Result</dt><dd>Top 20 finalist at Rutgers Road to Silicon Valley. We showed the judges a clickable prototype.</dd></div>
+        <div class="sixty__row sixty__row--so"><dt>So what</dt><dd>The idea: seats in cars already heading to class become the supply, which keeps the price low.</dd></div>
+      </dl>
+      <figure class="sixty__pic cr-idea" data-visual aria-labelledby="idea-t">
+        <svg class="cr-idea__svg" viewBox="0 0 300 112" aria-hidden="true">
+          <path class="cr-ln" d="M16 98V22"/><rect class="cr-sign" x="6" y="12" width="22" height="16" rx="3.5"/>
+          <path class="cr-sign__g" d="M11.5 18.5h11M11.5 22.5h11"/>
+          <circle class="cr-p" cx="44" cy="58" r="6.5"/><rect class="cr-p" x="37" y="67" width="14" height="24" rx="6"/>
+          <circle class="cr-p cr-p--b" cx="66" cy="54" r="6.5"/><rect class="cr-p cr-p--b" x="59" y="63" width="14" height="28" rx="6"/>
+          <path class="cr-arrow" d="M86 70h34"/><path class="cr-arrow__h" d="m114 64 7 6-7 6"/>
+          <rect class="cr-car__body" x="136" y="20" width="152" height="84" rx="24"/>
+          <path class="cr-car__glass" d="M244 30c10 6 16 18 16 32s-6 26-16 32z"/>
+          <rect class="cr-seat cr-seat--d" x="206" y="32" width="26" height="22" rx="6"/>
+          <rect class="cr-seat cr-seat--on" x="206" y="70" width="26" height="22" rx="6"/>
+          <rect class="cr-seat cr-seat--on" x="160" y="32" width="26" height="22" rx="6"/>
+          <rect class="cr-seat" x="160" y="70" width="26" height="22" rx="6"/>
+        </svg>
+        <figcaption id="idea-t"><span class="ill">Illustrative</span> The idea: riders take the empty seats in a car already going to class.</figcaption>
+      </figure>
+    </section>
+
+    <div class="st">
+
+      
+      <section class="ch" id="situation" aria-labelledby="problem-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">What we saw</p>
+            <h2 class="sp-h" id="problem-t">Buses between campuses were crowded, slow and hard to track.</h2>
+          </div>
+          <div class="ch__body">
+            <p>Rutgers–New Brunswick students travel between campuses to get to class.</p>
+            <p>On those trips we saw crowded buses, traffic, and buses that were hard to track. Long trips between campuses got in the way of class schedules.</p>
+            <p>That became the problem our pitch set out to solve.</p>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis k-hs cr-trip" data-kit="hotspots" aria-labelledby="ex1-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 1</span><span class="vis__name" id="ex1-t">A trip between campuses, as we saw it</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Point at a number</span>
+          </div>
+          <p class="sr">Illustrative picture of a trip between campuses. Students wait at a bus stop, unsure when the next bus will come. A full bus is stuck in traffic behind a line of cars. At the campus, a clock shows a long trip eating into class time.</p>
+          <div class="k-hs__stage cr-trip__stage" data-kit="cr-drive">
+            <svg class="cr-trip__bg" viewBox="0 0 720 300" aria-hidden="true">
+              <rect class="cr-t-walk" x="0" y="186" width="720" height="16"/>
+              <rect class="cr-t-road" x="0" y="202" width="720" height="62"/>
+              <path class="cr-t-mid" d="M0 233h720"/>
+              <rect class="cr-t-walk" x="0" y="264" width="720" height="12"/>
+              
+              <path class="cr-t-post" d="M28 122v64M136 122v64"/>
+              <rect class="cr-t-roof" x="18" y="114" width="128" height="10" rx="3"/>
+              <rect class="cr-t-bench" x="44" y="166" width="76" height="6" rx="2"/>
+              <path class="cr-t-post" d="M164 104v82"/>
+              <rect class="cr-t-sign" x="151" y="92" width="26" height="20" rx="4"/>
+              <path class="cr-t-sign__g" d="M157 99h14M157 104h14"/>
+              <g class="cr-t-crowd">
+                <circle cx="46" cy="140" r="7"/><rect x="38" y="149" width="16" height="30" rx="7"/>
+                <circle class="b" cx="68" cy="136" r="7"/><rect class="b" x="60" y="145" width="16" height="34" rx="7"/>
+                <circle cx="90" cy="141" r="7"/><rect x="82" y="150" width="16" height="29" rx="7"/>
+                <circle class="b" cx="112" cy="137" r="7"/><rect class="b" x="104" y="146" width="16" height="33" rx="7"/>
+                <circle cx="134" cy="142" r="7"/><rect x="126" y="151" width="16" height="28" rx="7"/>
+              </g>
+              
+              <g class="cr-t-cars">
+                <g transform="translate(392 206)"><rect class="c" x="0" y="8" width="70" height="26" rx="8"/><path class="w" d="M12 8l8-8h28l10 8z"/><circle class="t" cx="16" cy="36" r="7"/><circle class="t" cx="54" cy="36" r="7"/><rect class="l" x="-2" y="14" width="5" height="7" rx="1.5"/></g>
+                <g transform="translate(480 206)"><rect class="c" x="0" y="8" width="70" height="26" rx="8"/><path class="w" d="M12 8l8-8h28l10 8z"/><circle class="t" cx="16" cy="36" r="7"/><circle class="t" cx="54" cy="36" r="7"/><rect class="l" x="-2" y="14" width="5" height="7" rx="1.5"/></g>
+                <g transform="translate(568 206)"><rect class="c" x="0" y="8" width="70" height="26" rx="8"/><path class="w" d="M12 8l8-8h28l10 8z"/><circle class="t" cx="16" cy="36" r="7"/><circle class="t" cx="54" cy="36" r="7"/><rect class="l" x="-2" y="14" width="5" height="7" rx="1.5"/></g>
+              </g>
+              
+              <g class="cr-t-hall">
+                <path class="f" d="M610 116l50-26 50 26z"/>
+                <rect class="f" x="614" y="116" width="92" height="70"/>
+                <path class="k" d="M628 126v52M646 126v52M674 126v52M692 126v52"/>
+                <rect class="d" x="653" y="156" width="14" height="30" rx="2"/>
+              </g>
+            </svg>
+            <div class="cr-t cr-t--phone" data-spot="1">
+              <span class="cr-t__k">Next bus</span><b class="cr-t__q">?</b><span class="cr-t__bars" aria-hidden="true"><i></i><i></i></span>
+              <span class="k-spot" aria-hidden="true">1</span>
+            </div>
+            <div class="cr-t cr-t--bus" data-spot="2">
+              <svg viewBox="0 0 190 78" aria-hidden="true">
+                <rect class="cr-bus__b" x="2" y="2" width="184" height="62" rx="10"/>
+                <rect class="cr-bus__w" x="12" y="11" width="146" height="24" rx="4"/>
+                <rect class="cr-bus__w" x="166" y="11" width="14" height="38" rx="3"/>
+                <g class="cr-bus__heads"><circle cx="22" cy="27" r="5"/><circle cx="33" cy="24" r="5"/><circle cx="44" cy="28" r="5"/><circle cx="55" cy="24" r="5"/><circle cx="66" cy="27" r="5"/><circle cx="77" cy="24" r="5"/><circle cx="88" cy="28" r="5"/><circle cx="99" cy="24" r="5"/><circle cx="110" cy="27" r="5"/><circle cx="121" cy="24" r="5"/><circle cx="132" cy="28" r="5"/><circle cx="143" cy="24" r="5"/><circle cx="152" cy="28" r="4.5"/></g>
+                <path class="cr-bus__s" d="M12 44h146"/>
+                <circle class="cr-bus__t" cx="38" cy="66" r="10"/><circle class="cr-bus__t" cx="150" cy="66" r="10"/>
+                <circle class="cr-bus__h" cx="38" cy="66" r="3.5"/><circle class="cr-bus__h" cx="150" cy="66" r="3.5"/>
+              </svg>
+              <span class="k-spot" aria-hidden="true">2</span>
+            </div>
+            <div class="cr-t cr-t--jam" data-spot="3"><span class="cr-t__tag">Traffic</span><span class="k-spot" aria-hidden="true">3</span></div>
+            <div class="cr-t cr-t--clock" data-spot="4">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="cr-clk__f" cx="24" cy="24" r="20"/><path class="cr-clk__a" d="M24 7a17 17 0 0 1 16.2 22"/><path class="cr-clk__h" d="M24 13v11l7 5"/></svg>
+              <span class="cr-t__k">Class</span>
+              <span class="k-spot" aria-hidden="true">4</span>
+            </div>
+          </div>
+          <ol class="k-hs__list">
+            <li data-spot="1"><b>Hard to track.</b> It was hard to tell when the next bus would come.</li>
+            <li data-spot="2"><b>Crowded.</b> The buses between campuses were full of students.</li>
+            <li data-spot="3"><b>Traffic.</b> Buses got stuck in traffic on the way.</li>
+            <li data-spot="4"><b>Long trips.</b> Long trips between campuses got in the way of class schedules.</li>
+          </ol>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Drawn from what we saw on our own trips.</span><span>Source: our pitch, Rutgers Road to Silicon Valley, 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      
+      <section class="ch ch--flip" id="pivot" aria-labelledby="pivot-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">The pivot</p>
+            <h2 class="sp-h" id="pivot-t">I questioned our first idea and proposed campus ride-pooling instead.</h2>
+          </div>
+          <div class="ch__body">
+            <p>A friend invited me to Rutgers Road to Silicon Valley, a pitching competition. Our team of three first looked at a swipe app for summer sublets, for students leaving their apartments.</p>
+            <p>I doubted that summer supply and demand would match, and proposed a different idea: campus ride-pooling.</p>
+            <p>It matches students who need a ride between campuses with students already driving to class.</p>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis cr-pv" aria-labelledby="ex2-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 2</span><span class="vis__name" id="ex2-t">From summer sublets to campus rides</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>Scroll or click to switch</span>
+          </div>
+          <div class="cr-pv__stage" data-kit="cr-flip">
+            <div class="cr-pv__card">
+              <div class="cr-pv__face cr-pv__face--a">
+                <p class="cr-pv__k">First idea</p>
+                <p class="cr-pv__t">A swipe app for summer sublets</p>
+                <div class="cr-pv__art cr-sub" aria-hidden="true">
+                  <span class="cr-sub__card cr-sub__card--back"></span>
+                  <span class="cr-sub__card"><svg viewBox="0 0 48 40"><path d="M6 20 24 6l18 14"/><path d="M11 17v17h26V17"/><rect x="20" y="24" width="8" height="10" rx="1"/></svg><i></i><i class="s"></i></span>
+                  <span class="cr-sub__btns"><span class="x"><svg viewBox="0 0 16 16"><path d="m4 4 8 8M12 4l-8 8"/></svg></span><span class="y"><svg viewBox="0 0 16 16"><path d="M8 13.5S2.5 10 2.5 6.3A2.8 2.8 0 0 1 8 5a2.8 2.8 0 0 1 5.5 1.3C13.5 10 8 13.5 8 13.5z"/></svg></span></span>
+                </div>
+                <p class="cr-pv__q"><span class="cr-pv__qi" aria-hidden="true">?</span><span><b>My question</b>Would summer supply and demand match?</span></p>
+              </div>
+              <div class="cr-pv__mid" aria-hidden="true"><span class="cr-pv__arr">→</span><span class="cr-pv__lab">I proposed a&nbsp;switch</span></div>
+              <div class="cr-pv__face cr-pv__face--b">
+                <p class="cr-pv__k">The idea we pitched</p>
+                <p class="cr-pv__t">Campus ride-pooling</p>
+                <div class="cr-pv__art cr-rp" aria-hidden="true">
+                  <svg viewBox="0 0 240 96">
+                    <path class="cr-rp__rt" d="M28 70C80 70 90 26 212 26"/>
+                    <circle class="cr-rp__c" cx="28" cy="70" r="11"/><circle class="cr-rp__c" cx="212" cy="26" r="11"/>
+                    <g transform="translate(92 34) rotate(-18)"><rect class="cr-car__body" x="0" y="0" width="58" height="32" rx="10"/><rect class="cr-seat cr-seat--d" x="30" y="5" width="11" height="9" rx="2.5"/><rect class="cr-seat cr-seat--on" x="30" y="18" width="11" height="9" rx="2.5"/><rect class="cr-seat cr-seat--on" x="13" y="5" width="11" height="9" rx="2.5"/><rect class="cr-seat" x="13" y="18" width="11" height="9" rx="2.5"/></g>
+                  </svg>
+                  <span class="cr-rp__l cr-rp__l--a">Campus</span><span class="cr-rp__l cr-rp__l--b">Campus</span>
+                </div>
+                <p class="cr-pv__q cr-pv__q--b"><span class="cr-pv__qi" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3.5 8.4 3 3 6-6.6"/></svg></span><span><b>The supply</b>Seats in cars already heading to class.</span></p>
+              </div>
+            </div>
+          </div>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> The two ideas, as cards.</span><span>Source: our pitch, 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      
+      <section class="bandv cr-how" id="how" aria-labelledby="how-t">
+        <div class="bandv__head">
+          <div>
+            <p class="sp-kicker">How a ride works</p>
+            <h2 class="sp-h" id="how-t">Students already driving to class post their trip. Riders join and pay the driver.</h2>
+          </div>
+          <p class="bandv__lede">The drivers are making the trip anyway. Their empty seats become rides between the campuses: College Avenue, Busch, Livingston and Cook/Douglass.</p>
+        </div>
+        <figure data-visual class="vis k-hs cr-mapfig" data-kit="hotspots" aria-labelledby="ex3-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 3</span><span class="vis__name" id="ex3-t">Empty seats become rides between campuses</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to fill the seats; point at a car</span>
+          </div>
+          <p class="sr">Illustrative schematic map of the four Rutgers–New Brunswick campuses: Busch and Livingston across the river from College Avenue and Cook/Douglass. A dashed campus bus loop links them. Three demo cars, each driven by a student already going to class, post a trip: 9:40 from Busch to College Avenue, 10:05 from Livingston to Cook/Douglass, and 11:15 from College Avenue to Livingston. Two riders join each car and take empty seats, and the cars drive on towards their campus.</p>
+          <div class="cr-map" data-kit="cr-map">
+            <div class="k-hs__stage cr-map__stage">
+              <svg class="cr-map__base" viewBox="0 0 900 560" aria-hidden="true">
+                <path class="cr-m-river" d="M-20 318C140 300 280 268 440 276S740 300 920 238"/>
+                <path class="cr-m-loop" d="M186 160C300 60 560 50 694 116C850 190 860 390 724 452C620 530 430 510 342 420C240 420 70 330 186 160"/>
+                <g class="cr-m-camp">
+                  <circle cx="186" cy="160" r="46"/><circle cx="694" cy="116" r="46"/><circle cx="342" cy="420" r="46"/><circle cx="724" cy="452" r="46"/>
+                </g>
+              </svg>
+              <svg class="cr-map__routes" viewBox="0 0 900 560" aria-hidden="true">
+                <path class="cr-m-track" d="M196,196 C160,300 250,370 300,392"/>
+                <path class="cr-m-track" d="M676,150 C780,220 790,350 736,414"/>
+                <path class="cr-m-track" d="M372,388 C470,380 560,230 652,146"/>
+                <path class="cr-m-done" data-route="0" d="M196,196 C160,300 250,370 300,392" pathLength="1" style="stroke-dasharray:.7 1"/>
+                <path class="cr-m-done" data-route="1" d="M676,150 C780,220 790,350 736,414" pathLength="1" style="stroke-dasharray:.7 1"/>
+                <path class="cr-m-done" data-route="2" d="M372,388 C470,380 560,230 652,146" pathLength="1" style="stroke-dasharray:.7 1"/>
+                <path class="cr-m-end" d="M300 392l-9-8M300 392l-11 3"/>
+                <path class="cr-m-end" d="M736 414l1-12M736 414l11-6"/>
+                <path class="cr-m-end" d="M652 146l-5 11M652 146l-12 2"/>
+              </svg>
+              <div class="cr-map__labels" aria-hidden="true">
+                <span class="cr-m-lab" style="left:20.67%;top:28.57%">Busch</span>
+                <span class="cr-m-lab" style="left:77.11%;top:20.71%">Livingston</span>
+                <span class="cr-m-lab" style="left:38%;top:75%">College Ave</span>
+                <span class="cr-m-lab" style="left:80.44%;top:80.71%">Cook/Douglass</span>
+                <span class="cr-m-river__l" style="left:7%;top:50.5%">Raritan River</span>
+                <span class="cr-m-chip" style="left:20.67%;top:15.6%">9:40 to College Ave</span>
+                <span class="cr-m-chip" style="left:77.11%;top:7.6%">10:05 to Cook/Douglass</span>
+                <span class="cr-m-chip cr-m-chip--l" style="left:32.4%;top:83.5%">11:15 to Livingston</span>
+              </div>
+              <div class="cr-map__cars">
+                <i class="cr-rider" data-car="0" style="left:15.6%;top:40.5%"></i><i class="cr-rider" data-car="0" style="left:17.6%;top:42.7%"></i>
+                <i class="cr-rider" data-car="1" style="left:81.5%;top:24%"></i><i class="cr-rider" data-car="1" style="left:83.4%;top:26.4%"></i>
+                <i class="cr-rider" data-car="2" style="left:44.5%;top:76.6%"></i><i class="cr-rider" data-car="2" style="left:46.4%;top:79%"></i>
+                <div class="cr-car" data-spot="1" data-car="0" style="left:26.61%;top:62.77%;--r:43.3deg">
+                  <svg class="cr-car__svg" viewBox="0 0 44 26" aria-hidden="true"><rect class="cr-car__body" x="1" y="1" width="42" height="24" rx="8"/><path class="cr-car__glass" d="M33 4c3 2 5 5 5 9s-2 7-5 9z"/><rect class="cr-seat cr-seat--d" x="22" y="4" width="8" height="7" rx="2"/><rect class="cr-seat cr-seat--on" data-seat="1" x="22" y="15" width="8" height="7" rx="2"/><rect class="cr-seat cr-seat--on" data-seat="2" x="10" y="4" width="8" height="7" rx="2"/><rect class="cr-seat" x="10" y="15" width="8" height="7" rx="2"/></svg>
+                  <span class="k-spot" aria-hidden="true">1</span>
+                </div>
+                <div class="cr-car" data-spot="2" data-car="1" style="left:85.3%;top:59.07%;--r:94.1deg">
+                  <svg class="cr-car__svg" viewBox="0 0 44 26" aria-hidden="true"><rect class="cr-car__body" x="1" y="1" width="42" height="24" rx="8"/><path class="cr-car__glass" d="M33 4c3 2 5 5 5 9s-2 7-5 9z"/><rect class="cr-seat cr-seat--d" x="22" y="4" width="8" height="7" rx="2"/><rect class="cr-seat cr-seat--on" data-seat="1" x="22" y="15" width="8" height="7" rx="2"/><rect class="cr-seat cr-seat--on" data-seat="2" x="10" y="4" width="8" height="7" rx="2"/><rect class="cr-seat" x="10" y="15" width="8" height="7" rx="2"/></svg>
+                  <span class="k-spot" aria-hidden="true">2</span>
+                </div>
+                <div class="cr-car" data-spot="3" data-car="2" style="left:63.89%;top:40.63%;--r:-48.8deg">
+                  <svg class="cr-car__svg" viewBox="0 0 44 26" aria-hidden="true"><rect class="cr-car__body" x="1" y="1" width="42" height="24" rx="8"/><path class="cr-car__glass" d="M33 4c3 2 5 5 5 9s-2 7-5 9z"/><rect class="cr-seat cr-seat--d" x="22" y="4" width="8" height="7" rx="2"/><rect class="cr-seat cr-seat--on" data-seat="1" x="22" y="15" width="8" height="7" rx="2"/><rect class="cr-seat cr-seat--on" data-seat="2" x="10" y="4" width="8" height="7" rx="2"/><rect class="cr-seat" x="10" y="15" width="8" height="7" rx="2"/></svg>
+                  <span class="k-spot" aria-hidden="true">3</span>
+                </div>
+                <div class="cr-mbus" data-spot="4" style="left:48.1%;top:13.5%">
+                  <svg viewBox="0 0 52 24" aria-hidden="true"><rect x="1" y="1" width="50" height="20" rx="5"/><g><circle cx="9" cy="9" r="2.6"/><circle cx="15" cy="8" r="2.6"/><circle cx="21" cy="9" r="2.6"/><circle cx="27" cy="8" r="2.6"/><circle cx="33" cy="9" r="2.6"/><circle cx="39" cy="8" r="2.6"/></g><circle class="t" cx="12" cy="21" r="3"/><circle class="t" cx="40" cy="21" r="3"/></svg>
+                  <span class="k-spot" aria-hidden="true">4</span>
+                </div>
+              </div>
+            </div>
+            <ol class="cr-steps">
+              <li class="cr-step" data-n="1"><span class="cr-step__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="10" r="2.4"/></svg></span><div><p class="cr-step__k">1 · Post</p><p>A student already driving to class posts the route, departure time and price.</p></div></li>
+              <li class="cr-step" data-n="2"><span class="cr-step__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M18 8v6M15 11h6"/></svg></span><div><p class="cr-step__k">2 · Join</p><p>A rider finds a trip that fits, on the map or in the list, and joins it.</p></div></li>
+              <li class="cr-step" data-n="3"><span class="cr-step__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10h18M7 14.5h4"/></svg></span><div><p class="cr-step__k">3 · Ride and pay</p><p>The rider pays the driver. The app keeps a commission.</p></div></li>
+            </ol>
+          </div>
+          <p class="cr-key" aria-hidden="true"><span><svg viewBox="0 0 30 6"><path d="M1 3h28" class="cr-key__bus"/></svg>Campus bus</span><span><svg viewBox="0 0 30 6"><path d="M1 3h28" class="cr-key__ride"/></svg>Ride with a student already driving</span><span><i class="cr-key__seat cr-key__seat--on"></i>Rider in a seat</span><span><i class="cr-key__seat"></i>Empty seat</span></p>
+          <ol class="k-hs__list cr-map__list">
+            <li data-spot="1"><b>Demo ride, 9:40.</b> Busch to College Ave. Two riders joined; one seat left.</li>
+            <li data-spot="2"><b>Demo ride, 10:05.</b> Livingston to Cook/Douglass. Two riders joined; one seat left.</li>
+            <li data-spot="3"><b>Demo ride, 11:15.</b> College Ave to Livingston. Two riders joined; one seat left.</li>
+            <li data-spot="4"><b>The campus bus.</b> What we saw: crowded, slow and hard to track.</li>
+          </ol>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Schematic map, not to scale. Cars, times and riders are demo entries, as in our prototype.</span><span>Source: our pitch, 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      
+      <section class="ch" id="what-i-did" aria-labelledby="did-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">What I did</p>
+            <h2 class="sp-h" id="did-t">I designed how the service works, for drivers, riders and the app.</h2>
+          </div>
+          <div class="ch__body">
+            <ol class="sp-steps">
+              <li>Questioned our first idea and proposed campus ride-pooling instead.</li>
+              <li>Designed how it works: students already driving to class post the route, departure time and price; riders join a trip and pay the driver; the app keeps a commission.</li>
+              <li>Used our team’s student survey on interest, willingness to pay and Uber spending to make the case on price.</li>
+              <li>Co-presented the pitch with a teammate.</li>
+            </ol>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis cr-bpfig" aria-labelledby="ex4-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 4</span><span class="vis__name" id="ex4-t">The service I designed, lane by lane</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to send one trip through it</span>
+          </div>
+          <div class="cr-bp" data-kit="flow cr-bp" data-start=".8" data-end=".42">
+            <p class="cr-bp__col" style="grid-column:2" aria-hidden="true">Post</p><p class="cr-bp__col" style="grid-column:3" aria-hidden="true">Find</p><p class="cr-bp__col" style="grid-column:4" aria-hidden="true">Join</p><p class="cr-bp__col" style="grid-column:5" aria-hidden="true">Pay</p>
+            <p class="cr-bp__lane" style="grid-row:2"><b>Driver</b><span>A student already driving to class</span></p>
+            <p class="cr-bp__lane cr-bp__lane--app" style="grid-row:3"><b>The app</b><span>Matches the two</span></p>
+            <p class="cr-bp__lane" style="grid-row:4"><b>Rider</b><span>A student who needs a ride</span></p>
+            <div class="k-node cr-bp__n cr-bp__n--d" data-flow-node="1" style="grid-area:2/2"><span class="cr-bp__tag">Driver</span><span class="k-node__t">Posts the trip</span><small>Route, time and price, for a trip they make anyway</small></div>
+            <div class="k-node k-node--auto cr-bp__n cr-bp__n--a" data-flow-node="2" style="grid-area:3/3"><span class="cr-bp__tag">The app</span><span class="k-node__t">Shows it</span><small>On a campus map and in a list</small></div>
+            <div class="k-node cr-bp__n cr-bp__n--r" data-flow-node="3" style="grid-area:4/4"><span class="cr-bp__tag">Rider</span><span class="k-node__t">Joins a trip that fits</span><small>Takes an empty seat</small></div>
+            <div class="k-node cr-bp__n cr-bp__n--r" data-flow-node="4" style="grid-area:4/5"><span class="cr-bp__tag">Rider</span><span class="k-node__t">Pays for the seat</span><small>Payment goes to the driver</small></div>
+            <div class="k-node k-node--auto cr-bp__n cr-bp__n--a" data-flow-node="5" style="grid-area:3/5"><span class="cr-bp__tag">The app</span><span class="k-node__t">Keeps a commission</span><small>On each ride</small></div>
+            <div class="k-node cr-bp__n cr-bp__n--d" data-flow-node="6" style="grid-area:2/5"><span class="cr-bp__tag">Driver</span><span class="k-node__t">Is paid by the rider</span><small>For seats that were empty</small></div>
+            <div class="cr-bp__trav" data-flow-traveller aria-hidden="true">
+              <span class="cr-bp__pill cr-bp__pill--trip"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="4"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg>Trip · 9:40</span>
+              <span class="cr-bp__pill cr-bp__pill--paid"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Paid</span>
+            </div>
+          </div>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> One trip, from posted to paid. The time is a demo entry.</span><span>Source: our pitch, 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      
+      <section class="ch ch--flip" id="price" aria-labelledby="price-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">The price argument</p>
+            <h2 class="sp-h" id="price-t">Students told us what they spend on Uber. We used it to make our case on price.</h2>
+          </div>
+          <div class="ch__body">
+            <p>Our team ran a student survey for the pitch. It asked about three things:</p>
+            <ul class="cr-qs" aria-label="What the survey asked about">
+              <li><span class="cr-qs__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span>Interest in using the service</li>
+              <li><span class="cr-qs__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5V5h7.5l8.5 8.5-7.5 7.5z"/><circle cx="8.5" cy="9" r="1.5"/></svg></span>Willingness to pay</li>
+              <li><span class="cr-qs__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="9" rx="4"/><path d="M6.5 8 8.5 4.5h7L17.5 8"/><circle cx="7.5" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/></svg></span>Current Uber spending</li>
+            </ul>
+            <p>We used what students told us about Uber to argue that a seat in a car already going to class could cost much less than an Uber.</p>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis cr-share" aria-labelledby="ex5-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 5</span><span class="vis__name" id="ex5-t">One trip, shared: where the money goes</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5 18 13l-5.2.8L10 19z"/></svg>Scroll, or pick the riders</span>
+          </div>
+          <div class="cr-share__body" data-kit="cr-seats" data-riders="3">
+            <div class="cr-share__ctl" role="group" aria-label="How many riders join">
+              <button type="button" data-n="0" aria-pressed="false">Driver only</button><button type="button" data-n="1" aria-pressed="false">1 rider</button><button type="button" data-n="2" aria-pressed="false">2 riders</button><button type="button" data-n="3" aria-pressed="true">3 riders</button>
+            </div>
+            <div class="cr-share__stage">
+            <svg class="cr-share__svg" viewBox="0 36 640 228" aria-hidden="true">
+              
+              <g class="cr-sh-lines">
+                <path class="cr-sh-f" data-r="1" d="M384 170C422 170 432 234 468 234" pathLength="1"/>
+                <path class="cr-sh-f" data-r="2" d="M384 134C422 134 432 234 468 234" pathLength="1"/>
+                <path class="cr-sh-f" data-r="3" d="M384 98C422 98 432 234 468 234" pathLength="1"/>
+                <path class="cr-sh-l" data-r="1" d="M296 190C390 190 380 151 468 151" pathLength="1"/>
+                <path class="cr-sh-l" data-r="2" d="M296 150C390 150 380 119 468 119" pathLength="1"/>
+                <path class="cr-sh-l" data-r="3" d="M296 110C390 110 380 87 468 87" pathLength="1"/>
+              </g>
+              
+              <rect class="cr-sh-body" x="24" y="44" width="276" height="212" rx="54"/>
+              <path class="cr-sh-glass" d="M232 62c24 16 38 48 38 88s-14 72-38 88z"/>
+              <rect class="cr-sh-seat cr-sh-seat--d" x="164" y="72" width="54" height="60" rx="12"/>
+              <rect class="cr-sh-seat" data-r="1" x="164" y="168" width="54" height="60" rx="12"/>
+              <rect class="cr-sh-seat" data-r="3" x="76" y="72" width="54" height="60" rx="12"/>
+              <rect class="cr-sh-seat" data-r="2" x="76" y="168" width="54" height="60" rx="12"/>
+              <g class="cr-sh-who cr-sh-who--d"><circle cx="191" cy="94" r="9"/><path d="M175 124c2-10 8-15 16-15s14 5 16 15z"/></g>
+              <g class="cr-sh-who" data-r="1"><circle cx="191" cy="190" r="9"/><path d="M175 220c2-10 8-15 16-15s14 5 16 15z"/></g>
+              <g class="cr-sh-who" data-r="3"><circle cx="103" cy="94" r="9"/><path d="M87 124c2-10 8-15 16-15s14 5 16 15z"/></g>
+              <g class="cr-sh-who" data-r="2"><circle cx="103" cy="190" r="9"/><path d="M87 220c2-10 8-15 16-15s14 5 16 15z"/></g>
+              
+              <rect class="cr-sh-pot" x="468" y="62" width="150" height="110" rx="10"/>
+              <rect class="cr-sh-fill" data-r="1" x="476" y="138" width="134" height="26" rx="5"/>
+              <rect class="cr-sh-fill" data-r="2" x="476" y="106" width="134" height="26" rx="5"/>
+              <rect class="cr-sh-fill" data-r="3" x="476" y="74" width="134" height="26" rx="5"/>
+              <rect class="cr-sh-pot cr-sh-pot--app" x="468" y="214" width="150" height="40" rx="10"/>
+              <rect class="cr-sh-fillx" data-r="1" x="476" y="222" width="14" height="24" rx="3"/>
+              <rect class="cr-sh-fillx" data-r="2" x="494" y="222" width="14" height="24" rx="3"/>
+              <rect class="cr-sh-fillx" data-r="3" x="512" y="222" width="14" height="24" rx="3"/>
+            </svg>
+            <span class="cr-share__lab cr-share__lab--drv" aria-hidden="true">Driver, going to class anyway</span>
+            <span class="cr-share__lab cr-share__lab--pot" aria-hidden="true">The driver is paid</span>
+            <span class="cr-share__lab cr-share__lab--app" aria-hidden="true">The app keeps a commission</span>
+            </div>
+            <p class="cr-share__note" aria-live="polite"><b>3 riders.</b> Each rider pays the driver for a seat that was empty. The app keeps a commission on each ride.</p>
+          </div>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Block sizes are a sketch; each block stands for one rider’s payment.</span><span>Source: our pitch, 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      
+      <section class="bandv cr-proto" id="prototype" aria-labelledby="proto-t">
+        <div class="bandv__head">
+          <div>
+            <p class="sp-kicker">What we showed the judges</p>
+            <h2 class="sp-h" id="proto-t">A clickable prototype of the app, so the judges could see how it works.</h2>
+          </div>
+          <p class="bandv__lede">It showed demo cars on a campus map, the same rides as a list by campus, a page of past rides, and settings with a dark mode.</p>
+        </div>
+        <figure data-visual class="vis cr-protofig" aria-labelledby="ex6-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 6</span><span class="vis__name" id="ex6-t">The prototype, redrawn: four screens</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-4.6-2.2L4.3 15a1.6 1.6 0 0 1 2.4-2.1L9 15"/></svg>Pick a screen, tap a car, try dark mode</span>
+          </div>
+          <div class="k-stp cr-ph" data-kit="stepper cr-phone" data-auto data-start=".72" data-end=".32">
+            <div class="cr-ph__tilt" data-kit="depth" data-tilt>
+            <div class="cr-ph__device" data-depth="1">
+              <ol class="k-stp__panels cr-ph__screens">
+                <li class="k-stp__panel is-on cr-scr cr-scr--map">
+                  <p class="k-stp__k cr-scr__k">Map</p>
+                  <div class="cr-scr__top"><span class="cr-scr__time">9:41</span><span class="cr-scr__app">Dip</span><span class="cr-scr__h">Map</span></div>
+                  <div class="cr-scr__map">
+                    <svg viewBox="0 0 260 250" aria-hidden="true">
+                      <path class="cr-sm-river" d="M-10 132C60 124 120 108 180 114S240 124 270 104"/>
+                      <circle class="cr-sm-camp" cx="62" cy="66" r="30"/><circle class="cr-sm-camp" cx="200" cy="54" r="30"/><circle class="cr-sm-camp" cx="96" cy="192" r="30"/><circle class="cr-sm-camp" cx="208" cy="196" r="30"/>
+                    </svg>
+                    <span class="cr-sm-lab" style="left:24%;top:39%">Busch</span><span class="cr-sm-lab" style="left:77%;top:34%">Livingston</span><span class="cr-sm-lab" style="left:37%;top:89%">College Ave</span><span class="cr-sm-lab" style="left:80%;top:91%">Cook/Douglass</span>
+                    <span class="cr-sm-car is-on" data-ride="0" style="left:30%;top:21%"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="4"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg>9:40</span>
+                    <span class="cr-sm-car" data-ride="1" style="left:70%;top:17%"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="4"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg>10:05</span>
+                    <span class="cr-sm-car" data-ride="2" style="left:45%;top:66%"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="4"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg>11:15</span>
+                  </div>
+                  <div class="cr-scr__sheet" aria-live="polite">
+                    <p class="cr-scr__sk">Demo ride</p>
+                    <p class="cr-scr__st"><b class="cr-sheet__t">Leaves 9:40</b><span class="cr-sheet__r">Busch → College Ave</span></p>
+                    <p class="cr-scr__seats"><span class="cr-sheet__s">2 of 3 seats taken</span><span class="cr-scr__join">Request to join</span></p>
+                  </div>
+                </li>
+                <li class="k-stp__panel cr-scr cr-scr--list">
+                  <p class="k-stp__k cr-scr__k">Rides</p>
+                  <div class="cr-scr__top"><span class="cr-scr__time">9:41</span><span class="cr-scr__app">Dip</span><span class="cr-scr__h">Rides by campus</span></div>
+                  <ul class="cr-scr__rows">
+                    <li><span class="cr-scr__g">From Busch</span><span class="cr-scr__row"><b>To College Ave</b><span>9:40 · 1 seat left</span></span></li>
+                    <li><span class="cr-scr__g">From Livingston</span><span class="cr-scr__row"><b>To Cook/Douglass</b><span>10:05 · 1 seat left</span></span></li>
+                    <li><span class="cr-scr__g">From College Ave</span><span class="cr-scr__row"><b>To Livingston</b><span>11:15 · 1 seat left</span></span></li>
+                    <li><span class="cr-scr__g">From Cook/Douglass</span><span class="cr-scr__row"><b>To Busch</b><span>12:30 · 2 seats left</span></span></li>
+                  </ul>
+                </li>
+                <li class="k-stp__panel cr-scr cr-scr--past">
+                  <p class="k-stp__k cr-scr__k">Past rides</p>
+                  <div class="cr-scr__top"><span class="cr-scr__time">9:41</span><span class="cr-scr__app">Dip</span><span class="cr-scr__h">Past rides</span></div>
+                  <ul class="cr-scr__rows cr-scr__rows--past">
+                    <li><span class="cr-scr__row"><b>Busch → College Ave</b><span>Monday · demo</span></span></li>
+                    <li><span class="cr-scr__row"><b>Livingston → Busch</b><span>Tuesday · demo</span></span></li>
+                    <li><span class="cr-scr__row"><b>College Ave → Cook/Douglass</b><span>Thursday · demo</span></span></li>
+                    <li><span class="cr-scr__row"><b>Cook/Douglass → Livingston</b><span>Friday · demo</span></span></li>
+                    <li><span class="cr-scr__row"><b>Busch → College Ave</b><span>Monday · demo</span></span></li>
+                    <li><span class="cr-scr__row"><b>Livingston → Cook/Douglass</b><span>Tuesday · demo</span></span></li>
+                  </ul>
+                </li>
+                <li class="k-stp__panel cr-scr cr-scr--set">
+                  <p class="k-stp__k cr-scr__k">Settings</p>
+                  <div class="cr-scr__top"><span class="cr-scr__time">9:41</span><span class="cr-scr__app">Dip</span><span class="cr-scr__h">Settings</span></div>
+                  <p class="cr-scr__g">Appearance</p>
+                  <div class="cr-scr__set"><span><b>Dark mode</b></span><span class="cr-sw" data-dark-switch><i></i></span></div>
+                  <div class="cr-scr__prev" aria-hidden="true">
+                    <p class="cr-scr__g">Preview</p>
+                    <div class="cr-scr__mini">
+                      <svg viewBox="0 0 260 140"><path class="cr-sm-river" d="M-10 76C60 70 120 58 180 62S240 70 270 54"/><circle class="cr-sm-camp" cx="58" cy="34" r="22"/><circle class="cr-sm-camp" cx="204" cy="28" r="22"/><circle class="cr-sm-camp" cx="92" cy="114" r="22"/><circle class="cr-sm-camp" cx="210" cy="116" r="22"/></svg>
+                      <span class="cr-sm-pin" style="left:34%;top:24%"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="4"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg>9:40</span>
+                    </div>
+                    <span class="cr-scr__row"><b>Busch → College Ave</b><span>9:40 · 1 seat left</span></span>
+                  </div>
+                </li>
+              </ol>
+              <div class="cr-ph__tabs" aria-hidden="true">
+                <span class="is-on"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="10" r="2.4"/></svg>Map</span>
+                <span><svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>Rides</span>
+                <span><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4"/><path d="M12 8v4l3 2"/></svg>Past</span>
+                <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg>Settings</span>
+              </div>
+            </div>
+            </div>
+            <div class="k-stp__nav cr-ph__nav" aria-label="Screens of the prototype">
+              <button type="button" aria-selected="true"><b>Map</b><span>Demo cars as markers around campus. Tap one to see when it leaves and where it goes.</span></button>
+              <button type="button" aria-selected="false" tabindex="-1"><b>Rides</b><span>The same rides as a list, by the campus they leave from and go to.</span></button>
+              <button type="button" aria-selected="false" tabindex="-1"><b>Past rides</b><span>A page of past rides.</span></button>
+              <button type="button" aria-selected="false" tabindex="-1"><b>Settings</b><span>Settings, with a dark mode. Try the switch.</span></button>
+            </div>
+          </div>
+          <figcaption class="vis__cap"><span><span class="ill">Illustrative</span> Redrawn for this page. Cars, times and rides are demo entries, as in our prototype.</span><span>Source: our clickable prototype, 2025.</span></figcaption>
+        </figure>
+      </section>
+
+      
+      <section class="ch" id="result" aria-labelledby="result-t">
+        <div class="ch__text">
+          <div class="ch__head">
+            <p class="sp-kicker">What happened</p>
+            <h2 class="sp-h" id="result-t">We pitched Dip, our campus ride-pooling idea, at Rutgers Road to Silicon Valley.</h2>
+          </div>
+          <div class="ch__body">
+            <p class="result"><span class="badge">Pitch · clickable prototype</span></p>
+            <p>We walked the judges through it on our clickable prototype, and I presented it with a teammate.</p>
+            <div class="cr-team" data-visual role="group" aria-label="A team of three">
+              <div class="cr-team__who" aria-hidden="true">
+                <svg viewBox="0 0 168 60"><g class="cr-team__p is-me"><circle cx="28" cy="18" r="11"/><path d="M8 58c1.6-14 9-22 20-22s18.4 8 20 22z"/></g><g class="cr-team__p"><circle cx="84" cy="18" r="11"/><path d="M64 58c1.6-14 9-22 20-22s18.4 8 20 22z"/></g><g class="cr-team__p"><circle cx="140" cy="18" r="11"/><path d="M120 58c1.6-14 9-22 20-22s18.4 8 20 22z"/></g></svg>
+                <p><b>Team of three</b><span>Me in blue, and two teammates</span></p>
+              </div>
+              <dl class="cr-team__rows">
+                <div><dt>My part</dt><dd>Proposed the ride-pooling idea, designed how it works, co-presented the pitch.</dd></div>
+                <div><dt>Together</dt><dd>The student survey, the clickable prototype and the pitch deck.</dd></div>
+              </dl>
+            </div>
+            <p class="sowhat"><b>So what</b>The idea: seats in cars already heading to class become the supply, which keeps the price low.</p>
+            <p class="sp-skills"><span class="label">Skills</span>Student survey · Service design · Pitching</p>
+          </div>
+        </div>
+        <figure data-visual class="ch__vis vis cr-deckfig" aria-labelledby="ex7-t">
+          <div class="vis__head">
+            <p class="vis__title"><span class="vis__num">Exhibit 7</span><span class="vis__name" id="ex7-t">Our pitch, part by part</span></p>
+            <span class="vis__how"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M12 6.5v2.5M9 18.5l3 3 3-3"/></svg>Scroll to deal the deck</span>
+          </div>
+          <ol class="cr-deck" data-kit="cr-deck">
+            <li class="cr-sl"><div class="cr-sl__f"><span class="cr-sl__n">01</span><span class="cr-sl__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="3"/><path d="M3 11h18M7 17v2M17 17v2"/></svg></span><b class="cr-sl__t">The problem</b><span class="cr-sl__d">Crowded buses and stressful waits between campuses.</span></div><div class="cr-sl__b" aria-hidden="true"><span>Dip</span></div></li>
+            <li class="cr-sl"><div class="cr-sl__f"><span class="cr-sl__n">02</span><span class="cr-sl__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 3.6 10.8c-.8.6-1.1 1.4-1.1 2.2h-5c0-.8-.3-1.6-1.1-2.2A6 6 0 0 1 12 3z"/></svg></span><b class="cr-sl__t">The idea: Dip</b><span class="cr-sl__d">Rides between campuses with students already driving to class.</span></div><div class="cr-sl__b" aria-hidden="true"><span>Dip</span></div></li>
+            <li class="cr-sl"><div class="cr-sl__f"><span class="cr-sl__n">03</span><span class="cr-sl__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.3 3 7.8 7 9.5 4-1.7 7-5.2 7-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span><b class="cr-sl__t">Verified rides</b><span class="cr-sl__d">Identity and driver checks, part of the proposal.</span></div><div class="cr-sl__b" aria-hidden="true"><span>Dip</span></div></li>
+            <li class="cr-sl"><div class="cr-sl__f"><span class="cr-sl__n">04</span><span class="cr-sl__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><b class="cr-sl__t">The app</b><span class="cr-sl__d">A campus map of cars, with departure times, seats and a button to request to join.</span></div><div class="cr-sl__b" aria-hidden="true"><span>Dip</span></div></li>
+            <li class="cr-sl"><div class="cr-sl__f"><span class="cr-sl__n">05</span><span class="cr-sl__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10h18M7 14.5h4"/></svg></span><b class="cr-sl__t">Paying for a trip</b><span class="cr-sl__d">Riders pay in the app; the driver is paid; the app keeps a service fee.</span></div><div class="cr-sl__b" aria-hidden="true"><span>Dip</span></div></li>
+            <li class="cr-sl"><div class="cr-sl__f"><span class="cr-sl__n">06</span><span class="cr-sl__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><b class="cr-sl__t">How it makes money</b><span class="cr-sl__d">A commission on each ride, plus ads for study and productivity.</span></div><div class="cr-sl__b" aria-hidden="true"><span>Dip</span></div></li>
+          </ol>
+          <div class="cr-top">
+            <p class="cr-top__n"><span class="cr-top__num">Dip</span></p>
+            <p class="cr-top__d"><b>Our pitch</b>Rutgers Road to Silicon Valley, 2025. A team of three.</p>
+          </div>
+          <figcaption class="vis__cap"><span>Six parts of our pitch deck, a line each.</span><span>Source: our pitch deck, 2025.</span></figcaption>
+        </figure>
+      </section>
+    </div>
+
+    <div data-visual>
+    
+<section class="bw bw--still" aria-labelledby="bw-campus-rides">
+  <svg class="bw__defs" aria-hidden="true" focusable="false"><symbol id="bwl-figma" viewBox="0 0 24 24"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></symbol><symbol id="bwl-canva" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></symbol></svg>
+  <div class="bw__top">
+    <h2 class="bw__k" id="bw-campus-rides">Built with</h2>
+  </div>
+  <div class="bw__mq" role="group" aria-labelledby="bw-campus-rides">
+    <div class="bw__row">
+      <ul class="bw__t" role="list"><li class="bw__i"><svg class="bw__lg" aria-hidden="true" focusable="false"><use href="#bwl-figma"/></svg><span class="bw__n">Figma</span><span class="bw__r"><span class="bw__sep">, </span>clickable prototype</span></li><li class="bw__i"><svg class="bw__lg" aria-hidden="true" focusable="false"><use href="#bwl-canva"/></svg><span class="bw__n">Canva</span><span class="bw__r"><span class="bw__sep">, </span>pitch deck</span></li></ul>
+    </div>
+  </div>
+  <p class="bw__line">Figma for the clickable prototype and Canva for the pitch deck.</p>
+</section>
+    </div>
+
+    <nav class="next" aria-label="More projects">
+      <p class="next__links"><a href="/#cases">← All projects</a></p>
+      <a class="next__case" href="/cases/sales-checks/">
+        <span class="next__img"><img src="/img/photos/agoda-one-bangkok-a-800.webp" srcset="/img/photos/agoda-one-bangkok-a-480.webp 480w, /img/photos/agoda-one-bangkok-a-800.webp 800w" width="800" height="500" decoding="async" sizes="(max-width: 640px) 100vw, 220px" alt="" loading="lazy"></span>
+        <span class="next__txt"><span class="next__k">Next project · 01 · Agoda</span><span class="next__t">Possible sales opportunities, flagged automatically, approved by a person.</span></span>
+        <span class="next__arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<div class="band on-band band-grid foot-band foot-band--sub">
+  <div class="wrap">
+<footer class="foot">
+  <div class="foot__row">
+    <p class="foot__note">The technical edition covers the same work in more depth, with the tool names.</p>
+    <p class="foot__links"><a href="/tech/">Technical edition →</a><a href="mailto:chirath.s@outlook.com">Email</a><a href="https://www.linkedin.com/in/chirath-so" rel="me">LinkedIn</a></p>
+  </div>
+  <div class="foot__row foot__row--small">
+    <div class="prefs" data-prefs>
+      <p class="prefs__colour" role="group" aria-label="Colour"><span>Colour:</span> <button type="button" data-accent="navy" aria-pressed="true">Navy</button><span aria-hidden="true">·</span><button type="button" data-accent="blue" aria-pressed="false">Blue</button></p>
+      <button type="button" class="prefs__motion" data-motion-toggle>Turn off animation</button>
+    </div>
+    <p class="foot__copy">© 2026 Chirath Soithong</p>
+  </div>
+  <details class="credits"><summary>Photo credits</summary><ul class="credits__list"><li><span class="credits__what">Rutgers Business School on the Livingston campus, Rutgers–New Brunswick.</span> <a href="https://commons.wikimedia.org/wiki/File:Rutgers_Business_School_(55141960503).jpg" rel="noopener">ajay_suresh</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a>, via Wikimedia Commons (cropped).</li><li><span class="credits__what">The Wireless House garden at One Bangkok. Agoda’s office is in Tower 5 of the same complex.</span> <a href="https://commons.wikimedia.org/wiki/File:The_Wireless_House_at_One_Bangkok-2024-11-03.jpg" rel="noopener">Magnamonkun</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener">CC0</a>, via Wikimedia Commons (cropped, retouched).</li></ul></details>
+</footer>
+  </div>
+</div>
+</body>
+</html>

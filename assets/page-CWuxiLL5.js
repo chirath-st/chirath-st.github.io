@@ -1,0 +1,1 @@
+import{i as t,a,b as i}from"./copy-27uorfge.js";const s=window.matchMedia("(prefers-reduced-motion: reduce)").matches;t(document.querySelector("[data-status-list]"));a();s?document.querySelectorAll("[data-reveal]").forEach(e=>e.classList.add("is-in")):i();
