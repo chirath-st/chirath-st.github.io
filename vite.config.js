@@ -158,7 +158,7 @@ function linkPreviews() {
 const page = (p) => resolve(root, p);
 
 // User site (chirath-st.github.io) is served from the domain root, so base stays '/'.
-// Main (light) edition at /, technical (dark) edition at /tech/ (Chirath, Sep 23).
+// Main (light) edition at /, technical (dark) edition at /tech/.
 export default defineConfig({
   base: '/',
   appType: 'mpa',
@@ -175,7 +175,7 @@ export default defineConfig({
         caseQuestionsDesk: page('cases/questions-desk/index.html'),
         caseClientData: page('cases/client-data/index.html'),
         caseCampusRides: page('cases/campus-rides/index.html'),
-        // "Also made" pages (Sep 27), on the Briefing template v3 (design/STORY_TEMPLATE_v3.md)
+        // "Also made" pages, on the Briefing template v3
         projectMorningBriefing: page('projects/morning-briefing/index.html'),
         projectDailyPlanner: page('projects/daily-planner/index.html'),
         projectResearchReport: page('projects/research-report/index.html'),

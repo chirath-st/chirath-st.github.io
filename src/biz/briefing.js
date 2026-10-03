@@ -1,4 +1,4 @@
-// Main edition: "The Briefing", story template v3 (design/STORY_TEMPLATE_v3.md). The page script for every page built
+// Main edition: "The Briefing", story template v3. The page script for every page built
 // on it (/cases/<slug>/ as they are rebuilt, /projects/<slug>/), loaded before the page's own script. Styles come from
 // the <link> to briefing.css in the page head, so the page is complete with JS off. Everything here is an enhancement:
 //   · the shared page bits: header, project chips, footer switches, and the interaction kit (kit/boot.js loads each

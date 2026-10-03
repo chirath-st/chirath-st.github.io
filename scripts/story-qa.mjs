@@ -1,4 +1,4 @@
-// Story-page QA (template v2). Usage, from site/:
+// Story-page QA (template v2). Usage, from the repo root:
 //   node scripts/story-qa.mjs <url> <outDir> <label> [--widths=1440,390] [--no-scroll] [--no-nojs] [--no-late] [--only=late]
 // Per width (1440×900 desktop, 390×844 phone with a mobile UA, like shot.mjs), using the installed Chrome:
 //  (a) FINISHED state: reduced motion, every image eager and loaded, page walked once → full-page PNG
@@ -15,7 +15,7 @@
 //      Logs console errors, page errors, failed requests, 4xx/5xx responses, and sideways scroll.
 //  (e) JS OFF: full-page PNG <label>_nojs_<w>.png and every element left invisible (opacity 0 or visibility
 //      hidden with a non-zero size).
-//  (f) LATE ANIMATIONS (Chirath, Sep 24: "you scroll past it before it completes"): the page is opened with ?qa=1, so
+//  (f) LATE ANIMATIONS (nobody should scroll past a picture before it completes): the page is opened with ?qa=1, so
 //      every scroll- or time-driven piece lists itself on window.__qaAnims (kit/util.js qaRegister; gsap triggers
 //      that are not listed are read from window.__st too, except ids starting "parallax"). For each one, starting
 //      with the element below the fold, scroll down to where it must be finished and read its progress:

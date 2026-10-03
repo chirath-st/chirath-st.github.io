@@ -1,4 +1,4 @@
-/* Main edition, home page (v2 "the casebook", approved Sep 27). Linked from index.html's <head> (a <link>, not a JS
+/* Main edition, home page ("the casebook"). Linked from index.html's <head> (a <link>, not a JS
    import), so the page is styled with JavaScript off, in dev and in the build. Order: tokens → base → casebook →
    timeline → this file's sections (hero, at a glance, also made, contact) and the responsive rules.
    Every picture's finished state is the default; html.js without "Turn off animation" or reduced motion is the only

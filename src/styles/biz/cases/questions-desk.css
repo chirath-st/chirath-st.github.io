@@ -80,9 +80,9 @@
 .qd-t--person .k-dia{width:13px;height:13px}
 .qd-scene__key{display:none}
 .qd-scene .vis__cap .k-dia{width:9px;height:9px;margin-right:4px}
-.qd-how-fine{display:none} /* the board no longer turns with the pointer (Sep 24) */
+.qd-how-fine{display:none} /* the board no longer turns with the pointer */
 
-/* armed (motion allowed): the same flat diagram, never slanted (Sep 24). Three question cards travel with scroll: the
+/* armed (motion allowed): the same flat diagram, never slanted. Three question cards travel with scroll: the
    old inboxes stand solid until their question leaves, then fade to their pale "before" outline; the rest start pale
    and light up as a question reaches them. Text stays readable (muted, never hidden) in the pale state. */
 [data-armed~="qd-scene"] .qd-t{transition:background-color .35s,border-color .35s,color .35s,box-shadow .35s}
@@ -210,7 +210,7 @@
 /* the hint as the row arrives: a quick part-turn and back (flip.js, motion only) */
 .js .qd-flip.is-peek:not(.is-flipped) .qd-flip__in{transform:rotateY(-24deg);transition-duration:.44s}
 @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
-  /* pointing at a card lifts it flat, so the text is never read at an angle (Sep 24) */
+  /* pointing at a card lifts it flat, so the text is never read at an angle */
   html.js:not(.no-motion) .qd-flip:not(.is-flipped):hover .qd-flip__in{transform:translateY(-4px)}
   html.js:not(.no-motion) .qd-flip.is-flipped:hover .qd-flip__in{transform:rotateY(180deg) translateY(-4px)}
 }

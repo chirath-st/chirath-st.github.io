@@ -1,4 +1,4 @@
-// Kit · count: a TRUE number from the evidence rolls up as it scrolls into view, and back down on the way up.
+// Kit · count: a true number rolls up as it scrolls into view, and back down on the way up.
 // Never for invented counts.   <b class="k-count" data-kit="count" data-to="20">20</b>
 // The HTML shows the real number (JS off, reduced motion); screen readers always get it from aria-label.
 import { arm, track, armOn, armOff } from './util.js';

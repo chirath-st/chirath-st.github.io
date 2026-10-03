@@ -1,5 +1,5 @@
 // Kit · depth: an object that turns a little towards the pointer, as if it had depth (CSS 3D).
-// 3D only with a purpose (Chirath, Sep 24): nobody reads text at an angle, so diagrams stay flat and still. Only an
+// 3D only with a purpose: nobody reads text at an angle, so diagrams stay flat and still. Only an
 // object that is itself a 3D thing opts in with data-tilt: today the phone in Case 04 (Exhibit 6). Never photos.
 //   <div class="…" data-kit="depth" data-tilt> … layers with data-depth="0.2".."1" (1 = nearest) … </div>
 // Without data-tilt the piece does nothing (older pages still carry data-kit="depth" on diagrams).

@@ -1,5 +1,5 @@
 {
-  "_about": "Shared facts for both editions. Rendered at build time by the html-includes plugin in vite.config.js: <!--@fact:key.path--> in any page or partial. A missing key fails the build. Sources: evidence bank + EVIDENCE_ADDENDUM.md (Sep 23 decisions: Agoda badge says only 'Live', no date, no source; show only what was built and that it is live, never what is missing or planned).",
+  "_about": "Shared facts for both editions. Rendered at build time by the html-includes plugin in vite.config.js: <!--@fact:key.path--> in any page or partial. A missing key fails the build.",
   "name": "Chirath Soithong",
   "school": "Rutgers University–New Brunswick",
   "degree": "B.S. Data Science and Economics, minor in Computer Science",

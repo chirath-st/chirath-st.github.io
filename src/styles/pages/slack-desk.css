@@ -1,6 +1,6 @@
-/* Story page: Slack support desk (Agoda). Ported from design/mockups/v3/slack-desk.html.
+/* Story page: Slack support desk (Agoda).
    Fonts, base tokens, .wrap/.mono/.pill/.dot/.h2/.sec-head, nav and footer come from shared.css.
-   The mockup's `.sec` and `.foot` are renamed `.chapter` and `.story-foot` here because shared.css owns those names. */
+   `.sec` and `.foot` are renamed `.chapter` and `.story-foot` here because shared.css owns those names. */
 
 /* ---------- page tokens mapped onto the shared ones ---------- */
 :root{
@@ -40,7 +40,7 @@ main b,main strong{font-weight:500;color:var(--ink)}
   .head__top{gap:24px}
 }
 
-/* ---------- chapters (the mockup's .sec) ---------- */
+/* ---------- chapters ---------- */
 .chapter{padding:var(--sec) 0;border-bottom:1px solid var(--line)}
 .chapter--last{border-bottom:0}
 .sec-head--inline{justify-content:flex-start;gap:28px}

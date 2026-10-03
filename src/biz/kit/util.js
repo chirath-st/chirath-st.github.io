@@ -10,7 +10,7 @@ export const finePointer = () => matchMedia('(hover: hover) and (pointer: fine)'
 export const wide = () => matchMedia('(min-width: 961px)').matches;
 
 // Take over an element's visible state only while it is off screen, so nothing the reader is looking at jumps
-// backwards when the code arrives (annex §4.4). Returns a cleanup function.
+// backwards when the code arrives. Returns a cleanup function.
 export function arm(el, build) {
   if (!onScreen(el)) return build() || (() => {});
   let cleanup = null;
@@ -38,7 +38,7 @@ export function qaRegister(entry) {
   return () => { const i = list.indexOf(entry); if (i >= 0) list.splice(i, 1); };
 }
 
-// When a scroll-driven piece is finished (Chirath, Sep 24: "you scroll past it before it completes"): as soon as the
+// When a scroll-driven piece is finished (so nobody scrolls past it before it completes): as soon as the
 // whole element is in view (top at `end` × viewport at the earliest; default 60 %), and never later than its top at
 // 30 % of the viewport, or, for an element taller than the viewport, its centre at the viewport centre. Never later
 // than the page can scroll to. It starts when its top reaches start × viewport (0.7–1), 0.45 × viewport of scrolling
@@ -56,8 +56,8 @@ export function span(r, vh, start = 0.92, end = 0.6) {
 }
 
 // What a scroll-driven piece is timed against: its whole exhibit (the <figure>, title included), so the picture is
-// finished by the time the exhibit's title reaches 30 % of the screen, not only its inner drawing (design review,
-// Sep 24). Pieces outside a figure use their own box.
+// finished by the time the exhibit's title reaches 30 % of the screen, not only its inner drawing.
+// Pieces outside a figure use their own box.
 export const timingBox = (el) => el.closest('figure') || el;
 
 // Scroll progress of an element without gsap: 0 when its exhibit's top (timingBox) reaches the start line, 1 when it

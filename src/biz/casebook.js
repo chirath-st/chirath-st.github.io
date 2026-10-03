@@ -1,4 +1,4 @@
-// Home page (v2 "the casebook", approved Sep 27). Everything here is an enhancement: with JS off all four projects
+// Home page ("the casebook"). Everything here is an enhancement: with JS off all four projects
 // are open, stacked, and the timeline is finished.
 //  - Wide screens (≥ 1180 × 600): all four projects on one screen. Pointer, keyboard focus, a tap or the scroll wheel
 //    opens a project; its row joins its panel in one tint and the panel's mini picture builds. With motion, the

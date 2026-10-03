@@ -3,7 +3,7 @@
 // on purpose → 3 ticked by a person → 3 draft notes). With motion allowed, and only while the picture is off screen
 // (arm), the tallies start empty; as the picture scrolls up the screen the rows travel from step to step: each tally's
 // rows fly out of the step before (with a small hop) and settle, the filtered-out rows drop, the reviewed rows get
-// their tick. The board itself stays flat and still (Sep 24: nobody reads text at an angle). Everything depends only
+// their tick. The board itself stays flat and still (nobody reads text at an angle). Everything depends only
 // on scroll position, so scrolling up plays it backwards, and it is finished once the picture is in view (its top at
 // 30 % of the screen at the latest: kit/util.js span). No gsap, no library: kit/util track().
 import { arm, track, armOn, armOff, clamp } from '../../kit/util.js';

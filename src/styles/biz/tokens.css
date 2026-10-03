@@ -1,6 +1,6 @@
-/* Main (light) edition: tokens. Values from the approved mockup A2 and annex §8.1 (contrast measured there).
+/* Main (light) edition: tokens.
    One blue for accents; the colour bands (hero panel, glance band, contact band) are deep navy by default
-   (Chirath, Sep 23) and bright blue with html.accent-blue (footer switch or ?accent=blue). */
+   and bright blue with html.accent-blue (footer switch or ?accent=blue). */
 
 @font-face{font-family:"Newsreader";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/newsreader-400.woff2") format("woff2")}
 @font-face{font-family:"Newsreader";font-style:italic;font-weight:400;font-display:swap;src:url("/fonts/newsreader-italic-400-subset.woff2") format("woff2")}

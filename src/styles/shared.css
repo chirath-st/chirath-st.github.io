@@ -4,10 +4,10 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2')}
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/ibm-plex-sans-latin-500-normal.woff2') format('woff2')}
 @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:100 800;font-display:swap;src:url('/fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2')}
-/* fallbacks measured with fontTools on the hero strings (Sep 16) so the swap does not move the layout */
+/* fallbacks measured with fontTools on the hero strings so the swap does not move the layout */
 @font-face{font-family:'Newsreader Fallback';src:local('Georgia');size-adjust:97.7%;ascent-override:75.2%;descent-override:27.1%;line-gap-override:0%}
 @font-face{font-family:'Plex Fallback';src:local('Arial');size-adjust:101.4%;ascent-override:101%;descent-override:27.1%;line-gap-override:0%}
-/* ---------- tokens: the blue system (Chirath, Sep 17–18) ---------- */
+/* ---------- tokens: the blue system ---------- */
 :root{
   --canvas:#0B0D10; --panel:#14171C; --panel-2:#1A1E24; --line:#262B33; --line-soft:#1E232A;
   --ink:#E8EAED; --muted:#9AA3AD; --muted-2:#6B7480;
@@ -22,7 +22,7 @@
   --font-body:'IBM Plex Sans','Plex Fallback','Helvetica Neue',Arial,sans-serif;
   --font-mono:'JetBrains Mono','SF Mono',Menlo,monospace;
   --max:1560px; --gutter:clamp(20px,4vw,72px); --radius:16px; --radius-sm:10px;
-  /* spacing scale (Sep 18: more air) */
+  /* spacing scale */
   --sec:clamp(80px,9vw,128px); --sec-head:48px; --block:48px; --card-pad:40px; --card-gap:40px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -59,7 +59,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 html.js [data-reveal]{opacity:0;transform:translateY(14px)}
 html.js [data-reveal].is-in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 @media (prefers-reduced-motion:reduce){html.js [data-reveal]{opacity:1;transform:none}}
-/* status rows: grey = not reporting / silent (status.js sets these) */
+/* status rows: green dot by default; .srow--idle turns a row grey (set by hand in the HTML) */
 .srow.srow--idle{box-shadow:inset 3px 0 var(--line)}
 .srow.srow--idle .dot{background:var(--line)}
 .srow.srow--idle .dot::after{display:none}
@@ -74,7 +74,7 @@ html.js [data-reveal].is-in{opacity:1;transform:none;transition:opacity .7s cubi
 .nav__links a.hot{color:var(--cobalt)}
 
 .nav__links a:hover,.nav__links a[aria-current="true"]{color:var(--ink)}
-/* link back to the main (light) edition, added Sep 23 when this edition moved to /tech/ */
+/* link back to the main (light) edition */
 .nav__links a.nav__main{color:var(--cobalt)}
 .nav__links a.nav__main:hover{color:var(--ink)}
 .nav__brand:hover{color:var(--ink)}

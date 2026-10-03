@@ -1,10 +1,10 @@
 // Case 02 · Exhibit 2 (the signature picture): "one channel, three lanes".
 // The HTML is the finished, flat diagram (JS off, reduced motion, "Turn off animation"). With motion allowed, and only
-// while the picture is off screen (arm), the same flat diagram (never slanted: Sep 24, nobody reads text at an angle)
+// while the picture is off screen (arm), the same flat diagram (never slanted: nobody reads text at an angle)
 // gets three question cards. Scroll position sends them through, each one ALONG ITS OWN WIRE (the diagram's lines):
 // out of its old inbox, through the one channel and the reader bot (a card passes under a tile, like a message going
 // through it), and down its lane to an outcome.
-// Sep 27 (Chirath: "the three dots start not aligned, and end not aligned"): a card is never off its line. Every
+// A card is never off its line. Every
 // position comes from the real geometry, measured again on every resize: the wire's own path (getPointAtLength,
 // mapped to board px) and the tiles' boxes. The three cards start on one shared line just past the inboxes and end
 // on one shared line just before the outcomes (a column on wide screens, a row on phones), each on its wire.

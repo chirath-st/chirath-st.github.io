@@ -6,7 +6,7 @@
 //       <li class="k-msg k-msg--out" data-type [data-wait="600"]> … typed out letter by letter … </li>
 // The HTML is the whole transcript (JS off, reduced motion, screen readers). Messages still to come show as grey
 // "ghost" bubbles in their own place (never an empty card, and nothing below moves) and light up one by one.
-// It starts when its top comes up past 85 % of the screen and is finished about 2 s later (Chirath, Sep 24: never
+// It starts when its top comes up past 85 % of the screen and is finished about 2 s later (the reader should never
 // scroll past a half-played picture): data-wait values are relative pauses, scaled to fit. Scrolling back up past its
 // start clears it again (the reverse of playing), so it plays again on the next way down.
 import { $$, armOn, armOff, arrive, qaRegister } from './util.js';

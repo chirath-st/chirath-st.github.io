@@ -14,3 +14,4 @@ dev-fixtures/
 *.local
 scripts/_*
 _scratch/
+screens/

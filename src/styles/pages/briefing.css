@@ -1,4 +1,4 @@
-/* Finance briefing story page. Ported from design/mockups/v3/briefing.html (approved).
+/* Finance briefing story page.
    Fonts, base tokens, nav, footer, .wrap/.mono/.pill/.dot/.h2 come from shared.css — nothing here redefines them. */
 
 /* ---------- page tokens: the briefing tint is amber; everything else maps onto the shared tokens ---------- */
@@ -7,7 +7,7 @@
   --gap-l:56px;     /* between big blocks (cards use --card-gap / --card-pad from shared.css) */
 }
 
-/* ---------- base bits the mockup set on bare elements (scoped to this page) ---------- */
+/* ---------- base styles for bare elements (scoped to this page) ---------- */
 .briefing a:hover{text-decoration:underline;text-underline-offset:3px}
 .briefing strong{font-weight:500;color:var(--ink)}
 .briefing .muted{color:var(--muted)}
@@ -29,7 +29,7 @@
 .status-card .k{font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
 .status-card .k b{color:var(--ink);font-weight:500}
 .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px dashed var(--line);border-radius:6px;padding:3px 7px;display:inline-block;justify-self:start}
-/* live / idle: status.js toggles these (green = a real run in the last 48 h; grey = silent, failed or no signal) */
+/* live / idle: set by hand in the HTML (is-live = green, is-idle = grey) */
 .status-card .st-off{display:none}
 .status-card.is-idle{border-left-color:var(--line)}
 .status-card.is-idle .st-on{display:none}

@@ -5,7 +5,7 @@ import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const url = process.argv[2] || 'http://localhost:5173/';
-const outDir = process.argv[3] || '../design/screens';
+const outDir = process.argv[3] || 'screens';
 const label = process.argv[4] || 'shot';
 // --reduced: emulate prefers-reduced-motion for every capture, so scroll-built pictures show their finished state
 // (use it for full-page comparisons of the main edition; its exhibits are armed "unbuilt" below the fold otherwise).
@@ -58,7 +58,7 @@ for (const t of targets) {
         const { default: sharpless } = await import('node:fs');
         const parts = [];
         for (let i = 0; i < clips.length; i++) parts.push(await page.screenshot({ clip: clips[i], captureBeyondViewport: true }));
-        // stitch with Python/PIL (available on this Mac) to avoid a Node image dependency
+        // stitch with Python/PIL to avoid a Node image dependency
         const { writeFileSync, unlinkSync } = sharpless;
         const tmp = parts.map((b, i) => { const q = `${f}.part${i}.png`; writeFileSync(q, b); return q; });
         const { execSync } = await import('node:child_process');

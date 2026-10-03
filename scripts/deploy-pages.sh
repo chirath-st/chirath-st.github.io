@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # Publish the built site to the gh-pages branch (GitHub Pages serves that branch).
-# Usage (from anywhere): bash site/scripts/deploy-pages.sh
-# Why not GitHub Actions? The gh login on this Mac has no "workflow" scope yet.
-# Once `gh auth refresh -s workflow` is done, .github/workflows/deploy.yml can take over.
+# Usage (from anywhere): bash scripts/deploy-pages.sh
+# Builds with scripts/build_locked.py, then pushes the contents of dist/ as a single commit to gh-pages.
 set -euo pipefail
 SITE="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$SITE"

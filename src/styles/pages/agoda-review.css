@@ -1,6 +1,6 @@
-/* Story page: Commercial checks, reviewed by a person (Agoda 01). Ported from design/mockups/v3/agoda-review.html.
+/* Story page: Commercial checks, reviewed by a person (Agoda 01).
    Fonts, tokens, .wrap/.mono/.pill/.dot/.h2/.sec-head, nav and footer come from shared.css — not repeated here.
-   Renamed to avoid shared.css collisions: mockup .sec → .story-sec, .vnode .mk → .vnode__mk, .popup .note → .popup__note. */
+   Renamed to avoid shared.css collisions: .sec → .story-sec, .vnode .mk → .vnode__mk, .popup .note → .popup__note. */
 :root{
   --gap:var(--card-gap);
   --card:var(--card-pad);

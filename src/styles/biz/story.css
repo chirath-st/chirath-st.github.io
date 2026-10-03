@@ -1,7 +1,7 @@
-/* Main edition: the case (story) page template v2, shared by the four case pages (design/STORY_TEMPLATE_v2.md).
+/* Main edition: the case (story) page template v2, shared by the four case pages.
    Builds on components.css (case meta, Before → After, photo window, badges, so-what) and case.css (back link,
    case head grid, 60-second box). The interaction pieces live in kit.css; per-case pictures in cases/<slug>.css.
-   Template v2 (Chirath, Sep 23): every chapter pairs its text with its OWN picture, so both columns stay full;
+   Template v2: every chapter pairs its text with its OWN picture, so both columns stay full;
    full-width picture bands sit between chapters. The HTML is always the finished picture. */
 
 .sp{padding-top:clamp(24px,3vw,40px)}

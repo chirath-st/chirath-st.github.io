@@ -1,4 +1,4 @@
-/* Main edition: "The Briefing", story template v3 (design/STORY_TEMPLATE_v3.md). Approved Sep 27 (site v2 proposal).
+/* Main edition: "The Briefing", story template v3.
    One stylesheet bundle for every page built on it: the case pages as they are rebuilt (/cases/<slug>/, Case 01 first)
    and the "Also made" pages (/projects/<slug>/). Linked from the page <head> (not a JS import), so the page is styled
    with JavaScript off. Per-page styles come after it, from cases/<slug>.css or projects/<slug>.css.
@@ -10,7 +10,7 @@
    JS off: every <details> opens natively, all anchors work, the "you are here" bar is simply not there.
    Reduced motion / "Turn off animation": no scroll-driven or open/close motion, the finished state only.
    Icons: every inline <svg> in the HTML carries width/height attributes, so a page whose stylesheet fails to load
-   never shows giant icons (the Sep 27 first-load bug). */
+   never shows giant icons. */
 @import './tokens.css';
 @import './base.css';
 @import './components.css';

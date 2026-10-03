@@ -98,8 +98,7 @@
 [data-armed~="chat"] .k-msg.is-wait .k-msg__bubble{color:transparent;border-color:transparent;box-shadow:none;background:repeating-linear-gradient(to bottom,transparent 0 8px,var(--rule) 8px 14px,transparent 14px 22.5px) 15px 11px/calc(100% - 30px) calc(100% - 22px) no-repeat,var(--paper-2)}
 [data-armed~="chat"] .k-msg.is-wait .k-msg__bubble *{visibility:hidden}
 /* the "…" typing indicator sits where the bubble is about to appear: on the bubble's own top corner (under the name),
-   with the bubble's own corner shape, so the dots appear exactly where the message then lands (Sep 27: they used to
-   sit at the bottom of the reserved space). The three dots are placed from the pill's centre, not fixed offsets. */
+   with the bubble's own corner shape, so the dots appear exactly where the message then lands. The three dots are placed from the pill's centre, not fixed offsets. */
 [data-armed~="chat"] .k-msg.is-typing .k-msg__bubble{position:relative;visibility:hidden}
 [data-armed~="chat"] .k-msg.is-typing .k-msg__bubble::after{--g:12px;content:"";visibility:visible;position:absolute;left:0;top:0;width:58px;height:34px;border-radius:4px 12px 12px 12px;background:radial-gradient(circle at calc(50% - var(--g)) 50%,var(--muted) 3.2px,transparent 3.8px),radial-gradient(circle at 50% 50%,var(--muted) 3.2px,transparent 3.8px),radial-gradient(circle at calc(50% + var(--g)) 50%,var(--muted) 3.2px,transparent 3.8px),var(--paper-2);animation:k-blink 1s ease-in-out infinite}
 [data-armed~="chat"] .k-msg--out.is-typing .k-msg__bubble::after{left:auto;right:0;border-radius:12px 4px 12px 12px}
