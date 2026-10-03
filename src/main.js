@@ -4,13 +4,11 @@ import './styles/shared.css';
 import './styles/pages/home.css';
 
 import { initMotion } from './lib/motion.js';
-import { initStatus } from './lib/status.js';
 import { initCopy } from './lib/copy.js';
 import { initSectionNav } from './lib/sectionNav.js';
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-initStatus(document.querySelector('[data-status-list]'));
 initCopy();
 initSectionNav();
 if (!reduced) initMotion();

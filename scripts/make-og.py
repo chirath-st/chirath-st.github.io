@@ -3,7 +3,7 @@
 
 Usage (from anywhere):  python3 scripts/make-og.py [name-prefix ...]
   (no argument = every image; e.g. `python3 scripts/make-og.py projects` writes only the projects-*.jpg images)
-Writes site/public/og/<name>.jpg, where <name> is the page folder with "/" -> "-":
+Writes public/og/<name>.jpg, where <name> is the page folder with "/" -> "-":
   home.jpg                 /          (also used by 404.html)      navy panel + portrait + name
   cases-<slug>.jpg         /cases/<slug>/                         the project's head photo + title on a navy band
   projects-<slug>.jpg      /projects/<slug>/                      the same card, for the three side-project pages
@@ -34,7 +34,7 @@ DARK, DARK_PANEL, DARK_INK, DARK_MUTED, COBALT = '#0B0D10', '#14171C', '#E8EAED'
 TINTS = {'commercial-review': COBALT, 'slack-support-desk': '#A78BFA', 'finance-briefing': '#F5B35C', 'deeplob': '#7DD3FC'}
 # vertical crop focus for case photos (0 = keep the top, 1 = keep the bottom); the navy band covers the lower part
 FOCUS = {'campus-rides': 0.8}
-FACE = (232, 120, 512, 400)  # square box around the face in chirath-4x5.jpg (768x960) for the small round portrait
+FACE = (232, 120, 512, 400)  # square box around the face in assets-src/chirath-4x5.jpg (768x960) for the small round portrait
 
 facts = json.load(open(os.path.join(SITE, 'src/data/facts.json'), encoding='utf-8'))
 photos = {p['id']: p for p in json.load(open(os.path.join(SITE, 'src/data/photo-credits.json'), encoding='utf-8'))}
@@ -139,7 +139,7 @@ def clean(s):
 
 
 def portrait(h=H, w=504):
-    return cover(Image.open(os.path.join(PUB, 'img/chirath-4x5.jpg')), w, h, 0.5)
+    return cover(Image.open(os.path.join(SITE, 'assets-src/chirath-4x5.jpg')), w, h, 0.5)
 
 
 SUBLINE = [facts['degree'].split(',')[0], facts['school']]
@@ -222,7 +222,7 @@ def tech_card(rel, slug):
         d.text((x, y + i * lh), line, font=tf, fill=DARK_INK)
     # footer row: round portrait, name, site
     r = 76
-    ph = Image.open(os.path.join(PUB, 'img/chirath-4x5.jpg')).convert('RGB')
+    ph = Image.open(os.path.join(SITE, 'assets-src/chirath-4x5.jpg')).convert('RGB')
     s = ph.width / 768  # head-and-shoulders crop, measured on the 768x960 portrait
     ph = ph.crop(tuple(round(v * s) for v in FACE)).resize((r, r), Image.LANCZOS)
     mask = Image.new('L', (r * 4, r * 4), 0)
